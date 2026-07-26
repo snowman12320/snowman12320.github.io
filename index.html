@@ -68,11 +68,13 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Lucide icon 對齊文字基線 */
-    i[data-lucide] {
+    /* Icon 對齊（Font Awesome + Lucide 共用） */
+    i[data-lucide], .lucide,
+    .fa-solid, .fa-brands, .fa-regular {
       display: inline-flex;
       align-items: center;
       flex-shrink: 0;
+      vertical-align: middle;
     }
 
     /* Badge */
@@ -121,6 +123,9 @@
   <!-- Lucide Icons CDN -->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
 
+  <!-- Font Awesome 6 Free CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- 邏輯檔案：需在 Alpine defer 前載入，供 app() 呼叫 -->
   <script src="reveal.js"></script>
   <script src="theme.js"></script>
@@ -148,8 +153,8 @@
         class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         :aria-label="isDark ? '切換為淺色模式' : '切換為深色模式'"
       >
-        <i x-show="isDark"  data-lucide="sun"  class="w-5 h-5"></i>
-        <i x-show="!isDark" data-lucide="moon" class="w-5 h-5"></i>
+        <i x-show="isDark"  class="fa-solid fa-sun  w-5 h-5 text-base leading-none"></i>
+        <i x-show="!isDark" class="fa-solid fa-moon w-5 h-5 text-base leading-none"></i>
       </button>
     </div>
   </header>
@@ -164,7 +169,7 @@
             陳威良 William
           </h1>
           <p class="mt-2 text-xl font-medium text-blue-600 dark:text-blue-400 flex items-center gap-2">
-            <i data-lucide="code-2" class="w-5 h-5"></i>
+            <i class="fa-solid fa-laptop-code text-lg"></i>
             軟體工程師 / 前端工程師
           </p>
           <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
@@ -178,25 +183,25 @@
         <!-- Email -->
         <a href="mailto:snowman12320@gmail.com"
            class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <i data-lucide="mail" class="w-4 h-4"></i>
+          <i class="fa-solid fa-envelope w-4 text-center"></i>
           snowman12320@gmail.com
         </a>
         <!-- 電話 -->
         <a href="tel:+886976103738"
            class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <i data-lucide="phone" class="w-4 h-4"></i>
+          <i class="fa-solid fa-phone w-4 text-center"></i>
           0976103738
         </a>
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/wei-liang-chen-81498b292/" target="_blank" rel="noopener"
            class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <i data-lucide="linkedin" class="w-4 h-4"></i>
+          <i class="fa-brands fa-linkedin w-4 text-center"></i>
           linkedin.com/in/wei-liang-chen
         </a>
         <!-- GitHub -->
         <a href="https://github.com/snowman12320" target="_blank" rel="noopener"
            class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <i data-lucide="github" class="w-4 h-4"></i>
+          <i class="fa-brands fa-github w-4 text-center"></i>
           github.com/snowman12320
         </a>
       </div>
@@ -205,7 +210,7 @@
     <!-- ===================== SKILLS ===================== -->
     <section id="skills" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
       <h2 class="section-title flex items-center gap-2">
-        <i data-lucide="zap" class="w-6 h-6 text-blue-600"></i>
+        <i class="fa-solid fa-bolt text-blue-600 text-xl"></i>
         技能
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -213,7 +218,7 @@
         <!-- Vue 生態系 -->
         <div>
           <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i data-lucide="triangle" class="w-3.5 h-3.5"></i>Vue 生態系
+            <i class="fa-brands fa-vuejs w-3.5 text-center"></i>Vue 生態系
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="badge">Vue 3</span>
@@ -230,7 +235,7 @@
         <!-- React 生態系 -->
         <div>
           <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i data-lucide="atom" class="w-3.5 h-3.5"></i>React 生態系
+            <i class="fa-brands fa-react w-3.5 text-center"></i>React 生態系
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="badge">React 18</span>
@@ -247,7 +252,7 @@
         <!-- 核心語言 & 開發品質 -->
         <div>
           <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i data-lucide="terminal" class="w-3.5 h-3.5"></i>核心語言 &amp; 開發品質
+            <i class="fa-solid fa-terminal w-3.5 text-center"></i>核心語言 &amp; 開發品質
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="badge">JavaScript (ES5+)</span>
@@ -262,7 +267,7 @@
         <!-- 網頁基礎 & 樣式 -->
         <div>
           <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i data-lucide="layout" class="w-3.5 h-3.5"></i>網頁基礎 &amp; 樣式
+            <i class="fa-solid fa-layer-group w-3.5 text-center"></i>網頁基礎 &amp; 樣式
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="badge">HTML5 (W3C/SEO)</span>
@@ -277,7 +282,7 @@
         <!-- 軟體測試 & 品質管理 -->
         <div>
           <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>軟體測試 &amp; 品質管理
+            <i class="fa-solid fa-shield-halved w-3.5 text-center"></i>軟體測試 &amp; 品質管理
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="badge">Vitest (單元測試)</span>
@@ -292,7 +297,7 @@
         <!-- 後端與雲端工具 -->
         <div>
           <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i data-lucide="cloud" class="w-3.5 h-3.5"></i>後端與雲端工具
+            <i class="fa-solid fa-cloud w-3.5 text-center"></i>後端與雲端工具
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="badge">PHP</span>
@@ -312,7 +317,7 @@
     <!-- ===================== EXPERIENCE ===================== -->
     <section id="experience" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
       <h2 class="section-title flex items-center gap-2">
-        <i data-lucide="briefcase" class="w-6 h-6 text-blue-600"></i>
+        <i class="fa-solid fa-briefcase text-blue-600 text-xl"></i>
         工作經歷
       </h2>
       <div class="space-y-6">
@@ -336,7 +341,7 @@
             @click="open = !open"
             class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
           >
-            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
             <span x-text="open ? '收合詳情' : '查看詳情'"></span>
           </button>
           <!-- 詳情 -->
@@ -382,7 +387,7 @@
             @click="open = !open"
             class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
           >
-            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
             <span x-text="open ? '收合詳情' : '查看詳情'"></span>
           </button>
           <!-- 詳情 -->
@@ -428,7 +433,7 @@
             @click="open = !open"
             class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
           >
-            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
             <span x-text="open ? '收合詳情' : '查看詳情'"></span>
           </button>
           <!-- 詳情 -->
@@ -474,7 +479,7 @@
             @click="open = !open"
             class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
           >
-            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
             <span x-text="open ? '收合詳情' : '查看詳情'"></span>
           </button>
           <!-- 詳情 -->
@@ -504,7 +509,7 @@
     <!-- ===================== PROJECTS ===================== -->
     <section id="projects" class="reveal py-16">
       <h2 class="section-title flex items-center gap-2">
-        <i data-lucide="folder-open" class="w-6 h-6 text-blue-600"></i>
+        <i class="fa-solid fa-folder-open text-blue-600 text-xl"></i>
         個人專案
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -532,7 +537,7 @@
               @click="open = !open"
               class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
-              <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
               <span x-text="open ? '收合詳情' : '查看詳情'"></span>
             </button>
             <!-- 詳情 -->
@@ -543,12 +548,12 @@
               <div class="flex flex-wrap gap-3">
                 <a href="https://react-yahoo-message.vercel.app/" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                   線上展示
                 </a>
                 <a href="https://github.com/snowman12320/react-yahoo-message" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-github"></i>
                   GitHub
                 </a>
               </div>
@@ -579,7 +584,7 @@
               @click="open = !open"
               class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
-              <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
               <span x-text="open ? '收合詳情' : '查看詳情'"></span>
             </button>
             <!-- 詳情 -->
@@ -590,17 +595,17 @@
               <div class="flex flex-wrap gap-3">
                 <a href="https://104social-front-end.vercel.app/about" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                   線上展示
                 </a>
                 <a href="https://github.com/south-second-group/104social-front-end/tree/main" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-github"></i>
                   Front-End
                 </a>
                 <a href="https://github.com/roceil/104_Backend/tree/main" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-github"></i>
                   Back-End
                 </a>
               </div>
@@ -631,7 +636,7 @@
               @click="open = !open"
               class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
-              <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
               <span x-text="open ? '收合詳情' : '查看詳情'"></span>
             </button>
             <!-- 詳情 -->
@@ -642,12 +647,12 @@
               <div class="flex flex-wrap gap-3">
                 <a href="https://patent-infringement-checker.onrender.com/" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                   線上展示
                 </a>
                 <a href="https://github.com/snowman12320/patent-infringement-checker" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-github"></i>
                   GitHub
                 </a>
               </div>
@@ -678,7 +683,7 @@
               @click="open = !open"
               class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
-              <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
               <span x-text="open ? '收合詳情' : '查看詳情'"></span>
             </button>
             <!-- 詳情 -->
@@ -689,12 +694,12 @@
               <div class="flex flex-wrap gap-3">
                 <a href="https://my-first-project-1110913.web.app/" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                   線上展示
                 </a>
                 <a href="https://github.com/snowman12320/F2E-nuxt3" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-github"></i>
                   GitHub
                 </a>
               </div>
@@ -725,7 +730,7 @@
               @click="open = !open"
               class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
-              <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
               <span x-text="open ? '收合詳情' : '查看詳情'"></span>
             </button>
             <!-- 詳情 -->
@@ -736,17 +741,17 @@
               <div class="flex flex-wrap gap-3">
                 <a href="https://snowman12320.github.io/jtown-cli/#/" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
                   線上展示
                 </a>
                 <a href="https://github.com/snowman12320/jtown-vite" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-github"></i>
                   Vite + Pinia
                 </a>
                 <a href="https://github.com/snowman12320/jtown-cli" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-github"></i>
                   Vue CLI + mitt
                 </a>
               </div>
@@ -777,7 +782,7 @@
               @click="open = !open"
               class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
-              <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
               <span x-text="open ? '收合詳情' : '查看詳情'"></span>
             </button>
             <!-- 詳情 -->
@@ -788,12 +793,12 @@
               <div class="flex flex-wrap gap-3">
                 <a href="https://youtu.be/x5gwX4TgTUw" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="youtube" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-youtube"></i>
                   Demo 影片
                 </a>
                 <a href="https://github.com/snowman12320/AI_project2" target="_blank" rel="noopener"
                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <i class="fa-brands fa-github"></i>
                   GitHub
                 </a>
               </div>
@@ -811,9 +816,15 @@
     © <span x-text="new Date().getFullYear()"></span> 陳威良 (William). Built with Tailwind CSS v4 & Alpine.js.
   </footer>
 
-  <!-- 初始化 Lucide icons（在 DOM 解析完成後執行） -->
+  <!--
+    Lucide icon 初始化：
+    - 主要由 theme.js app().init() 在 Alpine 掛載後執行 lucide.createIcons()
+    - alpine:initialized 作為備援，確保任何情況下都能渲染
+    - x-show 展開的詳情區塊：Alpine 展開時 display 從 none 變為 block，
+      此時 icon 的 <svg> 已存在（由 createIcons 在初始化時已替換），不需重新呼叫
+  -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+    document.addEventListener('alpine:initialized', () => lucide.createIcons());
   </script>
 
 </body>

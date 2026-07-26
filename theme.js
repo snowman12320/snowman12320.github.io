@@ -23,8 +23,10 @@ function app() {
       localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
     },
 
-    /** Alpine init hook — 啟動 scroll-reveal observer */
+    /** Alpine init hook — 啟動 scroll-reveal observer，並初始化 Lucide icons */
     init() {
+      // Lucide icons：在 Alpine 完成掛載後執行，確保所有 <i data-lucide> 都在 DOM 中
+      lucide.createIcons();
       initReveal();
     },
   };

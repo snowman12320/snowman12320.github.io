@@ -42,7 +42,7 @@ body {
 /* --------------------------------------------------
    Lucide icon 尺寸對齊文字基線
    -------------------------------------------------- */
-i[data-lucide] {
+i[data-lucide], .lucide {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
