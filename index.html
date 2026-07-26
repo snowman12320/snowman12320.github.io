@@ -526,9 +526,11 @@
             <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2023/09 — 2024/02</span>
           </div>
           <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>開發串接 RESTful API 的功能選單後台系統。</li>
-            <li>實作表單、資料表、網頁設計與使用者體驗優化。</li>
-            <li>使用狀態管理工具（Vuex / Pinia）確保跨頁面的資料同步。</li>
+            <li>負責成功大學內部系統、活動網站、報表等跨領域前端專案的建構與維護。</li>
+            <li>開發給予學校營養師使用的「食登2.0系統」，提供團膳電子菜單開立，以及相關食材、衛生稽核等表單的建立與編輯。</li>
+            <li>開發專為醫療人員設計之「慈濟報表」系統，呈現各項生化數據表單與病例表，提供清晰、安全的資訊界面。</li>
+            <li>建置客服人員專用之「客服系統」，實現帳密維護、操作記錄及各項基礎設定功能。</li>
+            <li>維護公司及學校內部的資產與帳號相關管理系統，處理資產移轉、報廢、採購等流程。</li>
           </ul>
           <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
             <li>Development of backend menu system connected to a RESTful API.</li>
@@ -542,19 +544,26 @@
           </button>
           <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
             <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="badge">Vue 2</span>
               <span class="badge">Vue 3</span>
               <span class="badge">Vuex</span>
               <span class="badge">Pinia</span>
               <span class="badge">PHP</span>
               <span class="badge">Docker</span>
+              <span class="badge">HeidiSQL</span>
+              <span class="badge">XAMPP</span>
               <span class="badge">RESTful API</span>
             </div>
+            <div x-show="lang === 'zh'">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果</p>
+              <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+                <li>將繁雜的學校營養師和醫療生化數據流程，成功落實為響應式、高度模組化的網頁系統，減少人工作業時間達 <span class="font-bold text-blue-600 dark:text-blue-400">50%</span>。</li>
+                <li>與後端團隊合作緊密，利用 <span class="font-bold text-blue-600 dark:text-blue-400">Docker</span> 整合前後端開發環境，解決本地環境不一致的痛點。</li>
+                <li>同時操作 Vue 2 與 Vue 3，進行架構上的優化與部分老舊系統的模組化重構。</li>
+              </ul>
+            </div>
           </div>
-        </div>
-
-        <!-- 經歷 5：台灣國際網域 -->
         <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
           <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
             <div>
@@ -575,9 +584,11 @@
             <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2022/11 — 2023/10</span>
           </div>
           <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>熟練使用 Vue.js Options API 開發單頁應用（SPA）。</li>
-            <li>具備 JavaScript ES5+、Webpack 模組打包與 NPM 套件管理的豐富實務經驗。</li>
-            <li>以 Flexbox / Grid 實現響應式設計與元件化開發。</li>
+            <li>使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與企業品牌形象網站。</li>
+            <li>串接 RESTful API，運用 ES5+ 語法、Webpack 打包建置、NPM 模組管理與 ESLint 維持程式碼高品質。</li>
+            <li>負責精細網頁切圖，使用 HTML5 標籤與 CSS 選擇器，實現複雜表格與表單設計。</li>
+            <li>基於 Flexbox / Grid 及 RWD，建構跨平台無縫的響應式選單與圖形排版。</li>
+            <li>熟練運用 Tailwind CSS 3 與 Bootstrap 5 設計系統（含 SCSS、Custom Config、Plugins）。</li>
           </ul>
           <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
             <li>Proficient in Vue.js Options API for building SPAs.</li>
@@ -591,7 +602,7 @@
           </button>
           <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
             <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="badge">Vue 2/3</span>
               <span class="badge">Options API</span>
               <span class="badge">Vue Router</span>
@@ -600,6 +611,15 @@
               <span class="badge">Bootstrap 5</span>
               <span class="badge">SCSS</span>
               <span class="badge">Webpack</span>
+              <span class="badge">ESLint</span>
+            </div>
+            <div x-show="lang === 'zh'">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">專案實績</p>
+              <div class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
+                <p><span class="font-bold text-gray-800 dark:text-gray-200">購物商城：</span>飾品購物網、手套專賣商城、畫作藝術交易平台、精緻點心商城。</p>
+                <p><span class="font-bold text-gray-800 dark:text-gray-200">品牌形象官網：</span>機車與機油產業形象網、建設公司官網、醫療與健康機構網站、設計工坊官網、旅館與住宿預訂網站。</p>
+                <p>透過高度模組化元件開發、事件彙整和自訂 CSS 套用，極大化提升開發與維護效率，使網頁架構簡潔洗鍊。</p>
+              </div>
             </div>
           </div>
         </div>
@@ -625,9 +645,10 @@
             <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2022/07 — 2022/09</span>
           </div>
           <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>維護既有大型電商舊專案，並主導開發資料視覺化圖表新專案。</li>
-            <li>使用 PHP（Laravel / CodeIgniter）與 Vue 進行後端 API 設計與前後端串接整合。</li>
-            <li>實作後台帳號與權限管理、SMTP 發信系統、POS 系統 CRUD 互動模組與購物車金流優化。</li>
+            <li>維護與優化既有之大型電商舊專案，並主導開發資料視覺化圖表之新專案。</li>
+            <li>使用 PHP（Laravel / CodeIgniter）與 Vue 框架，進行後端 API 設計、開立以及前後端串接整合。</li>
+            <li>實作管理後台之帳號與權限管理、SMTP 信箱整合發信系統。</li>
+            <li>開發 POS 系統之彈窗式增刪查改（CRUD）互動模組、優化購物車金流導向流程、並撰寫優化的資料庫資料篩選查詢。</li>
           </ul>
           <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
             <li>Maintained legacy e-commerce projects and developed new data visualization dashboards.</li>
@@ -641,184 +662,6 @@
           </button>
           <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
             <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="badge">Vue.js</span>
-              <span class="badge">PHP</span>
-              <span class="badge">Laravel</span>
-              <span class="badge">CodeIgniter</span>
-              <span class="badge">MySQL</span>
-              <span class="badge">SMTP</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-      <div class="space-y-6">
-
-        <!-- 經歷 1 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">前端工程師</h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">即時影音直播平台</p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2024/02 — 至今</span>
-          </div>
-          <ul class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>開發高流量即時影音直播串流平台，串接 RESTful API。</li>
-            <li>實作多平台支援的高互動元件，包括實時串流、拖曳排版、以及流暢的響應式 RWD 設計。</li>
-            <li>導入 TypeScript 進行靜態型別約束，並建立單元與整合測試套件（Test Suite）保障核心邏輯與程式碼安全。</li>
-          </ul>
-          <!-- 展開按鈕 -->
-          <button
-            @click="open = !open"
-            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-          >
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <!-- 詳情 -->
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">使用技術</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="badge">Vue 3</span>
-              <span class="badge">TypeScript</span>
-              <span class="badge">RESTful API</span>
-              <span class="badge">Pinia</span>
-              <span class="badge">Live Streaming</span>
-              <span class="badge">Vitest</span>
-              <span class="badge">Cypress</span>
-              <span class="badge">Tailwind CSS</span>
-            </div>
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果與開發重點</p>
-            <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-              <li>成功建立具高度流暢性之實時影音播放介面，優化多終端響應式拖曳交互體驗。</li>
-              <li>運用 <span class="font-bold text-blue-600 dark:text-blue-400">TypeScript</span> 嚴格定義介面、型別與列舉，顯著減少非預期執行階段錯誤。</li>
-              <li>設計完整的測試機制，並模擬用戶真實操作邏輯（Cypress）和元件邏輯（Vitest），極大提升發布穩定性。</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 經歷 2 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">前端工程師</h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">國立成功大學</p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2023/09 — 2024/02</span>
-          </div>
-          <ul class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>負責成功大學內部系統、活動網站、報表等跨領域前端專案的建構與維護。</li>
-            <li>開發給予學校營養師使用的「食登2.0系統」，提供團膳電子菜單開立，以及相關食材、衛生稽核等表單的建立與編輯。</li>
-            <li>開發專為醫療人員設計之「慈濟報表」系統，呈現各項生化數據表單與病例表，提供清晰、安全的資訊界面。</li>
-            <li>建置客服人員專用之「客服系統」，實現帳密維護、操作記錄及各項基礎設定功能。</li>
-            <li>維護公司及學校內部的資產與帳號相關管理系統，處理資產移轉、報廢、採購等流程。</li>
-          </ul>
-          <!-- 展開按鈕 -->
-          <button
-            @click="open = !open"
-            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-          >
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <!-- 詳情 -->
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">使用技術</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="badge">Vue 2</span>
-              <span class="badge">Vue 3</span>
-              <span class="badge">Vuex</span>
-              <span class="badge">Pinia</span>
-              <span class="badge">PHP</span>
-              <span class="badge">Docker</span>
-              <span class="badge">HeidiSQL</span>
-              <span class="badge">XAMPP</span>
-            </div>
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果與開發重點</p>
-            <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-              <li>將繁雜的學校營養師和醫療生化數據流程，成功落實為響應式、高度模組化的網頁系統，減少人工作業時間達 <span class="font-bold text-blue-600 dark:text-blue-400">50%</span>。</li>
-              <li>與後端團隊合作緊密，利用 <span class="font-bold text-blue-600 dark:text-blue-400">Docker</span> 整合前後端開發環境，解決本地環境不一致的痛點。</li>
-              <li>同時操作 Vue 2 與 Vue 3，進行架構上的優化與部分老舊系統的模組化重構。</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 經歷 3 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">前端工程師</h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">台灣國際網域</p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2022/11 — 2023/10</span>
-          </div>
-          <ul class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與企業品牌形象網站。</li>
-            <li>串接 RESTful API 的豐富經驗，運用 ES5+ 語法、Webpack 打包建置、NPM 模組管理與 ESLint 維持程式碼的高可讀性與高品質。</li>
-            <li>負責精細網頁切圖，使用 HTML5 標籤與 CSS 選擇器，實現複雜表格與表單設計。</li>
-            <li>基於 Flexbox / Grid 及響應式設計（RWD），建構跨平台無縫的響應式選單與圖形排版。</li>
-            <li>熟練運用 Tailwind CSS 3 與 Bootstrap 5 設計系統（包括 SCSS、Custom Config、Plugins 套件）。</li>
-          </ul>
-          <!-- 展開按鈕 -->
-          <button
-            @click="open = !open"
-            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-          >
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <!-- 詳情 -->
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">使用技術</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="badge">Vue 2/3</span>
-              <span class="badge">Options API</span>
-              <span class="badge">Vue Router</span>
-              <span class="badge">Pinia</span>
-              <span class="badge">Tailwind CSS 3</span>
-              <span class="badge">Bootstrap 5</span>
-              <span class="badge">SCSS</span>
-              <span class="badge">Webpack</span>
-              <span class="badge">ESLint</span>
-            </div>
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">專案實績與具體成果</p>
-            <div class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
-              <p><span class="font-bold text-gray-800 dark:text-gray-200">購物商城網站：</span>飾品購物網、手套專賣商城、畫作藝術交易平台、精緻點心商城。</p>
-              <p><span class="font-bold text-gray-800 dark:text-gray-200">品牌形象官網：</span>機車與機油產業形象網、建設公司官網、醫療與健康機構網站、設計工坊官網、旅館與住宿預訂網站。</p>
-              <p>透過高度模組化元件開發、事件彙整和自訂 CSS 套用，極大化提升開發與維護效率，使網頁架構簡潔洗鍊。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 經歷 4 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">前端工程師</h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">壹立方數位科技</p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2022/07 — 2022/09</span>
-          </div>
-          <ul class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>維護與優化既有之大型電商舊專案，並主導開發資料視覺化圖表之新專案。</li>
-            <li>使用 PHP (Laravel / CodeIgniter) 與 Vue 框架，進行後端 API 設計、開立以及前後端串接整合。</li>
-            <li>實作管理後台之帳號與權限管理、SMTP 信箱整合發信系統。</li>
-            <li>開發 POS 系統之彈窗式增刪查改（CRUD）互動模組、優化購物車金流導向流程、並撰寫優化的資料庫資料篩選查詢。</li>
-          </ul>
-          <!-- 展開按鈕 -->
-          <button
-            @click="open = !open"
-            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-          >
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <!-- 詳情 -->
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">使用技術</p>
             <div class="flex flex-wrap gap-2 mb-4">
               <span class="badge">Vue.js</span>
               <span class="badge">PHP</span>
@@ -828,18 +671,19 @@
               <span class="badge">SMTP</span>
               <span class="badge">Data Visualization</span>
             </div>
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果與開發重點</p>
-            <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-              <li>重構購物車金流串接流程，顯著優化支付導向流程，降低因系統延遲導致的訂單流失率。</li>
-              <li>運用 Vue 配合視覺化圖表庫，將銷售報表與資料庫複雜的篩選資料轉換為清晰直觀的視覺化圖表，加速管理團隊的決策分析。</li>
-              <li>跨足 PHP 後端開發，掌握 MVC 架構模式，提供優良的前後端無縫整合方案。</li>
-            </ul>
+            <div x-show="lang === 'zh'">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果</p>
+              <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+                <li>重構購物車金流串接流程，顯著優化支付導向流程，降低因系統延遲導致的訂單流失率。</li>
+                <li>運用 Vue 配合視覺化圖表庫，將銷售報表與資料庫複雜的篩選資料轉換為清晰直觀的視覺化圖表，加速管理團隊的決策分析。</li>
+                <li>跨足 PHP 後端開發，掌握 MVC 架構模式，提供優良的前後端無縫整合方案。</li>
+              </ul>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
-
     <!-- ===================== PROJECTS ===================== -->
     <section id="projects" class="reveal py-16">
       <h2 class="section-title flex items-center gap-2">
