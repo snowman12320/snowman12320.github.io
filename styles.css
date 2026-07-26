@@ -1,6 +1,12 @@
 /* ================================================
-   styles.css — 履歷全域樣式
-   管理：Tailwind 設定、主題 token、共用 class、列印優化
+   styles.css — 履歷樣式來源備份
+   ================================================
+   ⚠️  注意：Tailwind CSS v4 Browser CDN 不支援外部 CSS 檔案
+   載入 @theme / @custom-variant 等 Tailwind 指令。
+   此檔案作為樣式的「版本控管來源」，實際內容已內嵌至
+   index.html 的 <style type="text/tailwindcss"> 區塊中。
+
+   若未來改用 Vite / PostCSS 建置流程，此檔案可直接引入。
    ================================================ */
 
 /* Tailwind v4：啟用 class-based 深色模式 */
