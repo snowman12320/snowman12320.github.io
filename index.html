@@ -1,1012 +1,1638 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-  <!-- ===================== SEO ===================== -->
-  <title>陳威良 William — 軟體工程師｜前端工程師</title>
-  <meta name="description" content="陳威良 William 的個人履歷。擅長 Vue 3、React 18 全端開發，具備 Node.js、Python FastAPI、LLM 整合等技術，歡迎洽談工作機會。" />
-  <meta name="keywords" content="陳威良, William Chen, 軟體工程師, 前端工程師, Vue, React, TypeScript, Node.js, 履歷, portfolio" />
-  <meta name="author" content="陳威良 William Chen" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://snowman12320.github.io/" />
+    <!-- ===================== SEO ===================== -->
+    <title>陳威良 William — 軟體工程師｜前端工程師</title>
+    <meta
+      name="description"
+      content="陳威良 William 的個人履歷。擅長 Vue 3、React 18 全端開發，具備 Node.js、Python FastAPI、LLM 整合等技術，歡迎洽談工作機會。"
+    />
+    <meta
+      name="keywords"
+      content="陳威良, William Chen, 軟體工程師, 前端工程師, Vue, React, TypeScript, Node.js, 履歷, portfolio"
+    />
+    <meta
+      name="author"
+      content="陳威良 William Chen"
+    />
+    <meta
+      name="robots"
+      content="index, follow"
+    />
+    <link
+      rel="canonical"
+      href="https://snowman12320.github.io/"
+    />
 
-  <!-- Open Graph（Facebook / LinkedIn 預覽） -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://snowman12320.github.io/" />
-  <meta property="og:title"       content="陳威良 William — 軟體工程師｜前端工程師" />
-  <meta property="og:description" content="擅長 Vue 3、React 18 全端開發，具備 Node.js、Python FastAPI、LLM 整合等技術的軟體工程師。" />
-  <meta property="og:locale"      content="zh_TW" />
+    <!-- Open Graph（Facebook / LinkedIn 預覽） -->
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:url"
+      content="https://snowman12320.github.io/"
+    />
+    <meta
+      property="og:title"
+      content="陳威良 William — 軟體工程師｜前端工程師"
+    />
+    <meta
+      property="og:description"
+      content="擅長 Vue 3、React 18 全端開發，具備 Node.js、Python FastAPI、LLM 整合等技術的軟體工程師。"
+    />
+    <meta
+      property="og:locale"
+      content="zh_TW"
+    />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary" />
-  <meta name="twitter:title"       content="陳威良 William — 軟體工程師｜前端工程師" />
-  <meta name="twitter:description" content="擅長 Vue 3、React 18 全端開發，具備 Node.js、Python FastAPI、LLM 整合等技術的軟體工程師。" />
+    <!-- Twitter Card -->
+    <meta
+      name="twitter:card"
+      content="summary"
+    />
+    <meta
+      name="twitter:title"
+      content="陳威良 William — 軟體工程師｜前端工程師"
+    />
+    <meta
+      name="twitter:description"
+      content="擅長 Vue 3、React 18 全端開發，具備 Node.js、Python FastAPI、LLM 整合等技術的軟體工程師。"
+    />
 
-  <!-- ===================== Favicon（emoji 💻，無需本地檔案） ===================== -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
+    <!-- ===================== Favicon（emoji 💻，無需本地檔案） ===================== -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"
+    />
 
-  <!-- 防 FOUC：在首次渲染前設定主題，避免深色模式閃爍 -->
-  <script>
-    (function () {
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (stored === 'dark' || (!stored && prefersDark)) {
-        document.documentElement.classList.add('dark');
-      }
-    })();
-  </script>
+    <!-- 防 FOUC：在首次渲染前設定主題，避免深色模式閃爍 -->
+    <script>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
 
-  <!-- Tailwind CSS v4 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-  <!--
+    <!--
     Tailwind v4 Browser CDN 只處理 <style type="text/tailwindcss"> inline 標籤，
     不支援 <link href="styles.css"> 外部載入 @theme / @custom-variant。
     因此樣式定義必須內嵌；邏輯檔案（theme.js / reveal.js）維持獨立。
   -->
-  <style type="text/tailwindcss">
-    /* 來源：styles.css — Tailwind v4：啟用 class-based 深色模式 */
-    @custom-variant dark (&:where(.dark, .dark *));
+    <style type="text/tailwindcss">
+      /* 來源：styles.css — Tailwind v4：啟用 class-based 深色模式 */
+      @custom-variant dark (&:where(.dark, .dark *));
 
-    @theme {
-      --color-primary:       #2563eb;
-      --color-primary-hover: #1d4ed8;
-      --color-primary-light: #3b82f6;
-      --color-surface:       #ffffff;
-      --color-surface-dark:  #030712;
-      --color-muted:         #6b7280;
-      --color-muted-dark:    #9ca3af;
-    }
+      @theme {
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+        --color-primary-light: #3b82f6;
+        --color-surface: #ffffff;
+        --color-surface-dark: #030712;
+        --color-muted: #6b7280;
+        --color-muted-dark: #9ca3af;
+      }
 
-    html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+      body {
+        @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
 
-    /* Icon 對齊（Font Awesome + Lucide 共用） */
-    i[data-lucide], .lucide,
-    .fa-solid, .fa-brands, .fa-regular {
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
-      vertical-align: middle;
-    }
+      /* Icon 對齊（Font Awesome + Lucide 共用） */
+      i[data-lucide],
+      .lucide,
+      .fa-solid,
+      .fa-brands,
+      .fa-regular {
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+        vertical-align: middle;
+      }
 
-    /* Badge */
-    .badge {
-      @apply inline-block px-3 py-1 rounded-full text-sm font-medium
+      /* Badge */
+      .badge {
+        @apply inline-block px-3 py-1 rounded-full text-sm font-medium
              bg-blue-50 dark:bg-blue-900/30
              text-blue-700 dark:text-blue-300
              hover:bg-blue-100 dark:hover:bg-blue-800/50
              hover:scale-105 transition-all cursor-default select-none;
-    }
-
-    /* Section 標題 */
-    .section-title {
-      @apply text-2xl font-bold text-gray-900 dark:text-gray-100
-             border-b-2 border-blue-600 pb-2 mb-8;
-    }
-
-    /* Scroll-reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(1.5rem);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* 列印優化 */
-    @media print {
-      header, .no-print { display: none !important; }
-      body { background: white !important; color: black !important; }
-      .badge {
-        border: 1px solid #2563eb;
-        background: white !important;
-        color: #2563eb !important;
-        transform: none !important;
       }
-      [x-show] { display: block !important; }
-      .reveal { opacity: 1 !important; transform: none !important; }
-      section, .no-break { break-inside: avoid; }
-      * { box-shadow: none !important; }
-    }
-  </style>
 
-  <!-- Lucide Icons CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+      /* Section 標題 */
+      .section-title {
+        @apply text-2xl font-bold text-gray-900 dark:text-gray-100
+             border-b-2 border-blue-600 pb-2 mb-8;
+      }
 
-  <!-- Font Awesome 6 Free CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      /* Scroll-reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(1.5rem);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-  <!-- 邏輯檔案：需在 Alpine defer 前載入，供 app() 呼叫 -->
-  <script src="reveal.js"></script>
-  <script src="theme.js"></script>
+      /* 列印優化 */
+      @media print {
+        header,
+        .no-print {
+          display: none !important;
+        }
+        body {
+          background: white !important;
+          color: black !important;
+        }
+        .badge {
+          border: 1px solid #2563eb;
+          background: white !important;
+          color: #2563eb !important;
+          transform: none !important;
+        }
+        [x-show] {
+          display: block !important;
+        }
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        section,
+        .no-break {
+          break-inside: avoid;
+        }
+        * {
+          box-shadow: none !important;
+        }
+      }
+    </style>
 
-  <!-- Alpine.js v3（defer 確保 DOM 解析後初始化，app() 已在上方定義） -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-</head>
+    <!-- Lucide Icons CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
 
-<body x-data="app()" :class="{ 'dark': isDark }">
+    <!-- Font Awesome 6 Free CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <!-- ===================== NAVBAR ===================== -->
-  <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-      <a href="#" class="text-lg font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
-        <span x-show="lang === 'zh'">陳威良 (William)</span>
-        <span x-show="lang === 'en'">William Chen</span>
-      </a>
-      <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-        <a href="#skills"     class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <span x-show="lang === 'zh'">技能</span><span x-show="lang === 'en'">Skills</span>
-        </a>
-        <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <span x-show="lang === 'zh'">工作經歷</span><span x-show="lang === 'en'">Experience</span>
-        </a>
-        <a href="#projects"   class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <span x-show="lang === 'zh'">專案</span><span x-show="lang === 'en'">Projects</span>
-        </a>
-      </nav>
-      <div class="flex items-center gap-1">
-        <!-- 語言切換按鈕 -->
-        <button
-          @click="toggleLang()"
-          class="no-print px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-200 dark:border-gray-700"
-          :aria-label="lang === 'zh' ? 'Switch to English' : '切換為中文'"
+    <!-- 邏輯檔案：需在 Alpine defer 前載入，供 app() 呼叫 -->
+    <script src="reveal.js"></script>
+    <script src="theme.js"></script>
+
+    <!-- Alpine.js v3（defer 確保 DOM 解析後初始化，app() 已在上方定義） -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+
+  <body
+    x-data="app()"
+    :class="{ 'dark': isDark }"
+  >
+    <!-- ===================== NAVBAR ===================== -->
+    <header
+      class="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+        <a
+          href="#"
+          class="text-lg font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
         >
-          <span x-show="lang === 'zh'">EN</span>
-          <span x-show="lang === 'en'">中文</span>
-        </button>
-        <!-- 深色模式切換按鈕 -->
-        <button
-          @click="toggleDark()"
-          class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-          :aria-label="isDark ? '切換為淺色模式' : '切換為深色模式'"
-        >
-          <i x-show="isDark"  class="fa-solid fa-sun  w-5 h-5 text-base leading-none"></i>
-          <i x-show="!isDark" class="fa-solid fa-moon w-5 h-5 text-base leading-none"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
-
-    <!-- ===================== HERO ===================== -->
-    <section id="hero" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
-      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-        <div>
-          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100">
-            陳威良 William
-          </h1>
-          <p class="mt-2 text-xl font-medium text-blue-600 dark:text-blue-400 flex items-center gap-2">
-            <i class="fa-solid fa-laptop-code text-lg"></i>
-            <span x-show="lang === 'zh'">軟體工程師 / 前端工程師</span>
-            <span x-show="lang === 'en'">Front-End & Full-Stack Engineer</span>
-          </p>
-          <!-- 地點 -->
-          <p class="mt-2 text-sm text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
-            <i class="fa-solid fa-location-dot"></i>
-            <span x-show="lang === 'zh'">台灣・臺南市</span>
-            <span x-show="lang === 'en'">Tainan City, Taiwan</span>
-          </p>
-          <!-- 中文自我介紹 -->
-          <p x-show="lang === 'zh'" class="mt-4 text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
-            擁有豐富的前端與全端開發經驗，曾參與企業級入口網站、即時直播平台與電商系統的開發，服務橫跨台灣與加拿大的遠端團隊。擅長 Vue.js、React.js、Next.js、Nuxt.js 等現代 JavaScript / TypeScript 技術棧，並具備 Node.js、BFF 架構、SQL 與 Docker 等後端整合能力。
-          </p>
-          <!-- 英文自我介紹 -->
-          <p x-show="lang === 'en'" class="mt-4 text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
-            Experienced Front-End & Full-Stack Engineer with hands-on experience building scalable enterprise web applications, real-time live streaming platforms, and e-commerce systems across global remote teams (Taiwan & Canada). Specialized in modern JavaScript/TypeScript ecosystems (Next.js, Nuxt.js, Vue.js, React.js) alongside backend integrations (Node.js, BFF Architecture, SQL, Docker).
-          </p>
-        </div>
-      </div>
-
-      <!-- 聯絡資訊 -->
-      <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-600 dark:text-gray-400">
-        <a href="mailto:snowman12320@gmail.com"
-           class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <i class="fa-solid fa-envelope w-4 text-center"></i>
-          snowman12320@gmail.com
+          <span x-show="lang === 'zh'">陳威良 (William)</span>
+          <span x-show="lang === 'en'">William Chen</span>
         </a>
-        <a href="tel:+886976103738"
-           class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <i class="fa-solid fa-phone w-4 text-center"></i>
-          0976103738
-        </a>
-        <a href="https://www.linkedin.com/in/william-chendev/" target="_blank" rel="noopener"
-           class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <i class="fa-brands fa-linkedin w-4 text-center"></i>
-          linkedin.com/in/william-chendev
-        </a>
-        <a href="https://github.com/snowman12320" target="_blank" rel="noopener"
-           class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <i class="fa-brands fa-github w-4 text-center"></i>
-          github.com/snowman12320
-        </a>
-      </div>
-    </section>
-
-    <!-- ===================== SKILLS ===================== -->
-    <section id="skills" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
-      <h2 class="section-title flex items-center gap-2">
-        <i class="fa-solid fa-bolt text-blue-600 text-xl"></i>
-        <span x-show="lang === 'zh'">技能</span>
-        <span x-show="lang === 'en'">Skills</span>
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-
-        <!-- Vue 生態系 -->
-        <div>
-          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i class="fa-brands fa-vuejs w-3.5 text-center"></i>Vue 生態系
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge">Vue 3</span>
-            <span class="badge">Vue 2</span>
-            <span class="badge">Composition API</span>
-            <span class="badge">Pinia</span>
-            <span class="badge">Vue Router</span>
-            <span class="badge">Nuxt 3 (SSR/SSG)</span>
-            <span class="badge">Vuetify</span>
-            <span class="badge">Quasar</span>
-          </div>
-        </div>
-
-        <!-- React 生態系 -->
-        <div>
-          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i class="fa-brands fa-react w-3.5 text-center"></i>React 生態系
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge">React 18</span>
-            <span class="badge">Next 14 (SSR/SSG)</span>
-            <span class="badge">Redux</span>
-            <span class="badge">Context API</span>
-            <span class="badge">React Hooks</span>
-            <span class="badge">Shadcn UI</span>
-            <span class="badge">Ant Design</span>
-            <span class="badge">React Native</span>
-          </div>
-        </div>
-
-        <!-- 核心語言 & 開發品質 -->
-        <div>
-          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i class="fa-solid fa-terminal w-3.5 text-center"></i>核心語言 &amp; 開發品質
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge">JavaScript (ES5+)</span>
-            <span class="badge">TypeScript</span>
-            <span class="badge">RESTful API</span>
-            <span class="badge">npm / Package Management</span>
-            <span class="badge">ESLint</span>
-            <span class="badge">Husky</span>
-          </div>
-        </div>
-
-        <!-- 網頁基礎 & 樣式 -->
-        <div>
-          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i class="fa-solid fa-layer-group w-3.5 text-center"></i>網頁基礎 &amp; 樣式
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge">HTML5 (W3C/SEO)</span>
-            <span class="badge">CSS3</span>
-            <span class="badge">SCSS</span>
-            <span class="badge">TailwindCSS 3</span>
-            <span class="badge">Bootstrap 5</span>
-            <span class="badge">RWD (Grid / Flex)</span>
-          </div>
-        </div>
-
-        <!-- 軟體測試 & 品質管理 -->
-        <div>
-          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i class="fa-solid fa-shield-halved w-3.5 text-center"></i>軟體測試 &amp; 品質管理
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge">Vitest</span>
-            <span class="badge">Cypress</span>
-            <span class="badge">Git / Version Control</span>
-            <span class="badge">SourceTree</span>
-            <span class="badge">GitLab</span>
-          </div>
-        </div>
-
-        <!-- 後端與雲端工具 -->
-        <div>
-          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-            <i class="fa-solid fa-cloud w-3.5 text-center"></i>後端與雲端工具
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="badge">PHP</span>
-            <span class="badge">Laravel / CodeIgniter</span>
-            <span class="badge">Docker</span>
-            <span class="badge">HeidiSQL / XAMPP</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">Flask</span>
-            <span class="badge">Firebase</span>
-            <span class="badge">AWS</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===================== EXPERIENCE ===================== -->
-    <section id="experience" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
-      <h2 class="section-title flex items-center gap-2">
-        <i class="fa-solid fa-briefcase text-blue-600 text-xl"></i>
-        <span x-show="lang === 'zh'">工作經歷</span>
-        <span x-show="lang === 'en'">Experience</span>
-      </h2>
-      <div class="space-y-6">
-
-        <!-- 經歷 1：永明金融 Sun Life -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
-                <span x-show="lang === 'zh'">全端工程師</span>
-                <span x-show="lang === 'en'">Full Stack Engineer</span>
-              </h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">
-                <span x-show="lang === 'zh'">永明金融（Sun Life）</span>
-                <span x-show="lang === 'en'">Sun Life Financial</span>
-              </p>
-              <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                <i class="fa-solid fa-location-dot"></i>
-                <span x-show="lang === 'zh'">加拿大（遠端）</span>
-                <span x-show="lang === 'en'">Canada (Remote)</span>
-              </p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2025/10 — 2026/04</span>
-          </div>
-          <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>開發與維護 Sun Life 顧問入口網站，建構響應式 UI 元件並透過 BFF 架構串接 Advisor API。</li>
-            <li>處理單一登入（SSO）認證流程，管理登入重導向與角色權限控制（RBAC）。</li>
-            <li>設計並執行後台管理功能，撰寫初始資料庫建置的 SQL 腳本，並實作 Umami 分析追蹤的 Action Log。</li>
-            <li>管理跨環境 CI/CD 工作流程，處理 Dev 與 SIT 環境的部署與整合問題。</li>
-          </ul>
-          <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>Develop and maintain the Sun Life Advisor Portal, building responsive UI components and integrating Advisor APIs via BFF architecture.</li>
-            <li>Handle Single Sign-On (SSO) authentication workflows, managing login redirection URLs and role-based access control.</li>
-            <li>Design and execute backend administrative features, writing SQL scripts for initial database setups and implementing Action Logs with Umami analytics.</li>
-            <li>Manage cross-environment CI/CD workflows and deployments across Dev and SIT environments.</li>
-          </ul>
-          <button @click="open = !open" class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span>
-            <span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
+        <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+          <a
+            href="#skills"
+            class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <span x-show="lang === 'zh'">技能</span><span x-show="lang === 'en'">Skills</span>
+          </a>
+          <a
+            href="#experience"
+            class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <span x-show="lang === 'zh'">工作經歷</span
+            ><span x-show="lang === 'en'">Experience</span>
+          </a>
+          <a
+            href="#projects"
+            class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <span x-show="lang === 'zh'">專案</span><span x-show="lang === 'en'">Projects</span>
+          </a>
+        </nav>
+        <div class="flex items-center gap-1">
+          <!-- 語言切換按鈕 -->
+          <button
+            @click="toggleLang()"
+            class="no-print px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-200 dark:border-gray-700"
+            :aria-label="lang === 'zh' ? 'Switch to English' : '切換為中文'"
+          >
+            <span x-show="lang === 'zh'">EN</span>
+            <span x-show="lang === 'en'">中文</span>
           </button>
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="badge">Next.js</span>
-              <span class="badge">TypeScript</span>
-              <span class="badge">BFF Architecture</span>
-              <span class="badge">SSO / RBAC</span>
-              <span class="badge">SQL</span>
-              <span class="badge">Umami Analytics</span>
-              <span class="badge">Jira</span>
-              <span class="badge">CI/CD</span>
-            </div>
+          <!-- 深色模式切換按鈕 -->
+          <button
+            @click="toggleDark()"
+            class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            :aria-label="isDark ? '切換為淺色模式' : '切換為深色模式'"
+          >
+            <i
+              x-show="isDark"
+              class="fa-solid fa-sun w-5 h-5 text-base leading-none"
+            ></i>
+            <i
+              x-show="!isDark"
+              class="fa-solid fa-moon w-5 h-5 text-base leading-none"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
+      <!-- ===================== HERO ===================== -->
+      <section
+        id="hero"
+        class="reveal py-16 border-b border-gray-100 dark:border-gray-800"
+      >
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+          <div>
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100">
+              陳威良 William
+            </h1>
+            <p
+              class="mt-2 text-xl font-medium text-blue-600 dark:text-blue-400 flex items-center gap-2"
+            >
+              <i class="fa-solid fa-laptop-code text-lg"></i>
+              <span x-show="lang === 'zh'">軟體工程師</span>
+              <span x-show="lang === 'en'">Full-Stack Engineer</span>
+            </p>
+            <!-- 地點 -->
+            <p class="mt-2 text-sm text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
+              <i class="fa-solid fa-location-dot"></i>
+              <span x-show="lang === 'zh'">台灣・臺南市</span>
+              <span x-show="lang === 'en'">Tainan City, Taiwan</span>
+            </p>
+            <!-- 中文自我介紹 -->
+            <p
+              x-show="lang === 'zh'"
+              class="mt-4 text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed"
+            >
+              擁有豐富的前端與全端開發經驗，曾參與企業級入口網站、即時直播平台與電商系統的開發，服務橫跨台灣與加拿大的遠端團隊。擅長
+              Vue.js、React.js、Next.js、Nuxt.js 等現代 JavaScript / TypeScript 技術棧，並具備
+              Node.js、BFF 架構、SQL 與 Docker 等後端整合能力。
+            </p>
+            <!-- 英文自我介紹 -->
+            <p
+              x-show="lang === 'en'"
+              class="mt-4 text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed"
+            >
+              Experienced Front-End & Full-Stack Engineer with hands-on experience building scalable
+              enterprise web applications, real-time live streaming platforms, and e-commerce
+              systems across global remote teams (Taiwan & Canada). Specialized in modern
+              JavaScript/TypeScript ecosystems (Next.js, Nuxt.js, Vue.js, React.js) alongside
+              backend integrations (Node.js, BFF Architecture, SQL, Docker).
+            </p>
           </div>
         </div>
 
-        <!-- 經歷 2：玩藝國際 Fun Show -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
-                <span x-show="lang === 'zh'">軟體工程師</span>
-                <span x-show="lang === 'en'">Software Engineer</span>
-              </h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">
-                <span x-show="lang === 'zh'">玩藝國際股份有限公司（Fun Show）</span>
-                <span x-show="lang === 'en'">Fun Show International Co., Ltd.</span>
-              </p>
-              <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                <i class="fa-solid fa-location-dot"></i>
-                <span x-show="lang === 'zh'">台灣・臺南市（遠端）</span>
-                <span x-show="lang === 'en'">Tainan, Taiwan</span>
-              </p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2024/02 — Present</span>
-          </div>
-          <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>開發具備即時串流、場景管理、連播 UI 與 OBS 整合的直播控制平台。</li>
-            <li>整合 Keycloak 認證與 Payuni 金流，實現訂閱方案的信用卡安全交易。</li>
-            <li>透過 Server-Sent Events（SSE）實作即時通知，並以 Quasar Framework 開發無限捲動預覽元件。</li>
-            <li>建立 Jenkins 自動化 CI/CD 建置管線，管理跨分支的生產環境部署。</li>
-            <li>撰寫單元測試，並以 Mock Service Worker（MSW）簡化 RESTful API 測試流程。</li>
-          </ul>
-          <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>Develop a live broadcasting platform featuring real-time streaming, scenes management, joint-streaming UI, and OBS integration.</li>
-            <li>Integrate Keycloak for authentication and Payuni payment gateways to secure credit card processing for subscription plans.</li>
-            <li>Implement Server-Sent Events (SSE) for real-time notifications and infinite scroll preview components using Quasar Framework.</li>
-            <li>Set up automated CI/CD build pipelines with Jenkins and manage cross-branch deployments for production environments.</li>
-            <li>Write unit tests and leverage Mock Service Worker (MSW) to streamline RESTful API testing.</li>
-          </ul>
-          <button @click="open = !open" class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span>
-            <span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
+        <!-- 聯絡資訊 -->
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-600 dark:text-gray-400">
+          <a
+            href="mailto:snowman12320@gmail.com"
+            class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <i class="fa-solid fa-envelope w-4 text-center"></i>
+            snowman12320@gmail.com
+          </a>
+          <a
+            href="tel:+886976103738"
+            class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <i class="fa-solid fa-phone w-4 text-center"></i>
+            0976103738
+          </a>
+          <a
+            href="https://www.linkedin.com/in/william-chendev/"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <i class="fa-brands fa-linkedin w-4 text-center"></i>
+            linkedin.com/in/william-chendev
+          </a>
+          <a
+            href="https://github.com/snowman12320"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            <i class="fa-brands fa-github w-4 text-center"></i>
+            github.com/snowman12320
+          </a>
+        </div>
+      </section>
+
+      <!-- ===================== SKILLS ===================== -->
+      <section
+        id="skills"
+        class="reveal py-16 border-b border-gray-100 dark:border-gray-800"
+      >
+        <h2 class="section-title flex items-center gap-2">
+          <i class="fa-solid fa-bolt text-blue-600 text-xl"></i>
+          <span x-show="lang === 'zh'">技能</span>
+          <span x-show="lang === 'en'">Skills</span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <!-- Vue 生態系 -->
+          <div>
+            <p
+              class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5"
+            >
+              <i class="fa-brands fa-vuejs w-3.5 text-center"></i>Vue 生態系
+            </p>
             <div class="flex flex-wrap gap-2">
               <span class="badge">Vue 3</span>
-              <span class="badge">Quasar Framework</span>
-              <span class="badge">TypeScript</span>
-              <span class="badge">Keycloak</span>
-              <span class="badge">SSE</span>
-              <span class="badge">OBS Integration</span>
-              <span class="badge">Jenkins CI/CD</span>
-              <span class="badge">MSW</span>
-              <span class="badge">Vitest</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 經歷 3：數位因子 Digital Factor -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
-                <span x-show="lang === 'zh'">全端工程師</span>
-                <span x-show="lang === 'en'">Full Stack Engineer</span>
-              </h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">
-                <span x-show="lang === 'zh'">數位因子網路科技有限公司</span>
-                <span x-show="lang === 'en'">Digital Factor Network Technology</span>
-              </p>
-              <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                <i class="fa-solid fa-location-dot"></i>
-                <span x-show="lang === 'zh'">台灣・臺南市（遠端）</span>
-                <span x-show="lang === 'en'">Tainan, Taiwan</span>
-              </p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2024/02 — 2024/07</span>
-          </div>
-          <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>基於 LINE LIFF 框架開發電商後台系統。</li>
-            <li>整合 LINE Bot、LINE Login 與 LINE Notify，實現串接的訂單管理流程。</li>
-            <li>使用 GitHub 進行任務管理與版本控制，並透過 Tag 標籤實現持續整合/部署（CI/CD）。</li>
-          </ul>
-          <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>Developing an e-commerce backend system based on the LIFF framework.</li>
-            <li>Features LINE Bot, LINE Login, and LINE Notify for streamlined order management.</li>
-            <li>Utilizes GitHub for task management and version control with tagging for CI/CD.</li>
-          </ul>
-          <button @click="open = !open" class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span>
-            <span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="badge">React</span>
-              <span class="badge">TypeScript</span>
-              <span class="badge">LINE LIFF</span>
-              <span class="badge">LINE Bot</span>
-              <span class="badge">LINE Login</span>
-              <span class="badge">LINE Notify</span>
-              <span class="badge">GitHub CI/CD</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 經歷 4：國立成功大學 NCKU -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
-                <span x-show="lang === 'zh'">前端工程師</span>
-                <span x-show="lang === 'en'">Front-End Engineer</span>
-              </h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">
-                <span x-show="lang === 'zh'">國立成功大學</span>
-                <span x-show="lang === 'en'">National Cheng Kung University (NCKU)</span>
-              </p>
-              <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                <i class="fa-solid fa-location-dot"></i>
-                <span x-show="lang === 'zh'">台灣・臺南市</span>
-                <span x-show="lang === 'en'">Tainan, Taiwan</span>
-              </p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2023/09 — 2024/02</span>
-          </div>
-          <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>負責成功大學內部系統、活動網站、報表等跨領域前端專案的建構與維護。</li>
-            <li>開發給予學校營養師使用的「食登2.0系統」，提供團膳電子菜單開立，以及相關食材、衛生稽核等表單的建立與編輯。</li>
-            <li>開發專為醫療人員設計之「慈濟報表」系統，呈現各項生化數據表單與病例表，提供清晰、安全的資訊界面。</li>
-            <li>建置客服人員專用之「客服系統」，實現帳密維護、操作記錄及各項基礎設定功能。</li>
-            <li>維護公司及學校內部的資產與帳號相關管理系統，處理資產移轉、報廢、採購等流程。</li>
-          </ul>
-          <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>Development of backend menu system connected to a RESTful API.</li>
-            <li>Features include forms, data tables, web page design, and user experience improvements.</li>
-            <li>Use state management tools (Vuex / Pinia) to ensure data synchronization across multiple pages.</li>
-          </ul>
-          <button @click="open = !open" class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span>
-            <span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2 mb-4">
               <span class="badge">Vue 2</span>
-              <span class="badge">Vue 3</span>
-              <span class="badge">Vuex</span>
+              <span class="badge">Composition API</span>
               <span class="badge">Pinia</span>
-              <span class="badge">PHP</span>
-              <span class="badge">Docker</span>
-              <span class="badge">HeidiSQL</span>
-              <span class="badge">XAMPP</span>
-              <span class="badge">RESTful API</span>
-            </div>
-            <div x-show="lang === 'zh'">
-              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果</p>
-              <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-                <li>將繁雜的學校營養師和醫療生化數據流程，成功落實為響應式、高度模組化的網頁系統，減少人工作業時間達 <span class="font-bold text-blue-600 dark:text-blue-400">50%</span>。</li>
-                <li>與後端團隊合作緊密，利用 <span class="font-bold text-blue-600 dark:text-blue-400">Docker</span> 整合前後端開發環境，解決本地環境不一致的痛點。</li>
-                <li>同時操作 Vue 2 與 Vue 3，進行架構上的優化與部分老舊系統的模組化重構。</li>
-              </ul>
-            </div>
-          </div>
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
-                <span x-show="lang === 'zh'">前端工程師</span>
-                <span x-show="lang === 'en'">Front-End Engineer</span>
-              </h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">
-                <span x-show="lang === 'zh'">台灣國際網域</span>
-                <span x-show="lang === 'en'">Taiwan International Domain</span>
-              </p>
-              <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                <i class="fa-solid fa-location-dot"></i>
-                <span x-show="lang === 'zh'">台灣・嘉義市</span>
-                <span x-show="lang === 'en'">Chiayi, Taiwan</span>
-              </p>
-            </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2022/11 — 2023/10</span>
-          </div>
-          <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與企業品牌形象網站。</li>
-            <li>串接 RESTful API，運用 ES5+ 語法、Webpack 打包建置、NPM 模組管理與 ESLint 維持程式碼高品質。</li>
-            <li>負責精細網頁切圖，使用 HTML5 標籤與 CSS 選擇器，實現複雜表格與表單設計。</li>
-            <li>基於 Flexbox / Grid 及 RWD，建構跨平台無縫的響應式選單與圖形排版。</li>
-            <li>熟練運用 Tailwind CSS 3 與 Bootstrap 5 設計系統（含 SCSS、Custom Config、Plugins）。</li>
-          </ul>
-          <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>Proficient in Vue.js Options API for building SPAs.</li>
-            <li>Experienced in JavaScript ES5+ syntax, plugins, and Webpack for module bundling.</li>
-            <li>Development of responsive design with Flex/Grid and component implementation.</li>
-          </ul>
-          <button @click="open = !open" class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span>
-            <span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="badge">Vue 2/3</span>
-              <span class="badge">Options API</span>
               <span class="badge">Vue Router</span>
-              <span class="badge">Pinia</span>
-              <span class="badge">Tailwind CSS 3</span>
-              <span class="badge">Bootstrap 5</span>
-              <span class="badge">SCSS</span>
-              <span class="badge">Webpack</span>
+              <span class="badge">Nuxt 3 (SSR/SSG)</span>
+              <span class="badge">Vuetify</span>
+              <span class="badge">Quasar</span>
+            </div>
+          </div>
+
+          <!-- React 生態系 -->
+          <div>
+            <p
+              class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5"
+            >
+              <i class="fa-brands fa-react w-3.5 text-center"></i>React 生態系
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">React 18</span>
+              <span class="badge">Next 14 (SSR/SSG)</span>
+              <span class="badge">Redux</span>
+              <span class="badge">Context API</span>
+              <span class="badge">React Hooks</span>
+              <span class="badge">Shadcn UI</span>
+              <span class="badge">Ant Design</span>
+              <span class="badge">React Native</span>
+            </div>
+          </div>
+
+          <!-- 核心語言 & 開發品質 -->
+          <div>
+            <p
+              class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5"
+            >
+              <i class="fa-solid fa-terminal w-3.5 text-center"></i>核心語言 &amp; 開發品質
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">JavaScript (ES5+)</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">RESTful API</span>
+              <span class="badge">npm / Package Management</span>
               <span class="badge">ESLint</span>
-            </div>
-            <div x-show="lang === 'zh'">
-              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">專案實績</p>
-              <div class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
-                <p><span class="font-bold text-gray-800 dark:text-gray-200">購物商城：</span>飾品購物網、手套專賣商城、畫作藝術交易平台、精緻點心商城。</p>
-                <p><span class="font-bold text-gray-800 dark:text-gray-200">品牌形象官網：</span>機車與機油產業形象網、建設公司官網、醫療與健康機構網站、設計工坊官網、旅館與住宿預訂網站。</p>
-                <p>透過高度模組化元件開發、事件彙整和自訂 CSS 套用，極大化提升開發與維護效率，使網頁架構簡潔洗鍊。</p>
-              </div>
+              <span class="badge">Husky</span>
             </div>
           </div>
-        </div>
 
-        <!-- 經歷 6：壹立方數位科技 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
-                <span x-show="lang === 'zh'">前端工程師</span>
-                <span x-show="lang === 'en'">Front-End Engineer</span>
-              </h3>
-              <p class="text-blue-600 dark:text-blue-400 font-medium">
-                <span x-show="lang === 'zh'">壹立方數位科技</span>
-                <span x-show="lang === 'en'">1Cube Digital Technology</span>
-              </p>
-              <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                <i class="fa-solid fa-location-dot"></i>
-                <span x-show="lang === 'zh'">台灣・臺南市</span>
-                <span x-show="lang === 'en'">Tainan, Taiwan</span>
-              </p>
+          <!-- 網頁基礎 & 樣式 -->
+          <div>
+            <p
+              class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5"
+            >
+              <i class="fa-solid fa-layer-group w-3.5 text-center"></i>網頁基礎 &amp; 樣式
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">HTML5 (W3C/SEO)</span>
+              <span class="badge">CSS3</span>
+              <span class="badge">SCSS</span>
+              <span class="badge">TailwindCSS 3</span>
+              <span class="badge">Bootstrap 5</span>
+              <span class="badge">RWD (Grid / Flex)</span>
             </div>
-            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2022/07 — 2022/09</span>
           </div>
-          <ul x-show="lang === 'zh'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>維護與優化既有之大型電商舊專案，並主導開發資料視覺化圖表之新專案。</li>
-            <li>使用 PHP（Laravel / CodeIgniter）與 Vue 框架，進行後端 API 設計、開立以及前後端串接整合。</li>
-            <li>實作管理後台之帳號與權限管理、SMTP 信箱整合發信系統。</li>
-            <li>開發 POS 系統之彈窗式增刪查改（CRUD）互動模組、優化購物車金流導向流程、並撰寫優化的資料庫資料篩選查詢。</li>
-          </ul>
-          <ul x-show="lang === 'en'" class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li>Maintained legacy e-commerce projects and developed new data visualization dashboards.</li>
-            <li>Implemented API creation and integration using PHP (Laravel / CodeIgniter) and Vue.</li>
-            <li>Optimized POS CRUD operations, shopping cart payment flows, and backend permission management.</li>
-          </ul>
-          <button @click="open = !open" class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-            <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-            <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span>
-            <span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-          </button>
-          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="badge">Vue.js</span>
+
+          <!-- 軟體測試 & 品質管理 -->
+          <div>
+            <p
+              class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5"
+            >
+              <i class="fa-solid fa-shield-halved w-3.5 text-center"></i>軟體測試 &amp; 品質管理
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">Vitest</span>
+              <span class="badge">Cypress</span>
+              <span class="badge">Git / Version Control</span>
+              <span class="badge">SourceTree</span>
+              <span class="badge">GitLab</span>
+            </div>
+          </div>
+
+          <!-- 後端與雲端工具 -->
+          <div>
+            <p
+              class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5"
+            >
+              <i class="fa-solid fa-cloud w-3.5 text-center"></i>後端與雲端工具
+            </p>
+            <div class="flex flex-wrap gap-2">
               <span class="badge">PHP</span>
-              <span class="badge">Laravel</span>
-              <span class="badge">CodeIgniter</span>
+              <span class="badge">Laravel / CodeIgniter</span>
+              <span class="badge">Docker</span>
+              <span class="badge">HeidiSQL / XAMPP</span>
               <span class="badge">MySQL</span>
-              <span class="badge">SMTP</span>
-              <span class="badge">Data Visualization</span>
-            </div>
-            <div x-show="lang === 'zh'">
-              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果</p>
-              <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-                <li>重構購物車金流串接流程，顯著優化支付導向流程，降低因系統延遲導致的訂單流失率。</li>
-                <li>運用 Vue 配合視覺化圖表庫，將銷售報表與資料庫複雜的篩選資料轉換為清晰直觀的視覺化圖表，加速管理團隊的決策分析。</li>
-                <li>跨足 PHP 後端開發，掌握 MVC 架構模式，提供優良的前後端無縫整合方案。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- ===================== PROJECTS ===================== -->
-    <section id="projects" class="reveal py-16">
-      <h2 class="section-title flex items-center gap-2">
-        <i class="fa-solid fa-folder-open text-blue-600 text-xl"></i>
-        <span x-show="lang === 'zh'">個人專案</span>
-        <span x-show="lang === 'en'">Projects</span>
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-        <!-- 專案 1 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-2">
-              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">聊天平台</h3>
-              <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-medium">LINE LIFF</span>
-            </div>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              整合 LINE Front-End Framework (LIFF) 的即時通訊平台，支援無縫登入與即時雙向通訊。
-            </p>
-            <div class="mt-3 flex flex-wrap gap-1.5">
-              <span class="badge">React</span>
-              <span class="badge">Redux</span>
-              <span class="badge">TypeScript</span>
-              <span class="badge">LINE LIFF</span>
-            </div>
-          </div>
-          <div>
-            <!-- 展開按鈕 -->
-            <button
-              @click="open = !open"
-              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-            >
-              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-              <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-            </button>
-            <!-- 詳情 -->
-            <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                利用 React 與 TypeScript 構建，透過 LINE LIFF 實現一鍵授權登入與使用者資料對齊，並結合 WebSockets 達到低延遲、高穩定的雙向即時聊天室功能，大幅優化用戶在行動通訊軟體內的使用體驗。
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <a href="https://react-yahoo-message.vercel.app/" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  <span x-show="lang === 'zh'">線上展示</span><span x-show="lang === 'en'">Live Demo</span>
-                </a>
-                <a href="https://github.com/snowman12320/react-yahoo-message" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-github"></i>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 專案 2 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-2">
-              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">交友網站</h3>
-              <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium">Full-stack</span>
-            </div>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              兼顧精美前端互動與高效能後端的社群交友平台，支援即時卡片配對與訊息聊天。
-            </p>
-            <div class="mt-3 flex flex-wrap gap-1.5">
-              <span class="badge">Vue / React</span>
-              <span class="badge">Node.js</span>
-              <span class="badge">Database</span>
-              <span class="badge">WebSockets</span>
-            </div>
-          </div>
-          <div>
-            <!-- 展開按鈕 -->
-            <button
-              @click="open = !open"
-              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-            >
-              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-              <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-            </button>
-            <!-- 詳情 -->
-            <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                獨立負責前後端開發的交友社群專案。前端提供流暢的卡片滑動與即時 RWD 匹配介面，後端建構基於 JWT 的安全使用者認證、資料庫匹配邏輯，並採用 WebSockets 機制實現配對成功的即時一對一聊天。
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <a href="https://104social-front-end.vercel.app/about" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  <span x-show="lang === 'zh'">線上展示</span><span x-show="lang === 'en'">Live Demo</span>
-                </a>
-                <a href="https://github.com/south-second-group/104social-front-end/tree/main" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-github"></i>
-                  Front-End
-                </a>
-                <a href="https://github.com/roceil/104_Backend/tree/main" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-github"></i>
-                  Back-End
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 專案 3 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-2">
-              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">LLM 應用助理</h3>
-              <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-medium">AI LLM</span>
-            </div>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              整合大語言模型的智慧對話助理，支援多輪記憶對話與即時串流響應。
-            </p>
-            <div class="mt-3 flex flex-wrap gap-1.5">
-              <span class="badge">Next.js</span>
-              <span class="badge">Redux</span>
-              <span class="badge">TypeScript</span>
-              <span class="badge">LLM API</span>
-            </div>
-          </div>
-          <div>
-            <!-- 展開按鈕 -->
-            <button
-              @click="open = !open"
-              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-            >
-              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-              <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-            </button>
-            <!-- 詳情 -->
-            <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                基於 Next.js (App Router) 架構開發，採用 Redux 進行對話歷史狀態追蹤，深度整合 LLM API。支援 Server-Sent Events (SSE) 實作流式傳輸、對話 Markdown 動態渲染、多主題管理及靈活的模型設定切換。
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <a href="https://patent-infringement-checker.onrender.com/" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  <span x-show="lang === 'zh'">線上展示</span><span x-show="lang === 'en'">Live Demo</span>
-                </a>
-                <a href="https://github.com/snowman12320/patent-infringement-checker" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-github"></i>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 專案 4 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-2">
-              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">內容資訊平台</h3>
-              <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-medium">SSR / SSG</span>
-            </div>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              基於 Nuxt 3 與 Firebase 雲端整合的高效能內容平台，大幅優化 SEO 搜尋排名。
-            </p>
-            <div class="mt-3 flex flex-wrap gap-1.5">
-              <span class="badge">Nuxt 3</span>
-              <span class="badge">TypeScript</span>
-              <span class="badge">Firebase</span>
-              <span class="badge">SEO 優化</span>
-            </div>
-          </div>
-          <div>
-            <!-- 展開按鈕 -->
-            <button
-              @click="open = !open"
-              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-            >
-              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-              <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-            </button>
-            <!-- 詳情 -->
-            <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                利用 Nuxt 3 卓越的伺服器端渲染 (SSR) 與靜態頁面生成 (SSG) 機制，極大提升首頁 LCP 載入速度與 SEO。後端串接 Firebase Cloud Firestore 儲存並即時更新資訊，並以 Firebase Authentication 建立安全的管理員後台系統。
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <a href="https://my-first-project-1110913.web.app/" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  <span x-show="lang === 'zh'">線上展示</span><span x-show="lang === 'en'">Live Demo</span>
-                </a>
-                <a href="https://github.com/snowman12320/F2E-nuxt3" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-github"></i>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 專案 5 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-2">
-              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">購物網站</h3>
-              <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium">SPA</span>
-            </div>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              具備完整購物車、商品多功能篩選、訂單與結帳流程的高流暢度電商專案。
-            </p>
-            <div class="mt-3 flex flex-wrap gap-1.5">
-              <span class="badge">Vue 3</span>
-              <span class="badge">Vite</span>
-              <span class="badge">Pinia</span>
-              <span class="badge">mitt (Event Bus)</span>
-            </div>
-          </div>
-          <div>
-            <!-- 展開按鈕 -->
-            <button
-              @click="open = !open"
-              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-            >
-              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-              <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
-            </button>
-            <!-- 詳情 -->
-            <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                以 Vite + Pinia 高速打包建構，實作電商核心的單頁面狀態同步。對非父子元件通訊導入 mitt (Event Bus) 事件發佈，並包含商品大圖檢視、多屬性分類即時過濾、購物車即時結算與安全的本地快取機制。
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <a href="https://snowman12320.github.io/jtown-cli/#/" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  <span x-show="lang === 'zh'">線上展示</span><span x-show="lang === 'en'">Live Demo</span>
-                </a>
-                <a href="https://github.com/snowman12320/jtown-vite" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-github"></i>
-                  Vite + Pinia
-                </a>
-                <a href="https://github.com/snowman12320/jtown-cli" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-github"></i>
-                  Vue CLI + mitt
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 專案 6 -->
-        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-2">
-              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">房價預測與查詢系統</h3>
-              <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-medium">Cloud & DB</span>
-            </div>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              結合 Python 後端、關聯式資料庫與雲端架構的實價登錄房價預測與查詢平台。
-            </p>
-            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="badge">Flask</span>
-              <span class="badge">MySQL</span>
+              <span class="badge">Firebase</span>
               <span class="badge">AWS</span>
-              <span class="badge">Python</span>
             </div>
           </div>
-          <div>
-            <!-- 展開按鈕 -->
+        </div>
+      </section>
+
+      <!-- ===================== EXPERIENCE ===================== -->
+      <section
+        id="experience"
+        class="reveal py-16 border-b border-gray-100 dark:border-gray-800"
+      >
+        <h2 class="section-title flex items-center gap-2">
+          <i class="fa-solid fa-briefcase text-blue-600 text-xl"></i>
+          <span x-show="lang === 'zh'">工作經歷</span>
+          <span x-show="lang === 'en'">Experience</span>
+        </h2>
+        <div class="space-y-6">
+          <!-- 經歷 1：永明金融 Sun Life -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                  <span x-show="lang === 'zh'">全端工程師</span>
+                  <span x-show="lang === 'en'">Full Stack Engineer</span>
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium">
+                  <span x-show="lang === 'zh'">永明金融（Sun Life）</span>
+                  <span x-show="lang === 'en'">Sun Life Financial</span>
+                </p>
+                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span x-show="lang === 'zh'">加拿大（遠端）</span>
+                  <span x-show="lang === 'en'">Canada (Remote)</span>
+                </p>
+              </div>
+              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
+                >2025/10 — 2026/04</span
+              >
+            </div>
+            <ul
+              x-show="lang === 'zh'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>
+                開發與維護 Sun Life 顧問入口網站，建構響應式 UI 元件並透過 BFF 架構串接 Advisor
+                API。
+              </li>
+              <li>處理單一登入（SSO）認證流程，管理登入重導向與角色權限控制（RBAC）。</li>
+              <li>
+                設計並執行後台管理功能，撰寫初始資料庫建置的 SQL 腳本，並實作 Umami 分析追蹤的
+                Action Log。
+              </li>
+              <li>管理跨環境 CI/CD 工作流程，處理 Dev 與 SIT 環境的部署與整合問題。</li>
+            </ul>
+            <ul
+              x-show="lang === 'en'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>
+                Develop and maintain the Sun Life Advisor Portal, building responsive UI components
+                and integrating Advisor APIs via BFF architecture.
+              </li>
+              <li>
+                Handle Single Sign-On (SSO) authentication workflows, managing login redirection
+                URLs and role-based access control.
+              </li>
+              <li>
+                Design and execute backend administrative features, writing SQL scripts for initial
+                database setups and implementing Action Logs with Umami analytics.
+              </li>
+              <li>
+                Manage cross-environment CI/CD workflows and deployments across Dev and SIT
+                environments.
+              </li>
+            </ul>
             <button
               @click="open = !open"
               class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
-              <i class="fa-solid fa-chevron-down transition-transform duration-200" :class="open ? 'rotate-180' : ''"></i>
-              <span x-show="lang === 'zh'" x-text="open ? '收合詳情' : '查看詳情'"></span><span x-show="lang === 'en'" x-text="open ? 'Collapse' : 'See Details'"></span>
+              <i
+                class="fa-solid fa-chevron-down transition-transform duration-200"
+                :class="open ? 'rotate-180' : ''"
+              ></i>
+              <span
+                x-show="lang === 'zh'"
+                x-text="open ? '收合詳情' : '查看詳情'"
+              ></span>
+              <span
+                x-show="lang === 'en'"
+                x-text="open ? 'Collapse' : 'See Details'"
+              ></span>
             </button>
-            <!-- 詳情 -->
-            <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                後端採用 Python Flask 架構，開立 RESTful API 提供房價查詢與模型預測功能。使用 MySQL 儲存大量的實價登錄歷史數據，並將整體系統安全部署於 AWS (EC2/RDS) 上，兼顧極佳的讀寫效能與系統可用性。
+            <div
+              x-show="open"
+              x-transition
+              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+            >
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                Tech Stack
               </p>
-              <div class="flex flex-wrap gap-3">
-                <a href="https://youtu.be/x5gwX4TgTUw" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-youtube"></i>
-                  <span x-show="lang === 'zh'">Demo 影片</span><span x-show="lang === 'en'">Demo Video</span>
-                </a>
-                <a href="https://github.com/snowman12320/AI_project2" target="_blank" rel="noopener"
-                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <i class="fa-brands fa-github"></i>
-                  GitHub
-                </a>
+              <div class="flex flex-wrap gap-2">
+                <span class="badge">Next.js</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">BFF Architecture</span>
+                <span class="badge">SSO / RBAC</span>
+                <span class="badge">SQL</span>
+                <span class="badge">Umami Analytics</span>
+                <span class="badge">Jira</span>
+                <span class="badge">CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 經歷 2：玩藝國際 Fun Show -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                  <span x-show="lang === 'zh'">軟體工程師</span>
+                  <span x-show="lang === 'en'">Software Engineer</span>
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium">
+                  <span x-show="lang === 'zh'">玩藝國際股份有限公司（Fun Show）</span>
+                  <span x-show="lang === 'en'">Fun Show International Co., Ltd.</span>
+                </p>
+                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span x-show="lang === 'zh'">台灣・臺南市（遠端）</span>
+                  <span x-show="lang === 'en'">Tainan, Taiwan</span>
+                </p>
+              </div>
+              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
+                >2024/02 — Present</span
+              >
+            </div>
+            <ul
+              x-show="lang === 'zh'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>開發具備即時串流、場景管理、連播 UI 與 OBS 整合的直播控制平台。</li>
+              <li>整合 Keycloak 認證與 Payuni 金流，實現訂閱方案的信用卡安全交易。</li>
+              <li>
+                透過 Server-Sent Events（SSE）實作即時通知，並以 Quasar Framework
+                開發無限捲動預覽元件。
+              </li>
+              <li>建立 Jenkins 自動化 CI/CD 建置管線，管理跨分支的生產環境部署。</li>
+              <li>撰寫單元測試，並以 Mock Service Worker（MSW）簡化 RESTful API 測試流程。</li>
+            </ul>
+            <ul
+              x-show="lang === 'en'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>
+                Develop a live broadcasting platform featuring real-time streaming, scenes
+                management, joint-streaming UI, and OBS integration.
+              </li>
+              <li>
+                Integrate Keycloak for authentication and Payuni payment gateways to secure credit
+                card processing for subscription plans.
+              </li>
+              <li>
+                Implement Server-Sent Events (SSE) for real-time notifications and infinite scroll
+                preview components using Quasar Framework.
+              </li>
+              <li>
+                Set up automated CI/CD build pipelines with Jenkins and manage cross-branch
+                deployments for production environments.
+              </li>
+              <li>
+                Write unit tests and leverage Mock Service Worker (MSW) to streamline RESTful API
+                testing.
+              </li>
+            </ul>
+            <button
+              @click="open = !open"
+              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              <i
+                class="fa-solid fa-chevron-down transition-transform duration-200"
+                :class="open ? 'rotate-180' : ''"
+              ></i>
+              <span
+                x-show="lang === 'zh'"
+                x-text="open ? '收合詳情' : '查看詳情'"
+              ></span>
+              <span
+                x-show="lang === 'en'"
+                x-text="open ? 'Collapse' : 'See Details'"
+              ></span>
+            </button>
+            <div
+              x-show="open"
+              x-transition
+              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+            >
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                Tech Stack
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="badge">Vue 3</span>
+                <span class="badge">Quasar Framework</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Keycloak</span>
+                <span class="badge">SSE</span>
+                <span class="badge">OBS Integration</span>
+                <span class="badge">Jenkins CI/CD</span>
+                <span class="badge">MSW</span>
+                <span class="badge">Vitest</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 經歷 3：數位因子 Digital Factor -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                  <span x-show="lang === 'zh'">全端工程師</span>
+                  <span x-show="lang === 'en'">Full Stack Engineer</span>
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium">
+                  <span x-show="lang === 'zh'">數位因子網路科技有限公司</span>
+                  <span x-show="lang === 'en'">Digital Factor Network Technology</span>
+                </p>
+                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span x-show="lang === 'zh'">台灣・臺南市（遠端）</span>
+                  <span x-show="lang === 'en'">Tainan, Taiwan</span>
+                </p>
+              </div>
+              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
+                >2024/02 — 2024/07</span
+              >
+            </div>
+            <ul
+              x-show="lang === 'zh'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>基於 LINE LIFF 框架開發電商後台系統。</li>
+              <li>整合 LINE Bot、LINE Login 與 LINE Notify，實現串接的訂單管理流程。</li>
+              <li>
+                使用 GitHub 進行任務管理與版本控制，並透過 Tag 標籤實現持續整合/部署（CI/CD）。
+              </li>
+            </ul>
+            <ul
+              x-show="lang === 'en'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>Developing an e-commerce backend system based on the LIFF framework.</li>
+              <li>
+                Features LINE Bot, LINE Login, and LINE Notify for streamlined order management.
+              </li>
+              <li>
+                Utilizes GitHub for task management and version control with tagging for CI/CD.
+              </li>
+            </ul>
+            <button
+              @click="open = !open"
+              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              <i
+                class="fa-solid fa-chevron-down transition-transform duration-200"
+                :class="open ? 'rotate-180' : ''"
+              ></i>
+              <span
+                x-show="lang === 'zh'"
+                x-text="open ? '收合詳情' : '查看詳情'"
+              ></span>
+              <span
+                x-show="lang === 'en'"
+                x-text="open ? 'Collapse' : 'See Details'"
+              ></span>
+            </button>
+            <div
+              x-show="open"
+              x-transition
+              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+            >
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                Tech Stack
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="badge">React</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">LINE LIFF</span>
+                <span class="badge">LINE Bot</span>
+                <span class="badge">LINE Login</span>
+                <span class="badge">LINE Notify</span>
+                <span class="badge">GitHub CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 經歷 4：國立成功大學 NCKU -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                  <span x-show="lang === 'zh'">前端工程師</span>
+                  <span x-show="lang === 'en'">Front-End Engineer</span>
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium">
+                  <span x-show="lang === 'zh'">國立成功大學</span>
+                  <span x-show="lang === 'en'">National Cheng Kung University (NCKU)</span>
+                </p>
+                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span x-show="lang === 'zh'">台灣・臺南市</span>
+                  <span x-show="lang === 'en'">Tainan, Taiwan</span>
+                </p>
+              </div>
+              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
+                >2023/09 — 2024/02</span
+              >
+            </div>
+            <ul
+              x-show="lang === 'zh'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>負責成功大學內部系統、活動網站、報表等跨領域前端專案的建構與維護。</li>
+              <li>
+                開發給予學校營養師使用的「食登2.0系統」，提供團膳電子菜單開立，以及相關食材、衛生稽核等表單的建立與編輯。
+              </li>
+              <li>
+                開發專為醫療人員設計之「慈濟報表」系統，呈現各項生化數據表單與病例表，提供清晰、安全的資訊界面。
+              </li>
+              <li>建置客服人員專用之「客服系統」，實現帳密維護、操作記錄及各項基礎設定功能。</li>
+              <li>維護公司及學校內部的資產與帳號相關管理系統，處理資產移轉、報廢、採購等流程。</li>
+            </ul>
+            <ul
+              x-show="lang === 'en'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>Development of backend menu system connected to a RESTful API.</li>
+              <li>
+                Features include forms, data tables, web page design, and user experience
+                improvements.
+              </li>
+              <li>
+                Use state management tools (Vuex / Pinia) to ensure data synchronization across
+                multiple pages.
+              </li>
+            </ul>
+            <button
+              @click="open = !open"
+              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              <i
+                class="fa-solid fa-chevron-down transition-transform duration-200"
+                :class="open ? 'rotate-180' : ''"
+              ></i>
+              <span
+                x-show="lang === 'zh'"
+                x-text="open ? '收合詳情' : '查看詳情'"
+              ></span>
+              <span
+                x-show="lang === 'en'"
+                x-text="open ? 'Collapse' : 'See Details'"
+              ></span>
+            </button>
+            <div
+              x-show="open"
+              x-transition
+              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+            >
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                Tech Stack
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="badge">Vue 2</span>
+                <span class="badge">Vue 3</span>
+                <span class="badge">Vuex</span>
+                <span class="badge">Pinia</span>
+                <span class="badge">PHP</span>
+                <span class="badge">Docker</span>
+                <span class="badge">HeidiSQL</span>
+                <span class="badge">XAMPP</span>
+                <span class="badge">RESTful API</span>
+              </div>
+              <div x-show="lang === 'zh'">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                  具體成果
+                </p>
+                <ul
+                  class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+                >
+                  <li>
+                    將繁雜的學校營養師和醫療生化數據流程，成功落實為響應式、高度模組化的網頁系統，減少人工作業時間達
+                    <span class="font-bold text-blue-600 dark:text-blue-400">50%</span>。
+                  </li>
+                  <li>
+                    與後端團隊合作緊密，利用
+                    <span class="font-bold text-blue-600 dark:text-blue-400">Docker</span>
+                    整合前後端開發環境，解決本地環境不一致的痛點。
+                  </li>
+                  <li>同時操作 Vue 2 與 Vue 3，進行架構上的優化與部分老舊系統的模組化重構。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                  <span x-show="lang === 'zh'">前端工程師</span>
+                  <span x-show="lang === 'en'">Front-End Engineer</span>
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium">
+                  <span x-show="lang === 'zh'">台灣國際網域</span>
+                  <span x-show="lang === 'en'">Taiwan International Domain</span>
+                </p>
+                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span x-show="lang === 'zh'">台灣・嘉義市</span>
+                  <span x-show="lang === 'en'">Chiayi, Taiwan</span>
+                </p>
+              </div>
+              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
+                >2022/11 — 2023/10</span
+              >
+            </div>
+            <ul
+              x-show="lang === 'zh'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>
+                使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與企業品牌形象網站。
+              </li>
+              <li>
+                串接 RESTful API，運用 ES5+ 語法、Webpack 打包建置、NPM 模組管理與 ESLint
+                維持程式碼高品質。
+              </li>
+              <li>負責精細網頁切圖，使用 HTML5 標籤與 CSS 選擇器，實現複雜表格與表單設計。</li>
+              <li>基於 Flexbox / Grid 及 RWD，建構跨平台無縫的響應式選單與圖形排版。</li>
+              <li>
+                熟練運用 Tailwind CSS 3 與 Bootstrap 5 設計系統（含 SCSS、Custom Config、Plugins）。
+              </li>
+            </ul>
+            <ul
+              x-show="lang === 'en'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>Proficient in Vue.js Options API for building SPAs.</li>
+              <li>
+                Experienced in JavaScript ES5+ syntax, plugins, and Webpack for module bundling.
+              </li>
+              <li>Development of responsive design with Flex/Grid and component implementation.</li>
+            </ul>
+            <button
+              @click="open = !open"
+              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              <i
+                class="fa-solid fa-chevron-down transition-transform duration-200"
+                :class="open ? 'rotate-180' : ''"
+              ></i>
+              <span
+                x-show="lang === 'zh'"
+                x-text="open ? '收合詳情' : '查看詳情'"
+              ></span>
+              <span
+                x-show="lang === 'en'"
+                x-text="open ? 'Collapse' : 'See Details'"
+              ></span>
+            </button>
+            <div
+              x-show="open"
+              x-transition
+              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+            >
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                Tech Stack
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="badge">Vue 2/3</span>
+                <span class="badge">Options API</span>
+                <span class="badge">Vue Router</span>
+                <span class="badge">Pinia</span>
+                <span class="badge">Tailwind CSS 3</span>
+                <span class="badge">Bootstrap 5</span>
+                <span class="badge">SCSS</span>
+                <span class="badge">Webpack</span>
+                <span class="badge">ESLint</span>
+              </div>
+              <div x-show="lang === 'zh'">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                  專案實績
+                </p>
+                <div class="text-sm text-gray-600 dark:text-gray-300 space-y-2">
+                  <p>
+                    <span class="font-bold text-gray-800 dark:text-gray-200">購物商城：</span
+                    >飾品購物網、手套專賣商城、畫作藝術交易平台、精緻點心商城。
+                  </p>
+                  <p>
+                    <span class="font-bold text-gray-800 dark:text-gray-200">品牌形象官網：</span
+                    >機車與機油產業形象網、建設公司官網、醫療與健康機構網站、設計工坊官網、旅館與住宿預訂網站。
+                  </p>
+                  <p>
+                    透過高度模組化元件開發、事件彙整和自訂 CSS
+                    套用，極大化提升開發與維護效率，使網頁架構簡潔洗鍊。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 經歷 6：壹立方數位科技 -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                  <span x-show="lang === 'zh'">前端工程師</span>
+                  <span x-show="lang === 'en'">Front-End Engineer</span>
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium">
+                  <span x-show="lang === 'zh'">壹立方數位科技</span>
+                  <span x-show="lang === 'en'">1Cube Digital Technology</span>
+                </p>
+                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span x-show="lang === 'zh'">台灣・臺南市</span>
+                  <span x-show="lang === 'en'">Tainan, Taiwan</span>
+                </p>
+              </div>
+              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
+                >2022/07 — 2022/09</span
+              >
+            </div>
+            <ul
+              x-show="lang === 'zh'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>維護與優化既有之大型電商舊專案，並主導開發資料視覺化圖表之新專案。</li>
+              <li>
+                使用 PHP（Laravel / CodeIgniter）與 Vue 框架，進行後端 API
+                設計、開立以及前後端串接整合。
+              </li>
+              <li>實作管理後台之帳號與權限管理、SMTP 信箱整合發信系統。</li>
+              <li>
+                開發 POS
+                系統之彈窗式增刪查改（CRUD）互動模組、優化購物車金流導向流程、並撰寫優化的資料庫資料篩選查詢。
+              </li>
+            </ul>
+            <ul
+              x-show="lang === 'en'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>
+                Maintained legacy e-commerce projects and developed new data visualization
+                dashboards.
+              </li>
+              <li>
+                Implemented API creation and integration using PHP (Laravel / CodeIgniter) and Vue.
+              </li>
+              <li>
+                Optimized POS CRUD operations, shopping cart payment flows, and backend permission
+                management.
+              </li>
+            </ul>
+            <button
+              @click="open = !open"
+              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              <i
+                class="fa-solid fa-chevron-down transition-transform duration-200"
+                :class="open ? 'rotate-180' : ''"
+              ></i>
+              <span
+                x-show="lang === 'zh'"
+                x-text="open ? '收合詳情' : '查看詳情'"
+              ></span>
+              <span
+                x-show="lang === 'en'"
+                x-text="open ? 'Collapse' : 'See Details'"
+              ></span>
+            </button>
+            <div
+              x-show="open"
+              x-transition
+              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+            >
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                Tech Stack
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="badge">Vue.js</span>
+                <span class="badge">PHP</span>
+                <span class="badge">Laravel</span>
+                <span class="badge">CodeIgniter</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">SMTP</span>
+                <span class="badge">Data Visualization</span>
+              </div>
+              <div x-show="lang === 'zh'">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                  具體成果
+                </p>
+                <ul
+                  class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+                >
+                  <li>
+                    重構購物車金流串接流程，顯著優化支付導向流程，降低因系統延遲導致的訂單流失率。
+                  </li>
+                  <li>
+                    運用 Vue
+                    配合視覺化圖表庫，將銷售報表與資料庫複雜的篩選資料轉換為清晰直觀的視覺化圖表，加速管理團隊的決策分析。
+                  </li>
+                  <li>跨足 PHP 後端開發，掌握 MVC 架構模式，提供優良的前後端無縫整合方案。</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
+      </section>
+      <!-- ===================== PROJECTS ===================== -->
+      <section
+        id="projects"
+        class="reveal py-16"
+      >
+        <h2 class="section-title flex items-center gap-2">
+          <i class="fa-solid fa-folder-open text-blue-600 text-xl"></i>
+          <span x-show="lang === 'zh'">個人專案</span>
+          <span x-show="lang === 'en'">Projects</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- 專案 1 -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">聊天平台</h3>
+                <span
+                  class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-medium"
+                  >LINE LIFF</span
+                >
+              </div>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                整合 LINE Front-End Framework (LIFF) 的即時通訊平台，支援無縫登入與即時雙向通訊。
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="badge">React</span>
+                <span class="badge">Redux</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">LINE LIFF</span>
+              </div>
+            </div>
+            <div>
+              <!-- 展開按鈕 -->
+              <button
+                @click="open = !open"
+                class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              >
+                <i
+                  class="fa-solid fa-chevron-down transition-transform duration-200"
+                  :class="open ? 'rotate-180' : ''"
+                ></i>
+                <span
+                  x-show="lang === 'zh'"
+                  x-text="open ? '收合詳情' : '查看詳情'"
+                ></span
+                ><span
+                  x-show="lang === 'en'"
+                  x-text="open ? 'Collapse' : 'See Details'"
+                ></span>
+              </button>
+              <!-- 詳情 -->
+              <div
+                x-show="open"
+                x-transition
+                class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+              >
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                  利用 React 與 TypeScript 構建，透過 LINE LIFF
+                  實現一鍵授權登入與使用者資料對齊，並結合 WebSockets
+                  達到低延遲、高穩定的雙向即時聊天室功能，大幅優化用戶在行動通訊軟體內的使用體驗。
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    href="https://react-yahoo-message.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span x-show="lang === 'zh'">線上展示</span
+                    ><span x-show="lang === 'en'">Live Demo</span>
+                  </a>
+                  <a
+                    href="https://github.com/snowman12320/react-yahoo-message"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      </div>
-    </section>
+          <!-- 專案 2 -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">交友網站</h3>
+                <span
+                  class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium"
+                  >Full-stack</span
+                >
+              </div>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                兼顧精美前端互動與高效能後端的社群交友平台，支援即時卡片配對與訊息聊天。
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="badge">Vue / React</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">Database</span>
+                <span class="badge">WebSockets</span>
+              </div>
+            </div>
+            <div>
+              <!-- 展開按鈕 -->
+              <button
+                @click="open = !open"
+                class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              >
+                <i
+                  class="fa-solid fa-chevron-down transition-transform duration-200"
+                  :class="open ? 'rotate-180' : ''"
+                ></i>
+                <span
+                  x-show="lang === 'zh'"
+                  x-text="open ? '收合詳情' : '查看詳情'"
+                ></span
+                ><span
+                  x-show="lang === 'en'"
+                  x-text="open ? 'Collapse' : 'See Details'"
+                ></span>
+              </button>
+              <!-- 詳情 -->
+              <div
+                x-show="open"
+                x-transition
+                class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+              >
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                  獨立負責前後端開發的交友社群專案。前端提供流暢的卡片滑動與即時 RWD
+                  匹配介面，後端建構基於 JWT 的安全使用者認證、資料庫匹配邏輯，並採用 WebSockets
+                  機制實現配對成功的即時一對一聊天。
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    href="https://104social-front-end.vercel.app/about"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span x-show="lang === 'zh'">線上展示</span
+                    ><span x-show="lang === 'en'">Live Demo</span>
+                  </a>
+                  <a
+                    href="https://github.com/south-second-group/104social-front-end/tree/main"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    Front-End
+                  </a>
+                  <a
+                    href="https://github.com/roceil/104_Backend/tree/main"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    Back-End
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  </main>
+          <!-- 專案 3 -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">LLM 應用助理</h3>
+                <span
+                  class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-medium"
+                  >AI LLM</span
+                >
+              </div>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                整合大語言模型的智慧對話助理，支援多輪記憶對話與即時串流響應。
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="badge">Next.js</span>
+                <span class="badge">Redux</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">LLM API</span>
+              </div>
+            </div>
+            <div>
+              <!-- 展開按鈕 -->
+              <button
+                @click="open = !open"
+                class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              >
+                <i
+                  class="fa-solid fa-chevron-down transition-transform duration-200"
+                  :class="open ? 'rotate-180' : ''"
+                ></i>
+                <span
+                  x-show="lang === 'zh'"
+                  x-text="open ? '收合詳情' : '查看詳情'"
+                ></span
+                ><span
+                  x-show="lang === 'en'"
+                  x-text="open ? 'Collapse' : 'See Details'"
+                ></span>
+              </button>
+              <!-- 詳情 -->
+              <div
+                x-show="open"
+                x-transition
+                class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+              >
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                  基於 Next.js (App Router) 架構開發，採用 Redux 進行對話歷史狀態追蹤，深度整合 LLM
+                  API。支援 Server-Sent Events (SSE) 實作流式傳輸、對話 Markdown
+                  動態渲染、多主題管理及靈活的模型設定切換。
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    href="https://patent-infringement-checker.onrender.com/"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span x-show="lang === 'zh'">線上展示</span
+                    ><span x-show="lang === 'en'">Live Demo</span>
+                  </a>
+                  <a
+                    href="https://github.com/snowman12320/patent-infringement-checker"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="border-t border-gray-200 dark:border-gray-800 py-6 text-center text-sm text-gray-400 dark:text-gray-600">
-    © <span x-text="new Date().getFullYear()"></span>
-    <span x-show="lang === 'zh'">陳威良 (William). 使用 Tailwind CSS v4 & Alpine.js 建構。</span>
-    <span x-show="lang === 'en'">William Chen. Built with Tailwind CSS v4 & Alpine.js.</span>
-  </footer>
+          <!-- 專案 4 -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">內容資訊平台</h3>
+                <span
+                  class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-medium"
+                  >SSR / SSG</span
+                >
+              </div>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                基於 Nuxt 3 與 Firebase 雲端整合的高效能內容平台，大幅優化 SEO 搜尋排名。
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="badge">Nuxt 3</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Firebase</span>
+                <span class="badge">SEO 優化</span>
+              </div>
+            </div>
+            <div>
+              <!-- 展開按鈕 -->
+              <button
+                @click="open = !open"
+                class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              >
+                <i
+                  class="fa-solid fa-chevron-down transition-transform duration-200"
+                  :class="open ? 'rotate-180' : ''"
+                ></i>
+                <span
+                  x-show="lang === 'zh'"
+                  x-text="open ? '收合詳情' : '查看詳情'"
+                ></span
+                ><span
+                  x-show="lang === 'en'"
+                  x-text="open ? 'Collapse' : 'See Details'"
+                ></span>
+              </button>
+              <!-- 詳情 -->
+              <div
+                x-show="open"
+                x-transition
+                class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+              >
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                  利用 Nuxt 3 卓越的伺服器端渲染 (SSR) 與靜態頁面生成 (SSG) 機制，極大提升首頁 LCP
+                  載入速度與 SEO。後端串接 Firebase Cloud Firestore 儲存並即時更新資訊，並以
+                  Firebase Authentication 建立安全的管理員後台系統。
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    href="https://my-first-project-1110913.web.app/"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span x-show="lang === 'zh'">線上展示</span
+                    ><span x-show="lang === 'en'">Live Demo</span>
+                  </a>
+                  <a
+                    href="https://github.com/snowman12320/F2E-nuxt3"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <!--
+          <!-- 專案 5 -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">購物網站</h3>
+                <span
+                  class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium"
+                  >SPA</span
+                >
+              </div>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                具備完整購物車、商品多功能篩選、訂單與結帳流程的高流暢度電商專案。
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="badge">Vue 3</span>
+                <span class="badge">Vite</span>
+                <span class="badge">Pinia</span>
+                <span class="badge">mitt (Event Bus)</span>
+              </div>
+            </div>
+            <div>
+              <!-- 展開按鈕 -->
+              <button
+                @click="open = !open"
+                class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              >
+                <i
+                  class="fa-solid fa-chevron-down transition-transform duration-200"
+                  :class="open ? 'rotate-180' : ''"
+                ></i>
+                <span
+                  x-show="lang === 'zh'"
+                  x-text="open ? '收合詳情' : '查看詳情'"
+                ></span
+                ><span
+                  x-show="lang === 'en'"
+                  x-text="open ? 'Collapse' : 'See Details'"
+                ></span>
+              </button>
+              <!-- 詳情 -->
+              <div
+                x-show="open"
+                x-transition
+                class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+              >
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                  以 Vite + Pinia 高速打包建構，實作電商核心的單頁面狀態同步。對非父子元件通訊導入
+                  mitt (Event Bus)
+                  事件發佈，並包含商品大圖檢視、多屬性分類即時過濾、購物車即時結算與安全的本地快取機制。
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    href="https://snowman12320.github.io/jtown-cli/#/"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span x-show="lang === 'zh'">線上展示</span
+                    ><span x-show="lang === 'en'">Live Demo</span>
+                  </a>
+                  <a
+                    href="https://github.com/snowman12320/jtown-vite"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    Vite + Pinia
+                  </a>
+                  <a
+                    href="https://github.com/snowman12320/jtown-cli"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    Vue CLI + mitt
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 專案 6 -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">
+                  房價預測與查詢系統
+                </h3>
+                <span
+                  class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-medium"
+                  >Cloud & DB</span
+                >
+              </div>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                結合 Python 後端、關聯式資料庫與雲端架構的實價登錄房價預測與查詢平台。
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="badge">Flask</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">AWS</span>
+                <span class="badge">Python</span>
+              </div>
+            </div>
+            <div>
+              <!-- 展開按鈕 -->
+              <button
+                @click="open = !open"
+                class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              >
+                <i
+                  class="fa-solid fa-chevron-down transition-transform duration-200"
+                  :class="open ? 'rotate-180' : ''"
+                ></i>
+                <span
+                  x-show="lang === 'zh'"
+                  x-text="open ? '收合詳情' : '查看詳情'"
+                ></span
+                ><span
+                  x-show="lang === 'en'"
+                  x-text="open ? 'Collapse' : 'See Details'"
+                ></span>
+              </button>
+              <!-- 詳情 -->
+              <div
+                x-show="open"
+                x-transition
+                class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+              >
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                  後端採用 Python Flask 架構，開立 RESTful API 提供房價查詢與模型預測功能。使用
+                  MySQL 儲存大量的實價登錄歷史數據，並將整體系統安全部署於 AWS (EC2/RDS)
+                  上，兼顧極佳的讀寫效能與系統可用性。
+                </p>
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    href="https://youtu.be/x5gwX4TgTUw"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-youtube"></i>
+                    <span x-show="lang === 'zh'">Demo 影片</span
+                    ><span x-show="lang === 'en'">Demo Video</span>
+                  </a>
+                  <a
+                    href="https://github.com/snowman12320/AI_project2"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer
+      class="border-t border-gray-200 dark:border-gray-800 py-6 text-center text-sm text-gray-400 dark:text-gray-600"
+    >
+      © <span x-text="new Date().getFullYear()"></span>
+      <span x-show="lang === 'zh'">陳威良 (William). 使用 Tailwind CSS v4 & Alpine.js 建構。</span>
+      <span x-show="lang === 'en'">William Chen. Built with Tailwind CSS v4 & Alpine.js.</span>
+    </footer>
+
+    <!--
     Lucide icon 初始化：
     - 主要由 theme.js app().init() 在 Alpine 掛載後執行 lucide.createIcons()
     - alpine:initialized 作為備援，確保任何情況下都能渲染
     - x-show 展開的詳情區塊：Alpine 展開時 display 從 none 變為 block，
       此時 icon 的 <svg> 已存在（由 createIcons 在初始化時已替換），不需重新呼叫
   -->
-  <script>
-    document.addEventListener('alpine:initialized', () => lucide.createIcons());
-  </script>
-
-</body>
+    <script>
+      document.addEventListener('alpine:initialized', () => lucide.createIcons());
+    </script>
+  </body>
 </html>
