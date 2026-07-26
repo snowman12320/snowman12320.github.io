@@ -1,0 +1,123 @@
+/* ================================================
+   styles.css — 履歷全域樣式
+   管理：Tailwind 設定、主題 token、共用 class、列印優化
+   ================================================ */
+
+/* Tailwind v4：啟用 class-based 深色模式 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* --------------------------------------------------
+   主題 Token
+   -------------------------------------------------- */
+@theme {
+  --color-primary:       #2563eb; /* blue-600 */
+  --color-primary-hover: #1d4ed8; /* blue-700 */
+  --color-primary-light: #3b82f6; /* blue-500 */
+
+  --color-surface:       #ffffff;
+  --color-surface-dark:  #030712; /* gray-950 */
+
+  --color-muted:         #6b7280; /* gray-500 */
+  --color-muted-dark:    #9ca3af; /* gray-400 */
+}
+
+/* --------------------------------------------------
+   全域基礎
+   -------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --------------------------------------------------
+   Lucide icon 尺寸對齊文字基線
+   -------------------------------------------------- */
+i[data-lucide] {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------
+   共用元件 class
+   -------------------------------------------------- */
+
+/* Badge — 技能標籤 */
+.badge {
+  @apply inline-block px-3 py-1 rounded-full text-sm font-medium
+         bg-blue-50  dark:bg-blue-900/30
+         text-blue-700 dark:text-blue-300
+         hover:bg-blue-100 dark:hover:bg-blue-800/50
+         hover:scale-105 transition-all cursor-default select-none;
+}
+
+/* Section 標題 */
+.section-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-gray-100
+         border-b-2 border-blue-600 pb-2 mb-8;
+}
+
+/* --------------------------------------------------
+   Scroll-reveal 進場動畫
+   -------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------
+   列印優化
+   -------------------------------------------------- */
+@media print {
+  /* 隱藏互動元素 */
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  /* 重設背景與文字色 */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Badge 列印版本 */
+  .badge {
+    border: 1px solid #2563eb;
+    background: white !important;
+    color: #2563eb !important;
+    transform: none !important;
+  }
+
+  /* 強制顯示 Alpine x-show 隱藏的詳情區塊 */
+  [x-show] {
+    display: block !important;
+  }
+
+  /* 取消進場動畫 */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* 避免區塊跨頁斷裂 */
+  section,
+  .no-break {
+    break-inside: avoid;
+  }
+
+  /* 移除陰影 */
+  * {
+    box-shadow: none !important;
+  }
+}

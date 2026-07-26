@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Chen — 軟體工程師</title>
+
+  <!-- 防 FOUC：在首次渲染前設定主題，避免深色模式閃爍 -->
+  <script>
+    (function () {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- 外部樣式（@theme、共用 class、列印優化） -->
+  <link rel="stylesheet" type="text/tailwindcss" href="styles.css" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Alpine.js v3 CDN（defer 確保在 DOM 解析後執行） -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- 獨立邏輯檔案（需在 Alpine 前載入，供 app() 呼叫） -->
+  <script src="reveal.js"></script>
+  <script src="theme.js"></script>
+</head>
+
+<body x-data="app()" :class="{ 'dark': isDark }">
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="#" class="text-lg font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
+        William Chen
+      </a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+        <a href="#skills"     class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">技能</a>
+        <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">工作經歷</a>
+        <a href="#projects"   class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">專案</a>
+      </nav>
+      <!-- 深色模式切換按鈕 -->
+      <button
+        @click="toggleDark()"
+        class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        :aria-label="isDark ? '切換為淺色模式' : '切換為深色模式'"
+      >
+        <i x-show="isDark"  data-lucide="sun"  class="w-5 h-5"></i>
+        <i x-show="!isDark" data-lucide="moon" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
+
+    <!-- ===================== HERO ===================== -->
+    <section id="hero" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100">
+            William Chen
+          </h1>
+          <p class="mt-2 text-xl font-medium text-blue-600 dark:text-blue-400">
+            全端軟體工程師
+          </p>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
+            5 年以上全端開發經驗，擅長 React / Node.js 生態系，熱衷於打造高效能、易維護的產品，
+            喜歡解決複雜問題並持續精進工程品質。
+          </p>
+        </div>
+      </div>
+
+      <!-- 聯絡資訊 -->
+      <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-600 dark:text-gray-400">
+        <!-- Email -->
+        <a href="mailto:william@example.com"
+           class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          william@example.com
+        </a>
+        <!-- 電話 -->
+        <a href="tel:+886912345678"
+           class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          +886 912-345-678
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/williamchen" target="_blank" rel="noopener"
+           class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
+          linkedin.com/in/williamchen
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com/williamchen" target="_blank" rel="noopener"
+           class="flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          github.com/williamchen
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
+      <h2 class="section-title">技能</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+
+        <!-- 前端 -->
+        <div>
+          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">前端</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">React</span>
+            <span class="badge">Next.js</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">Tailwind CSS</span>
+            <span class="badge">Vue.js</span>
+            <span class="badge">HTML / CSS</span>
+          </div>
+        </div>
+
+        <!-- 後端 -->
+        <div>
+          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">後端</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">Node.js</span>
+            <span class="badge">Express</span>
+            <span class="badge">NestJS</span>
+            <span class="badge">Python</span>
+            <span class="badge">FastAPI</span>
+            <span class="badge">GraphQL</span>
+          </div>
+        </div>
+
+        <!-- 資料庫 -->
+        <div>
+          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">資料庫</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">MongoDB</span>
+            <span class="badge">Redis</span>
+            <span class="badge">Prisma</span>
+          </div>
+        </div>
+
+        <!-- DevOps -->
+        <div>
+          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">DevOps</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">Docker</span>
+            <span class="badge">AWS</span>
+            <span class="badge">GitHub Actions</span>
+            <span class="badge">Nginx</span>
+            <span class="badge">Linux</span>
+          </div>
+        </div>
+
+        <!-- 工具 -->
+        <div>
+          <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">工具</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">Git</span>
+            <span class="badge">Figma</span>
+            <span class="badge">Jest</span>
+            <span class="badge">Vitest</span>
+            <span class="badge">Postman</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section id="experience" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
+      <h2 class="section-title">工作經歷</h2>
+      <div class="space-y-6">
+
+        <!-- 經歷 1 -->
+        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">資深前端工程師</h3>
+              <p class="text-blue-600 dark:text-blue-400 font-medium">台灣科技股份有限公司</p>
+            </div>
+            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2023/03 — 至今</span>
+          </div>
+          <ul class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+            <li>主導前端架構升級，將 CRA 遷移至 Next.js 14，首屏載入時間降低 40%</li>
+            <li>建立 Design Token 系統並整合 Storybook，提升跨團隊元件複用率</li>
+            <li>導入 React Query 管理伺服器狀態，消除重複 API 請求約 60%</li>
+            <li>Code Review 制度推廣，協助帶領 2 位初階工程師成長</li>
+          </ul>
+          <!-- 展開按鈕 -->
+          <button
+            @click="open = !open"
+            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          >
+            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <span x-text="open ? '收合詳情' : '查看詳情'"></span>
+          </button>
+          <!-- 詳情 -->
+          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">使用技術</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="badge">Next.js 14</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">React Query</span>
+              <span class="badge">Tailwind CSS</span>
+              <span class="badge">Storybook</span>
+              <span class="badge">GitHub Actions</span>
+            </div>
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果</p>
+            <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+              <li>首屏 LCP 從 <span class="font-bold text-blue-600 dark:text-blue-400">4.2s</span> 降至 <span class="font-bold text-blue-600 dark:text-blue-400">2.5s</span></li>
+              <li>元件庫收錄 <span class="font-bold text-blue-600 dark:text-blue-400">80+</span> 個共用元件，跨 3 個產品線複用</li>
+              <li>API 請求數每日減少約 <span class="font-bold text-blue-600 dark:text-blue-400">120 萬次</span>，節省 CDN 費用</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 經歷 2 -->
+        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">全端工程師</h3>
+              <p class="text-blue-600 dark:text-blue-400 font-medium">新創有限公司 StartupXYZ</p>
+            </div>
+            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2021/06 — 2023/02</span>
+          </div>
+          <ul class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+            <li>獨立開發電商後台系統，涵蓋訂單管理、庫存追蹤與報表功能</li>
+            <li>設計並實作 RESTful API，服務 B2B 客戶超過 50 家</li>
+            <li>建立 CI/CD Pipeline，將部署時間從 30 分鐘縮短至 5 分鐘</li>
+            <li>優化資料庫查詢，主要報表頁面回應時間降低 65%</li>
+          </ul>
+          <!-- 展開按鈕 -->
+          <button
+            @click="open = !open"
+            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          >
+            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <span x-text="open ? '收合詳情' : '查看詳情'"></span>
+          </button>
+          <!-- 詳情 -->
+          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">使用技術</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="badge">React</span>
+              <span class="badge">Node.js</span>
+              <span class="badge">Express</span>
+              <span class="badge">PostgreSQL</span>
+              <span class="badge">Redis</span>
+              <span class="badge">Docker</span>
+              <span class="badge">AWS EC2</span>
+            </div>
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果</p>
+            <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+              <li>後台系統服務 <span class="font-bold text-blue-600 dark:text-blue-400">50+</span> 家 B2B 客戶，月活躍用戶 <span class="font-bold text-blue-600 dark:text-blue-400">300+</span></li>
+              <li>部署時間從 <span class="font-bold text-blue-600 dark:text-blue-400">30 分鐘</span>縮短至 <span class="font-bold text-blue-600 dark:text-blue-400">5 分鐘</span></li>
+              <li>資料庫優化後，報表查詢回應從 <span class="font-bold text-blue-600 dark:text-blue-400">8s</span> 降至 <span class="font-bold text-blue-600 dark:text-blue-400">2.8s</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 經歷 3 -->
+        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">前端工程師</h3>
+              <p class="text-blue-600 dark:text-blue-400 font-medium">數位媒體股份有限公司</p>
+            </div>
+            <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">2020/07 — 2021/05</span>
+          </div>
+          <ul class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+            <li>參與新聞媒體平台前端開發，日均 PV 超過 100 萬</li>
+            <li>實作無限捲動與虛擬列表，提升長列表渲染效能</li>
+            <li>與 UI/UX 設計師密切合作，像素級還原設計稿</li>
+          </ul>
+          <!-- 展開按鈕 -->
+          <button
+            @click="open = !open"
+            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          >
+            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <span x-text="open ? '收合詳情' : '查看詳情'"></span>
+          </button>
+          <!-- 詳情 -->
+          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">使用技術</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="badge">Vue.js</span>
+              <span class="badge">Nuxt.js</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">SCSS</span>
+              <span class="badge">Webpack</span>
+            </div>
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">具體成果</p>
+            <ul class="space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+              <li>平台日均 PV <span class="font-bold text-blue-600 dark:text-blue-400">100 萬+</span>，無明顯效能瓶頸</li>
+              <li>虛擬列表實作，萬筆資料渲染幀率維持 <span class="font-bold text-blue-600 dark:text-blue-400">60fps</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects" class="reveal py-16">
+      <h2 class="section-title">個人專案</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <!-- 專案 1 -->
+        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">DevTrack</h3>
+            <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-medium">上線中</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            個人開發任務追蹤工具，支援看板視圖、時間記錄與 GitHub Issues 整合。
+          </p>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <span class="badge">Next.js</span>
+            <span class="badge">Prisma</span>
+            <span class="badge">PostgreSQL</span>
+          </div>
+          <!-- 展開按鈕 -->
+          <button
+            @click="open = !open"
+            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          >
+            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <span x-text="open ? '收合詳情' : '查看詳情'"></span>
+          </button>
+          <!-- 詳情 -->
+          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+              以 Next.js App Router + Server Actions 建構，使用 Prisma ORM 搭配 PostgreSQL。
+              支援拖拽排序看板、Pomodoro 計時器、GitHub OAuth 登入，並透過 Webhook 同步 Issues 狀態。
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="badge">Next.js 14</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Prisma</span>
+              <span class="badge">PostgreSQL</span>
+              <span class="badge">Tailwind CSS</span>
+              <span class="badge">GitHub OAuth</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/williamchen/devtrack" target="_blank" rel="noopener"
+                 class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                GitHub
+              </a>
+              <a href="https://devtrack.example.com" target="_blank" rel="noopener"
+                 class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 專案 2 -->
+        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">OpenChat API</h3>
+            <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium">開源</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            輕量 WebSocket 聊天室後端框架，支援房間管理、訊息持久化與水平擴展。
+          </p>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <span class="badge">Node.js</span>
+            <span class="badge">Socket.io</span>
+            <span class="badge">Redis</span>
+          </div>
+          <!-- 展開按鈕 -->
+          <button
+            @click="open = !open"
+            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          >
+            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <span x-text="open ? '收合詳情' : '查看詳情'"></span>
+          </button>
+          <!-- 詳情 -->
+          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+              使用 Socket.io + Redis Pub/Sub 實現多實例水平擴展，訊息透過 MongoDB 持久化。
+              提供 REST API 管理房間與用戶，附完整 TypeScript 型別定義與 Docker Compose 一鍵啟動。
+              GitHub Stars 累積 <span class="font-bold text-blue-600 dark:text-blue-400">380+</span>。
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="badge">Node.js</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Socket.io</span>
+              <span class="badge">Redis</span>
+              <span class="badge">MongoDB</span>
+              <span class="badge">Docker</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/williamchen/openchat-api" target="_blank" rel="noopener"
+                 class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 專案 3 -->
+        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">PriceRadar</h3>
+            <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-medium">Side Project</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            電商比價爬蟲 + 價格追蹤服務，支援 Email 降價通知與歷史走勢圖表。
+          </p>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <span class="badge">Python</span>
+            <span class="badge">FastAPI</span>
+            <span class="badge">Playwright</span>
+          </div>
+          <!-- 展開按鈕 -->
+          <button
+            @click="open = !open"
+            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          >
+            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <span x-text="open ? '收合詳情' : '查看詳情'"></span>
+          </button>
+          <!-- 詳情 -->
+          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+              Playwright 爬取 momo、PChome、蝦皮等平台，每日排程比價並存入 PostgreSQL。
+              FastAPI 提供查詢 API，前端以 Chart.js 繪製價格走勢，用戶可設定目標價格並接收 Email 通知。
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="badge">Python</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">Playwright</span>
+              <span class="badge">PostgreSQL</span>
+              <span class="badge">Chart.js</span>
+              <span class="badge">Celery</span>
+              <span class="badge">AWS SES</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/williamchen/priceradar" target="_blank" rel="noopener"
+                 class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 專案 4 -->
+        <div x-data="{ open: false }" class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">CLI Toolkit</h3>
+            <span class="shrink-0 text-xs px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-medium">開源</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            前端開發常用指令工具集，一鍵初始化專案、產生元件模板與 git commit 規範檢查。
+          </p>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <span class="badge">Node.js</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">npm</span>
+          </div>
+          <!-- 展開按鈕 -->
+          <button
+            @click="open = !open"
+            class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          >
+            <i data-lucide="chevron-down" :class="open ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-200"></i>
+            <span x-text="open ? '收合詳情' : '查看詳情'"></span>
+          </button>
+          <!-- 詳情 -->
+          <div x-show="open" x-transition class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+              使用 Commander.js 建構 CLI，支援互動式問答（Inquirer.js）產生 React / Vue 元件模板，
+              內建 Commitizen 規範與 Husky pre-commit hook 自動安裝。發布至 npm，週下載量 <span class="font-bold text-blue-600 dark:text-blue-400">1,200+</span>。
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="badge">Node.js</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Commander.js</span>
+              <span class="badge">Inquirer.js</span>
+              <span class="badge">Vitest</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/williamchen/cli-toolkit" target="_blank" rel="noopener"
+                 class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                GitHub
+              </a>
+              <a href="https://www.npmjs.com/package/cli-toolkit" target="_blank" rel="noopener"
+                 class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                npm
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-gray-200 dark:border-gray-800 py-6 text-center text-sm text-gray-400 dark:text-gray-600">
+    © <span x-text="new Date().getFullYear()"></span> William Chen. Built with Tailwind CSS v4 & Alpine.js.
+  </footer>
+
+  <!-- 初始化 Lucide icons（在 DOM 解析完成後執行） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+  </script>
+
+</body>
+</html>
