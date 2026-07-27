@@ -1,5 +1,20 @@
-# Vue 3 + TypeScript + Vite
+# William Resume (Vue 3 + Vite)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+個人履歷站已從單一 `index.html`（Alpine.js + Tailwind CDN）遷移為 Vue 3 + Vite + TypeScript 專案。
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 開發
+
+```bash
+npm install
+npm run dev
+```
+
+## 建置
+
+```bash
+npm run build
+```
+
+## 部署
+
+推送 `main` 分支後，GitHub Actions 會自動建置並部署 `dist/` 到 GitHub Pages。

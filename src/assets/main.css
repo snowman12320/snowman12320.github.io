@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.badge {
+  @apply inline-block px-3 py-1 rounded-full text-sm font-medium
+         bg-blue-50 dark:bg-blue-900/30
+         text-blue-700 dark:text-blue-300
+         hover:bg-blue-100 dark:hover:bg-blue-800/50
+         hover:scale-105 transition-all cursor-default select-none;
+}
+
+.section-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-gray-100
+         border-b-2 border-blue-600 pb-2 mb-8;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glightbox-clean .gslide-description {
+  background: rgb(0 0 0 / 75%) !important;
+  backdrop-filter: blur(4px);
+}
+
+.glightbox-clean .gdesc-inner .gslide-desc {
+  color: #f1f5f9 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+.glightbox-clean .gclose,
+.glightbox-clean .gnext,
+.glightbox-clean .gprev {
+  background: rgb(30 41 59 / 80%) !important;
+  border-radius: 9999px !important;
+}
+
+.glightbox-clean .gclose svg,
+.glightbox-clean .gnext svg,
+.glightbox-clean .gprev svg {
+  stroke: #f1f5f9 !important;
+}
+
+@media print {
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .badge {
+    border: 1px solid #2563eb;
+    background: #fff !important;
+    color: #2563eb !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  section,
+  .no-break {
+    break-inside: avoid;
+  }
+
+  * {
+    box-shadow: none !important;
+  }
+}
