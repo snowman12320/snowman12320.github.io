@@ -50,7 +50,7 @@ onMounted(() => {
       <FaIcon :icon="['fas', 'chevron-down']" class="transition-transform duration-200" :class="open ? 'rotate-180' : ''" />
       {{ open ? $t('common.collapse') : $t('common.details') }}
     </button>
-    <div v-if="open" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+    <div v-show="open" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">{{ $t('common.techStack') }}</p>
       <div class="flex flex-wrap gap-2">
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>

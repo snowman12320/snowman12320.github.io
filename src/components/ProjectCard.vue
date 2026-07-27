@@ -54,7 +54,7 @@ onMounted(() => {
         <FaIcon :icon="['fas', 'chevron-down']" class="transition-transform duration-200" :class="open ? 'rotate-180' : ''" />
         {{ open ? $t('common.collapse') : $t('common.details') }}
       </button>
-      <div v-if="open" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+      <div v-show="open" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
         <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
           {{ item.detailedDesc }}
         </p>
