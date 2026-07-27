@@ -160,6 +160,28 @@
         transform: translateY(0);
       }
 
+      /* GLightbox 描述文字對比優化 */
+      .glightbox-clean .gslide-description {
+        background: rgba(0, 0, 0, 0.75) !important;
+        backdrop-filter: blur(4px);
+      }
+      .glightbox-clean .gdesc-inner .gslide-desc {
+        color: #f1f5f9 !important;
+        font-size: 0.875rem !important;
+        line-height: 1.5 !important;
+      }
+      .glightbox-clean .gclose,
+      .glightbox-clean .gnext,
+      .glightbox-clean .gprev {
+        background: rgba(30, 41, 59, 0.8) !important;
+        border-radius: 9999px !important;
+      }
+      .glightbox-clean .gclose svg,
+      .glightbox-clean .gnext svg,
+      .glightbox-clean .gprev svg {
+        stroke: #f1f5f9 !important;
+      }
+
       /* 列印優化 */
       @media print {
         header,
@@ -197,7 +219,10 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
 
     <!-- GLightbox -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
     <!-- Font Awesome 6 Free CDN -->
@@ -509,14 +534,36 @@
               x-show="lang === 'zh'"
               class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
             >
-              <li><span class="font-semibold text-gray-800 dark:text-gray-200">系列主題：</span>iThome 鐵人賽 31 天技術專欄《我獨自開發 - 用 Supabase 打造全端應用》。</li>
-              <li><span class="font-semibold text-gray-800 dark:text-gray-200">全端技術棧：</span>以 Next.js + TypeScript + Tailwind CSS 為前端，搭配 Supabase 全家桶（PostgreSQL、Auth、Storage、Realtime、Edge Functions）。</li>
-              <li><span class="font-semibold text-gray-800 dark:text-gray-200">核心專案（來企排隊）實作：</span>
+              <li>
+                <span class="font-semibold text-gray-800 dark:text-gray-200">系列主題：</span>iThome
+                鐵人賽 31 天技術專欄《我獨自開發 - 用 Supabase 打造全端應用》。
+              </li>
+              <li>
+                <span class="font-semibold text-gray-800 dark:text-gray-200">全端技術棧：</span>以
+                Next.js + TypeScript + Tailwind CSS 為前端，搭配 Supabase
+                全家桶（PostgreSQL、Auth、Storage、Realtime、Edge Functions）。
+              </li>
+              <li>
+                <span class="font-semibold text-gray-800 dark:text-gray-200"
+                  >核心專案（來企排隊）實作：</span
+                >
                 <ul class="ml-5 mt-1 space-y-1 list-[circle] list-inside">
-                  <li><span class="font-medium">身分驗證與安全：</span>整合信箱登入與 Twilio SMS OTP 手機驗證，並設定 Row Level Security (RLS) 權限控管。</li>
-                  <li><span class="font-medium">即時通訊機制：</span>運用 Supabase Realtime 開發即時排隊人數自動廣播與用戶/店家專屬聊天室（useRealtimeChat Hook 封裝）。</li>
-                  <li><span class="font-medium">第三方服務串接：</span>整合 Resend 訂單通知信與 Google Maps API 地圖服務。</li>
-                  <li><span class="font-medium">CI/CD 自動化部署：</span>透過 Supabase CLI 與 GitHub Actions 實現從 Git Push 到雲端的自動化部署流程。</li>
+                  <li>
+                    <span class="font-medium">身分驗證與安全：</span>整合信箱登入與 Twilio SMS OTP
+                    手機驗證，並設定 Row Level Security (RLS) 權限控管。
+                  </li>
+                  <li>
+                    <span class="font-medium">即時通訊機制：</span>運用 Supabase Realtime
+                    開發即時排隊人數自動廣播與用戶/店家專屬聊天室（useRealtimeChat Hook 封裝）。
+                  </li>
+                  <li>
+                    <span class="font-medium">第三方服務串接：</span>整合 Resend 訂單通知信與 Google
+                    Maps API 地圖服務。
+                  </li>
+                  <li>
+                    <span class="font-medium">CI/CD 自動化部署：</span>透過 Supabase CLI 與 GitHub
+                    Actions 實現從 Git Push 到雲端的自動化部署流程。
+                  </li>
                 </ul>
               </li>
             </ul>
@@ -524,11 +571,28 @@
               x-show="lang === 'en'"
               class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
             >
-              <li>Authored a 31-day technical article series titled "Solo Development: Building Full-Stack Applications with Supabase" for the iThome Iron Man Competition.</li>
-              <li>Demonstrated modern full-stack architecture using Next.js, TypeScript, Tailwind CSS, and Supabase (PostgreSQL, Auth, Storage, Realtime, Edge Functions).</li>
-              <li>Architected a real-world store booking and queuing application, featuring multi-factor authentication (Email &amp; Twilio SMS OTP), Row Level Security (RLS) policies, and live queue status updates.</li>
-              <li>Implemented real-time features and integrations, leveraging Supabase Realtime for instant user-merchant messaging, alongside Resend email notifications and Google Maps API.</li>
-              <li>Established DevOps CI/CD automation, streamlining production deployments via Supabase CLI and GitHub Actions.</li>
+              <li>
+                Authored a 31-day technical article series titled "Solo Development: Building
+                Full-Stack Applications with Supabase" for the iThome Iron Man Competition.
+              </li>
+              <li>
+                Demonstrated modern full-stack architecture using Next.js, TypeScript, Tailwind CSS,
+                and Supabase (PostgreSQL, Auth, Storage, Realtime, Edge Functions).
+              </li>
+              <li>
+                Architected a real-world store booking and queuing application, featuring
+                multi-factor authentication (Email &amp; Twilio SMS OTP), Row Level Security (RLS)
+                policies, and live queue status updates.
+              </li>
+              <li>
+                Implemented real-time features and integrations, leveraging Supabase Realtime for
+                instant user-merchant messaging, alongside Resend email notifications and Google
+                Maps API.
+              </li>
+              <li>
+                Established DevOps CI/CD automation, streamlining production deployments via
+                Supabase CLI and GitHub Actions.
+              </li>
             </ul>
             <button
               @click="open = !open"
@@ -576,6 +640,7 @@
                   <a
                     href="images/ironman-supabase.png"
                     class="glightbox"
+                    data-gallery="ironman"
                     data-description="iThome 鐵人賽 Supabase 系列 — Google 搜尋收錄截圖"
                   >
                     <img
@@ -584,17 +649,30 @@
                       class="h-28 rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
                     />
                   </a>
+                  <a
+                    href="images/ironman-article-day30.png"
+                    class="glightbox"
+                    data-gallery="ironman"
+                    data-description="第三十關 — 來企排隊：Supabase CLI 部署上線完整指南（Day 30）"
+                  >
+                    <img
+                      src="images/ironman-article-day30.png"
+                      alt="鐵人賽第 30 天文章截圖"
+                      class="h-28 rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
+                    />
+                  </a>
                 </div>
               </div>
               <div class="flex flex-wrap gap-3 mt-4">
                 <a
-                  href="https://ithelp.ithome.com.tw/articles/10397064"
+                  href="https://ithelp.ithome.com.tw/users/20147822/ironman/8756"
                   target="_blank"
                   rel="noopener"
                   class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  <span x-show="lang === 'zh'">系列文章完結篇</span><span x-show="lang === 'en'">Article Final Chapter</span>
+                  <span x-show="lang === 'zh'">系列文章完結篇</span
+                  ><span x-show="lang === 'en'">Article Final Chapter</span>
                 </a>
               </div>
             </div>
@@ -629,9 +707,17 @@
               x-show="lang === 'zh'"
               class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
             >
-              <li>開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT 影像渲染。</li>
-              <li>設計資料庫 Schema 與 RESTful API 架構，從概念到部署交付可擴展的全端網頁應用程式。</li>
-              <li>建構模組化線上學習平台，整合 Vimeo API 進行視訊串流、OAuth 第三方認證及 IP 存取控制。</li>
+              <li>
+                開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT
+                影像渲染。
+              </li>
+              <li>
+                設計資料庫 Schema 與 RESTful API 架構，從概念到部署交付可擴展的全端網頁應用程式。
+              </li>
+              <li>
+                建構模組化線上學習平台，整合 Vimeo API 進行視訊串流、OAuth 第三方認證及 IP
+                存取控制。
+              </li>
               <li>於 Zeabur 與 Cloudways 等雲端基礎設施平台上部署與維護網頁應用程式。</li>
               <li>處理系統維護、Bug 修復與報價／帳款工作流程邏輯，並善用 AI 輔助提升開發效率。</li>
             </ul>
@@ -639,11 +725,26 @@
               x-show="lang === 'en'"
               class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
             >
-              <li>Develop medical system features, including patient record management, interactive charts, PDF compression, and 3D CT scan rendering using vtk.js.</li>
-              <li>Design database schemas and RESTful API architectures to deliver scalable full-stack web applications from concept to deployment.</li>
-              <li>Build modular online learning platforms, integrating Vimeo API for video streaming, OAuth for third-party authentication, and IP-based access control.</li>
-              <li>Deploy and maintain web applications across cloud infrastructure platforms, including Zeabur and Cloudways.</li>
-              <li>Manage system maintenance, bug fixes, and quote/billing workflow logic while leveraging AI-assisted prompting to boost development productivity.</li>
+              <li>
+                Develop medical system features, including patient record management, interactive
+                charts, PDF compression, and 3D CT scan rendering using vtk.js.
+              </li>
+              <li>
+                Design database schemas and RESTful API architectures to deliver scalable full-stack
+                web applications from concept to deployment.
+              </li>
+              <li>
+                Build modular online learning platforms, integrating Vimeo API for video streaming,
+                OAuth for third-party authentication, and IP-based access control.
+              </li>
+              <li>
+                Deploy and maintain web applications across cloud infrastructure platforms,
+                including Zeabur and Cloudways.
+              </li>
+              <li>
+                Manage system maintenance, bug fixes, and quote/billing workflow logic while
+                leveraging AI-assisted prompting to boost development productivity.
+              </li>
             </ul>
             <button
               @click="open = !open"
@@ -1343,6 +1444,33 @@
                   匹配介面，後端建構基於 JWT 的安全使用者認證、資料庫匹配邏輯，並採用 WebSockets
                   機制實現配對成功的即時一對一聊天。
                 </p>
+                <!-- 圖片燈箱縮圖 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                  <a
+                    href="images/dating-google-search.png"
+                    class="glightbox"
+                    data-gallery="dating"
+                    data-description="104緣來如此 — Google 搜尋收錄截圖"
+                  >
+                    <img
+                      src="images/dating-google-search.png"
+                      alt="104緣來如此 Google 搜尋收錄截圖"
+                      class="h-28 w-full rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
+                    />
+                  </a>
+                  <a
+                    href="images/dating-homepage-screenshot.png"
+                    class="glightbox"
+                    data-gallery="dating"
+                    data-description="104緣來如此 — 交友網站首頁截圖"
+                  >
+                    <img
+                      src="images/dating-homepage-screenshot.png"
+                      alt="104緣來如此 交友網站首頁截圖"
+                      class="h-28 w-full rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
+                    />
+                  </a>
+                </div>
                 <div class="flex flex-wrap gap-3">
                   <a
                     href="https://104social-front-end.vercel.app/about"
@@ -1353,6 +1481,16 @@
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     <span x-show="lang === 'zh'">線上展示</span
                     ><span x-show="lang === 'en'">Live Demo</span>
+                  </a>
+                  <a
+                    href="https://drive.google.com/file/d/1wmbvuyqTFCMzf2SSx8XV2MCyxRUAAl6l/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span x-show="lang === 'zh'">專案介紹</span
+                    ><span x-show="lang === 'en'">Project Intro</span>
                   </a>
                   <a
                     href="https://github.com/south-second-group/104social-front-end/tree/main"
