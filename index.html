@@ -505,11 +505,16 @@
               x-show="lang === 'zh'"
               class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
             >
-              <li>參與 iThome 鐵人賽，撰寫 31 天技術系列文章《Solo Development：以 Supabase 建構全端應用程式》。</li>
-              <li>示範使用 Next.js、TypeScript、Tailwind CSS 與 Supabase（PostgreSQL、Auth、Storage、Realtime、Edge Functions）的現代全端架構。</li>
-              <li>設計並實作真實世界的商店預約與排隊系統，具備多因素驗證（Email 與 Twilio SMS OTP）、Row Level Security（RLS）政策及即時排隊狀態更新。</li>
-              <li>運用 Supabase Realtime 實作即時用戶與商家訊息功能，並整合 Resend 郵件通知與 Google Maps API。</li>
-              <li>建立 DevOps CI/CD 自動化流程，透過 Supabase CLI 與 GitHub Actions 精簡正式環境部署。</li>
+              <li><span class="font-semibold text-gray-800 dark:text-gray-200">系列主題：</span>iThome 鐵人賽 31 天技術專欄《我獨自開發 - 用 Supabase 打造全端應用》。</li>
+              <li><span class="font-semibold text-gray-800 dark:text-gray-200">全端技術棧：</span>以 Next.js + TypeScript + Tailwind CSS 為前端，搭配 Supabase 全家桶（PostgreSQL、Auth、Storage、Realtime、Edge Functions）。</li>
+              <li><span class="font-semibold text-gray-800 dark:text-gray-200">核心專案（來企排隊）實作：</span>
+                <ul class="ml-5 mt-1 space-y-1 list-[circle] list-inside">
+                  <li><span class="font-medium">身分驗證與安全：</span>整合信箱登入與 Twilio SMS OTP 手機驗證，並設定 Row Level Security (RLS) 權限控管。</li>
+                  <li><span class="font-medium">即時通訊機制：</span>運用 Supabase Realtime 開發即時排隊人數自動廣播與用戶/店家專屬聊天室（useRealtimeChat Hook 封裝）。</li>
+                  <li><span class="font-medium">第三方服務串接：</span>整合 Resend 訂單通知信與 Google Maps API 地圖服務。</li>
+                  <li><span class="font-medium">CI/CD 自動化部署：</span>透過 Supabase CLI 與 GitHub Actions 實現從 Git Push 到雲端的自動化部署流程。</li>
+                </ul>
+              </li>
             </ul>
             <ul
               x-show="lang === 'en'"
@@ -556,6 +561,17 @@
                 <span class="badge">Resend</span>
                 <span class="badge">Google Maps API</span>
                 <span class="badge">GitHub Actions</span>
+              </div>
+              <div class="flex flex-wrap gap-3 mt-4">
+                <a
+                  href="https://ithelp.ithome.com.tw/articles/10397064"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span x-show="lang === 'zh'">系列文章完結篇</span><span x-show="lang === 'en'">Article Final Chapter</span>
+                </a>
               </div>
             </div>
           </div>
