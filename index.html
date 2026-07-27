@@ -318,7 +318,13 @@
         class="reveal py-16 border-b border-gray-100 dark:border-gray-800"
       >
         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-          <div>
+          <div class="flex items-start gap-5">
+            <img
+              src="images/avatar.png"
+              alt="陳威良 William 大頭照"
+              class="w-24 h-24 rounded-full object-cover object-top border-2 border-gray-200 dark:border-gray-700 shrink-0 shadow-sm"
+            />
+            <div>
             <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100">
               陳威良 William
             </h1>
@@ -355,6 +361,7 @@
               JavaScript/TypeScript ecosystems (Next.js, Nuxt.js, Vue.js, React.js) alongside
               backend integrations (Node.js, BFF Architecture, SQL, Docker).
             </p>
+            </div>
           </div>
         </div>
 
@@ -406,6 +413,215 @@
           <span x-show="lang === 'en'">Experience</span>
         </h2>
         <div class="space-y-6">
+          <!-- 經歷 3：恆遠數位行銷 -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                  <span x-show="lang === 'zh'">全端工程師</span>
+                  <span x-show="lang === 'en'">Full Stack Engineer</span>
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium">
+                  <span x-show="lang === 'zh'">恆遠數位行銷・自由職業</span>
+                  <span x-show="lang === 'en'">Hengyuan Digital Marketing · Freelance</span>
+                </p>
+                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span x-show="lang === 'zh'">遠端</span>
+                  <span x-show="lang === 'en'">Remote</span>
+                </p>
+              </div>
+              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
+                >2024/10 — Present</span
+              >
+            </div>
+            <ul
+              x-show="lang === 'zh'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>
+                開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT
+                影像渲染。
+              </li>
+              <li>
+                設計資料庫 Schema 與 RESTful API 架構，從概念到部署交付可擴展的全端網頁應用程式。
+              </li>
+              <li>
+                建構模組化線上學習平台，整合 Vimeo API 進行視訊串流、OAuth 第三方認證及 IP
+                存取控制。
+              </li>
+              <li>於 Zeabur 與 Cloudways 等雲端基礎設施平台上部署與維護網頁應用程式。</li>
+              <li>處理系統維護、Bug 修復與報價／帳款工作流程邏輯，並善用 AI 輔助提升開發效率。</li>
+            </ul>
+            <ul
+              x-show="lang === 'en'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>
+                Develop medical system features, including patient record management, interactive
+                charts, PDF compression, and 3D CT scan rendering using vtk.js.
+              </li>
+              <li>
+                Design database schemas and RESTful API architectures to deliver scalable full-stack
+                web applications from concept to deployment.
+              </li>
+              <li>
+                Build modular online learning platforms, integrating Vimeo API for video streaming,
+                OAuth for third-party authentication, and IP-based access control.
+              </li>
+              <li>
+                Deploy and maintain web applications across cloud infrastructure platforms,
+                including Zeabur and Cloudways.
+              </li>
+              <li>
+                Manage system maintenance, bug fixes, and quote/billing workflow logic while
+                leveraging AI-assisted prompting to boost development productivity.
+              </li>
+            </ul>
+            <button
+              @click="open = !open"
+              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              <i
+                class="fa-solid fa-chevron-down transition-transform duration-200"
+                :class="open ? 'rotate-180' : ''"
+              ></i>
+              <span
+                x-show="lang === 'zh'"
+                x-text="open ? '收合詳情' : '查看詳情'"
+              ></span>
+              <span
+                x-show="lang === 'en'"
+                x-text="open ? 'Collapse' : 'See Details'"
+              ></span>
+            </button>
+            <div
+              x-show="open"
+              x-transition
+              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+            >
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                Tech Stack
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="badge">Vue 3</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">RESTful API</span>
+                <span class="badge">vtk.js</span>
+                <span class="badge">Vimeo API</span>
+                <span class="badge">OAuth</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">Zeabur</span>
+                <span class="badge">Cloudways</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 經歷 3：玩藝國際 Fun Show -->
+          <div
+            x-data="{ open: false }"
+            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                  <span x-show="lang === 'zh'">軟體工程師</span>
+                  <span x-show="lang === 'en'">Software Engineer</span>
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium">
+                  <span x-show="lang === 'zh'">玩藝國際股份有限公司（Fun Show）</span>
+                  <span x-show="lang === 'en'">Fun Show International Co., Ltd.</span>
+                </p>
+                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span x-show="lang === 'zh'">台灣・臺南市（遠端）</span>
+                  <span x-show="lang === 'en'">Tainan, Taiwan</span>
+                </p>
+              </div>
+              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
+                >2024/02 — 2026/08</span
+              >
+            </div>
+            <ul
+              x-show="lang === 'zh'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>開發具備即時串流、場景管理、連播 UI 與 OBS 整合的直播控制平台。</li>
+              <li>整合 Keycloak 認證與 Payuni 金流，實現訂閱方案的信用卡安全交易。</li>
+              <li>
+                透過 Server-Sent Events（SSE）實作即時通知，並以 Quasar Framework
+                開發無限捲動預覽元件。
+              </li>
+              <li>建立 Jenkins 自動化 CI/CD 建置管線，管理跨分支的生產環境部署。</li>
+              <li>撰寫單元測試，並以 Mock Service Worker（MSW）簡化 RESTful API 測試流程。</li>
+            </ul>
+            <ul
+              x-show="lang === 'en'"
+              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
+            >
+              <li>
+                Develop a live broadcasting platform featuring real-time streaming, scenes
+                management, joint-streaming UI, and OBS integration.
+              </li>
+              <li>
+                Integrate Keycloak for authentication and Payuni payment gateways to secure credit
+                card processing for subscription plans.
+              </li>
+              <li>
+                Implement Server-Sent Events (SSE) for real-time notifications and infinite scroll
+                preview components using Quasar Framework.
+              </li>
+              <li>
+                Set up automated CI/CD build pipelines with Jenkins and manage cross-branch
+                deployments for production environments.
+              </li>
+              <li>
+                Write unit tests and leverage Mock Service Worker (MSW) to streamline RESTful API
+                testing.
+              </li>
+            </ul>
+            <button
+              @click="open = !open"
+              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            >
+              <i
+                class="fa-solid fa-chevron-down transition-transform duration-200"
+                :class="open ? 'rotate-180' : ''"
+              ></i>
+              <span
+                x-show="lang === 'zh'"
+                x-text="open ? '收合詳情' : '查看詳情'"
+              ></span>
+              <span
+                x-show="lang === 'en'"
+                x-text="open ? 'Collapse' : 'See Details'"
+              ></span>
+            </button>
+            <div
+              x-show="open"
+              x-transition
+              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
+            >
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                Tech Stack
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="badge">Vue 3</span>
+                <span class="badge">Quasar Framework</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Keycloak</span>
+                <span class="badge">SSE</span>
+                <span class="badge">OBS Integration</span>
+                <span class="badge">Jenkins CI/CD</span>
+                <span class="badge">MSW</span>
+                <span class="badge">Vitest</span>
+              </div>
+            </div>
+          </div>
+
           <!-- 經歷 1：永明金融 Sun Life -->
           <div
             x-data="{ open: false }"
@@ -674,215 +890,6 @@
                   <span x-show="lang === 'zh'">系列文章完結篇</span
                   ><span x-show="lang === 'en'">Article Final Chapter</span>
                 </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 經歷 3：恆遠數位行銷 -->
-          <div
-            x-data="{ open: false }"
-            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
-          >
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-              <div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
-                  <span x-show="lang === 'zh'">全端工程師</span>
-                  <span x-show="lang === 'en'">Full Stack Engineer</span>
-                </h3>
-                <p class="text-blue-600 dark:text-blue-400 font-medium">
-                  <span x-show="lang === 'zh'">恆遠數位行銷・自由職業</span>
-                  <span x-show="lang === 'en'">Hengyuan Digital Marketing · Freelance</span>
-                </p>
-                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <span x-show="lang === 'zh'">遠端</span>
-                  <span x-show="lang === 'en'">Remote</span>
-                </p>
-              </div>
-              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
-                >2024/10 — Present</span
-              >
-            </div>
-            <ul
-              x-show="lang === 'zh'"
-              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
-            >
-              <li>
-                開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT
-                影像渲染。
-              </li>
-              <li>
-                設計資料庫 Schema 與 RESTful API 架構，從概念到部署交付可擴展的全端網頁應用程式。
-              </li>
-              <li>
-                建構模組化線上學習平台，整合 Vimeo API 進行視訊串流、OAuth 第三方認證及 IP
-                存取控制。
-              </li>
-              <li>於 Zeabur 與 Cloudways 等雲端基礎設施平台上部署與維護網頁應用程式。</li>
-              <li>處理系統維護、Bug 修復與報價／帳款工作流程邏輯，並善用 AI 輔助提升開發效率。</li>
-            </ul>
-            <ul
-              x-show="lang === 'en'"
-              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
-            >
-              <li>
-                Develop medical system features, including patient record management, interactive
-                charts, PDF compression, and 3D CT scan rendering using vtk.js.
-              </li>
-              <li>
-                Design database schemas and RESTful API architectures to deliver scalable full-stack
-                web applications from concept to deployment.
-              </li>
-              <li>
-                Build modular online learning platforms, integrating Vimeo API for video streaming,
-                OAuth for third-party authentication, and IP-based access control.
-              </li>
-              <li>
-                Deploy and maintain web applications across cloud infrastructure platforms,
-                including Zeabur and Cloudways.
-              </li>
-              <li>
-                Manage system maintenance, bug fixes, and quote/billing workflow logic while
-                leveraging AI-assisted prompting to boost development productivity.
-              </li>
-            </ul>
-            <button
-              @click="open = !open"
-              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-            >
-              <i
-                class="fa-solid fa-chevron-down transition-transform duration-200"
-                :class="open ? 'rotate-180' : ''"
-              ></i>
-              <span
-                x-show="lang === 'zh'"
-                x-text="open ? '收合詳情' : '查看詳情'"
-              ></span>
-              <span
-                x-show="lang === 'en'"
-                x-text="open ? 'Collapse' : 'See Details'"
-              ></span>
-            </button>
-            <div
-              x-show="open"
-              x-transition
-              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
-            >
-              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
-                Tech Stack
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="badge">Vue 3</span>
-                <span class="badge">Node.js</span>
-                <span class="badge">RESTful API</span>
-                <span class="badge">vtk.js</span>
-                <span class="badge">Vimeo API</span>
-                <span class="badge">OAuth</span>
-                <span class="badge">MySQL</span>
-                <span class="badge">Zeabur</span>
-                <span class="badge">Cloudways</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 經歷 3：玩藝國際 Fun Show -->
-          <div
-            x-data="{ open: false }"
-            class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
-          >
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-              <div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
-                  <span x-show="lang === 'zh'">軟體工程師</span>
-                  <span x-show="lang === 'en'">Software Engineer</span>
-                </h3>
-                <p class="text-blue-600 dark:text-blue-400 font-medium">
-                  <span x-show="lang === 'zh'">玩藝國際股份有限公司（Fun Show）</span>
-                  <span x-show="lang === 'en'">Fun Show International Co., Ltd.</span>
-                </p>
-                <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <span x-show="lang === 'zh'">台灣・臺南市（遠端）</span>
-                  <span x-show="lang === 'en'">Tainan, Taiwan</span>
-                </p>
-              </div>
-              <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0"
-                >2024/02 — Present</span
-              >
-            </div>
-            <ul
-              x-show="lang === 'zh'"
-              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
-            >
-              <li>開發具備即時串流、場景管理、連播 UI 與 OBS 整合的直播控制平台。</li>
-              <li>整合 Keycloak 認證與 Payuni 金流，實現訂閱方案的信用卡安全交易。</li>
-              <li>
-                透過 Server-Sent Events（SSE）實作即時通知，並以 Quasar Framework
-                開發無限捲動預覽元件。
-              </li>
-              <li>建立 Jenkins 自動化 CI/CD 建置管線，管理跨分支的生產環境部署。</li>
-              <li>撰寫單元測試，並以 Mock Service Worker（MSW）簡化 RESTful API 測試流程。</li>
-            </ul>
-            <ul
-              x-show="lang === 'en'"
-              class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside"
-            >
-              <li>
-                Develop a live broadcasting platform featuring real-time streaming, scenes
-                management, joint-streaming UI, and OBS integration.
-              </li>
-              <li>
-                Integrate Keycloak for authentication and Payuni payment gateways to secure credit
-                card processing for subscription plans.
-              </li>
-              <li>
-                Implement Server-Sent Events (SSE) for real-time notifications and infinite scroll
-                preview components using Quasar Framework.
-              </li>
-              <li>
-                Set up automated CI/CD build pipelines with Jenkins and manage cross-branch
-                deployments for production environments.
-              </li>
-              <li>
-                Write unit tests and leverage Mock Service Worker (MSW) to streamline RESTful API
-                testing.
-              </li>
-            </ul>
-            <button
-              @click="open = !open"
-              class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-            >
-              <i
-                class="fa-solid fa-chevron-down transition-transform duration-200"
-                :class="open ? 'rotate-180' : ''"
-              ></i>
-              <span
-                x-show="lang === 'zh'"
-                x-text="open ? '收合詳情' : '查看詳情'"
-              ></span>
-              <span
-                x-show="lang === 'en'"
-                x-text="open ? 'Collapse' : 'See Details'"
-              ></span>
-            </button>
-            <div
-              x-show="open"
-              x-transition
-              class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700"
-            >
-              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
-                Tech Stack
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="badge">Vue 3</span>
-                <span class="badge">Quasar Framework</span>
-                <span class="badge">TypeScript</span>
-                <span class="badge">Keycloak</span>
-                <span class="badge">SSE</span>
-                <span class="badge">OBS Integration</span>
-                <span class="badge">Jenkins CI/CD</span>
-                <span class="badge">MSW</span>
-                <span class="badge">Vitest</span>
               </div>
             </div>
           </div>
