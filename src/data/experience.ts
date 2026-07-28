@@ -6,7 +6,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '恆遠數位行銷・自由職業', en: 'Hengyuan Digital Marketing · Freelance' },
     location: { zh: '遠端', en: 'Remote' },
-    period: '2024/10 — Present',
+    period: '2024/10 — Present (1y 9m)',
     bullets: {
       zh: [
         '開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT 影像渲染。',
@@ -54,7 +54,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '永明金融（Sun Life）', en: 'Sun Life Financial' },
     location: { zh: '加拿大（遠端）', en: 'Canada (Remote)' },
-    period: '2025/10 — 2026/04',
+    period: '2025/10 — 2026/04 (6m)',
     bullets: {
       zh: [
         '開發與維護 Sun Life 顧問入口網站，建構響應式 UI 元件並透過 BFF 架構串接 Advisor API。',
@@ -120,7 +120,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '數位因子網路科技有限公司', en: 'Digital Factor Network Technology' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
-    period: '2024/02 — 2024/07',
+    period: '2024/02 — 2024/07 (5m)',
     bullets: {
       zh: [
         '基於 LINE LIFF 框架開發電商後台系統。',
@@ -140,7 +140,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
     company: { zh: '國立成功大學', en: 'National Cheng Kung University (NCKU)' },
     location: { zh: '台灣・臺南市', en: 'Tainan, Taiwan' },
-    period: '2023/09 — 2024/02',
+    period: '2023/09 — 2024/02 (5m)',
     bullets: {
       zh: [
         '負責成功大學內部系統、活動網站、報表等跨領域前端專案的建構與維護。',
@@ -162,7 +162,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
     company: { zh: '台灣國際網域', en: 'Taiwan International Domain' },
     location: { zh: '台灣・嘉義市', en: 'Chiayi, Taiwan' },
-    period: '2022/11 — 2023/10',
+    period: '2022/11 — 2023/10 (11m)',
     bullets: {
       zh: [
         '使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與企業品牌形象網站。',
@@ -184,7 +184,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
     company: { zh: '壹立方數位科技', en: '1Cube Digital Technology' },
     location: { zh: '台灣・臺南市', en: 'Tainan, Taiwan' },
-    period: '2022/07 — 2022/09',
+    period: '2022/07 — 2022/09 (2m)',
     bullets: {
       zh: [
         '維護與優化既有之大型電商舊專案，並主導開發資料視覺化圖表之新專案。',
