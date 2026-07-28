@@ -9,7 +9,7 @@ export default {
     title: '軟體工程師',
     location: '台灣・臺南市',
     summary:
-      '擁有豐富的前端與全端開發經驗，曾參與企業級入口網站、即時直播平台與電商系統開發，熟悉 Vue / React 生態與後端整合。',
+      '擁有豐富的前端與全端開發經驗，曾參與企業級入口網站、即時直播平台與電商系統的開發，服務橫跨台灣與加拿大的遠端團隊。擅長 Vue.js、React.js、Next.js、Nuxt.js 等現代 JavaScript / TypeScript 技術棧，並具備 Node.js、BFF 架構、SQL 與 Docker 等後端整合能力。',
   },
   common: {
     liveDemo: '線上展示',
