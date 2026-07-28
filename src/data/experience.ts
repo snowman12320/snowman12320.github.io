@@ -118,9 +118,9 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'digital-factor',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '數位因子網路科技有限公司', en: 'Digital Factor Network Technology' },
+    company: { zh: '數位因子網路科技有限公司 · 兼職', en: 'Digital Factor Network Technology · Part-time' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
-    period: '2024/02 — 2024/07 (6m)',
+    period: '2023/10 — 2024/03 (6m)',
     bullets: {
       zh: [
         '基於 LINE LIFF 框架開發電商後台系統。',
