@@ -137,7 +137,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'career-break-104social',
-    position: { zh: '職涯空檔／全端專案訓練', en: 'Career Break / Full-Stack Project Training' },
+    position: { zh: '職涯空檔', en: 'Career Break' },
     company: { zh: '個人職涯訓練', en: 'Personal Career Development' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/02 — 2024/07 (6m)',
@@ -173,7 +173,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'career-break-certified-tutor',
-    position: { zh: '職涯空檔／認證導師培訓', en: 'Career Break / Certified Tutor Training' },
+    position: { zh: '職涯空檔', en: 'Career Break' },
     company: { zh: '個人職涯訓練', en: 'Personal Career Development' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/08 — 2024/10 (3m)',
