@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import GLightbox from 'glightbox'
-import { nextTick, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import type { ProjectItem } from '../types'
 
 const { item, lang } = defineProps<{
@@ -23,6 +23,13 @@ const linkIcon = (icon: string) => {
   if (icon === 'youtube') return ['fab', 'youtube'] as const
   return ['fas', 'arrow-up-right-from-square'] as const
 }
+
+const detailPoints = computed(() =>
+  item.detailedDesc
+    .split(/；|。\s*|\. (?=[A-Z])/)
+    .map((line) => line.trim())
+    .filter(Boolean),
+)
 
 const closeModal = () => {
   open.value = false
@@ -101,25 +108,27 @@ document.addEventListener('keydown', handleEsc)
         </div>
 
         <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-            {{ item.detailedDesc }}
-          </p>
+          <ul class="mb-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+            <li v-for="point in detailPoints" :key="point">{{ point }}</li>
+          </ul>
 
-          <div v-if="item.gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+          <div v-if="item.gallery" class="mb-4">
+            <div class="flex gap-3 overflow-x-auto pb-1">
             <a
               v-for="image in item.gallery.images"
               :key="image.src"
               :href="image.src"
-              class="glightbox"
+              class="glightbox shrink-0"
               :data-gallery="item.gallery.id"
               :data-description="image.description"
             >
               <img
                 :src="image.src"
                 :alt="image.alt"
-                class="h-32 w-full rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
+                class="h-24 w-40 rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
               />
             </a>
+            </div>
           </div>
 
           <div class="flex flex-wrap gap-3">
