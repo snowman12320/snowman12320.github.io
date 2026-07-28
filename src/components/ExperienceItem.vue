@@ -40,17 +40,17 @@ onMounted(() => {
       </div>
       <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">{{ item.period }}</span>
     </div>
-    <ul class="mt-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-      <li v-for="bullet in bullets" :key="bullet">{{ bullet }}</li>
-    </ul>
     <button
-      class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+      class="no-print mt-4 w-full flex items-center justify-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+      :aria-label="open ? $t('common.collapse') : $t('common.details')"
       @click="open = !open"
     >
-      <FaIcon :icon="['fas', 'chevron-down']" class="transition-transform duration-200" :class="open ? 'rotate-180' : ''" />
-      {{ open ? $t('common.collapse') : $t('common.details') }}
+      <FaIcon :icon="['fas', 'chevron-down']" class="text-base transition-transform duration-200" :class="open ? 'rotate-180' : ''" />
     </button>
     <div v-show="open" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+      <ul class="mb-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+        <li v-for="bullet in bullets" :key="bullet">{{ bullet }}</li>
+      </ul>
       <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">{{ $t('common.techStack') }}</p>
       <div class="flex flex-wrap gap-2">
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
