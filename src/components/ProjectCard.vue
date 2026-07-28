@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import GLightbox from 'glightbox'
-import { onMounted, ref } from 'vue'
+import { nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import type { ProjectItem } from '../types'
 
 const { item, lang } = defineProps<{
@@ -9,6 +9,7 @@ const { item, lang } = defineProps<{
 }>()
 
 const open = ref(false)
+let lightbox: ReturnType<typeof GLightbox> | null = null
 
 const categoryColorClass = {
   blue: 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
@@ -23,9 +24,31 @@ const linkIcon = (icon: string) => {
   return ['fas', 'arrow-up-right-from-square'] as const
 }
 
-onMounted(() => {
-  GLightbox({ selector: '.glightbox' })
+const closeModal = () => {
+  open.value = false
+}
+
+const handleEsc = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && open.value) closeModal()
+}
+
+watch(open, async (isOpen) => {
+  document.body.classList.toggle('overflow-hidden', isOpen)
+
+  if (isOpen) {
+    await nextTick()
+    lightbox?.destroy()
+    lightbox = GLightbox({ selector: '.glightbox' })
+  }
 })
+
+onBeforeUnmount(() => {
+  document.body.classList.remove('overflow-hidden')
+  document.removeEventListener('keydown', handleEsc)
+  lightbox?.destroy()
+})
+
+document.addEventListener('keydown', handleEsc)
 </script>
 
 <template>
@@ -48,48 +71,72 @@ onMounted(() => {
     </div>
     <div>
       <button
-        class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-        @click="open = !open"
+        class="no-print mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+        @click="open = true"
       >
-        <FaIcon :icon="['fas', 'chevron-down']" class="transition-transform duration-200" :class="open ? 'rotate-180' : ''" />
-        {{ open ? $t('common.collapse') : $t('common.details') }}
+        <FaIcon :icon="['fas', 'arrow-up-right-from-square']" />
+        {{ $t('common.details') }}
       </button>
-      <div v-show="open" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-          {{ item.detailedDesc }}
-        </p>
-
-        <div v-if="item.gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <a
-            v-for="image in item.gallery.images"
-            :key="image.src"
-            :href="image.src"
-            class="glightbox"
-            :data-gallery="item.gallery.id"
-            :data-description="image.description"
-          >
-            <img
-              :src="image.src"
-              :alt="image.alt"
-              class="h-28 w-full rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
-            />
-          </a>
-        </div>
-
-        <div class="flex flex-wrap gap-3">
-          <a
-            v-for="link in item.links"
-            :key="link.url"
-            :href="link.url"
-            target="_blank"
-            rel="noopener"
-            class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-          >
-            <FaIcon :icon="linkIcon(link.icon)" />
-            {{ lang === 'zh' ? link.label.zh : link.label.en }}
-          </a>
-        </div>
-      </div>
     </div>
   </div>
+
+  <Teleport to="body">
+    <div v-if="open" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      <button class="absolute inset-0 bg-black/70 backdrop-blur-[1px]" aria-label="Close modal" @click="closeModal" />
+      <section
+        class="relative w-full max-w-4xl max-h-[88vh] overflow-y-auto rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5 sm:p-6 shadow-2xl"
+      >
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ item.name }}</h3>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category }}</p>
+          </div>
+          <button
+            class="p-2 rounded-lg text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Close modal"
+            @click="closeModal"
+          >
+            <FaIcon :icon="['fas', 'xmark']" />
+          </button>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            {{ item.detailedDesc }}
+          </p>
+
+          <div v-if="item.gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+            <a
+              v-for="image in item.gallery.images"
+              :key="image.src"
+              :href="image.src"
+              class="glightbox"
+              :data-gallery="item.gallery.id"
+              :data-description="image.description"
+            >
+              <img
+                :src="image.src"
+                :alt="image.alt"
+                class="h-32 w-full rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
+              />
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <a
+              v-for="link in item.links"
+              :key="link.url"
+              :href="link.url"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              <FaIcon :icon="linkIcon(link.icon)" />
+              {{ lang === 'zh' ? link.label.zh : link.label.en }}
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </Teleport>
 </template>

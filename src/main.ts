@@ -19,6 +19,7 @@ import {
   faPlug,
   faServer,
   faSun,
+  faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faReact, faVuejs, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import App from './App.vue'
@@ -46,6 +47,7 @@ library.add(
   faReact,
   faServer,
   faSun,
+  faXmark,
   faVuejs,
   faYoutube,
 )
