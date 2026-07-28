@@ -4,7 +4,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'hengyuan-freelance',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '恆遠數位行銷・自由職業', en: 'Hengyuan Digital Marketing · Freelance' },
+    company: { zh: '恆遠數位行銷', en: 'Hengyuan Digital Marketing · Freelance' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/10 — Present (1y 10m)',
     bullets: {
@@ -27,7 +27,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'fun-show',
-    position: { zh: '軟體工程師', en: 'Software Engineer' },
+    position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '玩藝國際股份有限公司（Fun Show）', en: 'Fun Show International Co., Ltd.' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
     period: '2024/02 — 2026/08 (2y 7m)',
@@ -118,7 +118,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'digital-factor',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '數位因子網路科技有限公司 · 兼職', en: 'Digital Factor Network Technology · Part-time' },
+    company: { zh: '數位因子網路科技有限公司 ', en: 'Digital Factor Network Technology · Part-time' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
     period: '2023/10 — 2024/03 (6m)',
     bullets: {

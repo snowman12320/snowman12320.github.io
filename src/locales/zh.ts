@@ -5,7 +5,7 @@ export default {
     skills: '技能',
   },
   profile: {
-    name: '陳威良 (William)',
+    name: '陳威良 William',
     title: '軟體工程師',
     location: '台灣・臺南市',
     summary:
@@ -30,5 +30,5 @@ export default {
     projects: '個人專案',
     skills: '技能',
   },
-  footer: '陳威良 (William). Built with Vue 3 + Vite + Tailwind CSS.',
+  footer: '陳威良 William. Built with Vue 3 + Vite + Tailwind CSS.',
 }
