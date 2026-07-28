@@ -6,7 +6,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '恆遠數位行銷・自由職業', en: 'Hengyuan Digital Marketing · Freelance' },
     location: { zh: '遠端', en: 'Remote' },
-    period: '2024/10 — Present (1y 9m)',
+    period: '2024/10 — Present (1y 10m)',
     bullets: {
       zh: [
         '開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT 影像渲染。',
@@ -30,7 +30,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '軟體工程師', en: 'Software Engineer' },
     company: { zh: '玩藝國際股份有限公司（Fun Show）', en: 'Fun Show International Co., Ltd.' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
-    period: '2024/02 — 2026/08 (2y 6m)',
+    period: '2024/02 — 2026/08 (2y 7m)',
     bullets: {
       zh: [
         '開發具備即時串流、場景管理、連播 UI 與 OBS 整合的直播控制平台。',
@@ -54,7 +54,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '永明金融（Sun Life）', en: 'Sun Life Financial' },
     location: { zh: '加拿大（遠端）', en: 'Canada (Remote)' },
-    period: '2025/10 — 2026/04 (6m)',
+    period: '2025/10 — 2026/04 (7m)',
     bullets: {
       zh: [
         '開發與維護 Sun Life 顧問入口網站，建構響應式 UI 元件並透過 BFF 架構串接 Advisor API。',
@@ -76,7 +76,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '鐵人賽系列文章作者', en: 'Ironman Series Author' },
     company: { zh: '個人職涯訓練・職涯空檔', en: 'Personal Career Development · Career Break' },
     location: { zh: '遠端', en: 'Remote' },
-    period: '2025/07 — 2025/09',
+    period: '2025/07 — 2025/09 (3m)',
     bullets: {
       zh: [
         '系列主題：iThome 鐵人賽 31 天技術專欄《我獨自開發 - 用 Supabase 打造全端應用》。',
@@ -120,7 +120,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '數位因子網路科技有限公司', en: 'Digital Factor Network Technology' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
-    period: '2024/02 — 2024/07 (5m)',
+    period: '2024/02 — 2024/07 (6m)',
     bullets: {
       zh: [
         '基於 LINE LIFF 框架開發電商後台系統。',
@@ -140,7 +140,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
     company: { zh: '國立成功大學', en: 'National Cheng Kung University (NCKU)' },
     location: { zh: '台灣・臺南市', en: 'Tainan, Taiwan' },
-    period: '2023/09 — 2024/02 (5m)',
+    period: '2023/09 — 2024/02 (6m)',
     bullets: {
       zh: [
         '負責成功大學內部系統、活動網站、報表等跨領域前端專案的建構與維護。',
@@ -162,7 +162,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
     company: { zh: '台灣國際網域', en: 'Taiwan International Domain' },
     location: { zh: '台灣・嘉義市', en: 'Chiayi, Taiwan' },
-    period: '2022/11 — 2023/10 (11m)',
+    period: '2022/11 — 2023/10 (1y)',
     bullets: {
       zh: [
         '使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與企業品牌形象網站。',
@@ -184,7 +184,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
     company: { zh: '壹立方數位科技', en: '1Cube Digital Technology' },
     location: { zh: '台灣・臺南市', en: 'Tainan, Taiwan' },
-    period: '2022/07 — 2022/09 (2m)',
+    period: '2022/07 — 2022/09 (3m)',
     bullets: {
       zh: [
         '維護與優化既有之大型電商舊專案，並主導開發資料視覺化圖表之新專案。',
