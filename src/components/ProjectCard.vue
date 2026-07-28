@@ -73,12 +73,12 @@ watch(open, async (isOpen) => {
       <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category }}</p>
     </div>
 
-    <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-      <ul class="mb-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+    <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+      <ul class="mb-6 space-y-2.5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed list-disc list-inside">
         <li v-for="point in detailPoints" :key="point">{{ point }}</li>
       </ul>
 
-      <div v-if="item.gallery" class="mb-4">
+      <div v-if="item.gallery" class="mb-6">
         <div class="flex gap-3 overflow-x-auto pb-1">
           <a
             v-for="image in item.gallery.images"

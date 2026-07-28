@@ -90,19 +90,19 @@ watch(open, async (isOpen) => {
   <DetailModal :open="open" @close="open = false">
     <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 pr-8">{{ lang === 'zh' ? item.position.zh : item.position.en }}</h3>
     <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">{{ lang === 'zh' ? item.company.zh : item.company.en }}</p>
-    <p class="text-xs text-gray-400 mt-1">{{ periodParts.range }} · {{ periodParts.duration }}</p>
+    <p class="text-xs text-gray-400 mt-1.5">{{ periodParts.range }} · {{ periodParts.duration }}</p>
 
-    <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-      <ul class="mb-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+    <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+      <ul class="mb-6 space-y-2.5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed list-disc list-inside">
         <li v-for="bullet in bullets" :key="bullet">{{ bullet }}</li>
       </ul>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">{{ $t('common.techStack') }}</p>
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2.5">{{ $t('common.techStack') }}</p>
       <div class="flex flex-wrap gap-2">
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
       </div>
 
-      <div v-if="item.gallery" class="mt-4">
-        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">{{ $t('common.highlights') }}</p>
+      <div v-if="item.gallery" class="mt-6">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2.5">{{ $t('common.highlights') }}</p>
         <div class="flex gap-3 overflow-x-auto pb-1">
           <a
             v-for="image in item.gallery.images"
@@ -121,7 +121,7 @@ watch(open, async (isOpen) => {
         </div>
       </div>
 
-      <div v-if="item.links?.length" class="flex flex-wrap gap-3 mt-4">
+      <div v-if="item.links?.length" class="flex flex-wrap gap-3 mt-6">
         <a
           v-for="link in item.links"
           :key="link.url"
