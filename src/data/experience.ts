@@ -30,7 +30,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '軟體工程師', en: 'Software Engineer' },
     company: { zh: '玩藝國際股份有限公司（Fun Show）', en: 'Fun Show International Co., Ltd.' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
-    period: '2024/02 — 2026/08',
+    period: '2024/02 — 2026/08 (2y 6m)',
     bullets: {
       zh: [
         '開發具備即時串流、場景管理、連播 UI 與 OBS 整合的直播控制平台。',
