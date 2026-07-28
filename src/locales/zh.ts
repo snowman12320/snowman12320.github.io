@@ -19,6 +19,9 @@ export default {
     backEnd: 'Back-End',
     details: '查看詳情',
     collapse: '收合詳情',
+    relatedProjects: '相關專案',
+    jumpToExperience: '跳至經歷',
+    noRelatedProjects: '尚未關聯到特定經歷的專案',
     techStack: 'Tech Stack',
     highlights: '成果展示',
     role: '全端工程師',
@@ -29,6 +32,7 @@ export default {
   sections: {
     projects: '個人專案',
     skills: '技能',
+    projectsOverview: '專案總覽（依經歷）',
   },
   footer: '陳威良 (William). Built with Vue 3 + Vite + Tailwind CSS.',
 }
