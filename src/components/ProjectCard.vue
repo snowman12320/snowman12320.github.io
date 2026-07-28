@@ -3,16 +3,10 @@ import GLightbox from 'glightbox'
 import { onMounted, ref } from 'vue'
 import type { ProjectItem } from '../types'
 
-const props = withDefaults(
-  defineProps<{
-    item: ProjectItem
-    lang: 'zh' | 'en'
-    compact?: boolean
-  }>(),
-  {
-    compact: false,
-  },
-)
+const { item, lang } = defineProps<{
+  item: ProjectItem
+  lang: 'zh' | 'en'
+}>()
 
 const open = ref(false)
 
@@ -36,44 +30,23 @@ onMounted(() => {
 
 <template>
   <div
-    class="rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
-    :class="props.compact ? 'p-4' : 'p-5'"
+    class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
   >
     <div>
       <div class="flex items-start justify-between gap-2">
-        <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">{{ props.item.name }}</h3>
-        <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium" :class="categoryColorClass[props.item.categoryColor]">
-          {{ props.item.category }}
+        <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">{{ item.name }}</h3>
+        <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium" :class="categoryColorClass[item.categoryColor]">
+          {{ item.category }}
         </span>
       </div>
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-        {{ props.item.shortDesc }}
+        {{ item.shortDesc }}
       </p>
       <div class="mt-3 flex flex-wrap gap-1.5">
-        <span v-for="tech in props.item.techStack" :key="tech" class="badge">{{ tech }}</span>
+        <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
       </div>
     </div>
-
-    <div v-if="props.compact" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-      <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-        {{ props.item.detailedDesc }}
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <a
-          v-for="link in props.item.links"
-          :key="link.url"
-          :href="link.url"
-          target="_blank"
-          rel="noopener"
-          class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >
-          <FaIcon :icon="linkIcon(link.icon)" />
-          {{ props.lang === 'zh' ? link.label.zh : link.label.en }}
-        </a>
-      </div>
-    </div>
-
-    <div v-else>
+    <div>
       <button
         class="no-print mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
         @click="open = !open"
@@ -83,16 +56,16 @@ onMounted(() => {
       </button>
       <div v-show="open" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
         <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-          {{ props.item.detailedDesc }}
+          {{ item.detailedDesc }}
         </p>
 
-        <div v-if="props.item.gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+        <div v-if="item.gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
           <a
-            v-for="image in props.item.gallery.images"
+            v-for="image in item.gallery.images"
             :key="image.src"
             :href="image.src"
             class="glightbox"
-            :data-gallery="props.item.gallery.id"
+            :data-gallery="item.gallery.id"
             :data-description="image.description"
           >
             <img
@@ -105,7 +78,7 @@ onMounted(() => {
 
         <div class="flex flex-wrap gap-3">
           <a
-            v-for="link in props.item.links"
+            v-for="link in item.links"
             :key="link.url"
             :href="link.url"
             target="_blank"
@@ -113,7 +86,7 @@ onMounted(() => {
             class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
             <FaIcon :icon="linkIcon(link.icon)" />
-            {{ props.lang === 'zh' ? link.label.zh : link.label.en }}
+            {{ lang === 'zh' ? link.label.zh : link.label.en }}
           </a>
         </div>
       </div>

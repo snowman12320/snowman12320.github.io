@@ -2,9 +2,7 @@
 import GLightbox from 'glightbox'
 import 'glightbox/dist/css/glightbox.min.css'
 import { computed, onMounted, ref } from 'vue'
-import { projects } from '../data/projects'
 import type { ExperienceItem } from '../types'
-import ProjectCard from './ProjectCard.vue'
 
 const { item, lang } = defineProps<{
   item: ExperienceItem
@@ -12,16 +10,8 @@ const { item, lang } = defineProps<{
 }>()
 
 const open = ref(false)
-const relatedProjectsOpen = ref(false)
 
 const bullets = computed(() => item.bullets[lang])
-const relatedProjects = computed(() => {
-  const ids = item.relatedProjectIds ?? []
-  if (!ids.length) return []
-  return ids
-    .map((id) => projects.find((project) => project.id === id))
-    .filter((project): project is (typeof projects)[number] => project !== undefined)
-})
 
 const linkIcon = (icon: string) => {
   if (icon === 'github') return ['fab', 'github'] as const
@@ -36,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :id="`exp-${item.id}`" class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
+  <div class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
     <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
       <div>
         <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">{{ lang === 'zh' ? item.position.zh : item.position.en }}</h3>
@@ -98,23 +88,6 @@ onMounted(() => {
           <FaIcon :icon="linkIcon(link.icon)" />
           {{ lang === 'zh' ? link.label.zh : link.label.en }}
         </a>
-      </div>
-
-      <div v-if="relatedProjects.length" class="mt-4">
-        <button
-          class="no-print flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-          @click="relatedProjectsOpen = !relatedProjectsOpen"
-        >
-          <FaIcon
-            :icon="['fas', 'chevron-down']"
-            class="transition-transform duration-200"
-            :class="relatedProjectsOpen ? 'rotate-180' : ''"
-          />
-          {{ $t('common.relatedProjects') }} ({{ relatedProjects.length }})
-        </button>
-        <div v-show="relatedProjectsOpen" class="mt-3 grid grid-cols-1 gap-4">
-          <ProjectCard v-for="project in relatedProjects" :key="project.id" :item="project" :lang="lang" compact />
-        </div>
       </div>
     </div>
   </div>

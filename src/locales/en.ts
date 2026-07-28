@@ -19,9 +19,6 @@ export default {
     backEnd: 'Back-End',
     details: 'See Details',
     collapse: 'Collapse',
-    relatedProjects: 'Related Projects',
-    jumpToExperience: 'Jump to Experience',
-    noRelatedProjects: 'Projects not yet mapped to an experience',
     techStack: 'Tech Stack',
     highlights: 'Highlights',
     role: 'Full-Stack Engineer',
@@ -32,7 +29,6 @@ export default {
   sections: {
     projects: 'Projects',
     skills: 'Skills',
-    projectsOverview: 'Project Overview by Experience',
   },
   footer: 'William Chen. Built with Vue 3 + Vite + Tailwind CSS.',
 }
