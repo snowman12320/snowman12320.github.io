@@ -172,6 +172,34 @@ export const experiences: ExperienceItem[] = [
     ],
   },
   {
+    id: 'career-break-certified-tutor',
+    position: { zh: '職涯空檔／認證導師培訓', en: 'Career Break / Certified Tutor Training' },
+    company: { zh: '個人職涯訓練', en: 'Personal Career Development' },
+    location: { zh: '遠端', en: 'Remote' },
+    period: '2024/08 — 2024/10 (3m)',
+    bullets: {
+      zh: [
+        'Clean Code 指導培訓：完成「JS Clean Code」專業前端導師培訓，掌握程式重構與可讀性標準，建立高品質 code review 與 mentoring 基準。',
+        '實務教學驗收通過：透過反覆練習與專業回饋，通過試教影片評核，展現結構化且易理解的技術教學能力。',
+        '技術陪跑與解題：具備協助學員突破前端瓶頸經驗，能排查 Axios 環境設定與 API 串接除錯問題。',
+      ],
+      en: [
+        'Clean Code Mentorship: Completed professional frontend tutor training in "JS Clean Code," mastering code refactoring and readability standards to establish high-quality code review and mentoring benchmarks.',
+        'Proven Practical Teaching Experience & Assessment Clearance: Successfully passed teaching demo video evaluations through iterative practice and professional feedback, demonstrating solid hands-on experience in delivering structured, easy-to-understand technical lessons.',
+        'Technical Mentorship & Student Problem Solving: Experienced in guiding learners through frontend bottlenecks, assisting students in troubleshooting environment setups (e.g., Axios configuration) and debugging API integration issues.',
+      ],
+    },
+    techStack: [
+      'JS Clean Code',
+      'Code Refactoring',
+      'Code Review',
+      'Technical Mentorship',
+      'Frontend Teaching',
+      'Axios',
+      'API Integration Debugging',
+    ],
+  },
+  {
     id: 'ncku',
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
     company: { zh: '國立成功大學', en: 'National Cheng Kung University (NCKU)' },
