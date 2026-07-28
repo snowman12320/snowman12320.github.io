@@ -24,7 +24,6 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Vue 3', 'Node.js', 'RESTful API', 'vtk.js', 'Vimeo API', 'OAuth', 'MySQL', 'Zeabur', 'Cloudways'],
-    relatedProjectIds: ['dating-platform', 'llm-assistant'],
   },
   {
     id: 'fun-show',
@@ -49,7 +48,6 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Vue 3', 'Quasar Framework', 'TypeScript', 'Keycloak', 'SSE', 'OBS Integration', 'Jenkins CI/CD', 'MSW', 'Vitest'],
-    relatedProjectIds: ['content-platform'],
   },
   {
     id: 'sun-life',
@@ -72,7 +70,6 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Next.js', 'TypeScript', 'BFF Architecture', 'SSO / RBAC', 'SQL', 'Umami Analytics', 'Jira', 'CI/CD'],
-    relatedProjectIds: ['house-price'],
   },
   {
     id: 'ithome-ironman',
@@ -97,7 +94,6 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Twilio SMS', 'Resend', 'Google Maps API', 'GitHub Actions'],
-    relatedProjectIds: ['shopping-site'],
     links: [
       {
         label: { zh: '系列文章完結篇', en: 'Article Final Chapter' },
@@ -138,7 +134,6 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['React', 'TypeScript', 'LINE LIFF', 'LINE Bot', 'LINE Login', 'LINE Notify', 'GitHub CI/CD'],
-    relatedProjectIds: ['chat-platform'],
   },
   {
     id: 'ncku',
@@ -161,7 +156,6 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Vue 2', 'Vue 3', 'Vuex', 'Pinia', 'PHP', 'Docker', 'HeidiSQL', 'XAMPP', 'RESTful API'],
-    relatedProjectIds: [],
   },
   {
     id: 'tw-domain',
@@ -184,7 +178,6 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Vue 2/3', 'Options API', 'Vue Router', 'Pinia', 'Tailwind CSS 3', 'Bootstrap 5', 'SCSS', 'Webpack', 'ESLint'],
-    relatedProjectIds: ['shopping-site', 'content-platform'],
   },
   {
     id: 'one-cube',
@@ -206,6 +199,5 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Vue.js', 'PHP', 'Laravel', 'CodeIgniter', 'MySQL', 'SMTP', 'Data Visualization'],
-    relatedProjectIds: ['shopping-site'],
   },
 ]
