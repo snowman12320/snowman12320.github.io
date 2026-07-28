@@ -4,7 +4,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'medical-record-ct-platform',
     name: '病歷分析管理系統 + CT 電腦斷層解決方案',
-    category: 'Healthcare AI',
+    category: '醫療科技',
     categoryColor: 'purple',
     shortDesc:
       '針對中型醫療機構打造的高資安病歷數位化平台，整合 AI 病歷分析與網頁版 CT 影像檢視流程。',
@@ -25,7 +25,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'chat-platform',
     name: '聊天平台',
-    category: 'LINE LIFF',
+    category: '即時通訊平台',
     categoryColor: 'green',
     shortDesc: '整合 LINE LIFF 的即時通訊平台，支援無縫登入與雙向即時聊天。',
     techStack: ['React', 'Redux', 'TypeScript', 'LINE LIFF'],
@@ -39,7 +39,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'dating-platform',
     name: '交友網站',
-    category: 'Full-stack',
+    category: '全端 Web 應用',
     categoryColor: 'blue',
     shortDesc: '兼顧精美前端互動與高效後端的社群交友平台，支援配對與聊天。',
     techStack: ['Vue / React', 'Node.js', 'Database', 'WebSockets'],
@@ -77,7 +77,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'llm-assistant',
     name: 'LLM 應用助理',
-    category: 'AI LLM',
+    category: 'AI 應用',
     categoryColor: 'purple',
     shortDesc: '整合大語言模型的智慧對話助理，支援多輪記憶與即時串流。',
     techStack: ['Next.js', 'Redux', 'TypeScript', 'LLM API'],
@@ -91,7 +91,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'content-platform',
     name: '內容資訊平台',
-    category: 'SSR / SSG',
+    category: '內容平台',
     categoryColor: 'green',
     shortDesc: '基於 Nuxt 3 + Firebase 的內容平台，強化 SEO 與效能。',
     techStack: ['Nuxt 3', 'TypeScript', 'Firebase', 'SEO'],
@@ -105,7 +105,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'shopping-site',
     name: '購物網站',
-    category: 'SPA',
+    category: '電商平台',
     categoryColor: 'blue',
     shortDesc: '完整購物車、篩選與結帳流程的高流暢電商專案。',
     techStack: ['Vue 3', 'Vite', 'Pinia', 'mitt (Event Bus)'],
@@ -120,7 +120,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'house-price',
     name: '房價預測與查詢系統',
-    category: 'Cloud & DB',
+    category: '資料分析平台',
     categoryColor: 'purple',
     shortDesc: '整合 Python、資料庫與雲端架構的房價預測與查詢平台。',
     techStack: ['Flask', 'MySQL', 'AWS', 'Python'],
