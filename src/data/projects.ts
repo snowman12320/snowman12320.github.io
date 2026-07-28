@@ -110,4 +110,25 @@ export const projects: ProjectItem[] = [
       { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/AI_project2', icon: 'github' },
     ],
   },
+  {
+    id: 'medical-record-ct-platform',
+    name: '病歷分析管理系統 + CT 電腦斷層解決方案',
+    category: 'Healthcare AI',
+    categoryColor: 'purple',
+    shortDesc:
+      '針對中型醫療機構打造的高資安病歷數位化平台，整合 AI 病歷分析與網頁版 CT 影像檢視流程。',
+    techStack: [
+      'Python',
+      'PostgreSQL',
+      'Anthropic',
+      'PDF Text Extraction',
+      'AI Structured Analysis',
+      'CT Web Viewer',
+      'Security Firewall',
+      'Dashboard Analytics',
+    ],
+    detailedDesc:
+      '以 STAR 架構落地：先針對紙本病歷分散、跨報告難比對、CT 影像不易安全共享的醫療痛點，規劃兼具資安與可用性的整體平台；再以 Python + PostgreSQL 建置後端，串接 Anthropic 與 PDF 文字提取，將臨床內容結構化並自動產出趨勢分析；前端提供網頁版 CT 影像檢視（旋轉、縮放、色彩映射、深度調整）與整合式儀表板（回饋註記、跨報告監控）；最終有效縮短病歷調閱與判讀流程，提升醫病溝通效率，同時維持醫療等級的隱私與防護標準。',
+    links: [],
+  },
 ]
