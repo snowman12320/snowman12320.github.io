@@ -73,8 +73,8 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'ithome-ironman',
-    position: { zh: '鐵人賽系列文章作者', en: 'Ironman Series Author' },
-    company: { zh: '個人職涯訓練・職涯空檔', en: 'Personal Career Development · Career Break' },
+    position: { zh: '職涯空檔 / 個人職涯訓練', en: 'Career Break / Personal Career Development' },
+    company: { zh: '鐵人賽系列文章作者', en: 'Ironman Series Author' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2025/07 — 2025/09 (3m)',
     bullets: {
@@ -137,8 +137,8 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'career-break-104social',
-    position: { zh: '職涯空檔', en: 'Career Break' },
-    company: { zh: '個人職涯訓練', en: 'Personal Career Development' },
+    position: { zh: '職涯空檔 / 個人職涯訓練', en: 'Career Break / Personal Career Development' },
+    company: { zh: '全端專案訓練', en: 'Full-Stack Project Training' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/02 — 2024/07 (6m)',
     bullets: {
@@ -173,8 +173,8 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'career-break-certified-tutor',
-    position: { zh: '職涯空檔', en: 'Career Break' },
-    company: { zh: '個人職涯訓練', en: 'Personal Career Development' },
+    position: { zh: '職涯空檔 / 個人職涯訓練', en: 'Career Break / Personal Career Development' },
+    company: { zh: '認證導師培訓', en: 'Certified Tutor Training' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/08 — 2024/10 (3m)',
     bullets: {
