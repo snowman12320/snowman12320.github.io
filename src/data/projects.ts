@@ -21,6 +21,41 @@ export const projects: ProjectItem[] = [
     detailedDesc:
       '以 STAR 架構落地：先針對紙本病歷分散、跨報告難比對、CT 影像不易安全共享的醫療痛點，規劃兼具資安與可用性的整體平台；再以 Python + PostgreSQL 建置後端，串接 Anthropic 與 PDF 文字提取，將臨床內容結構化並自動產出趨勢分析；前端提供網頁版 CT 影像檢視（旋轉、縮放、色彩映射、深度調整）與整合式儀表板（回饋註記、跨報告監控）；最終有效縮短病歷調閱與判讀流程，提升醫病溝通效率，同時維持醫療等級的隱私與防護標準。',
     links: [],
+    gallery: {
+      id: 'medical-ct',
+      images: [
+        {
+          src: '/images/medical/medical-cover.webp',
+          alt: '醫療後台封面畫面',
+          description: '醫療後台系統封面與主視覺',
+        },
+        {
+          src: '/images/medical/medical-backend-1.webp',
+          alt: '醫療後台功能截圖 1',
+          description: '病歷分析管理介面（截圖 1）',
+        },
+        {
+          src: '/images/medical/medical-backend-2.webp',
+          alt: '醫療後台功能截圖 2',
+          description: '病歷分析管理介面（截圖 2）',
+        },
+        {
+          src: '/images/medical/medical-backend-3.webp',
+          alt: '醫療後台功能截圖 3',
+          description: '病歷分析管理介面（截圖 3）',
+        },
+        {
+          src: '/images/medical/medical-backend-4.webp',
+          alt: '醫療後台功能截圖 4',
+          description: '病歷分析管理介面（截圖 4）',
+        },
+        {
+          src: '/images/medical/medical-backend-5.webp',
+          alt: '醫療後台功能截圖 5',
+          description: '病歷分析管理介面（截圖 5）',
+        },
+      ],
+    },
   },
   {
     id: 'chat-platform',
