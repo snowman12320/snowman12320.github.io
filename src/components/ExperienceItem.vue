@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import GLightbox from 'glightbox'
 import 'glightbox/dist/css/glightbox.min.css'
-import { computed, onMounted, ref } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import type { ExperienceItem } from '../types'
+import DetailModal from './DetailModal.vue'
 
 const { item, lang } = defineProps<{
   item: ExperienceItem
@@ -10,8 +11,18 @@ const { item, lang } = defineProps<{
 }>()
 
 const open = ref(false)
+let lightbox: ReturnType<typeof GLightbox> | null = null
 
 const bullets = computed(() => item.bullets[lang])
+
+const isBreak = computed(() => item.id.includes('career-break') || item.id === 'ithome-ironman')
+const isCurrent = computed(() => item.period.includes('Present') || item.period.includes('現在'))
+
+// Split "2024/02 — 2026/08 (2y 7m)" into a readable range + duration badge
+const periodParts = computed(() => {
+  const match = item.period.match(/^(.*?)\s*\(([^)]+)\)\s*$/)
+  return match ? { range: match[1], duration: match[2] } : { range: item.period, duration: '' }
+})
 
 const linkIcon = (icon: string) => {
   if (icon === 'github') return ['fab', 'github'] as const
@@ -20,34 +31,68 @@ const linkIcon = (icon: string) => {
   return ['fas', 'arrow-up-right-from-square'] as const
 }
 
-onMounted(() => {
-  GLightbox({ selector: '.glightbox' })
+watch(open, async (isOpen) => {
+  if (isOpen) {
+    await nextTick()
+    lightbox?.destroy()
+    lightbox = GLightbox({ selector: '.glightbox' })
+  }
 })
 </script>
 
 <template>
-  <div class="rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow">
-    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-      <div>
-        <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">{{ lang === 'zh' ? item.position.zh : item.position.en }}</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium">
-          {{ lang === 'zh' ? item.company.zh : item.company.en }}
-        </p>
-        <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-          <FaIcon :icon="['fas', 'location-dot']" />
-          {{ lang === 'zh' ? item.location.zh : item.location.en }}
-        </p>
-      </div>
-      <span class="text-sm text-gray-400 dark:text-gray-500 shrink-0">{{ item.period }}</span>
+  <div
+    class="relative rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+    :class="isBreak ? 'bg-gray-50/60 dark:bg-gray-800/30' : ''"
+  >
+    <!-- timeline dot -->
+    <span
+      class="hidden sm:block absolute -left-8 top-6 w-3.5 h-3.5 rounded-full bg-white dark:bg-gray-900 border-2"
+      :class="[
+        isCurrent ? 'border-blue-600 shadow-[0_0_0_4px_rgba(37,99,235,0.15)]' : 'border-gray-400 dark:border-gray-600',
+        isBreak ? 'border-dashed' : '',
+      ]"
+    />
+
+    <div class="flex items-start justify-between gap-3">
+      <span
+        class="inline-flex items-center gap-1.5 text-xs tabular-nums rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2.5 py-1"
+      >
+        {{ periodParts.range }}
+        <span
+          v-if="periodParts.duration"
+          class="font-semibold text-blue-600 dark:text-blue-400 before:content-['·'] before:mr-1 before:font-normal before:text-gray-400"
+        >
+          {{ periodParts.duration }}
+        </span>
+      </span>
+      <button
+        class="no-print shrink-0 w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-blue-600 hover:border-blue-400 dark:hover:text-blue-400 transition-colors"
+        :aria-label="$t('common.details')"
+        @click="open = true"
+      >
+        <FaIcon :icon="['fas', 'chevron-down']" class="text-sm" />
+      </button>
     </div>
-    <button
-      class="no-print mt-4 w-full flex items-center justify-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-      :aria-label="open ? $t('common.collapse') : $t('common.details')"
-      @click="open = !open"
-    >
-      <FaIcon :icon="['fas', 'chevron-down']" class="text-base transition-transform duration-200" :class="open ? 'rotate-180' : ''" />
-    </button>
-    <div v-show="open" class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+
+    <div class="mt-2">
+      <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">{{ lang === 'zh' ? item.position.zh : item.position.en }}</h3>
+      <p class="text-blue-600 dark:text-blue-400 font-medium">
+        {{ lang === 'zh' ? item.company.zh : item.company.en }}
+      </p>
+      <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+        <FaIcon :icon="['fas', 'location-dot']" />
+        {{ lang === 'zh' ? item.location.zh : item.location.en }}
+      </p>
+    </div>
+  </div>
+
+  <DetailModal :open="open" @close="open = false">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 pr-8">{{ lang === 'zh' ? item.position.zh : item.position.en }}</h3>
+    <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">{{ lang === 'zh' ? item.company.zh : item.company.en }}</p>
+    <p class="text-xs text-gray-400 mt-1">{{ periodParts.range }} · {{ periodParts.duration }}</p>
+
+    <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
       <ul class="mb-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
         <li v-for="bullet in bullets" :key="bullet">{{ bullet }}</li>
       </ul>
@@ -58,19 +103,19 @@ onMounted(() => {
 
       <div v-if="item.gallery" class="mt-4">
         <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">{{ $t('common.highlights') }}</p>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex gap-3 overflow-x-auto pb-1">
           <a
             v-for="image in item.gallery.images"
             :key="image.src"
             :href="image.src"
-            class="glightbox"
+            class="glightbox shrink-0"
             :data-gallery="item.gallery.id"
             :data-description="image.description"
           >
             <img
               :src="image.src"
               :alt="image.description"
-              class="h-28 rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
+              class="h-24 w-40 rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
             />
           </a>
         </div>
@@ -90,5 +135,5 @@ onMounted(() => {
         </a>
       </div>
     </div>
-  </div>
+  </DetailModal>
 </template>

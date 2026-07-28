@@ -17,7 +17,9 @@ defineProps({
       <FaIcon :icon="['fas', 'briefcase']" class="text-blue-600 text-xl" />
       {{ $t('nav.experience') }}
     </h2>
-    <div class="space-y-6">
+    <div
+      class="relative space-y-4 sm:pl-8 before:hidden sm:before:block before:absolute before:left-[7px] before:top-3 before:bottom-3 before:w-0.5 before:bg-[repeating-linear-gradient(to_bottom,theme(colors.gray.300)_0,theme(colors.gray.300)_6px,transparent_6px,transparent_12px)] dark:before:bg-[repeating-linear-gradient(to_bottom,theme(colors.gray.700)_0,theme(colors.gray.700)_6px,transparent_6px,transparent_12px)]"
+    >
       <ExperienceItem v-for="item in experiences" :key="item.id" :item="item" :lang="lang" />
     </div>
   </section>

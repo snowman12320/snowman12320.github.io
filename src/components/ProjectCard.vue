@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import GLightbox from 'glightbox'
-import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import type { ProjectItem } from '../types'
+import DetailModal from './DetailModal.vue'
 
 const { item, lang } = defineProps<{
   item: ProjectItem
@@ -31,121 +32,84 @@ const detailPoints = computed(() =>
     .filter(Boolean),
 )
 
-const closeModal = () => {
-  open.value = false
-}
-
-const handleEsc = (event: KeyboardEvent) => {
-  if (event.key === 'Escape' && open.value) closeModal()
-}
-
 watch(open, async (isOpen) => {
-  document.body.classList.toggle('overflow-hidden', isOpen)
-
   if (isOpen) {
     await nextTick()
     lightbox?.destroy()
     lightbox = GLightbox({ selector: '.glightbox' })
   }
 })
-
-onBeforeUnmount(() => {
-  document.body.classList.remove('overflow-hidden')
-  document.removeEventListener('keydown', handleEsc)
-  lightbox?.destroy()
-})
-
-document.addEventListener('keydown', handleEsc)
 </script>
 
 <template>
-  <div
-    class="rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 transition-shadow flex flex-col justify-between"
+  <button
+    class="group relative text-left w-full rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
+    @click="open = true"
   >
-    <div>
-      <div class="flex items-start justify-between gap-2">
-        <h3 class="text-base font-bold text-gray-900 dark:text-gray-100">{{ item.name }}</h3>
-        <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium" :class="categoryColorClass[item.categoryColor]">
-          {{ item.category }}
-        </span>
-      </div>
-      <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+    <span
+      class="absolute top-4 right-4 w-7 h-7 flex items-center justify-center rounded-lg text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+      :aria-label="$t('common.details')"
+    >
+      <FaIcon :icon="['fas', 'arrow-up-right-from-square']" class="text-xs" />
+    </span>
+
+    <div class="pr-8">
+      <span class="inline-block text-xs px-2 py-0.5 rounded-full font-medium" :class="categoryColorClass[item.categoryColor]">
+        {{ item.category }}
+      </span>
+      <h3 class="mt-2 text-base font-bold text-gray-900 dark:text-gray-100">{{ item.name }}</h3>
+      <p class="mt-1 text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2">
         {{ item.shortDesc }}
       </p>
       <div class="mt-3 flex flex-wrap gap-1.5">
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
       </div>
     </div>
-    <div>
-      <button
-        class="no-print mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-        @click="open = true"
-      >
-        <FaIcon :icon="['fas', 'arrow-up-right-from-square']" />
-        {{ $t('common.details') }}
-      </button>
-    </div>
-  </div>
+  </button>
 
-  <Teleport to="body">
-    <div v-if="open" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      <button class="absolute inset-0 bg-black/70 backdrop-blur-[1px]" aria-label="Close modal" @click="closeModal" />
-      <section
-        class="relative w-full max-w-4xl max-h-[88vh] overflow-y-auto rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5 sm:p-6 shadow-2xl"
-      >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ item.name }}</h3>
-            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category }}</p>
-          </div>
-          <button
-            class="p-2 rounded-lg text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Close modal"
-            @click="closeModal"
+  <DetailModal :open="open" size="xl" @close="open = false">
+    <div class="pr-8">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ item.name }}</h3>
+      <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category }}</p>
+    </div>
+
+    <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+      <ul class="mb-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
+        <li v-for="point in detailPoints" :key="point">{{ point }}</li>
+      </ul>
+
+      <div v-if="item.gallery" class="mb-4">
+        <div class="flex gap-3 overflow-x-auto pb-1">
+          <a
+            v-for="image in item.gallery.images"
+            :key="image.src"
+            :href="image.src"
+            class="glightbox shrink-0"
+            :data-gallery="item.gallery.id"
+            :data-description="image.description"
           >
-            <FaIcon :icon="['fas', 'xmark']" />
-          </button>
+            <img
+              :src="image.src"
+              :alt="image.alt"
+              class="h-24 w-40 rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
+            />
+          </a>
         </div>
+      </div>
 
-        <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-          <ul class="mb-4 space-y-1.5 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-            <li v-for="point in detailPoints" :key="point">{{ point }}</li>
-          </ul>
-
-          <div v-if="item.gallery" class="mb-4">
-            <div class="flex gap-3 overflow-x-auto pb-1">
-            <a
-              v-for="image in item.gallery.images"
-              :key="image.src"
-              :href="image.src"
-              class="glightbox shrink-0"
-              :data-gallery="item.gallery.id"
-              :data-description="image.description"
-            >
-              <img
-                :src="image.src"
-                :alt="image.alt"
-                class="h-24 w-40 rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
-              />
-            </a>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-3">
-            <a
-              v-for="link in item.links"
-              :key="link.url"
-              :href="link.url"
-              target="_blank"
-              rel="noopener"
-              class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              <FaIcon :icon="linkIcon(link.icon)" />
-              {{ lang === 'zh' ? link.label.zh : link.label.en }}
-            </a>
-          </div>
-        </div>
-      </section>
+      <div class="flex flex-wrap gap-3">
+        <a
+          v-for="link in item.links"
+          :key="link.url"
+          :href="link.url"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >
+          <FaIcon :icon="linkIcon(link.icon)" />
+          {{ lang === 'zh' ? link.label.zh : link.label.en }}
+        </a>
+      </div>
     </div>
-  </Teleport>
+  </DetailModal>
 </template>
