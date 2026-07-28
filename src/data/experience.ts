@@ -198,6 +198,18 @@ export const experiences: ExperienceItem[] = [
       'Axios',
       'API Integration Debugging',
     ],
+    links: [
+      {
+        label: { zh: '進階陣列操作：掌握 filter 篩選技巧', en: 'Advanced Array Operations: Mastering filter' },
+        url: 'https://youtu.be/W7Pz_aEvCxE',
+        icon: 'youtube',
+      },
+      {
+        label: { zh: 'axios 搭配 Async/Await 再進化', en: 'Axios with Async/Await: Next Level' },
+        url: 'https://youtu.be/ZV9PVajIyDQ?si=ubePhL59_VhJ3WcG',
+        icon: 'youtube',
+      },
+    ],
   },
   {
     id: 'ncku',
