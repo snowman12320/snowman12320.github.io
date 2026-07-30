@@ -23,12 +23,12 @@ export interface ExperienceItem {
 
 export interface ProjectItem {
   id: string
-  name: string
-  category: string
+  name: I18nText
+  category: I18nText
   categoryColor: 'blue' | 'green' | 'purple'
-  shortDesc: string
+  shortDesc: I18nText
   techStack: string[]
-  detailedDesc: string
+  detailedDesc: I18nText
   links: LinkItem[]
   gallery?: { id: string; images: { src: string; alt: string; description: string }[] }
 }

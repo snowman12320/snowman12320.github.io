@@ -12,11 +12,17 @@ const { lang } = defineProps({
 })
 
 const selectedCategory = ref('all')
-const categories = computed(() => [...new Set(projects.map((item) => item.category))])
+// Use category id (zh key) as stable filter key, display the lang-appropriate label
+const categories = computed(() => {
+  const seen = new Set<string>()
+  return projects
+    .map((item) => ({ key: item.category.zh, label: item.category[lang] }))
+    .filter(({ key }) => (seen.has(key) ? false : seen.add(key)))
+})
 const filteredProjects = computed(() =>
   selectedCategory.value === 'all'
     ? projects
-    : projects.filter((item) => item.category === selectedCategory.value),
+    : projects.filter((item) => item.category.zh === selectedCategory.value),
 )
 </script>
 
@@ -39,17 +45,17 @@ const filteredProjects = computed(() =>
         {{ lang === 'zh' ? '全部' : 'All' }}
       </button>
       <button
-        v-for="category in categories"
-        :key="category"
+        v-for="cat in categories"
+        :key="cat.key"
         class="px-3 py-1 rounded-full text-sm font-medium border transition-colors"
         :class="
-          selectedCategory === category
+          selectedCategory === cat.key
             ? 'bg-blue-600 text-white border-blue-600'
             : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-blue-500'
         "
-        @click="selectedCategory = category"
+        @click="selectedCategory = cat.key"
       >
-        {{ category }}
+        {{ cat.label }}
       </button>
     </div>
 

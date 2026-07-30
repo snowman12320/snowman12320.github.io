@@ -26,7 +26,7 @@ const linkIcon = (icon: string) => {
 }
 
 const detailPoints = computed(() =>
-  item.detailedDesc
+  item.detailedDesc[lang]
     .split(/；|。\s*|\. (?=[A-Z])/)
     .map((line) => line.trim())
     .filter(Boolean),
@@ -55,11 +55,11 @@ watch(open, async (isOpen) => {
 
     <div class="pr-8">
       <span class="inline-block text-xs px-2 py-0.5 rounded-full font-medium" :class="categoryColorClass[item.categoryColor]">
-        {{ item.category }}
+        {{ item.category[lang] }}
       </span>
-      <h3 class="mt-2 text-base font-bold text-gray-900 dark:text-gray-100">{{ item.name }}</h3>
+      <h3 class="mt-2 text-base font-bold text-gray-900 dark:text-gray-100">{{ item.name[lang] }}</h3>
       <p class="mt-1 text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2">
-        {{ item.shortDesc }}
+        {{ item.shortDesc[lang] }}
       </p>
       <div class="mt-3 flex flex-wrap gap-1.5">
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
@@ -69,8 +69,8 @@ watch(open, async (isOpen) => {
 
   <DetailModal :open="open" size="xl" @close="open = false">
     <div class="pr-8">
-      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ item.name }}</h3>
-      <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category }}</p>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ item.name[lang] }}</h3>
+      <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category[lang] }}</p>
     </div>
 
     <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
