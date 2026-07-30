@@ -1,14 +1,38 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 import { experiences } from '../../data/experience'
 import ExperienceItem from '../ui/ExperienceItem.vue'
 
-defineProps({
+const { lang } = defineProps({
   lang: {
     type: String as PropType<'zh' | 'en'>,
     required: true,
   },
 })
+
+const isExpanded = ref(false)
+const PRESET_COUNT = 3
+
+const displayedExperiences = computed(() => {
+  if (isExpanded.value) return experiences
+  return experiences.slice(0, PRESET_COUNT)
+})
+
+const hasMoreExperiences = computed(() => experiences.length > PRESET_COUNT)
+
+const toggleLabel = computed(() => {
+  const remainingCount = experiences.length - PRESET_COUNT
+  if (lang === 'zh') {
+    return isExpanded.value ? '收起部分經歷' : `查看更多經歷 (${remainingCount}+)`
+  }
+
+  return isExpanded.value ? 'Collapse experience' : `Show more experience (${remainingCount}+)`
+})
+
+const toggleExpanded = () => {
+  isExpanded.value = !isExpanded.value
+}
 </script>
 
 <template>
@@ -20,7 +44,17 @@ defineProps({
     <div
       class="relative space-y-4 sm:pl-8 before:hidden sm:before:block before:absolute before:left-[7px] before:top-3 before:bottom-3 before:w-0.5 before:bg-[repeating-linear-gradient(to_bottom,theme(colors.gray.300)_0,theme(colors.gray.300)_6px,transparent_6px,transparent_12px)] dark:before:bg-[repeating-linear-gradient(to_bottom,theme(colors.gray.700)_0,theme(colors.gray.700)_6px,transparent_6px,transparent_12px)]"
     >
-      <ExperienceItem v-for="item in experiences" :key="item.id" :item="item" :lang="lang" />
+      <ExperienceItem v-for="item in displayedExperiences" :key="item.id" :item="item" :lang="lang" />
+    </div>
+
+    <div v-if="hasMoreExperiences" class="mt-8 flex justify-center">
+      <button
+        class="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:border-blue-500 hover:text-blue-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-blue-400 dark:hover:text-blue-400"
+        @click="toggleExpanded"
+      >
+        <span>{{ toggleLabel }}</span>
+        <FaIcon :icon="['fas', 'chevron-down']" class="text-sm transition-transform duration-300" :class="isExpanded ? 'rotate-180' : ''" />
+      </button>
     </div>
   </section>
 </template>
