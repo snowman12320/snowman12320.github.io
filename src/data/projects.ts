@@ -117,6 +117,7 @@ export const projects: ProjectItem[] = [
         { src: '/images/medical/screen-3.webp', alt: 'Screenshot 3', description: '病歷分析管理介面（截圖 3）' },
         { src: '/images/medical/screen-4.webp', alt: 'Screenshot 4', description: '病歷分析管理介面（截圖 4）' },
         { src: '/images/medical/screen-5.webp', alt: 'Screenshot 5', description: '病歷分析管理介面（截圖 5）' },
+        { src: '/images/medical/screen-6.webp', alt: 'Screenshot 6', description: '病患列表管理介面（截圖 6）' },
       ],
     },
   },
@@ -138,11 +139,17 @@ export const projects: ProjectItem[] = [
       { label: { zh: '線上展示', en: 'Live Demo' }, url: 'https://react-yahoo-message.vercel.app/', icon: 'external' },
       { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/react-yahoo-message', icon: 'github' },
     ],
+    gallery: {
+      id: 'chat-platform',
+      images: [
+        { src: '/images/chat-platform/screen-1.png', alt: 'Yahoo Messenger Login', description: 'Yahoo！即時通登入介面' },
+      ],
+    },
   },
   {
     id: 'dating-platform',
     name: { zh: '交友網站', en: 'Dating Platform' },
-    category: { zh: '全端 Web 應用', en: 'Full-Stack Web App' },
+    category: { zh: '交友平台', en: 'Dating Platform' },
     categoryColor: 'blue',
     shortDesc: {
       zh: '兼顧精美前端互動與高效後端的社群交友平台，支援 AI 配對與即時聊天。',
@@ -163,6 +170,7 @@ export const projects: ProjectItem[] = [
       id: 'dating',
       images: [
         { src: '/images/dating-google-search.png', alt: '104緣來如此 Google 搜尋收錄截圖', description: '104緣來如此 — Google 搜尋收錄截圖' },
+        { src: '/images/dating/screen-1.webp', alt: 'Screenshot 1', description: '交友配對搜尋介面（截圖 1）' },
       ],
     },
   },
@@ -184,6 +192,12 @@ export const projects: ProjectItem[] = [
       { label: { zh: '線上展示', en: 'Live Demo' }, url: 'https://patent-infringement-checker.onrender.com/', icon: 'external' },
       { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/patent-infringement-checker', icon: 'github' },
     ],
+    gallery: {
+      id: 'llm',
+      images: [
+        { src: '/images/llm/cover.webp', alt: 'LLM Assistant Cover', description: 'LLM 應用助理主視覺' },
+      ],
+    },
   },
   {
     id: 'content-platform',
@@ -203,6 +217,12 @@ export const projects: ProjectItem[] = [
       { label: { zh: '線上展示', en: 'Live Demo' }, url: 'https://my-first-project-1110913.web.app/', icon: 'external' },
       { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/F2E-nuxt3', icon: 'github' },
     ],
+    gallery: {
+      id: 'content-platform',
+      images: [
+        { src: '/images/content-info/cover.webp', alt: 'Content Platform Cover', description: '內容資訊平台主視覺' },
+      ],
+    },
   },
   {
     id: 'shopping-site',
@@ -223,6 +243,12 @@ export const projects: ProjectItem[] = [
       { label: { zh: 'Vite + Pinia', en: 'Vite + Pinia' }, url: 'https://github.com/snowman12320/jtown-vite', icon: 'github' },
       { label: { zh: 'Vue CLI + mitt', en: 'Vue CLI + mitt' }, url: 'https://github.com/snowman12320/jtown-cli', icon: 'github' },
     ],
+    gallery: {
+      id: 'shopping-site',
+      images: [
+        { src: '/images/shopping/cover.webp', alt: 'Shopping Website Cover', description: '購物網站主視覺' },
+      ],
+    },
   },
   {
     id: 'house-price',
@@ -242,5 +268,11 @@ export const projects: ProjectItem[] = [
       { label: { zh: 'Demo 影片', en: 'Demo Video' }, url: 'https://youtu.be/x5gwX4TgTUw', icon: 'youtube' },
       { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/AI_project2', icon: 'github' },
     ],
+    gallery: {
+      id: 'house-price',
+      images: [
+        { src: '/images/house-price/cover.webp', alt: 'House Price System Cover', description: '房價預測系統主視覺' },
+      ],
+    },
   },
 ]
