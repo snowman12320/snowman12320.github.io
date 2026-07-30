@@ -2,30 +2,6 @@ import type { ExperienceItem } from '../types'
 
 export const experiences: ExperienceItem[] = [
   {
-    id: 'hengyuan-freelance',
-    position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '恆遠數位行銷', en: 'Hengyuan Digital Marketing · Freelance' },
-    location: { zh: '遠端', en: 'Remote' },
-    period: '2024/10 — 2026/07 (1y 10m)',
-    bullets: {
-      zh: [
-        '開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT 影像渲染。',
-        '設計資料庫 Schema 與 RESTful API 架構，從概念到部署交付可擴展的全端網頁應用程式。',
-        '建構模組化線上學習平台，整合 Vimeo API 進行視訊串流、OAuth 第三方認證及 IP 存取控制。',
-        '於 Zeabur 與 Cloudways 等雲端基礎設施平台上部署與維護網頁應用程式。',
-        '處理系統維護、Bug 修復與報價／帳款工作流程邏輯，並善用 AI 輔助提升開發效率。',
-      ],
-      en: [
-        'Develop medical system features, including patient record management, interactive charts, PDF compression, and 3D CT scan rendering using vtk.js.',
-        'Design database schemas and RESTful API architectures to deliver scalable full-stack web applications from concept to deployment.',
-        'Build modular online learning platforms, integrating Vimeo API for video streaming, OAuth for third-party authentication, and IP-based access control.',
-        'Deploy and maintain web applications across cloud infrastructure platforms, including Zeabur and Cloudways.',
-        'Manage system maintenance, bug fixes, and quote/billing workflow logic while leveraging AI-assisted prompting to boost development productivity.',
-      ],
-    },
-    techStack: ['Vue 3', 'Node.js', 'RESTful API', 'vtk.js', 'Vimeo API', 'OAuth', 'MySQL', 'Zeabur', 'Cloudways'],
-  },
-  {
     id: 'fun-show',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '玩藝國際股份有限公司（Fun Show）', en: 'Fun Show International Co., Ltd.' },
@@ -50,6 +26,30 @@ export const experiences: ExperienceItem[] = [
     techStack: ['Vue 3', 'Quasar Framework', 'TypeScript', 'Keycloak', 'SSE', 'OBS Integration', 'Jenkins CI/CD', 'MSW', 'Vitest'],
   },
   {
+    id: 'hengyuan-freelance',
+    position: { zh: '全端工程師', en: 'Full Stack Engineer' },
+    company: { zh: '恆遠數位行銷', en: 'Hengyuan Digital Marketing · Freelance' },
+    location: { zh: '遠端', en: 'Remote' },
+    period: '2024/10 — 2026/07 (1y 10m)',
+    bullets: {
+      zh: [
+        '開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT 影像渲染。',
+        '設計資料庫 Schema 與 RESTful API 架構，從概念到部署交付可擴展的全端網頁應用程式。',
+        '建構模組化線上學習平台，整合 Vimeo API 進行視訊串流、OAuth 第三方認證及 IP 存取控制。',
+        '於 Zeabur 與 Cloudways 等雲端基礎設施平台上部署與維護網頁應用程式。',
+        '處理系統維護、Bug 修復與報價／帳款工作流程邏輯，並善用 AI 輔助提升開發效率。',
+      ],
+      en: [
+        'Develop medical system features, including patient record management, interactive charts, PDF compression, and 3D CT scan rendering using vtk.js.',
+        'Design database schemas and RESTful API architectures to deliver scalable full-stack web applications from concept to deployment.',
+        'Build modular online learning platforms, integrating Vimeo API for video streaming, OAuth for third-party authentication, and IP-based access control.',
+        'Deploy and maintain web applications across cloud infrastructure platforms, including Zeabur and Cloudways.',
+        'Manage system maintenance, bug fixes, and quote/billing workflow logic while leveraging AI-assisted prompting to boost development productivity.',
+      ],
+    },
+    techStack: ['Vue 3', 'Node.js', 'RESTful API', 'vtk.js', 'Vimeo API', 'OAuth', 'MySQL', 'Zeabur', 'Cloudways'],
+  },
+  {
     id: 'sun-life',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '永明金融（Sun Life）', en: 'Sun Life Financial' },
@@ -57,19 +57,19 @@ export const experiences: ExperienceItem[] = [
     period: '2025/10 — 2026/04 (7m)',
     bullets: {
       zh: [
-        '開發與維護 Sun Life 顧問入口網站，建構響應式 UI 元件並透過 BFF 架構串接 Advisor API。',
-        '處理單一登入（SSO）認證流程，管理登入重導向與角色權限控制（RBAC）。',
-        '設計並執行後台管理功能，撰寫初始資料庫建置的 SQL 腳本，並實作 Umami 分析追蹤的 Action Log。',
-        '管理跨環境 CI/CD 工作流程，處理 Dev 與 SIT 環境的部署與整合問題。',
+        '開發與維護 Advisor Portal 前端介面，包含 Table UI、Spinner 狀態顯示等響應式元件，透過 BFF（Backend For Frontend）架構串接 Advisor API，並排查 DEV 環境 API 連線異常根因。',
+        '主導 SSO（單一登入）認證流程整合，設定登入後重新導向 URL、管理 SSO 角色（Role）新增，並撰寫相關技術文件，實作 RBAC 角色型存取控制。',
+        '開發後台管理功能（含 Action Log Phase 2）、執行初始資料庫建置並撰寫 SQL 腳本；導入 Umami analytics script 追蹤網站流量與使用者行為數據。',
+        '維護跨環境 CI/CD 流程，管理 Dev 與 SIT 的 PR 合併、部署驗證與 Bug 排查（含部署版本與修復 Commit 不符的異常）；使用 Jira 追蹤 Ticket，定期透過 SharePoint / Excel 向團隊回報進度。',
       ],
       en: [
-        'Develop and maintain the Sun Life Advisor Portal, building responsive UI components and integrating Advisor APIs via BFF architecture.',
-        'Handle Single Sign-On (SSO) authentication workflows, managing login redirection URLs and role-based access control.',
-        'Design and execute backend administrative features, writing SQL scripts for initial database setups and implementing Action Logs with Umami analytics.',
-        'Manage cross-environment CI/CD workflows and deployments across Dev and SIT environments.',
+        'Built and maintained the Advisor Portal frontend — including Table UI and Spinner state components — and integrated Advisor APIs via BFF (Backend For Frontend) architecture; diagnosed and resolved API connectivity failures in the DEV environment.',
+        'Led SSO (Single Sign-On) integration: configured post-login redirect URLs, managed SSO role provisioning, authored access-control technical documentation, and implemented RBAC for role-based permission management.',
+        'Delivered Admin backend features (including Action Log Phase 2), executed initial database setup with SQL scripts, and integrated Umami analytics script for user behavior and traffic monitoring.',
+        'Maintained cross-environment CI/CD pipelines managing PR workflows, deployment verification, and bug resolution across Dev and SIT (including commit-deployment mismatch issues); tracked tasks via Jira and reported progress through SharePoint / Excel.',
       ],
     },
-    techStack: ['Next.js', 'TypeScript', 'BFF Architecture', 'SSO / RBAC', 'SQL', 'Umami Analytics', 'Jira', 'CI/CD'],
+    techStack: ['Next.js', 'TypeScript', 'Node.js', 'BFF Architecture', 'SSO / RBAC', 'SQL', 'Umami', 'Jira', 'GitHub Actions', 'CI/CD'],
   },
   {
     id: 'ithome-ironman',
