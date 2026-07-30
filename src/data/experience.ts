@@ -6,7 +6,7 @@ export const experiences: ExperienceItem[] = [
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '恆遠數位行銷', en: 'Hengyuan Digital Marketing · Freelance' },
     location: { zh: '遠端', en: 'Remote' },
-    period: '2024/10 — Present (1y 10m)',
+    period: '2024/10 — 2026/07 (1y 10m)',
     bullets: {
       zh: [
         '開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT 影像渲染。',

@@ -34,9 +34,9 @@
         <FaIcon :icon="['fas', 'phone']" class="w-4 text-center" />
         0976103738
       </a>
-      <a href="https://www.linkedin.com/in/william-chendev/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+      <a href="https://www.linkedin.com/in/william-chen-dev/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
         <FaIcon :icon="['fab', 'linkedin']" class="w-4 text-center" />
-        linkedin.com/in/william-chendev
+        linkedin.com/in/william-chen-dev
       </a>
       <a href="https://github.com/snowman12320" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
         <FaIcon :icon="['fab', 'github']" class="w-4 text-center" />
