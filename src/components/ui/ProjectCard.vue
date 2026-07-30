@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import GLightbox from 'glightbox'
 import { computed, nextTick, ref, watch } from 'vue'
-import type { ProjectItem } from '../types'
+import type { ProjectItem } from '../../types'
 import DetailModal from './DetailModal.vue'
 
 const { item, lang } = defineProps<{

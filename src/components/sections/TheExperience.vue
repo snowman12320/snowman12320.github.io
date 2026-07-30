@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import { experiences } from '../data/experience'
-import ExperienceItem from './ExperienceItem.vue'
+import { experiences } from '../../data/experience'
+import ExperienceItem from '../ui/ExperienceItem.vue'
 
 defineProps({
   lang: {

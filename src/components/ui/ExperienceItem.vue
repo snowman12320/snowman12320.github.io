@@ -2,7 +2,7 @@
 import GLightbox from 'glightbox'
 import 'glightbox/dist/css/glightbox.min.css'
 import { computed, nextTick, ref, watch } from 'vue'
-import type { ExperienceItem } from '../types'
+import type { ExperienceItem } from '../../types'
 import DetailModal from './DetailModal.vue'
 
 const { item, lang } = defineProps<{

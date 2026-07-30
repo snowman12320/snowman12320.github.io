@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
-import { projects } from '../data/projects'
-import ProjectCard from './ProjectCard.vue'
+import { projects } from '../../data/projects'
+import ProjectCard from '../ui/ProjectCard.vue'
 
 const { lang } = defineProps({
   lang: {

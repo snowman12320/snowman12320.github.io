@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import { skillCategories } from '../data/skills'
+import { skillCategories } from '../../data/skills'
 
 defineProps({
   lang: {
