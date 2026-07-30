@@ -275,4 +275,23 @@ export const projects: ProjectItem[] = [
       ],
     },
   },
+  {
+    id: 'queue-master',
+    name: { zh: '來企排隊', en: 'QueueMaster' },
+    category: { zh: '排隊管理系統', en: 'Queue Management System' },
+    categoryColor: 'blue',
+    shortDesc: {
+      zh: '智慧排隊與號碼牌管理系統，聚焦於現場取號流程、手機驗證與企業管理視圖的全棧實作。',
+      en: 'A smart queue and ticket management system focused on on-site check-in flow, mobile verification, and business-side management views.',
+    },
+    techStack: ['Next.js 14', 'TypeScript', 'Supabase', 'HeroUI v2', 'Tailwind CSS', 'Framer Motion', 'react-scan'],
+    detailedDesc: {
+      zh: 'QueueMaster 是一個以實體店家現場排隊場景為核心的全棧 Web 應用，目標是解決排隊秩序混亂、顧客候位體驗差與手動取號流程繁瑣的問題。專案採用 Next.js 14 App Router 與 TypeScript 建構，透過強型別與元件化設計提升跨頁與跨元件的資料流穩定性；前端搭配 HeroUI v2 與 Tailwind CSS 快速打造響應式 UI，並以 Framer Motion 增加頁面互動流暢度。後端則整合 Supabase（PostgreSQL）作為 BaaS，利用資料庫與 Row Level Security (RLS) 管理隊伍與號碼牌資料，並透過 Supabase CLI 建立本地開發與雲端同步流程，讓我能以更高效率完成整個全端產品的開發與維運。核心功能包含號碼牌彈窗、手機驗證邏輯、企業管理頁面，以及即時的元件效能監控與優化。這個專案很適合用來說明我如何結合前端互動與 Supabase 後端服務，快速打造可用、可維護的產品原型，並強調一人全端開發的實戰能力。',
+      en: 'QueueMaster is a full-stack web app centered on real-world queue management for physical stores. It addresses pain points such as chaotic queue flow, poor customer waiting experience, and cumbersome manual ticketing. Built with Next.js 14 App Router and TypeScript, the system uses strong typing and component-based architecture to ensure stable cross-page and cross-component data flow. On the backend, it integrates Supabase as a BaaS layer using PostgreSQL and Row Level Security (RLS) to manage queue and ticket data securely, while Supabase CLI enables local development and cloud sync workflows. This allows me to build and maintain a full-stack product efficiently. Core features include number-ticket modal flows, mobile verification logic, business-side management views, and real-time component performance monitoring via react-scan. This project is a strong example of how I combine frontend interaction design with Supabase-backed backend services to ship maintainable full-stack products quickly.',
+    },
+    links: [
+      { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/QueueMaster', icon: 'github' },
+      { label: { zh: '系列文章', en: 'Series Article' }, url: 'https://ithelp.ithome.com.tw/users/20147822/ironman/8756', icon: 'external' },
+    ],
+  },
 ]
