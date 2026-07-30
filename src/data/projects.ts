@@ -118,32 +118,32 @@ export const projects: ProjectItem[] = [
       id: 'medical-ct',
       images: [
         {
-          src: '/images/medical/medical-cover.webp',
+          src: '/images/medical/cover.webp',
           alt: '醫療後台封面畫面',
           description: '醫療後台系統封面與主視覺',
         },
         {
-          src: '/images/medical/medical-backend-1.webp',
+          src: '/images/medical/screen-1.webp',
           alt: '醫療後台功能截圖 1',
           description: '病歷分析管理介面（截圖 1）',
         },
         {
-          src: '/images/medical/medical-backend-2.webp',
+          src: '/images/medical/screen-2.webp',
           alt: '醫療後台功能截圖 2',
           description: '病歷分析管理介面（截圖 2）',
         },
         {
-          src: '/images/medical/medical-backend-3.webp',
+          src: '/images/medical/screen-3.webp',
           alt: '醫療後台功能截圖 3',
           description: '病歷分析管理介面（截圖 3）',
         },
         {
-          src: '/images/medical/medical-backend-4.webp',
+          src: '/images/medical/screen-4.webp',
           alt: '醫療後台功能截圖 4',
           description: '病歷分析管理介面（截圖 4）',
         },
         {
-          src: '/images/medical/medical-backend-5.webp',
+          src: '/images/medical/screen-5.webp',
           alt: '醫療後台功能截圖 5',
           description: '病歷分析管理介面（截圖 5）',
         },
