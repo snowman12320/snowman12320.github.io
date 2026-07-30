@@ -336,4 +336,81 @@ export const projects: ProjectItem[] = [
       ],
     },
   },
+  {
+    id: 'digital-factor-platform',
+    name: { zh: '數位因子專案', en: 'Digital Factor Project' },
+    category: { zh: '電商與後台系統', en: 'E-commerce & Admin System' },
+    categoryColor: 'green',
+    shortDesc: {
+      zh: '基於 LINE LIFF 框架開發的電商後台與整合流程，涵蓋 LINE Bot、LINE Login 與通知系統的串接。',
+      en: 'Developed an e-commerce admin system based on the LINE LIFF framework, integrating LINE Bot, LINE Login, and notification services.',
+    },
+    techStack: ['React', 'TypeScript', 'LINE LIFF', 'LINE Bot', 'LINE Login', 'LINE Notify', 'GitHub CI/CD'],
+    detailedDesc: {
+      zh: '這個專案是我在數位因子網路科技公司參與的後台與電商整合系統，主要負責基於 LINE LIFF 框架的前端與系統流程開發。專案整合 LINE Bot、LINE Login 與 LINE Notify，讓後台能順暢處理訂單管理與通知流程；我也協助建立 GitHub 的任務管理與版本控制流程，並透過 Tag 標籤支援 CI/CD 的自動化部署。這個專案適合用來呈現我在合作式產品開發中，如何快速落地前端互動、第三方服務串接與維運流程。',
+      en: 'This project was developed while working at Digital Factor Network Technology. I contributed to building an e-commerce admin system based on the LINE LIFF framework, integrating LINE Bot, LINE Login, and LINE Notify to support order management and notification workflows. I also helped establish GitHub-based task tracking and version control, using tags to support CI/CD automation. This project is a strong example of how I quickly deliver frontend interactions, third-party service integrations, and deployment workflows in collaborative product environments.',
+    },
+    links: [
+      { label: { zh: '公司網站', en: 'Company Website' }, url: 'https://www.dgfactor.com/', icon: 'external' },
+    ],
+    gallery: {
+      id: 'digital-factor',
+      images: [
+        { src: '/images/digital-factor/1.png', alt: 'Digital Factor Screenshot 1', description: '數位因子專案畫面 1' },
+        { src: '/images/digital-factor/2.png', alt: 'Digital Factor Screenshot 2', description: '數位因子專案畫面 2' },
+        { src: '/images/digital-factor/3.png', alt: 'Digital Factor Screenshot 3', description: '數位因子專案畫面 3' },
+        { src: '/images/digital-factor/4.png', alt: 'Digital Factor Screenshot 4', description: '數位因子專案畫面 4' },
+        { src: '/images/digital-factor/5.png', alt: 'Digital Factor Screenshot 5', description: '數位因子專案畫面 5' },
+      ],
+    },
+  },
+  {
+    id: 'ncku-project',
+    name: { zh: '成功大學專案', en: 'NCKU Project' },
+    category: { zh: '校內系統與報表平台', en: 'Campus System & Reporting Platform' },
+    categoryColor: 'purple',
+    shortDesc: {
+      zh: '為成功大學內部系統與醫療/營養相關報表平台開發前端與流程管理功能。',
+      en: 'Developed frontend and workflow features for NCKU internal systems and medical/nutrition-related reporting platforms.',
+    },
+    techStack: ['Vue 2', 'Vue 3', 'Vuex', 'Pinia', 'PHP', 'Docker', 'RESTful API', 'HeidiSQL'],
+    detailedDesc: {
+      zh: '這個專案是我在成功大學任職期間參與的內部系統與報表平台，主要負責跨領域前端專案的建構與維護。我曾協助開發學校內部的食登 2.0 系統與慈濟報表系統，提供表單、資料展示與操作流程；也參與客服系統與資產帳號管理系統的開發，強化校內業務流程與資料管理效率。這個專案適合用來說明我如何在校園場域中，將前端互動、資料流與後端流程整合成穩定可維護的內部系統。',
+      en: 'This project covers the internal systems and reporting platforms I worked on during my time at National Cheng Kung University. I contributed to building and maintaining cross-functional frontend systems, including the Food Registration 2.0 platform, Tzu Chi report systems, the customer service system, and asset/account management tools. The work focused on forms, data display, and business workflow management. This project is a strong example of how I integrated frontend interaction, data flow, and backend processes into stable and maintainable internal systems.',
+    },
+    links: [
+      { label: { zh: '學校網站', en: 'University Website' }, url: 'https://www.ncku.edu.tw/', icon: 'external' },
+    ],
+    gallery: {
+      id: 'ncku',
+      images: [
+        { src: '/images/ncku/cover.png', alt: 'NCKU Project Cover', description: '成功大學專案封面' },
+        { src: '/images/ncku/1.png', alt: 'NCKU Project Screenshot 1', description: '成功大學專案畫面 1' },
+        { src: '/images/ncku/2.png', alt: 'NCKU Project Screenshot 2', description: '成功大學專案畫面 2' },
+        { src: '/images/ncku/s.png', alt: 'NCKU Project Screenshot 3', description: '成功大學專案畫面 3' },
+      ],
+    },
+  },
+  {
+    id: 'wan-yi-project',
+    name: { zh: '玩藝數位專案', en: 'Fun Show Digital Project' },
+    category: { zh: '直播平台', en: 'Live Streaming Platform' },
+    categoryColor: 'green',
+    shortDesc: {
+      zh: '以直播互動與品牌內容為核心的數位平台，整合訊號源管理、導播控制、即時同步、會員金流與高可靠度直播體驗。',
+      en: 'A digital platform centered on live streaming and brand content, integrating signal management, broadcast control, real-time sync, membership payments, and high-reliability live experience.',
+    },
+    techStack: ['Vue 3', 'TypeScript', 'Vite', 'Tailwind CSS', 'WebSocket', 'SSE', 'Keycloak', 'Payuni', 'Component Architecture', 'State Management', 'Composables', 'Router', 'Async Data Flow', 'Infinite Scroll', 'Lightbox', 'Context Menu', 'OBS Integration', 'Signal Source Management', 'Scene Management', 'Broadcast Control UI', 'Real-time Sync', 'High Concurrency', 'MSW', 'Jenkins', 'Git CI/CD'],
+    detailedDesc: {
+      zh: '這是一個以直播互動與品牌內容為核心的數位平台專案，聚焦於前端架構設計、即時資料同步、訊號源與場景管理、導播控制流程與高互動體驗整合。專案以 Vue 3 + TypeScript 搭配 Vite 打造高效能前端開發環境，使用 Tailwind CSS 與元件化架構實現一致性設計系統；並透過 Composables、路由設計、狀態管理與非同步資料流，組織直播頁、導播控制台、互動面板與內容管理系統。核心功能涵蓋訊號源初始化、列表重置與定位點串接、場景比例管理與字體統一設定，導播 UX/UI 調整、聯合直播與共同直播 UI 整合、OBS 直播串流檢視。會員系統整合 Keycloak 身分驗證與 RBAC 權限控制，透過 Payuni 統一金流處理訂閱方案付款流程，重構會員中心頁面與側邊導覽。媒體資源管理實作無限滾動載入（Infinite Scroll）、燈箱預覽（Lightbox）、右鍵選單與刪除互動；即時通知透過 WebSocket 與 SSE（Server-Sent Events）實現訂閱方案與期限提醒的即時推播。測試方面使用 MSW 進行 API Mock、Postman 與單元測試驗證介接；部署透過 Jenkins CI/CD 與 Git 分支管理自動化流程，並評估 Nuxt 4 升級可行性。此專案能充分展現我在前端架構、訊號源與場景管理、導播控制系統、即時通訊、身分驗證、支付整合、高並發場景優化與系統可靠性上的實作能力。',
+      en: 'This is a digital platform project centered on live streaming and brand content, focusing on frontend architecture, real-time data synchronization, signal/scene management, broadcast control flow, and high-engagement experience. Built with Vue 3 + TypeScript and Vite for high-performance development, using Tailwind CSS and component-based architecture to ensure design consistency. Leverages Composables, routing, state management, and async data flows to organize the live page, broadcast control panel, interaction panel, and content management system. Core features include signal source initialization, list reset and anchor-point linking, scene ratio management and unified typography, broadcast UX/UI refinement, joint/co-streaming UI integration, and OBS stream viewing. Membership integrates Keycloak authentication and RBAC, processes subscriptions via Payuni unified payment, and rebuilds the member center with independent navigation. Media management implements infinite scrolling, lightbox preview, context menus, and delete interactions; real-time notifications use WebSocket and SSE for subscription and expiry alerts. Testing uses MSW for API mocking, Postman and unit tests for validation; deployment automates via Jenkins CI/CD and Git branch management, with Nuxt 4 upgrade feasibility assessment. This project demonstrates capabilities in frontend architecture, signal/scene management, broadcast control systems, real-time communication, authentication, payment integration, high-concurrency optimization, and system reliability.',
+    },
+    links: [],
+    gallery: {
+      id: 'wan-yi',
+      images: [
+        { src: '/images/wanyi/cover.png', alt: 'Wan Yi Project Cover', description: '玩藝數位專案封面' },
+      ],
+    },
+  },
 ]
