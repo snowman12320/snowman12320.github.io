@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import { projects } from '../../data/projects'
 import ProjectCard from '../ui/ProjectCard.vue'
@@ -12,6 +12,9 @@ const { lang } = defineProps({
 })
 
 const selectedCategory = ref('all')
+const currentPage = ref(1)
+const pageSize = 4
+
 // Use category id (zh key) as stable filter key, display the lang-appropriate label
 const categories = computed(() => {
   const seen = new Set<string>()
@@ -19,11 +22,28 @@ const categories = computed(() => {
     .map((item) => ({ key: item.category.zh, label: item.category[lang] }))
     .filter(({ key }) => (seen.has(key) ? false : seen.add(key)))
 })
+
 const filteredProjects = computed(() =>
   selectedCategory.value === 'all'
     ? projects
     : projects.filter((item) => item.category.zh === selectedCategory.value),
 )
+
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredProjects.value.length / pageSize)))
+
+const pagedProjects = computed(() => {
+  const safePage = Math.min(currentPage.value, totalPages.value)
+  const start = (safePage - 1) * pageSize
+  return filteredProjects.value.slice(start, start + pageSize)
+})
+
+const goToPage = (page: number) => {
+  currentPage.value = Math.max(1, Math.min(page, totalPages.value))
+}
+
+watch(filteredProjects, () => {
+  currentPage.value = 1
+})
 </script>
 
 <template>
@@ -60,7 +80,37 @@ const filteredProjects = computed(() =>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-      <ProjectCard v-for="item in filteredProjects" :key="item.id" :item="item" :lang="lang" />
+      <ProjectCard v-for="item in pagedProjects" :key="item.id" :item="item" :lang="lang" />
+    </div>
+
+    <div v-if="totalPages > 1" class="mt-8 flex flex-wrap items-center justify-center gap-2">
+      <button
+        class="rounded-full border border-gray-300 dark:border-gray-700 px-3 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 transition-colors disabled:cursor-not-allowed disabled:opacity-50 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+        :disabled="currentPage === 1"
+        @click="goToPage(currentPage - 1)"
+      >
+        {{ lang === 'zh' ? '上一頁' : 'Prev' }}
+      </button>
+
+      <button
+        v-for="page in totalPages"
+        :key="page"
+        class="min-w-9 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors"
+        :class="currentPage === page
+          ? 'border-blue-600 bg-blue-600 text-white'
+          : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400'"
+        @click="goToPage(page)"
+      >
+        {{ page }}
+      </button>
+
+      <button
+        class="rounded-full border border-gray-300 dark:border-gray-700 px-3 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 transition-colors disabled:cursor-not-allowed disabled:opacity-50 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+        :disabled="currentPage === totalPages"
+        @click="goToPage(currentPage + 1)"
+      >
+        {{ lang === 'zh' ? '下一頁' : 'Next' }}
+      </button>
     </div>
   </section>
 </template>
