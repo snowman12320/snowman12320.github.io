@@ -293,5 +293,22 @@ export const projects: ProjectItem[] = [
       { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/QueueMaster', icon: 'github' },
       { label: { zh: '系列文章', en: 'Series Article' }, url: 'https://ithelp.ithome.com.tw/users/20147822/ironman/8756', icon: 'external' },
     ],
+    gallery: {
+      id: 'queue-master',
+      images: [
+        { src: '/images/queue-master/19-3.png', alt: 'QueueMaster Feature View', description: 'QueueMaster 功能畫面' },
+        { src: '/images/queue-master/20-home.png', alt: 'QueueMaster Home', description: 'QueueMaster 首頁與排隊入口' },
+        { src: '/images/queue-master/20-login.png', alt: 'QueueMaster Login', description: '手機驗證與登入流程' },
+        { src: '/images/queue-master/20-chat-list.png', alt: 'QueueMaster Chat List', description: '聊天室清單與即時訊息' },
+        { src: '/images/queue-master/20-chat-room.png', alt: 'QueueMaster Chat Room', description: '店家與顧客聊天室介面' },
+        { src: '/images/queue-master/20-setting.png', alt: 'QueueMaster Settings', description: '企業設定與管理畫面' },
+        { src: '/images/queue-master/20-product.png', alt: 'QueueMaster Product View', description: '產品與服務管理畫面' },
+        { src: '/images/queue-master/20-bookging.png', alt: 'QueueMaster Booking', description: '預約與排隊流程畫面' },
+        { src: '/images/queue-master/20-booking-detail.png', alt: 'QueueMaster Booking Detail', description: '預約細節與狀態說明' },
+        { src: '/images/queue-master/20-notice.png', alt: 'QueueMaster Notice', description: '公告與通知管理畫面' },
+        { src: '/images/queue-master/20-receid.png', alt: 'QueueMaster Receipt', description: '收據與完成流程畫面' },
+        { src: '/images/queue-master/22-2.png', alt: 'QueueMaster Additional View', description: '額外功能畫面' },
+      ],
+    },
   },
 ]
