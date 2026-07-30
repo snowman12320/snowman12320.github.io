@@ -311,4 +311,29 @@ export const projects: ProjectItem[] = [
       ],
     },
   },
+  {
+    id: 'sun-life-portal',
+    name: { zh: '顧問入口網站', en: 'Sun Life Advisor Portal' },
+    category: { zh: '企業應用系統', en: 'Enterprise Application' },
+    categoryColor: 'purple',
+    shortDesc: {
+      zh: '為永明金融 Advisor Portal 開發前端與整合流程，強化表格互動、SSO 與跨環境部署維運。',
+      en: 'Developed and maintained the Sun Life Advisor Portal frontend and integration flows, improving table interactions, SSO, and multi-environment deployment operations.',
+    },
+    techStack: ['Next.js', 'TypeScript', 'Node.js', 'BFF', 'SSO / RBAC', 'SQL', 'Umami', 'Jira', 'GitHub Actions'],
+    detailedDesc: {
+      zh: '這個專案是我在永明金融 Advisor Portal 的實務工作內容，主要負責前端介面開發與後端串接流程維護。我參與開發包含 Table UI、Spinner 狀態顯示與多種響應式元件，並透過 BFF 架構串接 Advisor API；同時協助排查 DEV 環境 API 連線異常。除了前端開發，我也主導 SSO 認證流程整合，包含登入後重新導向 URL、SSO role 管理與 RBAC 權限控制；另外開發後台管理功能與初始資料庫建置，並整合 Umami analytics 追蹤使用者行為。這個專案很適合用來說明我如何在企業級系統中兼顧產品互動、權限控制與跨環境維運。',
+      en: 'This project reflects my hands-on work on Sun Life Financial’s Advisor Portal. I contributed to building and maintaining frontend interfaces such as table UI, spinner states, and responsive components, while integrating Advisor APIs through a BFF architecture. I also helped diagnose DEV environment API connectivity issues. Beyond frontend work, I led the SSO integration flow, including post-login redirect configuration, SSO role provisioning, and RBAC-based access control. I also delivered admin features, initial database setup, and Umami analytics integration to monitor user behavior. This project is a strong example of how I balance product interaction design, permission control, and cross-environment operations in enterprise systems.',
+    },
+    links: [
+      { label: { zh: '公司網站', en: 'Company Website' }, url: 'https://www.sunlife.ca/en/', icon: 'external' },
+    ],
+    gallery: {
+      id: 'sun-life',
+      images: [
+        { src: '/images/sun-life/image.png', alt: 'Sun Life Advisor Portal Overview', description: '永明 Advisor Portal 介面概覽' },
+        { src: '/images/sun-life/image-1.png', alt: 'Sun Life Advisor Portal Detail', description: '永明 Advisor Portal 內容細節' },
+      ],
+    },
+  },
 ]
