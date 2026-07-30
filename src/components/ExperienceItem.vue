@@ -41,9 +41,10 @@ watch(open, async (isOpen) => {
 </script>
 
 <template>
-  <div
-    class="relative rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 hover:shadow-md dark:hover:shadow-gray-900 transition-shadow"
+  <button
+    class="group relative w-full text-left rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 hover:shadow-lg dark:hover:shadow-gray-900 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
     :class="isBreak ? 'bg-gray-50/60 dark:bg-gray-800/30' : ''"
+    @click="open = true"
   >
     <!-- timeline dot -->
     <span
@@ -54,7 +55,14 @@ watch(open, async (isOpen) => {
       ]"
     />
 
-    <div class="flex items-start justify-between gap-3">
+    <span
+      class="absolute top-4 right-4 w-7 h-7 flex items-center justify-center rounded-lg text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+      :aria-label="$t('common.details')"
+    >
+      <FaIcon :icon="['fas', 'arrow-up-right-from-square']" class="text-xs" />
+    </span>
+
+    <div class="pr-8">
       <span
         class="inline-flex items-center gap-1.5 text-xs tabular-nums rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2.5 py-1"
       >
@@ -66,13 +74,6 @@ watch(open, async (isOpen) => {
           {{ periodParts.duration }}
         </span>
       </span>
-      <button
-        class="no-print shrink-0 w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-blue-600 hover:border-blue-400 dark:hover:text-blue-400 transition-colors"
-        :aria-label="$t('common.details')"
-        @click="open = true"
-      >
-        <FaIcon :icon="['fas', 'chevron-down']" class="text-sm" />
-      </button>
     </div>
 
     <div class="mt-2">
@@ -85,7 +86,7 @@ watch(open, async (isOpen) => {
         {{ lang === 'zh' ? item.location.zh : item.location.en }}
       </p>
     </div>
-  </div>
+  </button>
 
   <DetailModal :open="open" @close="open = false">
     <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 pr-8">{{ lang === 'zh' ? item.position.zh : item.position.en }}</h3>
