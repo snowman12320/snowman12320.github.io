@@ -20,7 +20,7 @@ export default {
     details: '查看詳情',
     collapse: '收合詳情',
     techStack: '技術棧',
-    contribution: '貢獻度與量化指標',
+    contribution: '貢獻度',
     highlights: '成果展示',
     role: '全端工程師',
     fullStackEngineer: '全端工程師',

@@ -20,6 +20,8 @@ import {
   faServer,
   faSun,
   faXmark,
+  faChartLine,
+  faRocket,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faReact, faVuejs, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import App from './App.vue'
@@ -36,6 +38,7 @@ library.add(
   faFileLines,
   faFolderOpen,
   faGears,
+  faChartLine,
   faGithub,
   faGlobe,
   faLaptopCode,
@@ -45,6 +48,7 @@ library.add(
   faPhone,
   faPlug,
   faReact,
+  faRocket,
   faServer,
   faSun,
   faXmark,

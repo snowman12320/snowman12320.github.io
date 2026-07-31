@@ -133,38 +133,67 @@ watch(open, async (isOpen) => {
       </div>
 
       <div v-if="item.contribution" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
-        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">{{ $t('common.contribution') }}</p>
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">{{ $t('common.contribution') }}</p>
 
-        <div class="flex flex-wrap gap-2 mb-3">
-          <button
+        <div class="space-y-2">
+          <div
             v-for="section in contributionSections"
             :key="section.title"
-            type="button"
-            class="rounded-full border px-3 py-1.5 text-sm transition-all"
-            :class="activeContributionSection === section.title
-              ? 'border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/30 dark:text-blue-300'
-              : 'border-gray-200 bg-white text-gray-600 hover:border-blue-300 hover:text-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-blue-500 dark:hover:text-blue-400'"
-            @click="toggleContributionSection(section.title)"
+            class="rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden"
           >
-            {{ section.title }}
-          </button>
-        </div>
+            <!-- Accordion Header -->
+            <button
+              type="button"
+              class="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+              @click="toggleContributionSection(section.title)"
+            >
+              <span class="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 shadow-sm">
+                  <FaIcon
+                    :icon="section.title === '性能提升' || section.title === 'Performance'
+                      ? ['fas', 'bolt']
+                      : section.title === '程式品質' || section.title === 'Quality'
+                        ? ['fas', 'code']
+                        : section.title === '商業影響' || section.title === 'Impact'
+                          ? ['fas', 'chart-line']
+                          : ['fas', 'rocket']"
+                  />
+                </span>
+                <span class="text-base font-bold uppercase tracking-[0.2em]">{{ section.title }}</span>
+              </span>
+              <FaIcon
+                :icon="['fas', 'chevron-down']"
+                class="text-gray-500 dark:text-gray-400 transition-transform duration-300"
+                :style="{ transform: activeContributionSection === section.title ? 'rotate(180deg)' : 'rotate(0deg)' }"
+              />
+            </button>
 
-        <div v-if="activeContributionSection" class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-800/50 p-3">
-          <div v-for="section in contributionSections" :key="section.title">
-            <div v-if="activeContributionSection === section.title" class="space-y-2.5">
-              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                <li v-for="itemText in section.items" :key="itemText" class="flex gap-2">
-                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"></span>
-                  <span>
-                    <template v-for="(part, index) in splitContributionText(itemText)" :key="`${part.text}-${index}`">
-                      <span v-if="part.highlight" class="font-semibold text-blue-600 dark:text-blue-400">{{ part.text }}</span>
-                      <template v-else>{{ part.text }}</template>
-                    </template>
-                  </span>
-                </li>
-              </ul>
-            </div>
+            <!-- Accordion Content -->
+            <transition
+              enter-active-class="overflow-hidden transition-all duration-300"
+              leave-active-class="overflow-hidden transition-all duration-300"
+              @enter="(el: Element) => (el as HTMLElement).style.maxHeight = (el as HTMLElement).scrollHeight + 'px'"
+              @leave="(el: Element) => (el as HTMLElement).style.maxHeight = '0px'"
+            >
+              <div
+                v-if="activeContributionSection === section.title"
+                class="max-h-max"
+              >
+                <div class="px-4 py-3 bg-gray-50/50 dark:bg-gray-900/30 border-t border-gray-100 dark:border-gray-700">
+                  <ul class="space-y-2.5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <li v-for="itemText in section.items" :key="itemText" class="flex gap-2">
+                      <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"></span>
+                      <span>
+                        <template v-for="(part, index) in splitContributionText(itemText)" :key="`${part.text}-${index}`">
+                          <span v-if="part.highlight" class="font-semibold text-blue-600 dark:text-blue-400">{{ part.text }}</span>
+                          <template v-else>{{ part.text }}</template>
+                        </template>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
