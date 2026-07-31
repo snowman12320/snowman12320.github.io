@@ -11,15 +11,15 @@
 
 ## 技術選型
 
-| 項目 | 選擇 | 理由 |
-|------|------|------|
-| Framework | Vue 3 + Vite | 符合主力技能 |
-| 語言 | TypeScript | 型別安全 |
-| 樣式 | Tailwind CSS v4 + Vite plugin | 取代 CDN |
-| i18n | vue-i18n v9 | 取代 152 個 x-show 雙語切換 |
-| 圖片燈箱 | glightbox（npm） | 沿用現有套件 |
-| Icons | @fortawesome/vue-fontawesome + lucide-vue-next | npm 版本 |
-| 部署 | GitHub Actions → gh-pages branch | 自動化 |
+| 項目      | 選擇                                           | 理由                        |
+| --------- | ---------------------------------------------- | --------------------------- |
+| Framework | Vue 3 + Vite                                   | 符合主力技能                |
+| 語言      | TypeScript                                     | 型別安全                    |
+| 樣式      | Tailwind CSS v4 + Vite plugin                  | 取代 CDN                    |
+| i18n      | vue-i18n v9                                    | 取代 152 個 x-show 雙語切換 |
+| 圖片燈箱  | glightbox（npm）                               | 沿用現有套件                |
+| Icons     | @fortawesome/vue-fontawesome + lucide-vue-next | npm 版本                    |
+| 部署      | GitHub Actions → gh-pages branch               | 自動化                      |
 
 ---
 
@@ -48,7 +48,7 @@ snowman12320.github.io/              ← 現有 repo，原地改造
 │   │   ├── TheSkills.vue
 │   │   └── TheFooter.vue
 │   ├── data/
-│   │   ├── experience.ts            ← 8 筆工作經歷資料
+│   │   ├── experience.ts            ← 8 筆經歷資料
 │   │   ├── projects.ts              ← 6 筆專案資料
 │   │   └── skills.ts                ← 6 大類技能資料
 │   ├── types/
@@ -72,37 +72,40 @@ snowman12320.github.io/              ← 現有 repo，原地改造
 ## 型別定義（`src/types/index.ts`）
 
 ```typescript
-export interface I18nText { zh: string; en: string }
+export interface I18nText {
+  zh: string;
+  en: string;
+}
 
 export interface ExperienceItem {
-  id: string
-  position: I18nText
-  company: I18nText
-  location: I18nText
-  period: string
-  bullets: { zh: string[]; en: string[] }
-  techStack: string[]
-  links?: { label: I18nText; url: string; icon: string }[]
-  gallery?: { id: string; images: { src: string; description: string }[] }
+  id: string;
+  position: I18nText;
+  company: I18nText;
+  location: I18nText;
+  period: string;
+  bullets: { zh: string[]; en: string[] };
+  techStack: string[];
+  links?: { label: I18nText; url: string; icon: string }[];
+  gallery?: { id: string; images: { src: string; description: string }[] };
 }
 
 export interface ProjectItem {
-  id: string
-  name: string                      // 中文，無 i18n
-  category: string
-  categoryColor: string             // 'blue' | 'green' | 'purple'
-  shortDesc: string                 // 中文簡述
-  techStack: string[]
-  detailedDesc: string              // 中文詳述
-  links: { label: I18nText; url: string; icon: string }[]
-  gallery?: { id: string; images: { src: string; alt: string; description: string }[] }
+  id: string;
+  name: string; // 中文，無 i18n
+  category: string;
+  categoryColor: string; // 'blue' | 'green' | 'purple'
+  shortDesc: string; // 中文簡述
+  techStack: string[];
+  detailedDesc: string; // 中文詳述
+  links: { label: I18nText; url: string; icon: string }[];
+  gallery?: { id: string; images: { src: string; alt: string; description: string }[] };
 }
 
 export interface SkillCategory {
-  id: string
-  title: I18nText
-  icon: string                      // Font Awesome class
-  skills: string[]
+  id: string;
+  title: I18nText;
+  icon: string; // Font Awesome class
+  skills: string[];
 }
 ```
 
@@ -111,7 +114,9 @@ export interface SkillCategory {
 ## 關鍵實作細節
 
 ### 1. FOUC 防止（深色模式閃爍）
+
 在 `index.html` 的 `<head>` 保留 inline script，與原版相同：
+
 ```html
 <script>
   const s = localStorage.getItem('theme');
@@ -121,15 +126,19 @@ export interface SkillCategory {
 ```
 
 ### 2. Tailwind v4 設定
+
 使用 `@tailwindcss/vite` plugin，Tailwind 指令寫在 `src/assets/main.css`，加入 `darkMode: 'class'`。
 
 ### 3. Scroll-reveal
+
 將 `reveal.js` 邏輯改為 Vue composable（`useReveal`）或 `vOnDirective`，在 `onMounted` 時初始化 IntersectionObserver。
 
 ### 4. GLightbox 初始化
+
 在需要燈箱的元件（ExperienceItem、ProjectCard）的 `onMounted` 呼叫 `GLightbox({ selector: '.glightbox' })`。
 
 ### 5. GitHub Actions（`.github/workflows/deploy.yml`）
+
 ```yaml
 name: Deploy to GitHub Pages
 on:
@@ -151,8 +160,9 @@ jobs:
 ```
 
 ### 6. vite.config.ts base 路徑
+
 ```typescript
-base: '/'   // snowman12320.github.io 個人頁，不需子路徑
+base: '/'; // snowman12320.github.io 個人頁，不需子路徑
 ```
 
 ---
@@ -162,14 +172,14 @@ base: '/'   // snowman12320.github.io 個人頁，不需子路徑
 1. 備份：將 `index.html`、`theme.js`、`reveal.js`、`styles.css` 移至 `_legacy/`
 2. 在 repo 根目錄執行 `npm create vite@latest . -- --template vue-ts`（`.` 代表當前目錄）
 3. 安裝依賴：`tailwindcss` / `vue-i18n` / `glightbox` / `@fortawesome/...` / `lucide-vue-next`
-3. 建立型別定義（`src/types/index.ts`）
-4. 將 HTML 中的資料抽取至 `src/data/*.ts`（experience、projects、skills）
-5. 建立 locales（zh/en UI 文字）
-6. 逐一實作元件（Navbar → Hero → Experience → Projects → Skills → Footer）
-7. 設定 `main.css` Tailwind 指令 + 自訂樣式
-8. 複製 `images/` 至 `public/images/`
-9. 新增 `.github/workflows/deploy.yml`
-10. 測試 `npm run build` 後推送，確認 GitHub Pages 正常運作
+4. 建立型別定義（`src/types/index.ts`）
+5. 將 HTML 中的資料抽取至 `src/data/*.ts`（experience、projects、skills）
+6. 建立 locales（zh/en UI 文字）
+7. 逐一實作元件（Navbar → Hero → Experience → Projects → Skills → Footer）
+8. 設定 `main.css` Tailwind 指令 + 自訂樣式
+9. 複製 `images/` 至 `public/images/`
+10. 新增 `.github/workflows/deploy.yml`
+11. 測試 `npm run build` 後推送，確認 GitHub Pages 正常運作
 
 ---
 

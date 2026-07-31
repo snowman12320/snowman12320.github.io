@@ -32,6 +32,36 @@ const detailPoints = computed(() =>
     .filter(Boolean),
 )
 
+const contributionSections = computed(() => {
+  if (!item.contribution?.[lang]) return []
+
+  try {
+    return JSON.parse(item.contribution[lang]) as Array<{ title: string; items: string[] }>
+  } catch {
+    return []
+  }
+})
+
+const activeContributionSection = ref<string | null>(null)
+
+const splitContributionText = (text: string) => {
+  const parts = text.split(/(\d[\d,\.\-+%a-zA-Z]+)/g).filter(Boolean)
+  return parts.map((part) => ({
+    text: part,
+    highlight: /^\d[\d,\.\-+%a-zA-Z]+$/.test(part),
+  }))
+}
+
+const toggleContributionSection = (title: string) => {
+  activeContributionSection.value = activeContributionSection.value === title ? null : title
+}
+
+watch(detailPoints, () => {
+  if (contributionSections.value.length && !activeContributionSection.value) {
+    activeContributionSection.value = contributionSections.value[0].title
+  }
+}, { immediate: true })
+
 watch(open, async (isOpen) => {
   if (isOpen) {
     await nextTick()
@@ -77,6 +107,43 @@ watch(open, async (isOpen) => {
       <ul class="mb-6 space-y-2.5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed list-disc list-inside">
         <li v-for="point in detailPoints" :key="point">{{ point }}</li>
       </ul>
+
+      <div v-if="item.contribution" class="mb-6 rounded-xl border border-gray-100 dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800/40 p-4">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">{{ $t('common.contribution') }}</p>
+
+        <div class="flex flex-wrap gap-2 mb-3">
+          <button
+            v-for="section in contributionSections"
+            :key="section.title"
+            type="button"
+            class="rounded-full border px-3 py-1.5 text-sm transition-all"
+            :class="activeContributionSection === section.title
+              ? 'border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-900/30 dark:text-blue-300'
+              : 'border-gray-200 bg-white text-gray-600 hover:border-blue-300 hover:text-blue-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-blue-500 dark:hover:text-blue-400'"
+            @click="toggleContributionSection(section.title)"
+          >
+            {{ section.title }}
+          </button>
+        </div>
+
+        <div v-if="activeContributionSection" class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-900/40 p-3">
+          <div v-for="section in contributionSections" :key="section.title">
+            <div v-if="activeContributionSection === section.title" class="space-y-2.5">
+              <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <li v-for="itemText in section.items" :key="itemText" class="flex gap-2">
+                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"></span>
+                  <span>
+                    <template v-for="(part, index) in splitContributionText(itemText)" :key="`${part.text}-${index}`">
+                      <span v-if="part.highlight" class="font-semibold text-blue-600 dark:text-blue-400">{{ part.text }}</span>
+                      <template v-else>{{ part.text }}</template>
+                    </template>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div v-if="item.gallery" class="mb-6">
         <div class="flex gap-3 overflow-x-auto pb-1">

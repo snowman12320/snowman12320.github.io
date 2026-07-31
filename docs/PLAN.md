@@ -2,18 +2,18 @@
 
 ## 需求摘要
 
-| 項目 | 決定 |
-|------|------|
-| 版面配置 | 單頁式，垂直滾動 |
-| 主要區塊 | 個人資訊、技能、工作經歷、專案 |
-| 互動功能 | 進階（動畫、hover 效果、深色模式切換）|
-| 列印友善 | 支援列印成 PDF |
-| 個人資訊呈現 | 簡約型（姓名、標題、email、電話、LinkedIn、GitHub）|
-| 技能展示 | 分類列表，使用 Badge 標籤 |
-| 工作經歷 / 專案 | 精簡預覽 + 展開按鈕查看詳情 |
-| 深色模式 | 手動切換（預設淺色），存入 localStorage |
-| 配色風格 | 專業商務 — 藍色系 + 灰色系 |
-| Tailwind 引入方式 | CDN（`@tailwindcss/browser@4`）|
+| 項目              | 決定                                                |
+| ----------------- | --------------------------------------------------- |
+| 版面配置          | 單頁式，垂直滾動                                    |
+| 主要區塊          | 個人資訊、技能、經歷、專案                          |
+| 互動功能          | 進階（動畫、hover 效果、深色模式切換）              |
+| 列印友善          | 支援列印成 PDF                                      |
+| 個人資訊呈現      | 簡約型（姓名、標題、email、電話、LinkedIn、GitHub） |
+| 技能展示          | 分類列表，使用 Badge 標籤                           |
+| 經歷 / 專案       | 精簡預覽 + 展開按鈕查看詳情                         |
+| 深色模式          | 手動切換（預設淺色），存入 localStorage             |
+| 配色風格          | 專業商務 — 藍色系 + 灰色系                          |
+| Tailwind 引入方式 | CDN（`@tailwindcss/browser@4`）                     |
 
 > **補充**：原生語法冗長時，優先使用框架（如 Alpine.js）替代手寫 JS。
 
@@ -21,14 +21,15 @@
 
 ## 技術選型
 
-| 技術 | 版本 / 說明 |
-|------|------------|
-| HTML | HTML5 |
-| Tailwind CSS | v4（CDN via jsDelivr）|
-| Alpine.js | v3（CDN）— 處理展開/收合、深色模式切換等互動邏輯 |
-| SVG Icons | Heroicons（inline SVG，無需額外依賴）|
+| 技術         | 版本 / 說明                                      |
+| ------------ | ------------------------------------------------ |
+| HTML         | HTML5                                            |
+| Tailwind CSS | v4（CDN via jsDelivr）                           |
+| Alpine.js    | v3（CDN）— 處理展開/收合、深色模式切換等互動邏輯 |
+| SVG Icons    | Heroicons（inline SVG，無需額外依賴）            |
 
 ### 為何使用 Alpine.js？
+
 原生 JS 處理多個展開/收合元件需要大量 `querySelector` + 事件委託，程式碼冗長且難以維護。  
 Alpine.js 透過 HTML 屬性（`x-data`、`x-show`、`@click`）即可完成同等功能，且為 CDN 引入、無建置步驟、與 Tailwind 設計哲學一致。
 
@@ -51,7 +52,7 @@ index.html
     ├── <header>  Navbar（姓名 + 深色模式切換按鈕）
     ├── <section> Hero（個人資訊 + 聯絡方式）
     ├── <section> Skills（分類技能 Badges）
-    ├── <section> Experience（工作經歷，Alpine 展開/收合）
+    ├── <section> Experience（經歷，Alpine 展開/收合）
     ├── <section> Projects（專案卡片，Alpine 展開/收合）
     ├── <footer>  版權資訊
     └── <script>  Alpine.data() 定義
@@ -62,6 +63,7 @@ index.html
 ## Task Breakdown
 
 ### Task 1 — 建立 PLAN.md ✅
+
 記錄完整專案計畫（即本文件）。
 
 ---
@@ -71,6 +73,7 @@ index.html
 **目標**：建立 `index.html`，設定所有依賴與主題基礎。
 
 **實作重點**：
+
 - 引入 Tailwind v4 CDN：`<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">`
 - 引入 Alpine.js CDN：`<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">`
 - 防 FOUC 腳本（inline，置於 `<head>` 最上方）：
@@ -79,7 +82,7 @@ index.html
     document.documentElement.classList.toggle(
       'dark',
       localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
     );
   </script>
   ```
@@ -98,6 +101,7 @@ index.html
 **目標**：固定在頁面頂部的導覽列，含姓名與深色模式切換按鈕。
 
 **實作重點**：
+
 - `sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800`
 - 左側：姓名（連結至頁面頂部）
 - 右側：深色模式切換按鈕（使用 Alpine `@click` + `x-text` 或 `x-show` 切換圖示 🌙 / ☀️）
@@ -119,6 +123,7 @@ index.html
 **目標**：頁面頂部個人資訊區塊，含姓名、職稱、一行自我介紹、聯絡資訊。
 
 **實作重點**：
+
 - `py-20 px-4 max-w-4xl mx-auto`
 - 姓名：`text-4xl md:text-5xl font-bold text-blue-600`
 - 職稱：`text-xl text-gray-500 dark:text-gray-400 mt-2`
@@ -136,6 +141,7 @@ index.html
 **目標**：依類別分組的技能 Badges。
 
 **實作重點**：
+
 - 分類：前端、後端、資料庫、DevOps、工具
 - Section 標題樣式：`text-2xl font-bold` + `border-b-2 border-blue-600 pb-2 mb-8`
 - 類別標題：`text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3`
@@ -152,11 +158,12 @@ index.html
 
 ---
 
-### Task 6 — 工作經歷區塊
+### Task 6 — 經歷區塊
 
-**目標**：工作經歷列表，精簡預覽 + Alpine 展開詳情。
+**目標**：經歷列表，精簡預覽 + Alpine 展開詳情。
 
 **實作重點**：
+
 - 每筆經歷外層：`x-data="{ open: false }"`
 - 預設顯示：公司名稱、職位、時間、3-5 個 bullet points
 - 展開按鈕：`@click="open = !open"`，使用 `x-text` 顯示「▼ 查看詳情 / ▲ 收合」
@@ -172,6 +179,7 @@ index.html
 **目標**：卡片式專案列表，精簡預覽 + Alpine 展開詳情。
 
 **實作重點**：
+
 - Grid：`grid grid-cols-1 md:grid-cols-2 gap-5`
 - 卡片外層：`x-data="{ open: false }"` + `rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg transition-shadow`
 - 預設顯示：專案名稱、一行描述、主要技術 Badges（最多 3 個）
@@ -187,6 +195,7 @@ index.html
 **目標**：加入 scroll-reveal 進場動畫、完整列印 CSS、最終視覺整合。
 
 **實作重點**：
+
 - Scroll-reveal：Intersection Observer API，各 section 進入視窗時加入 `opacity-100 translate-y-0`，初始為 `opacity-0 translate-y-6`
 - 列印 CSS（`@media print`）：
   - `header { display: none }` — 隱藏 Navbar
@@ -212,13 +221,13 @@ resume/
 
 ## 時程
 
-| Task | 描述 | 狀態 |
-|------|------|------|
-| 1 | 建立 PLAN.md | ✅ 完成 |
-| 2 | 基礎 HTML 骨架與 Tailwind v4 CDN 設定 | ✅ 完成 |
-| 3 | Navbar（深色模式切換）| ✅ 完成 |
-| 4 | Hero 區塊 | ✅ 完成 |
-| 5 | 技能區塊 | ✅ 完成 |
-| 6 | 工作經歷區塊 | ✅ 完成 |
-| 7 | 專案區塊 | ✅ 完成 |
-| 8 | 動畫、列印優化與最終整合 | ✅ 完成 |
+| Task | 描述                                  | 狀態    |
+| ---- | ------------------------------------- | ------- |
+| 1    | 建立 PLAN.md                          | ✅ 完成 |
+| 2    | 基礎 HTML 骨架與 Tailwind v4 CDN 設定 | ✅ 完成 |
+| 3    | Navbar（深色模式切換）                | ✅ 完成 |
+| 4    | Hero 區塊                             | ✅ 完成 |
+| 5    | 技能區塊                              | ✅ 完成 |
+| 6    | 經歷區塊                              | ✅ 完成 |
+| 7    | 專案區塊                              | ✅ 完成 |
+| 8    | 動畫、列印優化與最終整合              | ✅ 完成 |

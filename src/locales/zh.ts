@@ -1,6 +1,6 @@
 export default {
   nav: {
-    experience: '工作經歷',
+    experience: '經歷',
     projects: '專案',
     skills: '技能',
   },
@@ -19,7 +19,8 @@ export default {
     backEnd: 'Back-End',
     details: '查看詳情',
     collapse: '收合詳情',
-    techStack: 'Tech Stack',
+    techStack: '技術棧',
+    contribution: '貢獻度與量化指標',
     highlights: '成果展示',
     role: '全端工程師',
     fullStackEngineer: '全端工程師',
@@ -27,7 +28,7 @@ export default {
     frontEndEngineer: '前端工程師',
   },
   sections: {
-    projects: '個人專案',
+    projects: '專案',
     skills: '技能',
   },
   footer: '陳威良 William. Built with Vue 3 + Vite + Tailwind CSS.',

@@ -20,6 +20,7 @@ export default {
     details: 'See Details',
     collapse: 'Collapse',
     techStack: 'Tech Stack',
+    contribution: 'Contribution & Metrics',
     highlights: 'Highlights',
     role: 'Full-Stack Engineer',
     fullStackEngineer: 'Full-Stack Engineer',

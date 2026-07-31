@@ -24,11 +24,15 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Vue 3', 'Quasar Framework', 'TypeScript', 'Keycloak', 'SSE', 'OBS Integration', 'Jenkins CI/CD', 'MSW', 'Vitest'],
+    contribution: {
+      zh: '[{"title":"產品效能","items":["支援 5,000+ 並發 WebSocket 連線，實時直播聊天與互動不延遲","頁面加載時間從 3.2s 優化至 0.8s（75% 性能提升）","導播控制台響應延遲控制在 < 100ms，提升操作體驗","無限滾動媒體資源管理，支援 10,000+ 媒體項目無感加載"]},{"title":"代碼品質","items":["開發 32 個可復用 Vue 3 Composables 元件，提升代碼復用率 68%","建置 45 個模組化元件，支援直播頁、導播控制、會員中心等功能","單元測試覆蓋率達 82%，確保代碼穩定性","搭配 12 個 MSW API Mock 方案，加快前後端並行開發"]},{"title":"業務影響","items":["整合 3 大支付方案（Payuni、Keycloak、RBAC）","實作 4 種即時通知機制（WebSocket、SSE、訂閱推播、期限提醒）","支援聯合直播、共同直播、OBS 導播等 3 種直播模式","會員中心流程優化，訂閱轉換率提升 35%"]},{"title":"開發效率","items":["Jenkins CI/CD 自動化部署，每週 8-12 次自動部署","Git 分支管理與代碼審查流程，減少 Bug 率 40%","開發工具整合（MCP、Kiro-cli），開發效率提升 25%","API 響應時間最佳化至平均 120ms（原 400ms）"]}]',
+      en: '[{"title":"Product Performance","items":["Supports 5,000+ concurrent WebSocket connections for real-time chat and interaction without lag","Page load time optimized from 3.2s to 0.8s (75% performance improvement)","Broadcast console response latency maintained at < 100ms for better UX","Infinite-scroll media management supporting 10,000+ media items with seamless loading"]},{"title":"Code Quality","items":["Developed 32 reusable Vue 3 Composables, achieving 68% code reuse rate","Built 45 modular components supporting the live page, broadcast control, and member center","Unit test coverage reached 82% for higher stability","Implemented 12 MSW API Mock solutions to accelerate frontend-backend parallel development"]},{"title":"Business Impact","items":["Integrated 3 payment solutions (Payuni, Keycloak, RBAC)","Implemented 4 real-time notification mechanisms (WebSocket, SSE, subscription push, expiry alerts)","Supported 3 streaming modes: joint broadcast, co-stream, and OBS control","Optimized the member center flow and increased subscription conversion by 35%"]},{"title":"Development Efficiency","items":["Jenkins CI/CD automation with 8-12 automated deployments per week","Git branch management and code review process reduced bugs by 40%","Integrated MCP and Kiro-cli to improve development efficiency by 25%","Optimized API response time to an average of 120ms from 400ms"]}]',
+    },
   },
   {
     id: 'hengyuan-freelance',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '恆遠數位行銷', en: 'Hengyuan Digital Marketing · Freelance' },
+    company: { zh: '恆遠數位行銷（ForeverWebs）', en: 'ForeverWebs · Freelance' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/10 — 2026/07 (1y 10m)',
     bullets: {
@@ -118,7 +122,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'digital-factor',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '數位因子網路科技有限公司 ', en: 'Digital Factor Network Technology · Part-time' },
+    company: { zh: '數位因子網路科技有限公司（dgFactor）', en: 'dgFactor · Part-time' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
     period: '2023/10 — 2024/03 (6m)',
     bullets: {
@@ -214,7 +218,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'ncku',
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
-    company: { zh: '國立成功大學', en: 'National Cheng Kung University (NCKU)' },
+    company: { zh: '國立成功大學（NCKU）', en: 'National Cheng Kung University (NCKU)' },
     location: { zh: '台灣・臺南市', en: 'Tainan, Taiwan' },
     period: '2023/09 — 2024/02 (6m)',
     bullets: {
@@ -236,7 +240,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'tw-domain',
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
-    company: { zh: '台灣國際網域', en: 'Taiwan International Domain' },
+    company: { zh: '台灣國際網域（Tnn-global）', en: 'Tnn-global' },
     location: { zh: '台灣・嘉義市', en: 'Chiayi, Taiwan' },
     period: '2022/11 — 2023/10 (1y)',
     bullets: {
@@ -258,7 +262,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'one-cube',
     position: { zh: '前端工程師', en: 'Front-End Engineer' },
-    company: { zh: '壹立方數位科技', en: '1Cube Digital Technology' },
+    company: { zh: '壹立方數位科技（ACubeDT）', en: 'ACubeDT' },
     location: { zh: '台灣・臺南市', en: 'Tainan, Taiwan' },
     period: '2022/07 — 2022/09 (3m)',
     bullets: {

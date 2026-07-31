@@ -17,6 +17,7 @@ export interface ExperienceItem {
   period: string
   bullets: { zh: string[]; en: string[] }
   techStack: string[]
+  contribution?: I18nText
   links?: LinkItem[]
   gallery?: { id: string; images: { src: string; description: string }[] }
 }
@@ -30,6 +31,7 @@ export interface ProjectItem {
   techStack: string[]
   detailedDesc: I18nText
   links: LinkItem[]
+  contribution?: I18nText
   gallery?: { id: string; images: { src: string; alt: string; description: string }[] }
 }
 
