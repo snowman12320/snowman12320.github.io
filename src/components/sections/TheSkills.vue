@@ -10,12 +10,12 @@ defineProps({
 })
 
 const iconMap: Record<string, ['fas' | 'fab', string]> = {
-  vuejs: ['fab', 'vuejs'],
-  react: ['fab', 'react'],
-  code: ['fas', 'code'],
+  robot: ['fas', 'robot'],
+  'laptop-code': ['fas', 'laptop-code'],
   server: ['fas', 'server'],
+  cloud: ['fas', 'cloud'],
+  vial: ['fas', 'vial'],
   plug: ['fas', 'plug'],
-  gears: ['fas', 'gears'],
 }
 </script>
 
