@@ -22,6 +22,7 @@ export default {
     techStack: '技術棧',
     contribution: '貢獻度',
     highlights: '成果展示',
+    printResume: '列印精簡履歷',
     role: '全端工程師',
     fullStackEngineer: '全端工程師',
     softwareEngineer: '軟體工程師',

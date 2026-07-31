@@ -7,9 +7,12 @@ html {
 }
 
 body {
-  @apply bg-slate-50 text-slate-800 dark:bg-gray-950 dark:text-gray-100;
-  background-image: radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 28%), linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html:not(.dark) body {
+  background-image: radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 28%), linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
 }
 
 .badge {
@@ -60,6 +63,11 @@ body {
 }
 
 @media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
   header,
   .no-print {
     display: none !important;
@@ -68,6 +76,16 @@ body {
   body {
     background: #fff !important;
     color: #000 !important;
+    font-size: 12px;
+  }
+
+  .print-resume {
+    color: #0f172a;
+  }
+
+  .print-resume .rounded-xl,
+  .print-resume .rounded-2xl {
+    box-shadow: none !important;
   }
 
   .badge {

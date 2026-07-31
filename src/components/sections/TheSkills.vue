@@ -29,10 +29,10 @@ const iconMap: Record<string, ['fas' | 'fab', string]> = {
       <div
         v-for="category in skillCategories"
         :key="category.id"
-        class="flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.05)] backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] dark:border-gray-700 dark:bg-gray-800/70"
+        class="flex h-full flex-col rounded-2xl border border-gray-200/80 bg-white/90 p-5 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 dark:border-gray-700 dark:bg-gray-900/80"
       >
-        <p class="mb-3 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-gray-500">
-          <FaIcon :icon="iconMap[category.icon]" class="w-3.5 text-center text-slate-600 dark:text-gray-400" />
+        <p class="mb-3 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
+          <FaIcon :icon="iconMap[category.icon]" class="w-3.5 text-center text-gray-600 dark:text-gray-400" />
           {{ lang === 'zh' ? category.title.zh : category.title.en }}
         </p>
         <div class="flex flex-wrap gap-2">

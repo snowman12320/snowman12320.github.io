@@ -22,6 +22,7 @@ export default {
     techStack: 'Tech Stack',
     contribution: 'Contribution & Metrics',
     highlights: 'Highlights',
+    printResume: 'Print a one-page resume',
     role: 'Full-Stack Engineer',
     fullStackEngineer: 'Full-Stack Engineer',
     softwareEngineer: 'Software Engineer',

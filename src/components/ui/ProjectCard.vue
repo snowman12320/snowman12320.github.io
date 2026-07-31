@@ -43,7 +43,7 @@ watch(open, async (isOpen) => {
 
 <template>
   <button
-    class="group relative text-left w-full rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.05)] hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] dark:border-gray-700 dark:bg-gray-800/70 dark:hover:shadow-gray-900 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
+    class="group relative text-left w-full rounded-xl border border-gray-200 bg-white/90 p-5 shadow-sm hover:shadow-md dark:border-gray-700 dark:bg-gray-900/80 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
     @click="open = true"
   >
     <span

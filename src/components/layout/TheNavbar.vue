@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faMoon, faPrint, faSun } from '@fortawesome/free-solid-svg-icons'
 import { Languages } from 'lucide-vue-next'
 import type { PropType } from 'vue'
+
+library.add(faMoon, faPrint, faSun)
 
 defineProps({
   lang: {
@@ -17,6 +21,10 @@ defineEmits<{
   toggleLang: []
   toggleDark: []
 }>()
+
+const handlePrint = () => {
+  window.print()
+}
 </script>
 
 <template>
@@ -50,6 +58,13 @@ defineEmits<{
           @click="$emit('toggleDark')"
         >
           <FaIcon :icon="isDark ? ['fas', 'sun'] : ['fas', 'moon']" class="w-5 h-5" />
+        </button>
+        <button
+          class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          :aria-label="$t('common.printResume')"
+          @click="handlePrint"
+        >
+          <FaIcon :icon="['fas', 'print']" class="w-5 h-5" />
         </button>
       </div>
     </div>
