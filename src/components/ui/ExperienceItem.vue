@@ -35,6 +35,19 @@ const splitContributionText = (text: string) => {
   }))
 }
 
+const isLocalhost = computed(() => {
+  if (typeof window === 'undefined') return false
+  return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+})
+
+const displayContributionText = (text: string) => {
+  if (isLocalhost.value) return text
+  return text
+    .replace(/（透過[^）]+）$/u, '')
+    .replace(/(\(via[^)]+\))$/u, '')
+    .trim()
+}
+
 const toggleContributionSection = (title: string) => {
   activeContributionSection.value = activeContributionSection.value === title ? null : title
 }
@@ -184,7 +197,7 @@ watch(open, async (isOpen) => {
                     <li v-for="itemText in section.items" :key="itemText" class="flex gap-2">
                       <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"></span>
                       <span>
-                        <template v-for="(part, index) in splitContributionText(itemText)" :key="`${part.text}-${index}`">
+                        <template v-for="(part, index) in splitContributionText(displayContributionText(itemText))" :key="`${part.text}-${index}`">
                           <span v-if="part.highlight" class="font-semibold text-blue-600 dark:text-blue-400">{{ part.text }}</span>
                           <template v-else>{{ part.text }}</template>
                         </template>
