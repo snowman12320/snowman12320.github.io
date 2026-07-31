@@ -25,8 +25,12 @@ const iconMap: Record<string, ['fas' | 'fab', string]> = {
       <FaIcon :icon="['fas', 'bolt']" class="text-blue-600 text-xl" />
       {{ $t('sections.skills') }}
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-      <div v-for="category in skillCategories" :key="category.id">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <div
+        v-for="category in skillCategories"
+        :key="category.id"
+        class="rounded-2xl border border-gray-200/80 bg-white/70 p-5 shadow-sm backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/70"
+      >
         <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
           <FaIcon :icon="iconMap[category.icon]" class="w-3.5 text-center" />
           {{ lang === 'zh' ? category.title.zh : category.title.en }}
