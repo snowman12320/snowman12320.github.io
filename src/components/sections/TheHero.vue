@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-600 dark:text-gray-400">
+    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-600 dark:text-gray-400 justify-center">
       <a href="mailto:snowman12320@gmail.com" class="inline-flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
         <FaIcon :icon="['fas', 'envelope']" class="w-4 text-center" />
         snowman12320@gmail.com
@@ -36,11 +36,11 @@
       </a>
       <a href="https://www.linkedin.com/in/william-chen-dev/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
         <FaIcon :icon="['fab', 'linkedin']" class="w-4 text-center" />
-        linkedin.com/in/william-chen-dev
+        william-chen-dev
       </a>
       <a href="https://github.com/snowman12320" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
         <FaIcon :icon="['fab', 'github']" class="w-4 text-center" />
-        github.com/snowman12320
+        snowman12320
       </a>
     </div>
   </section>
