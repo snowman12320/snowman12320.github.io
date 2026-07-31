@@ -33,12 +33,12 @@ onBeforeUnmount(() => {
       <div v-if="open" class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center">
         <button class="absolute inset-0 bg-black/60 backdrop-blur-[1px]" aria-label="Close modal" @click="emit('close')" />
         <section
-          class="modal-sheet relative w-full rounded-t-3xl sm:rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-2xl max-h-[88vh] sm:max-h-[82vh] overflow-y-auto p-6 sm:p-10"
+          class="modal-sheet relative w-full rounded-t-3xl sm:rounded-2xl border border-slate-200/90 bg-white/95 shadow-[0_20px_60px_rgba(15,23,42,0.14)] dark:border-gray-700 dark:bg-gray-900 max-h-[88vh] sm:max-h-[82vh] overflow-y-auto p-6 sm:p-10"
           :class="size === 'xl' ? 'sm:max-w-5xl' : 'sm:max-w-2xl'"
         >
           <div class="mx-auto mb-4 h-1.5 w-10 rounded-full bg-gray-300 dark:bg-gray-700 sm:hidden" />
           <button
-            class="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-lg text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            class="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-slate-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Close modal"
             @click="emit('close')"
           >

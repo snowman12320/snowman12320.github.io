@@ -25,14 +25,14 @@ const iconMap: Record<string, ['fas' | 'fab', string]> = {
       <FaIcon :icon="['fas', 'bolt']" class="text-blue-600 text-xl" />
       {{ $t('sections.skills') }}
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
       <div
         v-for="category in skillCategories"
         :key="category.id"
-        class="rounded-2xl border border-gray-200/80 bg-white/70 p-5 shadow-sm backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/70"
+        class="flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.05)] backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] dark:border-gray-700 dark:bg-gray-800/70"
       >
-        <p class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-          <FaIcon :icon="iconMap[category.icon]" class="w-3.5 text-center" />
+        <p class="mb-3 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-gray-500">
+          <FaIcon :icon="iconMap[category.icon]" class="w-3.5 text-center text-slate-600 dark:text-gray-400" />
           {{ lang === 'zh' ? category.title.zh : category.title.en }}
         </p>
         <div class="flex flex-wrap gap-2">

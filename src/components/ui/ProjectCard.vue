@@ -43,7 +43,7 @@ watch(open, async (isOpen) => {
 
 <template>
   <button
-    class="group relative text-left w-full rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg dark:hover:shadow-gray-900 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
+    class="group relative text-left w-full rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.05)] hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] dark:border-gray-700 dark:bg-gray-800/70 dark:hover:shadow-gray-900 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
     @click="open = true"
   >
     <span
@@ -57,8 +57,8 @@ watch(open, async (isOpen) => {
       <span class="inline-block text-xs px-2 py-0.5 rounded-full font-medium" :class="categoryColorClass[item.categoryColor]">
         {{ item.category[lang] }}
       </span>
-      <h3 class="mt-2 text-base font-bold text-gray-900 dark:text-gray-100">{{ item.name[lang] }}</h3>
-      <p class="mt-1 text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2">
+      <h3 class="mt-2 text-base font-bold text-slate-900 dark:text-gray-100">{{ item.name[lang] }}</h3>
+      <p class="mt-1 text-sm text-slate-600 dark:text-gray-300 leading-relaxed line-clamp-2">
         {{ item.shortDesc[lang] }}
       </p>
       <div class="mt-3 flex flex-wrap gap-1.5">

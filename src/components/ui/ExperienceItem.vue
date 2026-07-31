@@ -85,8 +85,8 @@ watch(open, async (isOpen) => {
 
 <template>
   <button
-    class="group relative w-full text-left rounded-xl border border-gray-200 dark:border-gray-700 p-4 sm:p-5 hover:shadow-lg dark:hover:shadow-gray-900 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
-    :class="isBreak ? 'bg-gray-50/60 dark:bg-gray-800/30' : ''"
+    class="group relative w-full text-left rounded-2xl border border-slate-200/80 bg-white/90 p-4 sm:p-5 shadow-[0_10px_30px_rgba(15,23,42,0.05)] hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] dark:border-gray-700 dark:bg-gray-800/70 dark:hover:shadow-gray-900 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
+    :class="isBreak ? 'bg-slate-50/90 dark:bg-gray-800/30' : ''"
     @click="open = true"
   >
     <!-- timeline dot -->
@@ -107,7 +107,7 @@ watch(open, async (isOpen) => {
 
     <div class="pr-8">
       <span
-        class="inline-flex items-center gap-1.5 text-xs tabular-nums rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2.5 py-1"
+        class="inline-flex items-center gap-1.5 text-xs tabular-nums rounded-full border border-slate-200 bg-slate-100 text-slate-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 px-2.5 py-1"
       >
         {{ periodParts.range }}
         <span
@@ -121,10 +121,10 @@ watch(open, async (isOpen) => {
 
     <div class="mt-2">
       <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">{{ lang === 'zh' ? item.position.zh : item.position.en }}</h3>
-      <p class="text-blue-600 dark:text-blue-400 font-medium">
+      <p class="text-blue-700 dark:text-blue-400 font-medium">
         {{ lang === 'zh' ? item.company.zh : item.company.en }}
       </p>
-      <p class="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
+      <p class="text-xs text-slate-500 mt-0.5 flex items-center gap-1">
         <FaIcon :icon="['fas', 'location-dot']" />
         {{ lang === 'zh' ? item.location.zh : item.location.en }}
       </p>
@@ -136,17 +136,17 @@ watch(open, async (isOpen) => {
     <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">{{ lang === 'zh' ? item.company.zh : item.company.en }}</p>
     <p class="text-xs text-gray-400 mt-1.5">{{ periodParts.range }} · {{ periodParts.duration }}</p>
 
-    <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
-      <ul class="mb-6 space-y-2.5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed list-disc list-inside">
+    <div class="mt-6 pt-6 border-t border-slate-200 dark:border-gray-700">
+      <ul class="mb-6 space-y-2.5 text-sm text-slate-700 dark:text-gray-300 leading-relaxed list-disc list-inside">
         <li v-for="bullet in bullets" :key="bullet">{{ bullet }}</li>
       </ul>
-      <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2.5">{{ $t('common.techStack') }}</p>
+      <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2.5">{{ $t('common.techStack') }}</p>
       <div class="flex flex-wrap gap-2">
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
       </div>
 
-      <div v-if="item.contribution" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
-        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">{{ $t('common.contribution') }}</p>
+      <div v-if="item.contribution" class="mt-6 pt-6 border-t border-slate-200 dark:border-gray-700">
+        <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">{{ $t('common.contribution') }}</p>
 
         <div class="space-y-2">
           <div
@@ -157,7 +157,7 @@ watch(open, async (isOpen) => {
             <!-- Accordion Header -->
             <button
               type="button"
-              class="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+              class="w-full flex items-center justify-between px-4 py-3 bg-white/95 dark:bg-gray-800/50 hover:bg-slate-50 dark:hover:bg-gray-800 transition-colors"
               @click="toggleContributionSection(section.title)"
             >
               <span class="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
@@ -192,8 +192,8 @@ watch(open, async (isOpen) => {
                 v-if="activeContributionSection === section.title"
                 class="max-h-max"
               >
-                <div class="px-4 py-3 bg-gray-50/50 dark:bg-gray-900/30 border-t border-gray-100 dark:border-gray-700">
-                  <ul class="space-y-2.5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div class="px-4 py-3 bg-slate-50/80 dark:bg-gray-900/30 border-t border-slate-200 dark:border-gray-700">
+                  <ul class="space-y-2.5 text-sm text-slate-700 dark:text-gray-300 leading-relaxed">
                     <li v-for="itemText in section.items" :key="itemText" class="flex gap-2">
                       <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500"></span>
                       <span>
