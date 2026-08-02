@@ -30,7 +30,7 @@ const labels = computed(() => props.lang === 'zh'
 
 const featuredExperiences = computed(() => experiences)
 const featuredProjects = computed(() => projects)
-const compactSkills = computed(() => skillCategories.slice(0, 5).map((category) => ({
+const compactSkills = computed(() => skillCategories.map((category) => ({
   title: props.lang === 'zh' ? category.title.zh : category.title.en,
   skills: category.skills.slice(0, 5),
 })))

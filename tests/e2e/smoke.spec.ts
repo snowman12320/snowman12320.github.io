@@ -13,3 +13,13 @@ test('home page renders the resume sections', async ({ page }) => {
   await expect(page.locator('header a[href="#projects"]')).toContainText(/專案|Projects/i)
   await expect(page.locator('header a[href="#skills"]')).toContainText(/技能|Skills/i)
 })
+
+test('print resume keeps all six skill categories', async ({ page }) => {
+  await page.goto('/')
+
+  const printSkillsSection = page.locator('.print-only').filter({
+    has: page.locator('h2', { hasText: /Skills|技能/ }),
+  })
+
+  await expect(printSkillsSection.locator('li')).toHaveCount(6)
+})
