@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -8,11 +8,15 @@ html {
 
 body {
   @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 html:not(.dark) body {
-  background-image: radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 28%), linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  background-image:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 28%),
+    linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
 }
 
 .badge {
@@ -30,7 +34,9 @@ html:not(.dark) body {
 .reveal {
   opacity: 0;
   transform: translateY(1.5rem);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .reveal.visible {
@@ -65,10 +71,10 @@ html:not(.dark) body {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 10mm;
+    margin: 8mm;
   }
 
-  header,
+  header:not(.print-resume-header),
   .no-print {
     display: none !important;
   }
@@ -76,16 +82,36 @@ html:not(.dark) body {
   body {
     background: #fff !important;
     color: #000 !important;
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.4;
   }
 
   .print-resume {
-    color: #0f172a;
+    color: #111;
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
   }
 
-  .print-resume .rounded-xl,
-  .print-resume .rounded-2xl {
-    box-shadow: none !important;
+  .print-resume h1 {
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    color: #000 !important;
+    line-height: 1.15 !important;
+  }
+
+  .print-resume h2 {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    border-bottom: 1px solid #9ca3af;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+    line-height: 1.3 !important;
+  }
+
+  .print-resume p,
+  .print-resume li,
+  .print-resume span {
+    line-height: 1.5 !important;
   }
 
   .badge {
@@ -100,9 +126,15 @@ html:not(.dark) body {
     transform: none !important;
   }
 
+  .print-resume,
   section,
   .no-break {
     break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-resume > div {
+    page-break-inside: avoid;
   }
 
   * {

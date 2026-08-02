@@ -28,88 +28,106 @@ const labels = computed(() => props.lang === 'zh'
       highlight: 'Core strengths',
     })
 
-const featuredExperiences = computed(() => experiences.slice(0, 3))
-const featuredProjects = computed(() => projects.slice(0, 3))
-const compactSkills = computed(() => skillCategories.map((category) => ({
+const toOneLineSummary = (text: string, lang: 'zh' | 'en', maxLength = 130) => {
+  const normalized = text.replace(/\s+/g, ' ').trim()
+  if (!normalized)
+    return ''
+
+  if (lang === 'zh') {
+    const firstSentence = normalized.split(/[。！？]/)[0]?.trim() ?? normalized
+    const base = firstSentence || normalized
+    return base.length > maxLength ? `${base.slice(0, maxLength)}…` : base
+  }
+
+  const firstSentence = normalized.split(/[.!?]/)[0]?.trim() ?? normalized
+  const base = firstSentence || normalized
+  return base.length > maxLength ? `${base.slice(0, maxLength)}…` : base
+}
+
+const featuredExperiences = computed(() => experiences)
+const featuredProjects = computed(() => projects)
+const compactSkills = computed(() => skillCategories.slice(0, 5).map((category) => ({
   title: props.lang === 'zh' ? category.title.zh : category.title.en,
-  skills: category.skills.slice(0, 6),
+  skills: category.skills.slice(0, 5),
 })))
+
+const experienceSummaries = computed(() => featuredExperiences.value.map((item) => {
+  const source = item.bullets[props.lang][0] ?? ''
+  return {
+    id: item.id,
+    text: toOneLineSummary(source, props.lang, props.lang === 'zh' ? 80 : 150),
+  }
+}))
+
+const projectSummaries = computed(() => featuredProjects.value.map((item) => {
+  const source = item.shortDesc[props.lang]
+  return {
+    id: item.id,
+    text: toOneLineSummary(source, props.lang, props.lang === 'zh' ? 80 : 150),
+  }
+}))
+
+const getExperienceSummary = (id: string) => experienceSummaries.value.find(item => item.id === id)?.text ?? ''
+const getProjectSummary = (id: string) => projectSummaries.value.find(item => item.id === id)?.text ?? ''
 </script>
 
 <template>
-  <section class="print-only hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm print:block print:border-0 print:p-0 print:shadow-none">
+  <section class="print-only hidden bg-white print:block print:p-0">
     <div class="print-resume">
-      <header class="mb-6 border-b border-slate-200 pb-4 print:mb-4 print:pb-3">
-        <div class="flex items-start justify-between gap-4">
+
+      <!-- ── Header ── -->
+      <div class="print-resume-header mb-3 border-b-2 border-black pb-2">
+        <div class="flex items-start justify-between gap-6">
           <div>
-            <h1 class="text-2xl font-bold text-slate-900">{{ $t('profile.name') }}</h1>
-            <p class="mt-1 text-base font-semibold text-blue-600">{{ $t('profile.title') }}</p>
-            <p class="mt-1 text-sm text-slate-600">{{ $t('profile.location') }}</p>
+            <h1 class="text-[22px] font-black leading-tight tracking-tight text-black">{{ $t('profile.name') }}</h1>
+            <p class="mt-0.5 text-[10px] text-gray-600">{{ $t('profile.title') }}</p>
           </div>
-          <div class="text-right text-sm text-slate-600">
-            <p>snowman12320@gmail.com</p>
-            <p>0976-103738</p>
+          <div class="text-right text-[10px] leading-[1.6] text-gray-600">
+            <p>{{ $t('profile.location') }}</p>
+            <p>snowman12320@gmail.com · 0976-103738</p>
             <p>linkedin.com/in/william-chen-dev</p>
           </div>
         </div>
-      </header>
-
-      <div class="mb-5 print:mb-4">
-        <h2 class="mb-2 text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{{ labels.summary }}</h2>
-        <p class="text-sm leading-6 text-slate-700">{{ $t('profile.summary') }}</p>
       </div>
 
-      <div class="mb-5 print:mb-4">
-        <h2 class="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{{ labels.experience }}</h2>
-        <div class="space-y-3">
-          <div
-            v-for="item in featuredExperiences"
-            :key="item.id"
-            class="rounded-xl border border-slate-200 bg-slate-50/80 p-3 print:border-slate-300"
-          >
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <p class="text-sm font-semibold text-slate-900">{{ lang === 'zh' ? item.position.zh : item.position.en }}</p>
-                <p class="text-sm text-blue-700">{{ lang === 'zh' ? item.company.zh : item.company.en }}</p>
-              </div>
-              <p class="text-xs font-medium text-slate-500">{{ item.period }}</p>
+      <!-- ── Work Experience ── -->
+      <div class="mb-3">
+        <h2 class="mb-1.5 border-b border-gray-400 pb-0.5 text-[13px] font-bold text-black">{{ labels.experience }}</h2>
+        <div class="space-y-2">
+          <div v-for="item in featuredExperiences" :key="item.id">
+            <div class="flex items-baseline justify-between gap-2">
+              <p class="text-[11px] font-bold text-black">
+                {{ lang === 'zh' ? item.position.zh : item.position.en }} | {{ lang === 'zh' ? item.company.zh : item.company.en }}
+              </p>
+              <p class="shrink-0 text-[10px] text-gray-600">{{ item.period }}</p>
             </div>
-            <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
-              <li v-for="bullet in item.bullets[lang].slice(0, 2)" :key="bullet">{{ bullet }}</li>
+            <ul class="mt-0.5 list-disc pl-4 text-[10px] leading-[1.6] text-gray-800">
+              <li>{{ getExperienceSummary(item.id) }}</li>
             </ul>
-            <div class="mt-2 flex flex-wrap gap-1.5">
-              <span v-for="tech in item.techStack.slice(0, 6)" :key="tech" class="rounded-full border border-slate-300 bg-white px-2 py-0.5 text-[11px] text-slate-600">{{ tech }}</span>
-            </div>
           </div>
         </div>
       </div>
 
-      <div class="mb-5 print:mb-4">
-        <h2 class="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{{ labels.projects }}</h2>
-        <div class="grid gap-3 md:grid-cols-2 print:grid-cols-2">
-          <div
-            v-for="item in featuredProjects"
-            :key="item.id"
-            class="rounded-xl border border-slate-200 bg-white p-3 print:border-slate-300"
-          >
-            <p class="text-sm font-semibold text-slate-900">{{ item.name[lang] }}</p>
-            <p class="mt-1 text-sm text-slate-600">{{ item.shortDesc[lang] }}</p>
-            <div class="mt-2 flex flex-wrap gap-1.5">
-              <span v-for="tech in item.techStack.slice(0, 4)" :key="tech" class="rounded-full border border-slate-300 bg-slate-50 px-2 py-0.5 text-[11px] text-slate-600">{{ tech }}</span>
-            </div>
-          </div>
-        </div>
+      <!-- ── Projects ── -->
+      <div class="mb-3">
+        <h2 class="mb-1.5 border-b border-gray-400 pb-0.5 text-[13px] font-bold text-black">{{ labels.projects }}</h2>
+        <ul class="list-disc space-y-1 pl-4 text-[10px] leading-[1.6] text-gray-800">
+          <li v-for="item in featuredProjects" :key="item.id">
+            <span class="font-bold text-black">{{ item.name[lang] }}</span>: {{ getProjectSummary(item.id) }}
+          </li>
+        </ul>
       </div>
 
-      <div class="print:mb-0">
-        <h2 class="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{{ labels.skills }}</h2>
-        <div class="grid gap-3 md:grid-cols-2 print:grid-cols-2">
-          <div v-for="category in compactSkills" :key="category.title" class="rounded-xl border border-slate-200 bg-slate-50/70 p-3 print:border-slate-300">
-            <p class="text-sm font-semibold text-slate-900">{{ category.title }}</p>
-            <p class="mt-1 text-sm leading-6 text-slate-700">{{ category.skills.join(' · ') }}</p>
-          </div>
-        </div>
+      <!-- ── Skills ── -->
+      <div>
+        <h2 class="mb-1.5 border-b border-gray-400 pb-0.5 text-[13px] font-bold text-black">{{ labels.skills }}</h2>
+        <ul class="list-disc space-y-0.5 pl-4 text-[10px] leading-[1.6] text-gray-800">
+          <li v-for="category in compactSkills" :key="category.title">
+            <span class="font-bold text-black">{{ category.title }}</span>: {{ category.skills.join(', ') }}
+          </li>
+        </ul>
       </div>
+
     </div>
   </section>
 </template>
