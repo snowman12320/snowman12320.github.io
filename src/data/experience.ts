@@ -23,6 +23,16 @@ export const experiences: ExperienceItem[] = [
         'Write unit tests and leverage Mock Service Worker (MSW) to streamline RESTful API testing.',
       ],
     },
+    printBullets: {
+      zh: [
+        '開發直播控制平台（即時串流、OBS 整合、SSE 通知），支援 5,000+ 並發連線；頁面載入從 3.2s 優化至 0.8s，API 響應壓縮至 120ms。',
+        '建置 Jenkins CI/CD 管線與 32 個可複用 Composables，單元測試覆蓋率 82%；整合 Keycloak SSO 與 Payuni 金流，訂閱轉換率提升 35%。',
+      ],
+      en: [
+        'Built live broadcasting platform with OBS integration and SSE real-time notifications supporting 5,000+ concurrent connections; optimized page load from 3.2s to 0.8s and API response to 120ms.',
+        'Established Jenkins CI/CD pipelines and 32 reusable Composables with 82% unit test coverage; integrated Keycloak SSO and Payuni payment gateway, boosting subscription conversion by 35%.',
+      ],
+    },
     techStack: ['Vue 3', 'Quasar Framework', 'TypeScript', 'Keycloak', 'SSE', 'OBS Integration', 'Jenkins CI/CD', 'MSW', 'Vitest'],
     contribution: {
       zh: '[{"title":"性能提升","items":["支援 5,000+ 並發 WebSocket 連線，實時直播聊天與互動不延遲（透過 Socket.IO 房間分片與 Redis 轉發，解決單一節點瓶頸，確保高並發聊天互動穩定不延遲）","頁面加載時間從 3.2s 優化至 0.8s（75% 性能提升）（透過路由懶加載、Tree Shaking 與資源預載，解決首屏資源過載問題，達成 75% 性能提升）","導播控制台響應延遲控制在 < 100ms，提升操作體驗（透過虛擬滾動與 WebSocket 狀態同步，解決大量場景資料渲染卡頓問題，讓控制台操作即時反饋）","無限滾動媒體資源管理，支援 10,000+ 媒體項目無感加載（透過 Intersection Observer 與分頁預取，解決大量圖片影片一次性載入過慢問題，實現無感滾動加載）"]},{"title":"程式品質","items":["開發 32 個可復用 Vue 3 Composables 元件，提升代碼復用率 68%（透過抽象共用邏輯並統一錯誤處理，解決各功能重複實作問題，使代碼復用率提升 68%）","建置 45 個模組化元件，支援直播頁、導播控制、會員中心等功能（透過 Atomic Design 與 props 驅動，解決元件散落難以維護問題，讓多個業務場景快速複用）","單元測試覆蓋率達 82%，確保代碼穩定性（透過 Vitest + Vue Test Utils 覆蓋核心流程，解決手動回歸測試遺漏風險，確保 82% 核心邏輯穩定）","搭配 12 個 MSW API Mock 方案，加快前後端並行開發（透過定義標準 API schema 供前後端共用，解決後端未就緒時前端開發受阻問題，使前後端可並行推進）"]},{"title":"商業影響","items":["整合 Payuni 金流、Keycloak 單一登入與 RBAC 角色權限（透過封裝統一認證與授權中介層，解決多系統登入與權限散落問題，讓會員與付費流程安全串接）","實作 4 種即時通知機制（WebSocket、SSE、訂閱推播、期限提醒）（透過事件驅動架構與通知排程器，解決通知分散與遺漏問題，確保四種通知即時可靠送達）","支援聯合直播、共同直播、OBS 導播等 3 種直播模式（透過模組化串流控制與場景切換邏輯，解決直播模式擴展困難問題，讓三種模式可彈性切換）","會員中心流程優化，訂閱轉換率提升 35%（透過簡化結帳步驟並導入 A/B 測試驗證，解決轉換流程繁瑣問題，使訂閱轉換率提升 35%）"]},{"title":"開發效率","items":["Jenkins CI/CD 自動化部署，每週 8-12 次自動部署（透過 Pipeline as Code 與自動化測試閘道，解決手動部署易出錯問題，實現每週 8-12 次穩定部署）","Git 分支管理與代碼審查流程，減少 Bug 率 40%（透過導入 Git Flow 與 PR template 規範，解決分支混亂與審查標準不一問題，使 Bug 率降低 40%）","開發工具整合（MCP、Kiro-cli），開發效率提升 25%（透過自動化重複性任務與程式碼生成，解決手動撰寫 boilerplate 耗時問題，讓開發效率提升 25%）","API 響應時間最佳化至平均 120ms（原 400ms）（透過資料庫索引、快取與分頁，解決查詢緩慢與無效資料傳輸問題，使 API 響應從 400ms 降至 120ms）"]}]',
@@ -51,6 +61,16 @@ export const experiences: ExperienceItem[] = [
         'Manage system maintenance, bug fixes, and quote/billing workflow logic while leveraging AI-assisted prompting to boost development productivity.',
       ],
     },
+    printBullets: {
+      zh: [
+        '交付醫療系統（vtk.js 3D CT 渲染 < 2s）、線上學習平台（Vimeo API、OAuth、IP 控管）與報價系統，全程從概念到雲端部署。',
+        '導入 AI 輔助開發提升效率 30%，PDF 壓縮減少體積 60%，API 響應從 800ms 優化至 200ms。',
+      ],
+      en: [
+        'Delivered medical systems (vtk.js 3D CT rendering < 2s), online learning platforms (Vimeo API, OAuth, IP access control), and quotation workflows from concept to cloud deployment.',
+        'AI-assisted development improved efficiency by 30%; PDF compression reduced file size by 60%; API response optimized from 800ms to 200ms.',
+      ],
+    },
     techStack: ['Vue 3', 'Node.js', 'RESTful API', 'vtk.js', 'Vimeo API', 'OAuth', 'MySQL', 'Zeabur', 'Cloudways'],
     contribution: {
       zh: '[{"title":"性能提升","items":["3D CT 影像渲染平均載入時間 < 2s（透過 vtk.js 分塊載入與 Web Worker 非同步處理，解決大型醫療影像檔案載入過慢問題，讓 3D 渲染平均低於 2 秒）","PDF 壓縮後檔案體積減少 60%（透過客戶端壓縮與適配性圖片壓縮策略，解決線上傳大檔案耗時問題，使 PDF 體積減少 60%）","學習平台影片首次緩衝時間 < 1.5s（透過 Vimeo CDN 與預載機制，解決影片載入等待過長問題，讓首次緩衝低於 1.5 秒）","API 平均響應時間從 800ms 降至 200ms（透過查詢優化與 Redis 快取，解決資料庫查詢瓶頸問題，使 API 響應時間降低 75%）"]},{"title":"程式品質","items":["建構 8 個可復用醫療圖表與表單元件（透過 Vue 3 + Composition API 抽象共用邏輯，解決病歷頁面重複開發問題，讓 8 個元件跨模組複用）","單元測試覆蓋率達 75%（透過 Vitest 針對核心業務流程與 utility 編寫測試，解決手動驗證遺漏問題，確保 75% 核心邏輯穩定）","統一 API 錯誤處理與型別定義（透過建立 Zod / TypeScript 共享 schema，解決前後端型別不一致問題，降低接口溝通成本與執行期錯誤）","資料庫 Schema 正規化減少冗餘（透過 ER 設計與 migration 管理，解決資料重複儲存問題，使 Schema 維護與擴展更穩定）"]},{"title":"商業影響","items":["整合 OAuth 與 IP 白名單保護課程內容（透過 Vimeo 私有影片與閘道層驗證，解決課程內容被未授權存取問題，確保只有合法用戶可觀看）","報價／帳款流程自動化縮短 50% 處理時間（透過狀態機與自動郵件通知，解決人工跟進報價進度遺漏問題，使處理時間縮短一半）","醫療病歷管理流程數位化（透過取代紙本流程並減少資料查找時間，解決紙本病歷查找緩慢問題，提升診所行政效率）","多雲部署降低停機風險（透過 Zeabur + Cloudways 雙平台備援機制，解決單一雲服務故障導致停機問題，提升系統可用性）"]},{"title":"開發效率","items":["從 0 到 1 交付 3 個全端專案（透過採用模組化架構與可復用模板，解決新專案重複搭建問題，使 3 個專案可快速交付）","AI 輔助開發減少重複性程式碼撰寫 30%（透過使用 Cursor / Copilot 生成 boilerplate 與測試，解決重複性程式碼耗時問題，使開發效率提升 30%）","CI/CD 自動化部署減少手動上版時間 70%（透過 GitHub Actions 與 Zeabur webhooks，解決手動部署流程繁瑣問題，使上版時間減少 70%）","統一前端元件庫縮短新頁面開發時間 40%（透過基於 Tailwind + Headless UI 建立設計系統，解決頁面樣式不一致問題，讓新頁面開發時間縮短 40%）"]}]',
@@ -75,6 +95,16 @@ export const experiences: ExperienceItem[] = [
         'Led SSO (Single Sign-On) integration: configured post-login redirect URLs, managed SSO role provisioning, authored access-control technical documentation, and implemented RBAC for role-based permission management.',
         'Delivered Admin backend features (including Action Log Phase 2), executed initial database setup with SQL scripts, and integrated Umami analytics script for user behavior and traffic monitoring.',
         'Maintained cross-environment CI/CD pipelines managing PR workflows, deployment verification, and bug resolution across Dev and SIT (including commit-deployment mismatch issues); tracked tasks via Jira and reported progress through SharePoint / Excel.',
+      ],
+    },
+    printBullets: {
+      zh: [
+        '開發 Advisor Portal 前端介面（Table UI、BFF API 串接）並主導 SSO / RBAC 整合，維護跨環境 CI/CD（每週 15+ PR）。',
+        '完成 Action Log Phase 2 後台功能、Umami 行為追蹤整合與初始資料庫 SQL 建置，SIT 部署異常回報降低 30%。',
+      ],
+      en: [
+        'Built Advisor Portal frontend (Table UI, BFF API integration) and led SSO/RBAC setup; maintained cross-environment CI/CD managing 15+ PRs per week.',
+        'Delivered Admin Action Log Phase 2, Umami analytics integration, and initial SQL database setup; reduced SIT deployment anomaly reports by 30%.',
       ],
     },
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'BFF Architecture', 'SSO / RBAC', 'SQL', 'Umami', 'Jira', 'GitHub Actions', 'CI/CD'],
@@ -103,6 +133,16 @@ export const experiences: ExperienceItem[] = [
         'Architected a real-world store booking and queuing application, featuring multi-factor authentication (Email & Twilio SMS OTP), Row Level Security (RLS) policies, and live queue status updates.',
         'Implemented real-time features and integrations, leveraging Supabase Realtime for instant user-merchant messaging, alongside Resend email notifications and Google Maps API.',
         'Established DevOps CI/CD automation, streamlining production deployments via Supabase CLI and GitHub Actions.',
+      ],
+    },
+    printBullets: {
+      zh: [
+        '撰寫 iThome 鐵人賽 31 天技術專欄「用 Supabase 打造全端應用」，涵蓋 Auth、Realtime、Storage 與 Edge Functions。',
+        '核心專案整合 Twilio SMS OTP、RLS 權限控管與即時排隊廣播，並以 GitHub Actions 完成自動化 CI/CD 部署。',
+      ],
+      en: [
+        'Authored 31-day iThome Iron Man series “Building Full-Stack Apps with Supabase,” covering Auth, Realtime, Storage, and Edge Functions.',
+        'Core project implemented Twilio SMS OTP, Row Level Security, and real-time queue broadcasting; automated CI/CD deployment via GitHub Actions.',
       ],
     },
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Twilio SMS', 'Resend', 'Google Maps API', 'GitHub Actions'],
@@ -145,6 +185,16 @@ export const experiences: ExperienceItem[] = [
         'Utilizes GitHub for task management and version control with tagging for CI/CD.',
       ],
     },
+    printBullets: {
+      zh: [
+        '基於 LINE LIFF 框架開發電商後台，整合 LINE Bot、LINE Login 與 LINE Notify，實現完整訂單管理與通知流程。',
+        '建立 GitHub Tag 標籤 CI/CD 流程，確保版本控制與自動化部署穩定運行。',
+      ],
+      en: [
+        'Developed e-commerce backend on LINE LIFF framework, integrating LINE Bot, LINE Login, and LINE Notify for streamlined order management and notifications.',
+        'Established GitHub tag-based CI/CD pipeline for reliable version control and automated deployments.',
+      ],
+    },
     techStack: ['React', 'TypeScript', 'LINE LIFF', 'LINE Bot', 'LINE Login', 'LINE Notify', 'GitHub CI/CD'],
   },
   {
@@ -165,6 +215,16 @@ export const experiences: ExperienceItem[] = [
         'Frontend Engineering: Developed responsive UI using Nuxt 3, Tailwind CSS, Nuxt UI, and Pinia. Integrated Gemini API to enable AI-powered matchmaking and personalized user search.',
         'Backend & Real-Time Architecture: Built RESTful APIs using Express, TypeScript, and MongoDB (Mongoose). Implemented WebSockets (Socket.io) for real-time notifications and instant messaging.',
         'Cloud Deployment & DevOps: Set up CI/CD pipelines via GitHub Actions. Deployed frontend to Vercel and backend to Zeabur. Conducted SEO optimizations including structured markup, Meta tags, and dynamic sitemap generation.',
+      ],
+    },
+    printBullets: {
+      zh: [
+        '獨立開發全端交友平台「104 Social」，採 Nuxt 3 + Gemini AI 配對推薦與 Socket.io 即時通訊，後端以 Express + MongoDB 建置。',
+        '建立 GitHub Actions CI/CD，多雲部署（Vercel + Zeabur），完成 SEO 優化後成功被 Google 收錄。',
+      ],
+      en: [
+        'Built “104 Social” full-stack dating platform with Nuxt 3, Gemini AI matchmaking, Socket.io real-time messaging, and Express + MongoDB backend.',
+        'Set up GitHub Actions CI/CD with multi-cloud deployment (Vercel + Zeabur) and SEO optimizations — successfully indexed by Google.',
       ],
     },
     techStack: [
@@ -199,6 +259,16 @@ export const experiences: ExperienceItem[] = [
         'Clean Code Mentorship: Completed professional frontend tutor training in "JS Clean Code," mastering code refactoring and readability standards to establish high-quality code review and mentoring benchmarks.',
         'Proven Practical Teaching Experience & Assessment Clearance: Successfully passed teaching demo video evaluations through iterative practice and professional feedback, demonstrating solid hands-on experience in delivering structured, easy-to-understand technical lessons.',
         'Technical Mentorship & Student Problem Solving: Experienced in guiding learners through frontend bottlenecks, assisting students in troubleshooting environment setups (e.g., Axios configuration) and debugging API integration issues.',
+      ],
+    },
+    printBullets: {
+      zh: [
+        '完成「JS Clean Code」專業前端導師培訓，通過試教影片評核，掌握重構、可讀性標準與結構化教學能力。',
+        '具備 Code Review mentoring 實務經驗，協助學員排查 Axios 設定與 API 串接除錯問題。',
+      ],
+      en: [
+        'Completed “JS Clean Code” professional frontend tutor training; passed teaching demo evaluation with structured, hands-on technical instruction.',
+        'Provided code review mentorship and guided learners through Axios configuration and API integration debugging.',
       ],
     },
     techStack: [
@@ -243,6 +313,16 @@ export const experiences: ExperienceItem[] = [
         'Use state management tools (Vuex / Pinia) to ensure data synchronization across multiple pages.',
       ],
     },
+    printBullets: {
+      zh: [
+        '建構成大多項跨領域內部系統，涵蓋食登 2.0 電子菜單、慈濟醫療報表、客服管理平台與資產管理系統。',
+        '使用 Vue 2/3（Pinia / Vuex）管理跨頁狀態，負責表單設計、資料表呈現與後台業務邏輯串接。',
+      ],
+      en: [
+        'Built multiple cross-domain internal systems for NCKU, including Nutrition Menu 2.0, Tzu Chi medical reports, customer service dashboard, and campus asset management platform.',
+        'Applied Vue 2/3 with Pinia/Vuex for cross-page state management; developed forms, data tables, and admin business logic.',
+      ],
+    },
     techStack: ['Vue 2', 'Vue 3', 'Vuex', 'Pinia', 'PHP', 'Docker', 'HeidiSQL', 'XAMPP', 'RESTful API'],
   },
   {
@@ -265,6 +345,16 @@ export const experiences: ExperienceItem[] = [
         'Development of responsive design with Flex/Grid and component implementation.',
       ],
     },
+    printBullets: {
+      zh: [
+        '以 Vue Options API 獨立與協作開發多款電商 SPA 與企業官網，串接 RESTful API，並以 Webpack + ESLint 維持程式碼品質。',
+        '熟練應用 Tailwind CSS 3 / Bootstrap 5 + SCSS，基於 Flexbox / Grid 與 RWD 建構跨平台響應式介面。',
+      ],
+      en: [
+        'Developed multiple e-commerce SPAs and corporate websites with Vue Options API, integrating RESTful APIs and maintaining code quality via Webpack and ESLint.',
+        'Applied Tailwind CSS 3 / Bootstrap 5 + SCSS to build cross-platform responsive layouts using Flexbox, Grid, and RWD best practices.',
+      ],
+    },
     techStack: ['Vue 2/3', 'Options API', 'Vue Router', 'Pinia', 'Tailwind CSS 3', 'Bootstrap 5', 'SCSS', 'Webpack', 'ESLint'],
   },
   {
@@ -284,6 +374,16 @@ export const experiences: ExperienceItem[] = [
         'Maintained legacy e-commerce projects and developed new data visualization dashboards.',
         'Implemented API creation and integration using PHP (Laravel / CodeIgniter) and Vue.',
         'Optimized POS CRUD operations, shopping cart payment flows, and backend permission management.',
+      ],
+    },
+    printBullets: {
+      zh: [
+        '維護大型電商舊系統，並主導資料視覺化圖表新專案，使用 PHP（Laravel / CodeIgniter）+ Vue 進行全端 API 設計與整合。',
+        '開發 POS 系統 CRUD 模組，優化購物車金流流程，並實作帳號權限管理與 SMTP 信笄整合。',
+      ],
+      en: [
+        'Maintained legacy e-commerce platform and led data visualization dashboard project using PHP (Laravel/CodeIgniter) + Vue for full-stack API design.',
+        'Developed POS CRUD modules, optimized shopping cart payment flow, and implemented admin permission management with SMTP email integration.',
       ],
     },
     techStack: ['Vue.js', 'PHP', 'Laravel', 'CodeIgniter', 'MySQL', 'SMTP', 'Data Visualization'],

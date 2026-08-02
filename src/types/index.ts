@@ -16,6 +16,7 @@ export interface ExperienceItem {
   location: I18nText
   period: string
   bullets: { zh: string[]; en: string[] }
+  printBullets?: { zh: string[]; en: string[] }
   techStack: string[]
   contribution?: I18nText
   links?: LinkItem[]

@@ -28,22 +28,6 @@ const labels = computed(() => props.lang === 'zh'
       highlight: 'Core strengths',
     })
 
-const toOneLineSummary = (text: string, lang: 'zh' | 'en', maxLength = 130) => {
-  const normalized = text.replace(/\s+/g, ' ').trim()
-  if (!normalized)
-    return ''
-
-  if (lang === 'zh') {
-    const firstSentence = normalized.split(/[。！？]/)[0]?.trim() ?? normalized
-    const base = firstSentence || normalized
-    return base.length > maxLength ? `${base.slice(0, maxLength)}…` : base
-  }
-
-  const firstSentence = normalized.split(/[.!?]/)[0]?.trim() ?? normalized
-  const base = firstSentence || normalized
-  return base.length > maxLength ? `${base.slice(0, maxLength)}…` : base
-}
-
 const featuredExperiences = computed(() => experiences)
 const featuredProjects = computed(() => projects)
 const compactSkills = computed(() => skillCategories.slice(0, 5).map((category) => ({
@@ -51,24 +35,8 @@ const compactSkills = computed(() => skillCategories.slice(0, 5).map((category) 
   skills: category.skills.slice(0, 5),
 })))
 
-const experienceSummaries = computed(() => featuredExperiences.value.map((item) => {
-  const source = item.bullets[props.lang][0] ?? ''
-  return {
-    id: item.id,
-    text: toOneLineSummary(source, props.lang, props.lang === 'zh' ? 80 : 150),
-  }
-}))
-
-const projectSummaries = computed(() => featuredProjects.value.map((item) => {
-  const source = item.shortDesc[props.lang]
-  return {
-    id: item.id,
-    text: toOneLineSummary(source, props.lang, props.lang === 'zh' ? 80 : 150),
-  }
-}))
-
-const getExperienceSummary = (id: string) => experienceSummaries.value.find(item => item.id === id)?.text ?? ''
-const getProjectSummary = (id: string) => projectSummaries.value.find(item => item.id === id)?.text ?? ''
+const getExpBullets = (item: (typeof experiences)[0]) =>
+  item.printBullets?.[props.lang] ?? item.bullets[props.lang].slice(0, 2)
 </script>
 
 <template>
@@ -102,7 +70,7 @@ const getProjectSummary = (id: string) => projectSummaries.value.find(item => it
               <p class="shrink-0 text-[10px] text-gray-600">{{ item.period }}</p>
             </div>
             <ul class="mt-0.5 list-disc pl-4 text-[10px] leading-[1.6] text-gray-800">
-              <li>{{ getExperienceSummary(item.id) }}</li>
+              <li v-for="bullet in getExpBullets(item)" :key="bullet">{{ bullet }}</li>
             </ul>
           </div>
         </div>
@@ -113,7 +81,7 @@ const getProjectSummary = (id: string) => projectSummaries.value.find(item => it
         <h2 class="mb-1.5 border-b border-gray-400 pb-0.5 text-[13px] font-bold text-black">{{ labels.projects }}</h2>
         <ul class="list-disc space-y-1 pl-4 text-[10px] leading-[1.6] text-gray-800">
           <li v-for="item in featuredProjects" :key="item.id">
-            <span class="font-bold text-black">{{ item.name[lang] }}</span>: {{ getProjectSummary(item.id) }}
+            <span class="font-bold text-black">{{ item.name[lang] }}</span>: {{ item.shortDesc[lang] }}
           </li>
         </ul>
       </div>
