@@ -4,6 +4,7 @@ import TheHero from '../components/sections/TheHero.vue'
 import TheProjects from '../components/sections/TheProjects.vue'
 import ThePrintResume from '../components/sections/ThePrintResume.vue'
 import TheSkills from '../components/sections/TheSkills.vue'
+import { useReveal } from '../composables/useReveal'
 import type { PropType } from 'vue'
 
 defineProps({
@@ -12,6 +13,8 @@ defineProps({
     required: true,
   },
 })
+
+useReveal()
 </script>
 
 <template>

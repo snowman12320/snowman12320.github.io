@@ -6,6 +6,7 @@ import TheHero from '../components/sections/TheHero.vue'
 import TheProjects from '../components/sections/TheProjects.vue'
 import ThePrintResume from '../components/sections/ThePrintResume.vue'
 import TheSkills from '../components/sections/TheSkills.vue'
+import { useReveal } from '../composables/useReveal'
 import { tsmcExperiences, tsmcSkillCategories, tsmcHero } from '../data/variants/tsmc'
 
 const props = defineProps({
@@ -17,6 +18,8 @@ const props = defineProps({
 
 const title = computed(() => props.lang === 'zh' ? tsmcHero.title.zh : tsmcHero.title.en)
 const summary = computed(() => props.lang === 'zh' ? tsmcHero.summary.zh : tsmcHero.summary.en)
+
+useReveal()
 </script>
 
 <template>
