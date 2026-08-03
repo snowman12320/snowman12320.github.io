@@ -4,7 +4,7 @@ import { faMoon, faPrint, faSun, faChevronDown } from '@fortawesome/free-solid-s
 import { Languages } from 'lucide-vue-next'
 import type { PropType } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 
 library.add(faMoon, faPrint, faSun, faChevronDown)
 
@@ -31,6 +31,10 @@ const handlePrint = () => {
 }
 
 const isActive = (path: string) => route.path === path
+const isLocalhost = computed(() => {
+  if (typeof window === 'undefined') return false
+  return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+})
 
 // Company menu state
 const menuOpen = ref(false)
@@ -88,7 +92,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
         </button>
 
         <!-- Company selector dropdown (right side) -->
-        <div class="relative" ref="menuRef">
+        <div v-if="isLocalhost" class="relative" ref="menuRef">
           <button
             @click="toggleMenu"
             class="no-print ml-2 inline-flex items-center gap-2 px-3 py-1 rounded-lg text-sm font-medium bg-white/80 dark:bg-gray-900/70 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:shadow-sm transition-all"
