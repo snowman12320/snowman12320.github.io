@@ -21,7 +21,7 @@ test('project card opens detail modal', async ({ page }) => {
 test('experience card opens detail modal', async ({ page }) => {
   await page.goto('/')
 
-  const firstExperience = page.locator('#experience button.group').first()
+  const firstExperience = page.locator('#experience [role="button"].group').first()
   await expect(firstExperience).toBeVisible()
 
   await firstExperience.click()
@@ -61,7 +61,7 @@ test('modal closes when clicking the backdrop overlay', async ({ page }) => {
 test('experience modal accordion expands and collapses contribution sections', async ({ page }) => {
   await page.goto('/')
 
-  await page.locator('#experience button.group').first().click()
+  await page.locator('#experience [role="button"].group').first().click()
   const modal = page.locator('.modal-sheet')
   await expect(modal).toBeVisible()
 
@@ -81,6 +81,29 @@ test('experience modal accordion expands and collapses contribution sections', a
     // Verify the section title is still visible after toggle
     await expect(firstHeader).toContainText(headerText ?? '')
   }
+})
+
+test('copy link button and auto-open modal with query param', async ({ page }) => {
+  // First navigate to home, then change the hash
+  await page.goto('/')
+
+  // Navigate to URL with hash fragment
+  await page.goto('/#/project-equipment-rental-system')
+
+  // The modal should automatically open
+  const modal = page.locator('.modal-sheet')
+  await expect(modal).toBeVisible({ timeout: 5000 })
+
+  // Verify the modal is showing the correct project
+  const modalTitle = modal.locator('h3').first()
+  await expect(modalTitle).toContainText(/Equipment|設備|器材|租賃/i)
+
+  // Click the copy link button inside the modal
+  const copyButton = modal.locator('button[aria-label="Copy link"], button[aria-label="複製連結"]').first()
+  await copyButton.click()
+
+  // Verify the "Copied" feedback is shown
+  await expect(modal.locator('text=/Copied|已複製/')).toBeVisible()
 })
 
 test('language switch updates modal content', async ({ page }) => {

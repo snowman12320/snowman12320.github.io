@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import GLightbox from 'glightbox'
-import { computed, nextTick, ref, watch } from 'vue'
+import 'glightbox/dist/css/glightbox.min.css'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { ProjectItem } from '../../types'
 import DetailModal from './DetailModal.vue'
 
@@ -11,6 +12,50 @@ const { item, lang } = defineProps<{
 
 const open = ref(false)
 let lightbox: ReturnType<typeof GLightbox> | null = null
+
+// Auto-open modal if hash fragment matches this item
+const checkAndOpenHash = () => {
+  if (typeof window === 'undefined') return
+  const hash = window.location.hash || ''
+  // Check if hash contains this project ID (e.g., #/project-xxx or #/tsmc#project-xxx)
+  if (hash.includes(`#project-${item.id}`) || hash.includes(`project-${item.id}`)) {
+    open.value = true
+    nextTick(() => {
+      const el = document.getElementById(`project-${item.id}`)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    })
+  }
+}
+
+onMounted(() => {
+  checkAndOpenHash()
+  if (typeof window !== 'undefined') {
+    window.addEventListener('hashchange', checkAndOpenHash)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('hashchange', checkAndOpenHash)
+  }
+})
+
+// permalink / copy URL - only for use inside modal
+const showCopied = ref(false)
+const copyLink = async () => {
+  if (typeof window === 'undefined') return
+  // Add hash fragment for this project
+  const baseUrl = window.location.href.split('#')[0]
+  const newHash = `#${window.location.hash.split('#')[1] || '/'}#project-${item.id}`
+  const newUrl = baseUrl + newHash
+  try {
+    await navigator.clipboard.writeText(newUrl)
+    showCopied.value = true
+    setTimeout(() => (showCopied.value = false), 1400)
+  } catch (e) {
+    // ignore
+  }
+}
 
 const categoryColorClass = {
   blue: 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
@@ -42,9 +87,14 @@ watch(open, async (isOpen) => {
 </script>
 
 <template>
-  <button
+  <div
+    :id="`project-${item.id}`"
+    role="button"
+    tabindex="0"
     class="group relative text-left w-full rounded-xl border border-gray-200 bg-white/90 p-5 shadow-sm hover:shadow-md dark:border-gray-700 dark:bg-gray-900/80 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
     @click="open = true"
+    @keydown.enter="open = true"
+    @keydown.space.prevent="open = true"
   >
     <span
       class="absolute top-4 right-4 w-7 h-7 flex items-center justify-center rounded-lg text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
@@ -65,13 +115,23 @@ watch(open, async (isOpen) => {
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
       </div>
     </div>
-  </button>
+  </div>
 
   <DetailModal :open="open" size="xl" @close="open = false">
-    <div class="pr-8">
-      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ item.name[lang] }}</h3>
+    <div>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 pr-24">{{ item.name[lang] }}</h3>
       <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.category[lang] }}</p>
     </div>
+    <button
+      type="button"
+      class="absolute top-4 right-14 sm:top-6 sm:right-[3.75rem] p-2 rounded-lg text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+      @click="copyLink"
+      :aria-label="lang === 'zh' ? '複製連結' : 'Copy link'"
+      :title="lang === 'zh' ? '複製連結' : 'Copy link'"
+    >
+      <FaIcon :icon="['fas', 'link']" class="text-sm" />
+    </button>
+    <span v-if="showCopied" class="absolute top-14 right-8 sm:top-16 z-50 text-xs rounded bg-slate-900 text-white px-2 py-1">{{ lang === 'zh' ? '已複製' : 'Copied' }}</span>
 
     <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
       <ul class="mb-6 space-y-2.5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed list-disc list-inside">

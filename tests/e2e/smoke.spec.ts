@@ -17,9 +17,8 @@ test('home page renders the resume sections', async ({ page }) => {
 test('print resume keeps all six skill categories', async ({ page }) => {
   await page.goto('/')
 
-  const printSkillsSection = page.locator('.print-only').filter({
-    has: page.locator('h2', { hasText: /Skills|技能/ }),
-  })
+  const printSkillsSection = page.locator('.print-only h2:has-text("技能"), .print-only h2:has-text("Skills")')
+  const skillsList = printSkillsSection.locator('xpath=following-sibling::ul[1]')
 
-  await expect(printSkillsSection.locator('li')).toHaveCount(6)
+  await expect(skillsList.locator('li')).toHaveCount(6)
 })

@@ -26,6 +26,7 @@ import {
   faXmark,
   faChartLine,
   faRocket,
+  faLink,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faReact, faVuejs, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import App from './App.vue'
@@ -63,6 +64,7 @@ library.add(
   faXmark,
   faVuejs,
   faYoutube,
+  faLink,
 )
 
 createApp(App).component('FaIcon', FontAwesomeIcon).use(i18n).use(router).mount('#app')
