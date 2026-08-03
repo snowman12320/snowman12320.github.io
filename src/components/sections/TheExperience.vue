@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
-import { experiences } from '../../data/experience'
+import { experiences as defaultExperiences } from '../../data/experience'
+import type { ExperienceItem as ExperienceItemType } from '../../types'
 import ExperienceItem from '../ui/ExperienceItem.vue'
 
-const { lang } = defineProps({
+const { lang, experiences } = defineProps({
   lang: {
     type: String as PropType<'zh' | 'en'>,
     required: true,
+  },
+  experiences: {
+    type: Array as PropType<ExperienceItemType[]>,
+    default: () => defaultExperiences,
   },
 })
 

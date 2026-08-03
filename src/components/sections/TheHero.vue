@@ -1,3 +1,25 @@
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const props = defineProps({
+  lang: {
+    type: String as PropType<'zh' | 'en'>,
+    default: null,
+  },
+  titleOverride: {
+    type: String as PropType<string | null>,
+    default: null,
+  },
+  summaryOverride: {
+    type: String as PropType<string | null>,
+    default: null,
+  },
+})
+
+const { t } = useI18n()
+</script>
+
 <template>
   <section id="hero" class="reveal py-16 border-b border-gray-100 dark:border-gray-800">
     <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
@@ -9,18 +31,18 @@
         />
         <div>
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100">
-            {{ $t('profile.name') }}
+            {{ t('profile.name') }}
           </h1>
           <p class="mt-2 text-xl font-medium text-blue-600 dark:text-blue-400 flex items-center gap-2">
             <FaIcon :icon="['fas', 'laptop-code']" class="text-lg" />
-            {{ $t('profile.title') }}
+            {{ titleOverride ?? t('profile.title') }}
           </p>
           <p class="mt-2 text-sm text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
             <FaIcon :icon="['fas', 'location-dot']" />
-            {{ $t('profile.location') }}
+            {{ t('profile.location') }}
           </p>
           <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-full leading-relaxed">
-            {{ $t('profile.summary') }}
+            {{ summaryOverride ?? t('profile.summary') }}
           </p>
         </div>
       </div>

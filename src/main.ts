@@ -30,6 +30,7 @@ import {
 import { faGithub, faLinkedin, faReact, faVuejs, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import App from './App.vue'
 import i18n from './i18n'
+import router from './router'
 import './assets/main.css'
 
 library.add(
@@ -64,4 +65,4 @@ library.add(
   faYoutube,
 )
 
-createApp(App).component('FaIcon', FontAwesomeIcon).use(i18n).mount('#app')
+createApp(App).component('FaIcon', FontAwesomeIcon).use(i18n).use(router).mount('#app')

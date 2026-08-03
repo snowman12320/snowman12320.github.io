@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import { skillCategories } from '../../data/skills'
+import { skillCategories as defaultSkillCategories } from '../../data/skills'
+import type { SkillCategory } from '../../types'
 
-defineProps({
+const { lang, skillCategories } = defineProps({
   lang: {
     type: String as PropType<'zh' | 'en'>,
     required: true,
+  },
+  skillCategories: {
+    type: Array as PropType<SkillCategory[]>,
+    default: () => defaultSkillCategories,
   },
 })
 
