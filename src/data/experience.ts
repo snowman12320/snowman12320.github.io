@@ -16,11 +16,11 @@ export const experiences: ExperienceItem[] = [
         '撰寫單元測試，並以 Mock Service Worker（MSW）簡化 RESTful API 測試流程。',
       ],
       en: [
-        'Develop a live broadcasting platform featuring real-time streaming, scenes management, joint-streaming UI, and OBS integration.',
-        'Integrate Keycloak for authentication and Payuni payment gateways to secure credit card processing for subscription plans.',
-        'Implement Server-Sent Events (SSE) for real-time notifications and infinite scroll preview components using Quasar Framework.',
-        'Set up automated CI/CD build pipelines with Jenkins and manage cross-branch deployments for production environments.',
-        'Write unit tests and leverage Mock Service Worker (MSW) to streamline RESTful API testing.',
+        'Built a live streaming control platform with scene management, co-streaming UI, and OBS integration.',
+        'Integrated Keycloak authentication and Payuni payments to secure subscription checkout.',
+        'Shipped SSE notifications and infinite-scroll media previews with Quasar Framework.',
+        'Automated cross-branch production deployments with Jenkins CI/CD.',
+        'Added unit tests and MSW API mocks to speed up RESTful API validation.',
       ],
     },
     printBullets: {
@@ -29,8 +29,8 @@ export const experiences: ExperienceItem[] = [
         '建置 Jenkins CI/CD 管線與 32 個可複用 Composables，單元測試覆蓋率 82%；整合 Keycloak SSO 與 Payuni 金流，訂閱轉換率提升 35%。',
       ],
       en: [
-        'Built live broadcasting platform with OBS integration and SSE real-time notifications supporting 5,000+ concurrent connections; optimized page load from 3.2s to 0.8s and API response to 120ms.',
-        'Established Jenkins CI/CD pipelines and 32 reusable Composables with 82% unit test coverage; integrated Keycloak SSO and Payuni payment gateway, boosting subscription conversion by 35%.',
+        'Supported 5,000+ concurrent connections with an OBS-enabled streaming platform; cut page load from 3.2s to 0.8s and API response time to 120ms.',
+        'Built 32 reusable Composables, reached 82% unit-test coverage, and integrated Keycloak SSO with Payuni payments to increase subscription conversion by 35%.',
       ],
     },
     techStack: ['Vue 3', 'Quasar Framework', 'TypeScript', 'Keycloak', 'SSE', 'OBS Integration', 'Jenkins CI/CD', 'MSW', 'Vitest'],
@@ -54,11 +54,11 @@ export const experiences: ExperienceItem[] = [
         '處理系統維護、Bug 修復與報價／帳款工作流程邏輯，並善用 AI 輔助提升開發效率。',
       ],
       en: [
-        'Develop medical system features, including patient record management, interactive charts, PDF compression, and 3D CT scan rendering using vtk.js.',
-        'Design database schemas and RESTful API architectures to deliver scalable full-stack web applications from concept to deployment.',
-        'Build modular online learning platforms, integrating Vimeo API for video streaming, OAuth for third-party authentication, and IP-based access control.',
-        'Deploy and maintain web applications across cloud infrastructure platforms, including Zeabur and Cloudways.',
-        'Manage system maintenance, bug fixes, and quote/billing workflow logic while leveraging AI-assisted prompting to boost development productivity.',
+        'Built medical features for patient records, interactive charts, PDF compression, and vtk.js 3D CT rendering.',
+        'Designed database schemas and RESTful APIs to ship full-stack applications from concept to deployment.',
+        'Built modular learning platforms with Vimeo streaming, OAuth authentication, and IP access control.',
+        'Deployed and maintained applications on Zeabur and Cloudways.',
+        'Automated quote, billing, and maintenance workflows with AI-assisted development.',
       ],
     },
     printBullets: {
@@ -67,8 +67,8 @@ export const experiences: ExperienceItem[] = [
         '導入 AI 輔助開發提升效率 30%，PDF 壓縮減少體積 60%，API 響應從 800ms 優化至 200ms。',
       ],
       en: [
-        'Delivered medical systems (vtk.js 3D CT rendering < 2s), online learning platforms (Vimeo API, OAuth, IP access control), and quotation workflows from concept to cloud deployment.',
-        'AI-assisted development improved efficiency by 30%; PDF compression reduced file size by 60%; API response optimized from 800ms to 200ms.',
+        'Delivered medical, learning, and quotation systems from concept to cloud deployment; kept vtk.js CT rendering under 2s.',
+        'Cut PDF size by 60%, reduced API response time from 800ms to 200ms, and improved development efficiency by 30% with AI-assisted workflows.',
       ],
     },
     techStack: ['Vue 3', 'Node.js', 'RESTful API', 'vtk.js', 'Vimeo API', 'OAuth', 'MySQL', 'Zeabur', 'Cloudways'],
@@ -91,10 +91,10 @@ export const experiences: ExperienceItem[] = [
         '維護跨環境 CI/CD 流程，管理 Dev 與 SIT 的 PR 合併、部署驗證與 Bug 排查（含部署版本與修復 Commit 不符的異常）；使用 Jira 追蹤 Ticket，定期透過 SharePoint / Excel 向團隊回報進度。',
       ],
       en: [
-        'Built and maintained the Advisor Portal frontend — including Table UI and Spinner state components — and integrated Advisor APIs via BFF (Backend For Frontend) architecture; diagnosed and resolved API connectivity failures in the DEV environment.',
-        'Led SSO (Single Sign-On) integration: configured post-login redirect URLs, managed SSO role provisioning, authored access-control technical documentation, and implemented RBAC for role-based permission management.',
-        'Delivered Admin backend features (including Action Log Phase 2), executed initial database setup with SQL scripts, and integrated Umami analytics script for user behavior and traffic monitoring.',
-        'Maintained cross-environment CI/CD pipelines managing PR workflows, deployment verification, and bug resolution across Dev and SIT (including commit-deployment mismatch issues); tracked tasks via Jira and reported progress through SharePoint / Excel.',
+        'Built Advisor Portal tables, loading states, and responsive views; integrated Advisor APIs through BFF and resolved DEV connectivity failures.',
+        'Led SSO integration, role provisioning, redirect configuration, and RBAC access control; documented the implementation for handoff.',
+        'Shipped Admin Action Log Phase 2, initialized the database with SQL scripts, and added Umami analytics for traffic and behavior tracking.',
+        'Managed Dev/SIT PRs, deployment verification, and bug resolution; tracked delivery in Jira and reported progress through SharePoint / Excel.',
       ],
     },
     printBullets: {
@@ -103,8 +103,8 @@ export const experiences: ExperienceItem[] = [
         '完成 Action Log Phase 2 後台功能、Umami 行為追蹤整合與初始資料庫 SQL 建置，SIT 部署異常回報降低 30%。',
       ],
       en: [
-        'Built Advisor Portal frontend (Table UI, BFF API integration) and led SSO/RBAC setup; maintained cross-environment CI/CD managing 15+ PRs per week.',
-        'Delivered Admin Action Log Phase 2, Umami analytics integration, and initial SQL database setup; reduced SIT deployment anomaly reports by 30%.',
+        'Built Advisor Portal frontend and BFF integrations; led SSO/RBAC setup and managed CI/CD across Dev and SIT for 15+ PRs per week.',
+        'Shipped Action Log Phase 2, Umami analytics, and initial SQL setup; reduced SIT deployment anomaly reports by 30%.',
       ],
     },
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'BFF Architecture', 'SSO / RBAC', 'SQL', 'Umami', 'Jira', 'GitHub Actions', 'CI/CD'],
@@ -211,10 +211,10 @@ export const experiences: ExperienceItem[] = [
         '雲端部署與 DevOps：透過 GitHub Actions 建立 CI/CD，前端部署至 Vercel、後端部署至 Zeabur，並完成結構化資料、Meta tags 與動態 sitemap 的 SEO 優化。',
       ],
       en: [
-        'Full-Stack Development: Led the end-to-end development of "104 Social", a full-stack dating platform built from scratch.',
-        'Frontend Engineering: Developed responsive UI using Nuxt 3, Tailwind CSS, Nuxt UI, and Pinia. Integrated Gemini API to enable AI-powered matchmaking and personalized user search.',
-        'Backend & Real-Time Architecture: Built RESTful APIs using Express, TypeScript, and MongoDB (Mongoose). Implemented WebSockets (Socket.io) for real-time notifications and instant messaging.',
-        'Cloud Deployment & DevOps: Set up CI/CD pipelines via GitHub Actions. Deployed frontend to Vercel and backend to Zeabur. Conducted SEO optimizations including structured markup, Meta tags, and dynamic sitemap generation.',
+        'Built "104 Social" from zero to one as a full-stack dating platform.',
+        'Shipped responsive Nuxt 3 UI with Tailwind CSS, Nuxt UI, Pinia, Gemini matchmaking, and personalized search.',
+        'Built Express REST APIs with TypeScript and MongoDB; added Socket.io notifications and instant messaging.',
+        'Automated CI/CD with GitHub Actions, deployed frontend/backend to Vercel and Zeabur, and added structured SEO markup, meta tags, and a dynamic sitemap.',
       ],
     },
     printBullets: {
@@ -258,7 +258,7 @@ export const experiences: ExperienceItem[] = [
       en: [
         'Clean Code Mentorship: Completed professional frontend tutor training in "JS Clean Code," mastering code refactoring and readability standards to establish high-quality code review and mentoring benchmarks.',
         'Proven Practical Teaching Experience & Assessment Clearance: Successfully passed teaching demo video evaluations through iterative practice and professional feedback, demonstrating solid hands-on experience in delivering structured, easy-to-understand technical lessons.',
-        'Technical Mentorship & Student Problem Solving: Experienced in guiding learners through frontend bottlenecks, assisting students in troubleshooting environment setups (e.g., Axios configuration) and debugging API integration issues.',
+        'Guided learners through frontend bottlenecks, Axios configuration, and API integration debugging.',
       ],
     },
     printBullets: {
@@ -308,9 +308,9 @@ export const experiences: ExperienceItem[] = [
         '維護公司及學校內部的資產與帳號相關管理系統，處理資產移轉、報廢、採購等流程。',
       ],
       en: [
-        'Development of backend menu system connected to a RESTful API.',
-        'Features include forms, data tables, web page design, and user experience improvements.',
-        'Use state management tools (Vuex / Pinia) to ensure data synchronization across multiple pages.',
+        'Built NCKU internal systems for nutrition menus, medical reports, customer service, and asset management.',
+        'Shipped forms, data tables, responsive views, and admin workflows connected to RESTful APIs.',
+        'Managed cross-page state with Vuex and Pinia to keep workflows synchronized.',
       ],
     },
     printBullets: {
@@ -340,9 +340,9 @@ export const experiences: ExperienceItem[] = [
         '熟練運用 Tailwind CSS 3 與 Bootstrap 5 設計系統（含 SCSS、Custom Config、Plugins）。',
       ],
       en: [
-        'Proficient in Vue.js Options API for building SPAs.',
-        'Experienced in JavaScript ES5+ syntax, plugins, and Webpack for module bundling.',
-        'Development of responsive design with Flex/Grid and component implementation.',
+        'Built e-commerce SPAs and corporate sites with Vue Options API and RESTful APIs.',
+        'Bundled JavaScript modules with Webpack and maintained code quality with ESLint.',
+        'Shipped responsive layouts and reusable components with Flexbox, Grid, Tailwind CSS, and Bootstrap.',
       ],
     },
     printBullets: {
@@ -395,9 +395,9 @@ export const experiences: ExperienceItem[] = [
         '開發 POS 系統之彈窗式增刪查改（CRUD）互動模組、優化購物車金流導向流程、並撰寫優化的資料庫資料篩選查詢。',
       ],
       en: [
-        'Maintained legacy e-commerce projects and developed new data visualization dashboards.',
-        'Implemented API creation and integration using PHP (Laravel / CodeIgniter) and Vue.',
-        'Optimized POS CRUD operations, shopping cart payment flows, and backend permission management.',
+        'Maintained legacy e-commerce systems and built data visualization dashboards.',
+        'Designed and integrated APIs with PHP (Laravel/CodeIgniter) and Vue.',
+        'Shipped POS CRUD modules, streamlined payment flows, and added admin permission management.',
       ],
     },
     printBullets: {

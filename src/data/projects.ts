@@ -11,12 +11,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'blue',
     shortDesc: {
       zh: '為影視製作公司打造的智慧排單系統，解決數百項器材的即時可用量計算、檔期可視化與撞期衝突偵測。',
-      en: 'Smart scheduling system for a film production company — solving real-time availability calculation, schedule visualization, and conflict detection across hundreds of equipment items.',
+      en: 'Scheduling system for a film production company | Real-time inventory, calendar views, and conflict detection across hundreds of items.',
     },
     techStack: ['React', 'Node.js', 'OpenAI', 'Anthropic', 'Schedule Grid', 'Inventory Engine'],
     detailedDesc: {
       zh: '客戶擁有 30 多大類、數百項影視器材，過去全靠 Excel 排單，旺季撞期嚴重；可用量需動態扣除維修、外借、報廢與外調等多重狀態，人工核算極易出錯；採用 React + Node.js 建置「器材×日期」視覺化檔期大表，搭配即時可用量演算法（總量 − 維修 − 報廢 − 預訂 − 外調），自動偵測排單衝突；全棧統一以 Asia/Taipei 為基準錨定日期，根治時區偏移造成的跨日漏鎖問題；將大表演算法重構為線性複雜度，並優化分類篩選索引策略（精準命中優先、超時退回模糊比對），將 30 秒以上的千筆查詢壓縮至秒級回應；導入 AI（OpenAI + Anthropic）快速生成報價骨架，業務人工確認後完成排單，有效降低重複勞動並減少撞期與超借風險。',
-      en: 'The client manages 30+ categories and hundreds of film equipment items, previously relying on Excel for scheduling, causing frequent double-bookings during peak seasons. Available quantity required dynamic deduction of maintenance, lending, disposal, and outsourcing states. Built a React + Node.js visual schedule grid ("equipment × date") with a real-time availability engine (total − maintenance − disposal − bookings − outsourced), auto-detecting conflicts at order time. Standardized the full stack to Asia/Taipei timezone to eliminate cross-day date drift. Refactored the grid algorithm to linear complexity and optimized category filter index strategy (exact-match priority with fuzzy fallback + timeout cap), reducing 1000-row queries from 30+ seconds to sub-second response. Integrated AI (OpenAI + Anthropic) to generate quote skeletons from natural-language requests, with human confirmation before finalizing.',
+      en: 'Replaced Excel scheduling with a React + Node.js equipment-by-date grid and real-time availability engine. Deducted maintenance, disposal, bookings, and outsourced inventory to detect conflicts at order time. Standardized dates to Asia/Taipei to eliminate cross-day drift. Refactored the grid to linear complexity and optimized indexed filters, cutting 1,000-row queries from 30+ seconds to sub-second response. Added OpenAI and Anthropic quote generation with human approval before finalizing orders.',
     },
     links: [],
     gallery: {
@@ -40,12 +40,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'green',
     shortDesc: {
       zh: '為 B2B 食品批發商打造的四階梯報價引擎，整合中英雙語型錄、匯率維護與三角色細粒度稽核流程。',
-      en: '4-tier pricing engine for a B2B food wholesaler, featuring bilingual catalogs, exchange rate management, and a 3-role fine-grained audit workflow.',
+      en: '4-tier pricing engine for a B2B food wholesaler | Bilingual catalog, exchange rates, and 3-role audit workflow.',
     },
     techStack: ['React 18', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT', 'Docker', 'Zeabur'],
     detailedDesc: {
       zh: '食品批發商面對 A/B/C/D 四等級客戶需報不同售價，過往 Excel 手算易報錯且成本異動時所有報價需人工逐一修改；建置集中化產品成本庫並綁定四價格帶，業務選擇客戶等級即自動帶入對應售價，並支援單品加價、全單加成與貼標費即時計算；報價與中英雙語型錄共用同一資料源，匯率統一集中維護並留存異動歷程，支援香港市場專用跨境幣別與規格欄位；落實採購、業務、主管三角色逐欄位細權限（前端隱藏元件 + 後端中介層雙重防守），搭配主管核准／退回／鎖定機制與關鍵欄位異動稽核紀錄；以 JWT 驗證身份，Docker 容器化後部署至 Zeabur 平台，成本變動一次更新全線連動，徹底解決版本不一致問題。',
-      en: 'The wholesaler serves A/B/C/D tier customers with different prices; prior Excel-based quoting caused frequent pricing errors and required manual updates across all quotes when costs changed. Built a centralized product cost database bound to four price tiers — selecting customer grade auto-applies the correct price with support for per-item surcharges, order-level markups, and labeling fees. Bilingual (ZH/EN) catalog shares the same data source; exchange rates are centrally maintained with change history, supporting HK market cross-border currency and spec fields. Implemented 3-role (procurement / sales / manager) column-level permissions with frontend component hiding + backend middleware double-gating, plus manager approve/reject/lock flow and full audit trail for critical field changes. Deployed via Docker on Zeabur with JWT authentication.',
+      en: 'Replaced Excel quoting with a centralized cost database and four price tiers; auto-applied customer pricing, item surcharges, order markups, and labeling fees. Shared one data source across ZH/EN catalogs, centralized exchange rates with change history, and added HK-specific currency and specification fields. Enforced column-level permissions for procurement, sales, and managers with frontend and backend gates, approval/lock flows, and audit trails. Deployed with Docker on Zeabur using JWT authentication.',
     },
     links: [],
     gallery: {
@@ -69,12 +69,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'purple',
     shortDesc: {
       zh: '為補習班打造的線上補課 LMS，整合動態浮水印防盜、單一裝置登入與學習歷程數據儀表板。',
-      en: 'Online make-up class LMS for tutoring centers, featuring dynamic watermark piracy prevention, single-device login enforcement, and a learning progress analytics dashboard.',
+      en: 'Online make-up class LMS | Dynamic watermarks, single-device login, and learning analytics.',
     },
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Payload CMS', 'LINE Login', 'Google Login', 'Dynamic Watermark'],
     detailedDesc: {
       zh: '傳統補習班補課影片散落 YouTube/Vimeo 無法集中管理，學生是否看完無從掌握，且帳號共享與非法側錄導致智慧財產流失；採用 Next.js + TypeScript 建置高效能前端與 API，PostgreSQL 儲存結構化學習資料，並整合 Payload CMS 進行彈性內容與多角色權限管理；設計「課程→單元→章節」三層模組，補習班只需貼上 YouTube/Vimeo 連結即自動轉為可追蹤受管課程；自動記錄觀看時長、章節進度、觀看次數與最後學習時間，繪製管理員儀表板提供完成率與熱門課程分析；播放時即時疊加動態身份識別浮水印降低側錄風險，限制單一帳號同時僅能單裝置登入防範共享，並串接 LINE Login 與 Google Login 降低學員使用門檻。',
-      en: 'Traditional tutoring centers scatter make-up videos across YouTube/Vimeo with no centralized tracking; account sharing and illegal screen-recording cause intellectual property loss. Built with Next.js + TypeScript for high-performance frontend and API, PostgreSQL for structured learning data, and Payload CMS for flexible content and multi-role permission management. Designed a 3-tier "Course → Unit → Chapter" module — tutors simply paste a YouTube/Vimeo link to create a fully tracked lesson. Auto-records watch duration, chapter progress, view counts, and last-studied timestamp, visualized in an admin dashboard with completion rates and popular course analytics. Overlays real-time dynamic identity watermarks during playback to deter recording; enforces single-device login per account to prevent sharing; integrates LINE Login and Google Login to lower the barrier for students.',
+      en: 'Built a Next.js + TypeScript LMS with PostgreSQL and Payload CMS to manage courses, permissions, and learning data. Turned YouTube/Vimeo links into tracked Course → Unit → Chapter lessons. Recorded watch duration, chapter progress, views, and last-study time for completion and popularity dashboards. Added dynamic identity watermarks, single-device login, LINE Login, and Google Login to protect content and simplify access.',
     },
     links: [],
     gallery: {
@@ -100,12 +100,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'purple',
     shortDesc: {
       zh: '針對中型醫療機構打造的高資安病歷數位化平台，整合 AI 病歷分析與網頁版 CT 影像檢視流程。',
-      en: 'High-security medical record digitization platform for mid-sized clinics, integrating AI-powered record analysis and a browser-based CT image viewer.',
+      en: 'Medical record digitization platform | AI-assisted analysis and browser-based CT imaging.',
     },
     techStack: ['Python', 'PostgreSQL', 'Anthropic', 'PDF Text Extraction', 'AI Structured Analysis', 'CT Web Viewer', 'Security Firewall', 'Dashboard Analytics'],
     detailedDesc: {
       zh: '以 STAR 架構落地：先針對紙本病歷分散、跨報告難比對、CT 影像不易安全共享的醫療痛點，規劃兼具資安與可用性的整體平台；再以 Python + PostgreSQL 建置後端，串接 Anthropic 與 PDF 文字提取，將臨床內容結構化並自動產出趨勢分析；前端提供網頁版 CT 影像檢視（旋轉、縮放、色彩映射、深度調整）與整合式儀表板（回饋註記、跨報告監控）；最終有效縮短病歷調閱與判讀流程，提升醫病溝通效率，同時維持醫療等級的隱私與防護標準。',
-      en: 'Addressed key pain points in traditional clinical settings: scattered paper records, inability to cross-reference multiple reports, and difficulty securely sharing CT images. Built Python + PostgreSQL backend integrated with Anthropic AI and PDF text extraction to automatically structure clinical notes and generate trend charts. Browser-based CT viewer supports rotation, zoom, color mapping, and depth adjustment. Unified dashboard provides patient management, clinical feedback annotations, and cross-report multi-metric monitoring. Delivered enterprise-grade firewall and privacy protection alongside improved diagnostic efficiency and doctor-patient communication.',
+      en: 'Digitized scattered clinical records with a Python + PostgreSQL backend, Anthropic AI, and PDF text extraction. Structured clinical notes and generated trend charts automatically. Shipped a browser CT viewer with rotation, zoom, color mapping, and depth controls, plus a dashboard for patient management, annotations, and cross-report monitoring. Added firewall and privacy controls to improve diagnostic workflows without weakening protection.',
     },
     links: [],
     gallery: {
@@ -128,7 +128,7 @@ export const projects: ProjectItem[] = [
     categoryColor: 'green',
     shortDesc: {
       zh: '整合 LINE LIFF 的即時通訊平台，支援無縫登入與雙向即時聊天。',
-      en: 'Real-time chat platform integrated with LINE LIFF, supporting seamless in-app login and bidirectional instant messaging.',
+      en: 'LINE LIFF chat platform | In-app login and low-latency two-way messaging.',
     },
     techStack: ['React', 'Redux', 'TypeScript', 'LINE LIFF'],
     detailedDesc: {
@@ -153,12 +153,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'blue',
     shortDesc: {
       zh: '兼顧精美前端互動與高效後端的社群交友平台，支援 AI 配對與即時聊天。',
-      en: 'Full-stack social dating platform with AI-powered matchmaking, real-time chat, and SEO optimization — indexed by Google.',
+      en: 'Full-stack dating platform | AI matchmaking, real-time chat, and Google-indexed SEO.',
     },
     techStack: ['Nuxt 3', 'Tailwind CSS', 'Pinia', 'Express', 'TypeScript', 'MongoDB', 'Socket.io', 'Gemini API'],
     detailedDesc: {
       zh: '獨立負責前後端全端開發，Nuxt 3 + Tailwind CSS + Pinia 建構響應式前端，並以 Gemini API 實作 AI 配對推薦與個人化搜尋；後端採用 Express + TypeScript + MongoDB (Mongoose) 建立 RESTful API 與 JWT 驗證；Socket.io 實現配對後即時一對一通訊與即時通知；CI/CD 透過 GitHub Actions 自動化，前端部署 Vercel、後端部署 Zeabur，並完成 SEO 結構化標記與動態 Sitemap 優化，成功被 Google 收錄。',
-      en: 'Led end-to-end full-stack development of a social dating platform. Built responsive frontend with Nuxt 3 + Tailwind CSS + Pinia; integrated Gemini API for AI-driven matchmaking and personalized user search. Backend uses Express + TypeScript + MongoDB (Mongoose) with RESTful APIs and JWT authentication. Socket.io powers real-time 1-on-1 messaging and notifications post-match. CI/CD via GitHub Actions; frontend on Vercel, backend on Zeabur. SEO optimizations including structured markup, meta tags, and dynamic sitemap resulted in Google indexing.',
+      en: 'Built the platform end to end with Nuxt 3, Tailwind CSS, Pinia, Express, TypeScript, and MongoDB. Added Gemini matchmaking, personalized search, JWT authentication, and Socket.io messaging and notifications. Automated CI/CD with GitHub Actions, deployed frontend/backend to Vercel and Zeabur, and added structured markup, meta tags, and a dynamic sitemap to get the site indexed by Google.',
     },
     links: [
       { label: { zh: '線上展示', en: 'Live Demo' }, url: 'https://104social-front-end.vercel.app/about', icon: 'external' },
@@ -181,7 +181,7 @@ export const projects: ProjectItem[] = [
     categoryColor: 'purple',
     shortDesc: {
       zh: '整合四大 LLM API 的專利侵權比對助理，支援多模型切換與 Docker 容器化部署。',
-      en: 'Patent infringement checker integrating 4 major LLM APIs (Gemini, OpenAI, Claude, xAI) with multi-model switching and Docker containerized deployment.',
+      en: 'Patent infringement checker | 4 LLM APIs, runtime model switching, and Docker deployment.',
     },
     techStack: ['Next.js', 'Redux', 'TypeScript', 'Gemini', 'OpenAI', 'Claude', 'xAI', 'Docker'],
     detailedDesc: {
@@ -206,7 +206,7 @@ export const projects: ProjectItem[] = [
     categoryColor: 'green',
     shortDesc: {
       zh: '基於 Nuxt 3 + Firebase 的選舉資料視覺化平台，強化 SSR 效能與 SEO。',
-      en: 'Taiwan presidential election data visualization platform built with Nuxt 3 SSR + Firebase, with interactive charts and strong SEO.',
+      en: 'Taiwan election data platform | Nuxt 3 SSR, Firebase, interactive charts, and SEO.',
     },
     techStack: ['Nuxt 3', 'TypeScript', 'Firebase', 'vue-chartjs', 'naive-ui', 'SEO'],
     detailedDesc: {
@@ -231,7 +231,7 @@ export const projects: ProjectItem[] = [
     categoryColor: 'blue',
     shortDesc: {
       zh: '完整購物車、篩選與結帳流程的 NBA 球衣電商，導入 Vitest 單元測試與 Cypress E2E 測試。',
-      en: 'NBA jersey e-commerce site with full cart, filtering, and checkout flow; includes Vitest unit tests and Cypress E2E tests.',
+      en: 'NBA jersey e-commerce site | Cart, filtering, checkout, Vitest, and Cypress coverage.',
     },
     techStack: ['Vue 3', 'Vite', 'Pinia', 'Vitest', 'Cypress', 'vee-validation'],
     detailedDesc: {
@@ -257,7 +257,7 @@ export const projects: ProjectItem[] = [
     categoryColor: 'purple',
     shortDesc: {
       zh: '整合雙模型 ML 預測、互動圖表與爬蟲新聞的台中房價查詢平台，部署於 AWS EC2/RDS。',
-      en: 'Taichung house price query and prediction platform combining dual ML models, interactive charts, news crawlers, and air quality data — deployed on AWS.',
+      en: 'Taichung housing analytics platform | Dual-model forecasts, interactive charts, crawlers, and AWS deployment.',
     },
     techStack: ['Flask', 'MySQL', 'AWS', 'Python', 'Linear SVR', 'LightGBM', 'pyecharts', 'Folium'],
     detailedDesc: {
@@ -282,12 +282,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'blue',
     shortDesc: {
       zh: '智慧排隊與號碼牌管理系統，聚焦於現場取號流程、手機驗證與企業管理視圖的全棧實作。',
-      en: 'A smart queue and ticket management system focused on on-site check-in flow, mobile verification, and business-side management views.',
+      en: 'Queue and ticket management system | On-site check-in, mobile verification, and business operations.',
     },
     techStack: ['Next.js 14', 'TypeScript', 'Supabase', 'HeroUI v2', 'Tailwind CSS', 'Framer Motion', 'react-scan'],
     detailedDesc: {
       zh: 'QueueMaster 是一個以實體店家現場排隊場景為核心的全棧 Web 應用，目標是解決排隊秩序混亂、顧客候位體驗差與手動取號流程繁瑣的問題。專案採用 Next.js 14 App Router 與 TypeScript 建構，透過強型別與元件化設計提升跨頁與跨元件的資料流穩定性；前端搭配 HeroUI v2 與 Tailwind CSS 快速打造響應式 UI，並以 Framer Motion 增加頁面互動流暢度。後端則整合 Supabase（PostgreSQL）作為 BaaS，利用資料庫與 Row Level Security (RLS) 管理隊伍與號碼牌資料，並透過 Supabase CLI 建立本地開發與雲端同步流程，讓我能以更高效率完成整個全端產品的開發與維運。核心功能包含號碼牌彈窗、手機驗證邏輯、企業管理頁面，以及即時的元件效能監控與優化。這個專案很適合用來說明我如何結合前端互動與 Supabase 後端服務，快速打造可用、可維護的產品原型，並強調一人全端開發的實戰能力。',
-      en: 'QueueMaster is a full-stack web app centered on real-world queue management for physical stores. It addresses pain points such as chaotic queue flow, poor customer waiting experience, and cumbersome manual ticketing. Built with Next.js 14 App Router and TypeScript, the system uses strong typing and component-based architecture to ensure stable cross-page and cross-component data flow. On the backend, it integrates Supabase as a BaaS layer using PostgreSQL and Row Level Security (RLS) to manage queue and ticket data securely, while Supabase CLI enables local development and cloud sync workflows. This allows me to build and maintain a full-stack product efficiently. Core features include number-ticket modal flows, mobile verification logic, business-side management views, and real-time component performance monitoring via react-scan. This project is a strong example of how I combine frontend interaction design with Supabase-backed backend services to ship maintainable full-stack products quickly.',
+      en: 'Built a Next.js 14 + TypeScript queue system for physical stores, replacing manual ticketing with guided check-in and mobile verification. Used Supabase PostgreSQL and RLS to secure queue and ticket data, with Supabase CLI for local/cloud workflows. Shipped ticket flows, business management views, and react-scan performance monitoring.',
     },
     links: [
       { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/QueueMaster', icon: 'github' },
@@ -318,12 +318,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'purple',
     shortDesc: {
       zh: '為永明金融 Advisor Portal 開發前端與整合流程，強化表格互動、SSO 與跨環境部署維運。',
-      en: 'Developed and maintained the Sun Life Advisor Portal frontend and integration flows, improving table interactions, SSO, and multi-environment deployment operations.',
+      en: 'Sun Life Advisor Portal | Table interactions, BFF integration, SSO/RBAC, and multi-environment delivery.',
     },
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'BFF', 'SSO / RBAC', 'SQL', 'Umami', 'Jira', 'GitHub Actions'],
     detailedDesc: {
       zh: '這個專案是我在永明金融 Advisor Portal 的實務工作內容，主要負責前端介面開發與後端串接流程維護。我參與開發包含 Table UI、Spinner 狀態顯示與多種響應式元件，並透過 BFF 架構串接 Advisor API；同時協助排查 DEV 環境 API 連線異常。除了前端開發，我也主導 SSO 認證流程整合，包含登入後重新導向 URL、SSO role 管理與 RBAC 權限控制；另外開發後台管理功能與初始資料庫建置，並整合 Umami analytics 追蹤使用者行為。這個專案很適合用來說明我如何在企業級系統中兼顧產品互動、權限控制與跨環境維運。',
-      en: 'This project reflects my hands-on work on Sun Life Financial’s Advisor Portal. I contributed to building and maintaining frontend interfaces such as table UI, spinner states, and responsive components, while integrating Advisor APIs through a BFF architecture. I also helped diagnose DEV environment API connectivity issues. Beyond frontend work, I led the SSO integration flow, including post-login redirect configuration, SSO role provisioning, and RBAC-based access control. I also delivered admin features, initial database setup, and Umami analytics integration to monitor user behavior. This project is a strong example of how I balance product interaction design, permission control, and cross-environment operations in enterprise systems.',
+      en: 'Built Advisor Portal tables, loading states, and responsive components; integrated Advisor APIs through BFF and resolved DEV connectivity issues. Led SSO role provisioning, redirect configuration, and RBAC access control. Shipped admin features, initial SQL setup, and Umami analytics for behavior tracking.',
     },
     links: [
       { label: { zh: '公司網站', en: 'Company Website' }, url: 'https://www.sunlife.ca/en/', icon: 'external' },
@@ -343,12 +343,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'green',
     shortDesc: {
       zh: '基於 LINE LIFF 框架開發的電商後台與整合流程，涵蓋 LINE Bot、LINE Login 與通知系統的串接。',
-      en: 'Developed an e-commerce admin system based on the LINE LIFF framework, integrating LINE Bot, LINE Login, and notification services.',
+      en: 'LINE LIFF e-commerce admin | Order management, LINE integrations, and CI/CD.',
     },
     techStack: ['React', 'TypeScript', 'LINE LIFF', 'LINE Bot', 'LINE Login', 'LINE Notify', 'GitHub CI/CD'],
     detailedDesc: {
       zh: '這個專案是我在數位因子網路科技公司參與的後台與電商整合系統，主要負責基於 LINE LIFF 框架的前端與系統流程開發。專案整合 LINE Bot、LINE Login 與 LINE Notify，讓後台能順暢處理訂單管理與通知流程；我也協助建立 GitHub 的任務管理與版本控制流程，並透過 Tag 標籤支援 CI/CD 的自動化部署。這個專案適合用來呈現我在合作式產品開發中，如何快速落地前端互動、第三方服務串接與維運流程。',
-      en: 'This project was developed while working at Digital Factor Network Technology. I contributed to building an e-commerce admin system based on the LINE LIFF framework, integrating LINE Bot, LINE Login, and LINE Notify to support order management and notification workflows. I also helped establish GitHub-based task tracking and version control, using tags to support CI/CD automation. This project is a strong example of how I quickly deliver frontend interactions, third-party service integrations, and deployment workflows in collaborative product environments.',
+      en: 'Built a LINE LIFF e-commerce admin system with LINE Bot, LINE Login, and LINE Notify for order and notification workflows. Added GitHub task tracking, tag-based versioning, and CI/CD automation for collaborative delivery.',
     },
     links: [
       { label: { zh: '公司網站', en: 'Company Website' }, url: 'https://www.dgfactor.com/', icon: 'external' },
@@ -371,12 +371,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'purple',
     shortDesc: {
       zh: '為成功大學內部系統與醫療/營養相關報表平台開發前端與流程管理功能。',
-      en: 'Developed frontend and workflow features for NCKU internal systems and medical/nutrition-related reporting platforms.',
+      en: 'NCKU internal systems | Forms, reporting dashboards, and workflow management.',
     },
     techStack: ['Vue 2', 'Vue 3', 'Vuex', 'Pinia', 'PHP', 'Docker', 'RESTful API', 'HeidiSQL'],
     detailedDesc: {
       zh: '這個專案是我在成功大學任職期間參與的內部系統與報表平台，主要負責跨領域前端專案的建構與維護。我曾協助開發學校內部的食登 2.0 系統與慈濟報表系統，提供表單、資料展示與操作流程；也參與客服系統與資產帳號管理系統的開發，強化校內業務流程與資料管理效率。這個專案適合用來說明我如何在校園場域中，將前端互動、資料流與後端流程整合成穩定可維護的內部系統。',
-      en: 'This project covers the internal systems and reporting platforms I worked on during my time at National Cheng Kung University. I contributed to building and maintaining cross-functional frontend systems, including the Food Registration 2.0 platform, Tzu Chi report systems, the customer service system, and asset/account management tools. The work focused on forms, data display, and business workflow management. This project is a strong example of how I integrated frontend interaction, data flow, and backend processes into stable and maintainable internal systems.',
+      en: 'Built and maintained NCKU internal systems including Food Registration 2.0, Tzu Chi medical reports, customer service, and asset/account management. Delivered forms, data tables, and workflow features with Vue 2/3, Pinia/Vuex, PHP, and RESTful APIs.',
     },
     links: [
       { label: { zh: '學校網站', en: 'University Website' }, url: 'https://www.ncku.edu.tw/', icon: 'external' },
@@ -398,12 +398,12 @@ export const projects: ProjectItem[] = [
     categoryColor: 'green',
     shortDesc: {
       zh: '以直播互動與品牌內容為核心的數位平台，整合訊號源管理、導播控制、即時同步、會員金流與高可靠度直播體驗。',
-      en: 'A digital platform centered on live streaming and brand content, integrating signal management, broadcast control, real-time sync, membership payments, and high-reliability live experience.',
+      en: 'Live streaming platform | Signal management, broadcast control, real-time sync, and payments.',
     },
     techStack: ['Vue 3', 'TypeScript', 'Vite', 'Tailwind CSS', 'WebSocket', 'SSE', 'Keycloak', 'Payuni', 'Component Architecture', 'State Management', 'Composables', 'Router', 'Async Data Flow', 'Infinite Scroll', 'Lightbox', 'Context Menu', 'OBS Integration', 'Signal Source Management', 'Scene Management', 'Broadcast Control UI', 'Real-time Sync', 'High Concurrency', 'MSW', 'Jenkins', 'Git CI/CD'],
     detailedDesc: {
       zh: '這是一個以直播互動與品牌內容為核心的數位平台專案，聚焦於前端架構設計、即時資料同步、訊號源與場景管理、導播控制流程與高互動體驗整合。專案以 Vue 3 + TypeScript 搭配 Vite 打造高效能前端開發環境，使用 Tailwind CSS 與元件化架構實現一致性設計系統；並透過 Composables、路由設計、狀態管理與非同步資料流，組織直播頁、導播控制台、互動面板與內容管理系統。核心功能涵蓋訊號源初始化、列表重置與定位點串接、場景比例管理與字體統一設定，導播 UX/UI 調整、聯合直播與共同直播 UI 整合、OBS 直播串流檢視。會員系統整合 Keycloak 身分驗證與 RBAC 權限控制，透過 Payuni 統一金流處理訂閱方案付款流程，重構會員中心頁面與側邊導覽。媒體資源管理實作無限滾動載入（Infinite Scroll）、燈箱預覽（Lightbox）、右鍵選單與刪除互動；即時通知透過 WebSocket 與 SSE（Server-Sent Events）實現訂閱方案與期限提醒的即時推播。測試方面使用 MSW 進行 API Mock、Postman 與單元測試驗證介接；部署透過 Jenkins CI/CD 與 Git 分支管理自動化流程，並評估 Nuxt 4 升級可行性。此專案能充分展現我在前端架構、訊號源與場景管理、導播控制系統、即時通訊、身分驗證、支付整合、高並發場景優化與系統可靠性上的實作能力。',
-      en: 'This is a digital platform project centered on live streaming and brand content, focusing on frontend architecture, real-time data synchronization, signal/scene management, broadcast control flow, and high-engagement experience. Built with Vue 3 + TypeScript and Vite for high-performance development, using Tailwind CSS and component-based architecture to ensure design consistency. Leverages Composables, routing, state management, and async data flows to organize the live page, broadcast control panel, interaction panel, and content management system. Core features include signal source initialization, list reset and anchor-point linking, scene ratio management and unified typography, broadcast UX/UI refinement, joint/co-streaming UI integration, and OBS stream viewing. Membership integrates Keycloak authentication and RBAC, processes subscriptions via Payuni unified payment, and rebuilds the member center with independent navigation. Media management implements infinite scrolling, lightbox preview, context menus, and delete interactions; real-time notifications use WebSocket and SSE for subscription and expiry alerts. Testing uses MSW for API mocking, Postman and unit tests for validation; deployment automates via Jenkins CI/CD and Git branch management, with Nuxt 4 upgrade feasibility assessment. This project demonstrates capabilities in frontend architecture, signal/scene management, broadcast control systems, real-time communication, authentication, payment integration, high-concurrency optimization, and system reliability.',
+      en: 'Built the Vue 3 + TypeScript platform with modular components, Composables, routing, state management, and async data flows. Shipped signal and scene management, broadcast control, co-streaming UI, OBS viewing, infinite-scroll media, lightbox previews, and context menus. Integrated Keycloak/RBAC and Payuni subscriptions, then added WebSocket/SSE alerts for plan and expiry updates. Validated APIs with MSW/Postman/unit tests and automated delivery with Jenkins CI/CD.',
     },
     links: [],
     gallery: {
