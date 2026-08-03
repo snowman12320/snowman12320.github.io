@@ -333,7 +333,7 @@ export const experiences: ExperienceItem[] = [
     period: '2022/11 — 2023/10 (1y)',
     bullets: {
       zh: [
-        '使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與企業品牌形象網站。',
+        '使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與設計企業品牌形象網站。',
         '串接 RESTful API，運用 ES5+ 語法、Webpack 打包建置、NPM 模組管理與 ESLint 維持程式碼高品質。',
         '負責精細網頁切圖，使用 HTML5 標籤與 CSS 選擇器，實現複雜表格與表單設計。',
         '基於 Flexbox / Grid 及 RWD，建構跨平台無縫的響應式選單與圖形排版。',
@@ -373,9 +373,9 @@ export const experiences: ExperienceItem[] = [
         label: { zh: '購物網', en: 'E-Commerce' },
         links: [
           { label: { zh: '手套 1', en: 'Gloves 1' }, url: 'https://www.safehealth.biz/', icon: 'external' },
-          { label: { zh: '商城', en: 'Mall' }, url: 'https://www.good63.tw/front/product_page/29', icon: 'external' },
-          { label: { zh: '畫作', en: 'Artwork' }, url: 'https://www.yisuyisu.com/', icon: 'external' },
           { label: { zh: '手套 2', en: 'Gloves 2' }, url: 'https://www.evolguard.com/', icon: 'external' },
+          { label: { zh: '畫作', en: 'Artwork' }, url: 'https://www.yisuyisu.com/', icon: 'external' },
+          { label: { zh: '商城', en: 'Mall' }, url: 'https://www.good63.tw/front/product_page/29', icon: 'external' },
           { label: { zh: '點心', en: 'Snacks' }, url: 'http://www.golden-eggroll.com.tw/', icon: 'external' },
         ],
       },
