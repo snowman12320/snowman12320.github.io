@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import type { PropType } from 'vue'
 import { experiences as defaultExperiences } from '../../data/experience'
 import type { ExperienceItem as ExperienceItemType } from '../../types'
@@ -38,6 +38,22 @@ const toggleLabel = computed(() => {
 const toggleExpanded = () => {
   isExpanded.value = !isExpanded.value
 }
+
+// Auto-expand if hash points to a collapsed experience
+const autoExpandIfNeeded = () => {
+  if (typeof window === 'undefined') return
+  const hash = window.location.hash || ''
+  const match = hash.match(/experience-([^#?&]+)/)
+  if (!match) return
+  const targetId = match[1]
+  const isHidden = experiences.slice(PRESET_COUNT).some((e) => e.id === targetId)
+  if (isHidden) isExpanded.value = true
+}
+
+onMounted(() => {
+  autoExpandIfNeeded()
+  window.addEventListener('hashchange', autoExpandIfNeeded)
+})
 </script>
 
 <template>
