@@ -27,7 +27,7 @@ useReveal()
     <!-- TSMC variant banner -->
     <div class="no-print sticky top-[57px] z-30 flex items-center justify-center gap-2 bg-blue-600/95 py-1.5 text-xs font-semibold tracking-wide text-white backdrop-blur-sm">
       <FaIcon :icon="['fas', 'rocket']" class="text-[11px]" />
-      {{ lang === 'zh' ? '台積電 Software & DevOps Engineer 版本' : 'TSMC Software & DevOps Engineer Edition' }}
+      {{ lang === 'zh' ? '台積電 Software & DevOps Engineer ' : 'TSMC Software & DevOps Engineer Edition' }}
     </div>
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-20 no-print">
