@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import { projects } from '../../data/projects'
 import ProjectCard from '../ui/ProjectCard.vue'
@@ -41,8 +41,30 @@ const goToPage = (page: number) => {
   currentPage.value = Math.max(1, Math.min(page, totalPages.value))
 }
 
+const openProjectFromHash = () => {
+  if (typeof window === 'undefined') return
+
+  const hash = window.location.hash
+  const project = projects.find((item) => hash.includes(`#project-${item.id}`))
+  if (!project) return
+
+  // Render the target card before ProjectCard checks the permalink hash.
+  selectedCategory.value = 'all'
+  const projectIndex = projects.findIndex((item) => item.id === project.id)
+  currentPage.value = Math.floor(projectIndex / pageSize) + 1
+}
+
 watch(filteredProjects, () => {
   currentPage.value = 1
+})
+
+onMounted(() => {
+  openProjectFromHash()
+  window.addEventListener('hashchange', openProjectFromHash)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('hashchange', openProjectFromHash)
 })
 </script>
 
