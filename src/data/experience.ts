@@ -356,6 +356,30 @@ export const experiences: ExperienceItem[] = [
       ],
     },
     techStack: ['Vue 2/3', 'Options API', 'Vue Router', 'Pinia', 'Tailwind CSS 3', 'Bootstrap 5', 'SCSS', 'Webpack', 'ESLint'],
+    linkGroups: [
+      {
+        label: { zh: '形象網站', en: 'Brand Sites' },
+        links: [
+          { label: { zh: '機車', en: 'Motorcycle' }, url: 'https://www.howun.tw/', icon: 'external' },
+          { label: { zh: '機油', en: 'Motor Oil' }, url: 'https://www.uos-oil.com/tw/', icon: 'external' },
+          { label: { zh: '建設', en: 'Construction' }, url: 'http://sr172.tnn.tw/test/santa/', icon: 'external' },
+          { label: { zh: '引擎', en: 'Engine' }, url: 'https://www.asiametal1979.com/', icon: 'external' },
+          { label: { zh: '醫療', en: 'Medical' }, url: 'http://www.syngrowth.com.tw/', icon: 'external' },
+          { label: { zh: '設計', en: 'Design' }, url: 'https://www.iadesign.com.tw/', icon: 'external' },
+          { label: { zh: '旅館', en: 'Motel' }, url: 'http://www.gold-motel.com.tw/', icon: 'external' },
+        ],
+      },
+      {
+        label: { zh: '購物網', en: 'E-Commerce' },
+        links: [
+          { label: { zh: '手套 1', en: 'Gloves 1' }, url: 'https://www.safehealth.biz/', icon: 'external' },
+          { label: { zh: '商城', en: 'Mall' }, url: 'https://www.good63.tw/front/product_page/29', icon: 'external' },
+          { label: { zh: '畫作', en: 'Artwork' }, url: 'https://www.yisuyisu.com/', icon: 'external' },
+          { label: { zh: '手套 2', en: 'Gloves 2' }, url: 'https://www.evolguard.com/', icon: 'external' },
+          { label: { zh: '點心', en: 'Snacks' }, url: 'http://www.golden-eggroll.com.tw/', icon: 'external' },
+        ],
+      },
+    ],
   },
   {
     id: 'one-cube',

@@ -244,6 +244,27 @@ watch(open, async (isOpen) => {
           {{ lang === 'zh' ? link.label.zh : link.label.en }}
         </a>
       </div>
+
+      <div v-if="item.linkGroups?.length" class="mt-6 space-y-3">
+        <div v-for="group in item.linkGroups" :key="lang === 'zh' ? group.label.zh : group.label.en">
+          <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+            {{ lang === 'zh' ? group.label.zh : group.label.en }}
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <a
+              v-for="link in group.links"
+              :key="link.url"
+              :href="link.url"
+              target="_blank"
+              rel="noopener"
+              class="badge cursor-pointer hover:text-blue-600 dark:hover:text-blue-300"
+            >
+              <FaIcon :icon="linkIcon(link.icon)" class="mr-1.5 text-xs opacity-60" />
+              {{ lang === 'zh' ? link.label.zh : link.label.en }}
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </DetailModal>
 </template>

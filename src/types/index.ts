@@ -9,6 +9,11 @@ export interface LinkItem {
   icon: 'external' | 'github' | 'document' | 'youtube'
 }
 
+export interface LinkGroup {
+  label: I18nText
+  links: LinkItem[]
+}
+
 export interface ExperienceItem {
   id: string
   position: I18nText
@@ -20,6 +25,7 @@ export interface ExperienceItem {
   techStack: string[]
   contribution?: I18nText
   links?: LinkItem[]
+  linkGroups?: LinkGroup[]
   gallery?: { id: string; images: { src: string; description: string }[] }
 }
 
