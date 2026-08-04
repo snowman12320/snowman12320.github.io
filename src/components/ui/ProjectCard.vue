@@ -151,6 +151,13 @@ watch(open, async (isOpen) => {
         <li v-for="point in detailPoints" :key="point">{{ point }}</li>
       </ul>
 
+      <div class="mb-6">
+        <h4 class="mb-3 text-sm font-semibold text-gray-900 dark:text-gray-100">{{ $t('common.techStack') }}</h4>
+        <div class="flex flex-wrap gap-1.5">
+          <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
+        </div>
+      </div>
+
       <div v-if="item.gallery" class="mb-6">
         <div class="flex gap-3 overflow-x-auto pb-1">
           <a

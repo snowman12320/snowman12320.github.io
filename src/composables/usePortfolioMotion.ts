@@ -47,6 +47,24 @@ export function usePortfolioMotion(root: Ref<HTMLElement | null>) {
           stagger: 0.1,
           ease: 'power2.out',
         })
+
+        gsap.utils.toArray<SVGElement>('.portfolio-network-art').forEach((art, index) => {
+          const section = art.closest('section')
+          if (!section) return
+
+          gsap.fromTo(
+            art,
+            { opacity: 0, scale: 0.72, rotate: index % 2 === 0 ? -8 : 8 },
+            {
+              opacity: 1,
+              scale: 1,
+              rotate: 0,
+              duration: 1.1,
+              ease: 'power3.out',
+              scrollTrigger: { trigger: section, start: 'top 78%', once: true },
+            },
+          )
+        })
       })
     }, root.value)
   })

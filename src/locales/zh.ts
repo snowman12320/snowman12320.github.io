@@ -32,5 +32,5 @@ export default {
     projects: '專案',
     skills: '技能',
   },
-  footer: '陳威良 William. Built with Vue 3 + Vite + Tailwind CSS.',
+  footer: '陳威良 William. 用咖啡、耐心，和一點點不服輸打造。',
 }

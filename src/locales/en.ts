@@ -32,5 +32,5 @@ export default {
     projects: 'Projects',
     skills: 'Skills',
   },
-  footer: 'William Chen. Built with Vue 3 + Vite + Tailwind CSS.',
+  footer: 'William Chen. Built with curiosity, caffeine, and one more deploy.',
 }
