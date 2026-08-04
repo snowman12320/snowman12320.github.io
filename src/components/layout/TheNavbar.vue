@@ -31,6 +31,10 @@ const handlePrint = () => {
 }
 
 const isActive = (path: string) => route.path === path
+const scrollToSection = (id: string, event: MouseEvent) => {
+  event.preventDefault()
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 const isLocalhost = computed(() => {
   if (typeof window === 'undefined') return false
   return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
@@ -63,9 +67,9 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
       </RouterLink>
 
       <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-        <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{{ $t('nav.experience') }}</a>
-        <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{{ $t('nav.projects') }}</a>
-        <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{{ $t('nav.skills') }}</a>
+        <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" @click="scrollToSection('experience', $event)">{{ $t('nav.experience') }}</a>
+        <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" @click="scrollToSection('projects', $event)">{{ $t('nav.projects') }}</a>
+        <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" @click="scrollToSection('skills', $event)">{{ $t('nav.skills') }}</a>
       </nav>
       <div class="flex items-center gap-1">
         <button
@@ -122,6 +126,14 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
               @click.native="menuOpen = false"
             >
               {{ lang === 'zh' ? '台積電版' : 'TSMC' }}
+            </RouterLink>
+            <RouterLink
+              to="/portfolio"
+              class="block px-3 py-2 text-sm hover:bg-slate-100 dark:hover:bg-gray-800"
+              :class="isActive('/portfolio') ? 'font-semibold bg-blue-600 text-white' : ''"
+              @click.native="menuOpen = false"
+            >
+              {{ lang === 'zh' ? '作品集版' : 'Portfolio' }}
             </RouterLink>
           </div>
         </div>

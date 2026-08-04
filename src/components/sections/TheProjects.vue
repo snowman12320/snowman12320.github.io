@@ -4,16 +4,20 @@ import type { PropType } from 'vue'
 import { projects } from '../../data/projects'
 import ProjectCard from '../ui/ProjectCard.vue'
 
-const { lang } = defineProps({
+const { lang, imageFirst } = defineProps({
   lang: {
     type: String as PropType<'zh' | 'en'>,
     required: true,
+  },
+  imageFirst: {
+    type: Boolean,
+    default: false,
   },
 })
 
 const selectedCategory = ref('all')
 const currentPage = ref(1)
-const pageSize = 4
+const pageSize = imageFirst ? 6 : 4
 
 // Use category id (zh key) as stable filter key, display the lang-appropriate label
 const categories = computed(() => {
@@ -101,8 +105,8 @@ onBeforeUnmount(() => {
       </button>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-      <ProjectCard v-for="item in pagedProjects" :key="item.id" :item="item" :lang="lang" />
+    <div :class="imageFirst ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5' : 'grid grid-cols-1 md:grid-cols-2 gap-5'">
+    <ProjectCard v-for="item in pagedProjects" :key="item.id" :item="item" :lang="lang" :image-first="imageFirst" />
     </div>
 
     <div v-if="totalPages > 1" class="mt-8 flex flex-wrap items-center justify-center gap-2">

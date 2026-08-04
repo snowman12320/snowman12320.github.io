@@ -1,6 +1,6 @@
 import type { ProjectItem } from '../types'
 
-export const projects: ProjectItem[] = [
+const projectCatalog: ProjectItem[] = [
   {
     id: 'equipment-rental-system',
     name: {
@@ -170,8 +170,8 @@ export const projects: ProjectItem[] = [
     gallery: {
       id: 'dating',
       images: [
-        { src: '/images/dating-google-search.png', alt: '104緣來如此 Google 搜尋收錄截圖', description: '104緣來如此 — Google 搜尋收錄截圖' },
         { src: '/images/dating/screen-1.webp', alt: 'Screenshot 1', description: '交友配對搜尋介面（截圖 1）' },
+        { src: '/images/dating-google-search.png', alt: '104緣來如此 Google 搜尋收錄截圖', description: '104緣來如此 — Google 搜尋收錄截圖' },
       ],
     },
   },
@@ -439,3 +439,19 @@ export const projects: ProjectItem[] = [
     },
   },
 ]
+
+const swapProjectPositions = (items: ProjectItem[], firstId: string, secondId: string) => {
+  const reordered = [...items]
+  const firstIndex = reordered.findIndex((item) => item.id === firstId)
+  const secondIndex = reordered.findIndex((item) => item.id === secondId)
+  const firstProject = reordered[firstIndex]
+  const secondProject = reordered[secondIndex]
+
+  if (firstIndex < 0 || secondIndex < 0 || !firstProject || !secondProject) return items
+
+  reordered[firstIndex] = secondProject
+  reordered[secondIndex] = firstProject
+  return reordered
+}
+
+export const projects = swapProjectPositions(projectCatalog, 'chat-platform', 'sun-life-portal')

@@ -5,9 +5,10 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { ProjectItem } from '../../types'
 import DetailModal from './DetailModal.vue'
 
-const { item, lang } = defineProps<{
+const { item, lang, imageFirst = false } = defineProps<{
   item: ProjectItem
   lang: 'zh' | 'en'
+  imageFirst?: boolean
 }>()
 
 const open = ref(false)
@@ -96,6 +97,17 @@ watch(open, async (isOpen) => {
     @keydown.enter="open = true"
     @keydown.space.prevent="open = true"
   >
+    <div v-if="imageFirst" class="mb-4 -mx-5 -mt-5 overflow-hidden rounded-t-xl bg-slate-100 dark:bg-gray-800">
+      <img
+        v-if="item.gallery?.images[0]"
+        :src="item.gallery.images[0].src"
+        :alt="item.gallery.images[0].alt"
+        class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+      />
+      <div v-else class="flex h-48 items-center justify-center text-sm text-gray-400">
+        {{ lang === 'zh' ? '專案預覽' : 'Project Preview' }}
+      </div>
+    </div>
     <span
       class="absolute top-4 right-4 w-7 h-7 flex items-center justify-center rounded-lg text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
       :aria-label="$t('common.details')"
@@ -104,14 +116,14 @@ watch(open, async (isOpen) => {
     </span>
 
     <div class="pr-8">
-      <span class="inline-block text-xs px-2 py-0.5 rounded-full font-medium" :class="categoryColorClass[item.categoryColor]">
+      <span v-if="!imageFirst" class="inline-block text-xs px-2 py-0.5 rounded-full font-medium" :class="categoryColorClass[item.categoryColor]">
         {{ item.category[lang] }}
       </span>
-      <h3 class="mt-2 text-base font-bold text-slate-900 dark:text-gray-100">{{ item.name[lang] }}</h3>
-      <p class="mt-1 text-sm text-slate-600 dark:text-gray-300 leading-relaxed line-clamp-2">
+      <h3 class="mt-2 line-clamp-1 text-base font-bold text-slate-900 dark:text-gray-100">{{ item.name[lang] }}</h3>
+      <p v-if="!imageFirst" class="mt-1 line-clamp-1 text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
         {{ item.shortDesc[lang] }}
       </p>
-      <div class="mt-3 flex flex-wrap gap-1.5">
+      <div v-if="!imageFirst" class="mt-3 flex flex-wrap gap-1.5">
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
       </div>
     </div>
