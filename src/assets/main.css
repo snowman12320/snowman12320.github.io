@@ -44,6 +44,16 @@ html:not(.dark) body {
   transform: translateY(0);
 }
 
+.portfolio-page {
+  overflow: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .glightbox-clean .gslide-description {
   background: rgb(0 0 0 / 75%) !important;
   backdrop-filter: blur(4px);

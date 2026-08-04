@@ -2,6 +2,7 @@
 import { computed, reactive, ref, type PropType } from 'vue'
 import TheProjects from '../components/sections/TheProjects.vue'
 import { useReveal } from '../composables/useReveal'
+import { usePortfolioMotion } from '../composables/usePortfolioMotion'
 
 const props = defineProps({
   lang: {
@@ -11,6 +12,8 @@ const props = defineProps({
 })
 
 useReveal()
+const portfolioRoot = ref<HTMLElement | null>(null)
+usePortfolioMotion(portfolioRoot)
 
 const services = [
   {
@@ -134,9 +137,9 @@ const submitInquiry = () => {
 </script>
 
 <template>
-  <main class="mx-auto w-full max-w-[1600px] px-4 pb-20 no-print sm:px-8 lg:px-14">
-    <section class="reveal relative overflow-hidden border-b border-gray-100 py-20 dark:border-gray-800 sm:py-28">
-      <div class="relative z-10 max-w-5xl">
+  <main ref="portfolioRoot" class="portfolio-page w-full pb-20 no-print">
+    <section class="reveal relative min-h-[calc(100vh-3.5rem)] overflow-hidden border-b border-gray-100 px-[clamp(1.25rem,7vw,8.5rem)] py-20 dark:border-gray-800 sm:py-28">
+      <div class="portfolio-hero-copy relative z-10 flex min-h-[calc(100vh-9rem)] max-w-5xl flex-col justify-center">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
           {{ lang === 'zh' ? '網頁設計與全端開發' : 'Web design & full-stack development' }}
         </p>
@@ -158,13 +161,13 @@ const submitInquiry = () => {
       <div class="pointer-events-none absolute -right-20 -top-24 h-80 w-80 rounded-full bg-blue-500/15 blur-3xl" aria-hidden="true" />
     </section>
 
-    <section id="services" class="reveal scroll-mt-20 border-b border-gray-100 py-16 dark:border-gray-800 sm:py-20">
+    <section id="services" class="reveal scroll-mt-20 border-b border-gray-100 px-[clamp(1.25rem,7vw,8.5rem)] py-16 dark:border-gray-800 sm:py-20">
       <div class="mb-8 max-w-3xl">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">{{ lang === 'zh' ? '服務' : 'Services' }}</p>
         <h2 class="mt-3 text-3xl font-bold text-gray-950 dark:text-white sm:text-4xl">{{ lang === 'zh' ? '需要設計、開發，還是完整交付？' : 'Need design, development, or the full delivery?' }}</h2>
       </div>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <article v-for="service in services" :key="service.icon" class="rounded-2xl border border-gray-200 bg-white/70 p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900/60 dark:hover:border-blue-800">
+        <article v-for="service in services" :key="service.icon" class="portfolio-service-card rounded-2xl border border-gray-200 bg-white/70 p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900/60 dark:hover:border-blue-800">
           <FaIcon :icon="['fas', service.icon]" class="text-xl text-blue-600 dark:text-blue-400" />
           <h3 class="mt-5 text-lg font-bold text-gray-950 dark:text-white">{{ service[lang].title }}</h3>
           <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">{{ service[lang].text }}</p>
@@ -172,14 +175,14 @@ const submitInquiry = () => {
       </div>
     </section>
 
-    <section id="results" class="reveal scroll-mt-20 border-b border-gray-100 py-16 dark:border-gray-800 sm:py-20">
+    <section id="results" class="reveal scroll-mt-20 border-b border-gray-100 px-[clamp(1.25rem,7vw,8.5rem)] py-16 dark:border-gray-800 sm:py-20">
       <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">{{ lang === 'zh' ? '為什麼合作' : 'Why work together' }}</p>
           <h2 class="mt-3 text-3xl font-bold text-gray-950 dark:text-white sm:text-4xl">{{ lang === 'zh' ? '用工程思維，縮短從想法到上線的距離。' : 'Use engineering thinking to shorten the path from idea to launch.' }}</h2>
         </div>
         <div class="grid gap-4 sm:grid-cols-2">
-          <article v-for="item in proofItems" :key="item.value" class="border-l-2 border-blue-600 pl-4">
+          <article v-for="item in proofItems" :key="item.value" class="portfolio-proof-item border-l-2 border-blue-600 pl-4">
             <p class="text-2xl font-bold text-gray-950 dark:text-white">{{ item.value }}</p>
             <p class="mt-1 text-sm font-semibold text-gray-700 dark:text-gray-200">{{ item[lang].label }}</p>
             <p class="mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400">{{ item[lang].text }}</p>
@@ -190,13 +193,13 @@ const submitInquiry = () => {
 
     <TheProjects :lang="lang" :image-first="true" />
 
-    <section id="process" class="reveal scroll-mt-20 border-t border-gray-100 py-16 dark:border-gray-800 sm:py-20">
+    <section id="process" class="reveal scroll-mt-20 border-t border-gray-100 px-[clamp(1.25rem,7vw,8.5rem)] py-16 dark:border-gray-800 sm:py-20">
       <div class="max-w-3xl">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">{{ lang === 'zh' ? '合作流程' : 'Process' }}</p>
         <h2 class="mt-3 text-3xl font-bold text-gray-950 dark:text-white sm:text-4xl">{{ lang === 'zh' ? '每一步都有清楚的交付物。' : 'Every step has a clear deliverable.' }}</h2>
       </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <article v-for="step in processSteps" :key="step.number" class="rounded-2xl bg-gray-100 p-6 dark:bg-gray-900">
+        <article v-for="step in processSteps" :key="step.number" class="portfolio-process-step rounded-2xl bg-gray-100 p-6 dark:bg-gray-900">
           <span class="text-sm font-bold text-blue-600 dark:text-blue-400">{{ step.number }}</span>
           <h3 class="mt-5 font-bold text-gray-950 dark:text-white">{{ step[lang].title }}</h3>
           <p class="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">{{ step[lang].text }}</p>
@@ -204,7 +207,7 @@ const submitInquiry = () => {
       </div>
     </section>
 
-    <section id="contact" class="reveal scroll-mt-20 border-t border-gray-100 py-16 dark:border-gray-800 sm:py-20">
+    <section id="contact" class="reveal scroll-mt-20 border-t border-gray-100 px-[clamp(1.25rem,7vw,8.5rem)] py-16 dark:border-gray-800 sm:py-20">
       <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">{{ lang === 'zh' ? '開始合作' : 'Start a project' }}</p>

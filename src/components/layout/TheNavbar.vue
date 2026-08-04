@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMoon, faPrint, faSun, faChevronDown } from '@fortawesome/free-solid-svg-icons'
-import { Languages } from 'lucide-vue-next'
 import type { PropType } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
@@ -73,11 +72,10 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
       </nav>
       <div class="flex items-center gap-1">
         <button
-          class="no-print px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-200 dark:border-gray-700 inline-flex items-center gap-1.5"
+          class="no-print px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-200 dark:border-gray-700"
           :aria-label="lang === 'zh' ? 'Switch to English' : '切換為中文'"
           @click="$emit('toggleLang')"
         >
-          <Languages :size="14" />
           <span>{{ lang === 'zh' ? 'EN' : '中文' }}</span>
         </button>
         <button

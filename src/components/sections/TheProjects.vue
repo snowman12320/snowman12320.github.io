@@ -73,7 +73,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section id="projects" class="reveal py-16">
+  <section
+    id="projects"
+    :class="imageFirst ? 'reveal px-[clamp(1.25rem,7vw,8.5rem)] py-16' : 'reveal py-16'"
+  >
     <h2 class="section-title flex items-center gap-2">
       <FaIcon :icon="['fas', 'folder-open']" class="text-blue-600 text-xl" />
       {{ $t('sections.projects') }}

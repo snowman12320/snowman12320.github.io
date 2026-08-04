@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Languages } from 'lucide-vue-next'
 import { computed, onBeforeUnmount, onMounted, ref, type PropType } from 'vue'
 import { RouterLink } from 'vue-router'
 
@@ -41,7 +40,6 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
       </nav>
       <div class="flex items-center gap-1">
         <button class="no-print rounded-lg border border-gray-200 px-2.5 py-1.5 text-xs font-semibold text-gray-500 dark:border-gray-700 dark:text-gray-400" @click="$emit('toggleLang')">
-          <Languages :size="14" />
           {{ lang === 'zh' ? 'EN' : '中文' }}
         </button>
         <button class="no-print rounded-lg p-2 text-gray-500 dark:text-gray-400" @click="$emit('toggleDark')" :aria-label="isDark ? '切換為淺色模式' : '切換為深色模式'">
