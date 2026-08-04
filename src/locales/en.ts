@@ -9,7 +9,7 @@ export default {
     title: 'Full-Stack Engineer',
     location: 'Tainan City, Taiwan',
     summary:
-      'Full-Stack Engineer who builds enterprise web applications, live streaming platforms, and e-commerce systems for distributed teams in Taiwan and Canada. Ships with JavaScript/TypeScript, Vue, React, Next.js, Nuxt.js, Node.js, BFF architecture, SQL, and Docker.',
+      'Software engineer with cross-domain product delivery experience, building and improving enterprise systems, platform services, and digital products with distributed teams in Taiwan and Canada.',
   },
   common: {
     liveDemo: 'Live Demo',

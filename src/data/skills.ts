@@ -46,6 +46,8 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       'Node.js',
       'Express',
+      'PHP',
+      'Laravel',
       'Flask',
       'PostgreSQL',
       'MongoDB',

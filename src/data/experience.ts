@@ -12,6 +12,7 @@ export const experiences: ExperienceItem[] = [
         '開發具備即時串流、場景管理、連播 UI 與 OBS 整合的直播控制平台。',
         '整合 Keycloak 認證與 Payuni 金流，實現訂閱方案的信用卡安全交易。',
         '透過 Server-Sent Events（SSE）實作即時通知，並以 Quasar Framework 開發無限捲動預覽元件。',
+        '使用 PHP 與 Laravel 開發後端 API 與管理功能，串接直播平台的會員、內容與訂閱流程。',
         '建立 Jenkins 自動化 CI/CD 建置管線，管理跨分支的生產環境部署。',
         '撰寫單元測試，並以 Mock Service Worker（MSW）簡化 RESTful API 測試流程。',
       ],
@@ -19,6 +20,7 @@ export const experiences: ExperienceItem[] = [
         'Built a live streaming control platform with scene management, co-streaming UI, and OBS integration.',
         'Integrated Keycloak authentication and Payuni payments to secure subscription checkout.',
         'Shipped SSE notifications and infinite-scroll media previews with Quasar Framework.',
+        'Built backend APIs and admin features with PHP and Laravel for member, content, and subscription workflows.',
         'Automated cross-branch production deployments with Jenkins CI/CD.',
         'Added unit tests and MSW API mocks to speed up RESTful API validation.',
       ],
@@ -33,7 +35,7 @@ export const experiences: ExperienceItem[] = [
         'Built 32 reusable Composables, reached 82% unit-test coverage, and integrated Keycloak SSO with Payuni payments to increase subscription conversion by 35%.',
       ],
     },
-    techStack: ['Vue 3', 'Quasar Framework', 'TypeScript', 'Keycloak', 'SSE', 'OBS Integration', 'Jenkins CI/CD', 'MSW', 'Vitest'],
+    techStack: ['Vue 3', 'Quasar Framework', 'TypeScript', 'PHP', 'Laravel', 'Keycloak', 'SSE', 'OBS Integration', 'Jenkins CI/CD', 'MSW', 'Vitest'],
     contribution: {
       zh: '[{"title":"性能提升","items":["支援 5,000+ 並發 WebSocket 連線，實時直播聊天與互動不延遲（透過 Socket.IO 房間分片與 Redis 轉發，解決單一節點瓶頸，確保高並發聊天互動穩定不延遲）","頁面加載時間從 3.2s 優化至 0.8s（75% 性能提升）（透過路由懶加載、Tree Shaking 與資源預載，解決首屏資源過載問題，達成 75% 性能提升）","導播控制台響應延遲控制在 < 100ms，提升操作體驗（透過虛擬滾動與 WebSocket 狀態同步，解決大量場景資料渲染卡頓問題，讓控制台操作即時反饋）","無限滾動媒體資源管理，支援 10,000+ 媒體項目無感加載（透過 Intersection Observer 與分頁預取，解決大量圖片影片一次性載入過慢問題，實現無感滾動加載）"]},{"title":"程式品質","items":["開發 32 個可復用 Vue 3 Composables 元件，提升代碼復用率 68%（透過抽象共用邏輯並統一錯誤處理，解決各功能重複實作問題，使代碼復用率提升 68%）","建置 45 個模組化元件，支援直播頁、導播控制、會員中心等功能（透過 Atomic Design 與 props 驅動，解決元件散落難以維護問題，讓多個業務場景快速複用）","單元測試覆蓋率達 82%，確保代碼穩定性（透過 Vitest + Vue Test Utils 覆蓋核心流程，解決手動回歸測試遺漏風險，確保 82% 核心邏輯穩定）","搭配 12 個 MSW API Mock 方案，加快前後端並行開發（透過定義標準 API schema 供前後端共用，解決後端未就緒時前端開發受阻問題，使前後端可並行推進）"]},{"title":"商業影響","items":["整合 Payuni 金流、Keycloak 單一登入與 RBAC 角色權限（透過封裝統一認證與授權中介層，解決多系統登入與權限散落問題，讓會員與付費流程安全串接）","實作 4 種即時通知機制（WebSocket、SSE、訂閱推播、期限提醒）（透過事件驅動架構與通知排程器，解決通知分散與遺漏問題，確保四種通知即時可靠送達）","支援聯合直播、共同直播、OBS 導播等 3 種直播模式（透過模組化串流控制與場景切換邏輯，解決直播模式擴展困難問題，讓三種模式可彈性切換）","會員中心流程優化，訂閱轉換率提升 35%（透過簡化結帳步驟並導入 A/B 測試驗證，解決轉換流程繁瑣問題，使訂閱轉換率提升 35%）"]},{"title":"開發效率","items":["Jenkins CI/CD 自動化部署，每週 8-12 次自動部署（透過 Pipeline as Code 與自動化測試閘道，解決手動部署易出錯問題，實現每週 8-12 次穩定部署）","Git 分支管理與代碼審查流程，減少 Bug 率 40%（透過導入 Git Flow 與 PR template 規範，解決分支混亂與審查標準不一問題，使 Bug 率降低 40%）","開發工具整合（MCP、Kiro-cli），開發效率提升 25%（透過自動化重複性任務與程式碼生成，解決手動撰寫 boilerplate 耗時問題，讓開發效率提升 25%）","API 響應時間最佳化至平均 120ms（原 400ms）（透過資料庫索引、快取與分頁，解決查詢緩慢與無效資料傳輸問題，使 API 響應從 400ms 降至 120ms）"]}]',
       en: '[{"title":"Performance","items":["Supports 5,000+ concurrent WebSocket connections for real-time chat and interaction without lag (via Socket.IO room sharding and Redis relay, eliminating single-node bottlenecks to ensure stable high-concurrency chat)","Page load time optimized from 3.2s to 0.8s (75% performance improvement) (via route lazy-loading, tree-shaking, and resource preloading, reducing initial-load overhead to achieve a 75% performance gain)","Broadcast console response latency maintained at < 100ms for better UX (via virtual scrolling and WebSocket state sync, eliminating scene-data rendering lag for instant console feedback)","Infinite-scroll media management supporting 10,000+ media items with seamless loading (via Intersection Observer and prefetch paging, avoiding bulk media loading slowdowns for seamless scrolling)"]},{"title":"Quality","items":["Developed 32 reusable Vue 3 Composables, achieving 68% code reuse rate (via abstracting shared logic with unified error handling, reducing duplicated implementations and raising code reuse to 68%)","Built 45 modular components supporting the live page, broadcast control, and member center (via Atomic Design and props-driven architecture, taming scattered components so multiple business views can reuse them)","Unit test coverage reached 82% for higher stability (via Vitest + Vue Test Utils covering core flows, removing the risk of manual regression omissions and securing 82% coverage)","Implemented 12 MSW API Mock solutions to accelerate frontend-backend parallel development (via standard API schemas shared across teams, unblocking frontend work before backend readiness and enabling parallel delivery)"]},{"title":"Impact","items":["Integrated Payuni payment gateway, Keycloak SSO, and RBAC role-based access control (via unified auth and authorization middleware, consolidating fragmented logins and permissions for secure member and payment flows)","Implemented 4 real-time notification mechanisms (WebSocket, SSE, subscription push, expiry alerts) (via event-driven architecture with notification scheduler, preventing missed or scattered notifications for reliable delivery)","Supported 3 streaming modes: joint broadcast, co-stream, and OBS control (via modular stream control and scene-switching logic, simplifying mode extensions so three streaming modes can switch flexibly)","Optimized the member center flow and increased subscription conversion by 35% (via simplified checkout and A/B test validation, removing conversion friction and increasing subscription conversion by 35%)"]},{"title":"Efficiency","items":["Jenkins CI/CD automation with 8-12 automated deployments per week (via Pipeline as Code with automated test gates, replacing error-prone manual deployment for 8-12 stable weekly releases)","Git branch management and code review process reduced bugs by 40% (via Git Flow and PR template conventions, cleaning up branch chaos and inconsistent reviews to reduce bugs by 40%)","Integrated MCP and Kiro-cli to improve development efficiency by 25% (via automated repetitive tasks and code generation, cutting boilerplate writing time and improving efficiency by 25%)","Optimized API response time to an average of 120ms from 400ms (via database indexing, caching, and pagination, fixing slow queries and unnecessary data transfer to drop response time from 400ms to 120ms)"]}]',
@@ -305,11 +307,13 @@ export const experiences: ExperienceItem[] = [
         '開發給予學校營養師使用的「食登2.0系統」，提供團膳電子菜單開立，以及相關食材、衛生稽核等表單的建立與編輯。',
         '開發專為醫療人員設計之「慈濟報表」系統，呈現各項生化數據表單與病例表，提供清晰、安全的資訊界面。',
         '建置客服人員專用之「客服系統」，實現帳密維護、操作記錄及各項基礎設定功能。',
+        '使用 PHP 與 Laravel 開發校務系統後端 API、資料查詢與管理功能，串接 Vue 前端業務流程。',
         '維護公司及學校內部的資產與帳號相關管理系統，處理資產移轉、報廢、採購等流程。',
       ],
       en: [
         'Built NCKU internal systems for nutrition menus, medical reports, customer service, and asset management.',
         'Shipped forms, data tables, responsive views, and admin workflows connected to RESTful APIs.',
+        'Built backend APIs, data queries, and admin workflows with PHP and Laravel to support Vue applications.',
         'Managed cross-page state with Vuex and Pinia to keep workflows synchronized.',
       ],
     },
@@ -323,7 +327,7 @@ export const experiences: ExperienceItem[] = [
         'Applied Vue 2/3 with Pinia/Vuex for cross-page state management; developed forms, data tables, and admin business logic.',
       ],
     },
-    techStack: ['Vue 2', 'Vue 3', 'Vuex', 'Pinia', 'PHP', 'Docker', 'HeidiSQL', 'XAMPP', 'RESTful API'],
+    techStack: ['Vue 2', 'Vue 3', 'Vuex', 'Pinia', 'PHP', 'Laravel', 'Docker', 'HeidiSQL', 'XAMPP', 'RESTful API'],
   },
   {
     id: 'tw-domain',
@@ -338,11 +342,13 @@ export const experiences: ExperienceItem[] = [
         '負責精細網頁切圖，使用 HTML5 標籤與 CSS 選擇器，實現複雜表格與表單設計。',
         '基於 Flexbox / Grid 及 RWD，建構跨平台無縫的響應式選單與圖形排版。',
         '熟練運用 Tailwind CSS 3 與 Bootstrap 5 設計系統（含 SCSS、Custom Config、Plugins）。',
+        '使用 PHP 與 Laravel 開發及維護企業網站後端 API、內容管理與表單處理功能。',
       ],
       en: [
         'Built e-commerce SPAs and corporate sites with Vue Options API and RESTful APIs.',
         'Bundled JavaScript modules with Webpack and maintained code quality with ESLint.',
         'Shipped responsive layouts and reusable components with Flexbox, Grid, Tailwind CSS, and Bootstrap.',
+        'Built and maintained backend APIs, content management, and form workflows with PHP and Laravel.',
       ],
     },
     printBullets: {
@@ -355,7 +361,7 @@ export const experiences: ExperienceItem[] = [
         'Applied Tailwind CSS 3 / Bootstrap 5 + SCSS to build cross-platform responsive layouts using Flexbox, Grid, and RWD best practices.',
       ],
     },
-    techStack: ['Vue 2/3', 'Options API', 'Vue Router', 'Pinia', 'Tailwind CSS 3', 'Bootstrap 5', 'SCSS', 'Webpack', 'ESLint'],
+    techStack: ['Vue 2/3', 'Options API', 'Vue Router', 'Pinia', 'PHP', 'Laravel', 'Tailwind CSS 3', 'Bootstrap 5', 'SCSS', 'Webpack', 'ESLint'],
     linkGroups: [
       {
         label: { zh: '形象網站', en: 'Brand Sites' },
