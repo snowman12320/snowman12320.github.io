@@ -454,4 +454,8 @@ const swapProjectPositions = (items: ProjectItem[], firstId: string, secondId: s
   return reordered
 }
 
-export const projects = swapProjectPositions(projectCatalog, 'chat-platform', 'sun-life-portal')
+export const projects = swapProjectPositions(
+  swapProjectPositions(projectCatalog, 'chat-platform', 'sun-life-portal'),
+  'wan-yi-project',
+  'recruitment-platform-design',
+)

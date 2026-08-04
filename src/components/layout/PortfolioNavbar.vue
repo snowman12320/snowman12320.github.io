@@ -30,7 +30,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
 <template>
   <header class="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/80">
     <div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-8 lg:px-12">
-      <RouterLink to="/" class="text-lg font-bold text-blue-600 dark:text-blue-400">{{ $t('profile.name') }}</RouterLink>
+      <RouterLink to="/" class="text-lg font-bold text-blue-600 dark:text-blue-400">William's Build Lab</RouterLink>
       <nav class="hidden items-center gap-6 text-sm text-gray-600 dark:text-gray-400 sm:flex">
         <a href="#services" @click="scrollToSection('services', $event)">{{ lang === 'zh' ? '服務' : 'Services' }}</a>
         <a href="#results" @click="scrollToSection('results', $event)">{{ lang === 'zh' ? '優勢' : 'Why me' }}</a>

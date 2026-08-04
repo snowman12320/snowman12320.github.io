@@ -104,6 +104,7 @@ watch(open, async (isOpen) => {
         :src="item.gallery.images[0].src"
         :alt="item.gallery.images[0].alt"
         class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        :class="{ 'scale-[1.03]': item.id === 'recruitment-platform-design' }"
       />
       <div v-else class="flex h-48 items-center justify-center text-sm text-gray-400">
         {{ lang === 'zh' ? '專案預覽' : 'Project Preview' }}
@@ -164,7 +165,7 @@ watch(open, async (isOpen) => {
             v-for="image in item.gallery.images"
             :key="image.src"
             :href="image.src"
-            class="glightbox shrink-0"
+            class="glightbox shrink-0 overflow-hidden rounded-lg"
             :data-gallery="item.gallery.id"
             :data-description="image.description"
           >
@@ -172,6 +173,7 @@ watch(open, async (isOpen) => {
               :src="image.src"
               :alt="image.alt"
               class="h-24 w-40 rounded-lg border border-gray-200 dark:border-gray-700 object-cover cursor-zoom-in hover:opacity-90 hover:shadow-md transition-all"
+              :class="{ 'scale-[1.03]': item.id === 'recruitment-platform-design' }"
             />
           </a>
         </div>

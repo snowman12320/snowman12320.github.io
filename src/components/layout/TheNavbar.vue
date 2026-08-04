@@ -62,7 +62,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
   >
     <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
       <RouterLink to="/" class="text-lg font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
-        {{ $t('profile.name') }}
+        William's Build Lab
       </RouterLink>
 
       <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
