@@ -163,6 +163,7 @@ export const projects: ProjectItem[] = [
     links: [
       { label: { zh: '線上展示', en: 'Live Demo' }, url: 'https://104social-front-end.vercel.app/about', icon: 'external' },
       { label: { zh: '專案介紹', en: 'Project Intro' }, url: 'https://drive.google.com/file/d/1wmbvuyqTFCMzf2SSx8XV2MCyxRUAAl6l/view?usp=sharing', icon: 'document' },
+      { label: { zh: 'Figma 設計稿', en: 'Figma Design' }, url: 'https://www.figma.com/design/IGfoexmvtJKvXXgiOcd78h/交友網站?m=auto&t=yzU2bXSvvOozM8Km-6', icon: 'external' },
       { label: { zh: 'Front-End', en: 'Front-End' }, url: 'https://github.com/south-second-group/104social-front-end/tree/main', icon: 'github' },
       { label: { zh: 'Back-End', en: 'Back-End' }, url: 'https://github.com/roceil/104_Backend/tree/main', icon: 'github' },
     ],
@@ -171,6 +172,30 @@ export const projects: ProjectItem[] = [
       images: [
         { src: '/images/dating-google-search.png', alt: '104緣來如此 Google 搜尋收錄截圖', description: '104緣來如此 — Google 搜尋收錄截圖' },
         { src: '/images/dating/screen-1.webp', alt: 'Screenshot 1', description: '交友配對搜尋介面（截圖 1）' },
+      ],
+    },
+  },
+  {
+    id: 'recruitment-platform-design',
+    name: { zh: '人力銀行', en: 'Recruitment Platform' },
+    category: { zh: '人力資源平台', en: 'HR Tech Platform' },
+    categoryColor: 'blue',
+    shortDesc: {
+      zh: '全端人力銀行平台，整合職缺搜尋、履歷管理、應徵追蹤與企業招募流程。',
+      en: 'Full-stack recruitment platform | Job search, resume management, applications, and employer workflows.',
+    },
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Prisma', 'JWT', 'RESTful API', 'Docker', 'Figma'],
+    detailedDesc: {
+      zh: '從前端介面到後端服務建置全端人力銀行平台，提供求職者與企業端不同的操作流程。求職者可搜尋與篩選職缺、管理履歷、收藏職缺並追蹤應徵狀態；企業端可建立公司資料、發布職缺、管理應徵者與更新招募進度。以前端框架建構響應式介面，後端以 RESTful API 串接 PostgreSQL 資料庫，透過 JWT 實作登入與角色型權限控制，並以 Prisma 管理資料模型與查詢；使用 Docker 統一開發與部署環境，Figma 設計稿則用於規劃首頁、職缺瀏覽與主要使用者流程。',
+      en: 'Built a full-stack recruitment platform with separate job-seeker and employer workflows. Job seekers can search and filter listings, manage resumes, save jobs, and track applications; employers can manage company profiles, publish jobs, review candidates, and update hiring stages. Shipped a responsive frontend with RESTful APIs backed by PostgreSQL, JWT authentication, and role-based access control. Used Prisma for typed data access, Docker for consistent environments, and Figma to define the homepage, job discovery, and core user flows.',
+    },
+    links: [
+      { label: { zh: 'Figma 設計稿', en: 'Figma Design' }, url: 'https://www.figma.com/design/EwEQTKW9B6Rtou8dgll8E8/人力銀行?m=auto&t=yzU2bXSvvOozM8Km-6', icon: 'external' },
+    ],
+    gallery: {
+      id: 'recruitment-platform',
+      images: [
+        { src: '/images/recruitment/cover.png', alt: 'Recruitment Platform Homepage', description: '人力銀行平台首頁' },
       ],
     },
   },
