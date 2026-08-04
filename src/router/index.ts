@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/portfolio',
       component: PortfolioView,
     },
+    {
+      // Project permalinks use the hash fragment while the app itself also uses hash history.
+      path: '/:pathMatch(.*)*',
+      component: DefaultView,
+    },
   ],
 })
 

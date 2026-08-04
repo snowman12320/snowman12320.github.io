@@ -4,6 +4,7 @@ import 'glightbox/dist/css/glightbox.min.css'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { ExperienceItem } from '../../types'
 import DetailModal from './DetailModal.vue'
+import { copyText } from '../../utils/clipboard'
 
 const { item, lang } = defineProps<{
   item: ExperienceItem
@@ -51,11 +52,11 @@ const copyLink = async () => {
   const newHash = `#${window.location.hash.split('#')[1] || '/'}#experience-${item.id}`
   const newUrl = baseUrl + newHash
   try {
-    await navigator.clipboard.writeText(newUrl)
+    await copyText(newUrl)
     showCopied.value = true
     setTimeout(() => (showCopied.value = false), 1400)
-  } catch (e) {
-    // ignore
+  } catch {
+    showCopied.value = false
   }
 }
 

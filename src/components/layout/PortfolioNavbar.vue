@@ -34,8 +34,10 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
       <RouterLink to="/" class="text-lg font-bold text-blue-600 dark:text-blue-400">{{ $t('profile.name') }}</RouterLink>
       <nav class="hidden items-center gap-6 text-sm text-gray-600 dark:text-gray-400 sm:flex">
         <a href="#services" @click="scrollToSection('services', $event)">{{ lang === 'zh' ? '服務' : 'Services' }}</a>
+        <a href="#results" @click="scrollToSection('results', $event)">{{ lang === 'zh' ? '優勢' : 'Why me' }}</a>
         <a href="#projects" @click="scrollToSection('projects', $event)">{{ lang === 'zh' ? '作品' : 'Work' }}</a>
         <a href="#process" @click="scrollToSection('process', $event)">{{ lang === 'zh' ? '流程' : 'Process' }}</a>
+        <a href="#contact" class="font-semibold text-blue-600 dark:text-blue-400" @click="scrollToSection('contact', $event)">{{ lang === 'zh' ? '詢價' : 'Contact' }}</a>
       </nav>
       <div class="flex items-center gap-1">
         <button class="no-print rounded-lg border border-gray-200 px-2.5 py-1.5 text-xs font-semibold text-gray-500 dark:border-gray-700 dark:text-gray-400" @click="$emit('toggleLang')">
