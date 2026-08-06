@@ -12,7 +12,6 @@ defineEmits<{ toggleLang: []; toggleDark: [] }>()
 const menuOpen = ref(false)
 const menuRef = ref<HTMLElement | null>(null)
 const isLocalhost = computed(() => ['localhost', '127.0.0.1'].includes(window.location.hostname))
-const handlePrint = () => window.print()
 
 const scrollToSection = (id: string, event: MouseEvent) => {
   event.preventDefault()
@@ -44,9 +43,6 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
         </button>
         <button class="no-print rounded-lg p-2 text-gray-500 dark:text-gray-400" @click="$emit('toggleDark')" :aria-label="isDark ? '切換為淺色模式' : '切換為深色模式'">
           <FaIcon :icon="isDark ? ['fas', 'sun'] : ['fas', 'moon']" class="h-5 w-5" />
-        </button>
-        <button class="no-print rounded-lg p-2 text-gray-500 dark:text-gray-400" @click="handlePrint" :aria-label="$t('common.printResume')">
-          <FaIcon :icon="['fas', 'print']" class="h-5 w-5" />
         </button>
         <div v-if="isLocalhost" ref="menuRef" class="relative ml-2">
           <button class="no-print inline-flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-1 text-sm dark:border-gray-700" @click="menuOpen = !menuOpen">

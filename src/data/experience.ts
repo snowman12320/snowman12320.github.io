@@ -399,23 +399,42 @@ export const experiences: ExperienceItem[] = [
         '使用 PHP（Laravel / CodeIgniter）與 Vue 框架，進行後端 API 設計、開立以及前後端串接整合。',
         '實作管理後台之帳號與權限管理、SMTP 信箱整合發信系統。',
         '開發 POS 系統之彈窗式增刪查改（CRUD）互動模組、優化購物車金流導向流程、並撰寫優化的資料庫資料篩選查詢。',
+        '參與 eHairPOS 美髮管理 App 開發，涵蓋預約、會員、庫存、銷售報表與員工績效管理流程。',
+        '參與 iOS / iPadOS 行動端與門市 POS 體驗開發，整合 API 資料同步及門市營運流程。',
       ],
       en: [
         'Maintained legacy e-commerce systems and built data visualization dashboards.',
         'Designed and integrated APIs with PHP (Laravel/CodeIgniter) and Vue.',
         'Shipped POS CRUD modules, streamlined payment flows, and added admin permission management.',
+        'Contributed to eHairPOS, a salon management app covering appointments, members, inventory, sales reports, and staff performance.',
+        'Contributed to iOS/iPadOS and in-store POS experiences, connecting API data sync with salon operations.',
       ],
     },
     printBullets: {
       zh: [
         '維護大型電商舊系統，並主導資料視覺化圖表新專案，使用 PHP（Laravel / CodeIgniter）+ Vue 進行全端 API 設計與整合。',
         '開發 POS 系統 CRUD 模組，優化購物車金流流程，並實作帳號權限管理與 SMTP 信笄整合。',
+        '參與 eHairPOS 美髮管理 App，整合預約、會員、庫存、銷售與員工績效等營運流程。',
+        '參與 iOS / iPadOS 與門市 POS 行動端開發，串接 API 資料同步與營運流程。',
       ],
       en: [
         'Maintained legacy e-commerce platform and led data visualization dashboard project using PHP (Laravel/CodeIgniter) + Vue for full-stack API design.',
         'Developed POS CRUD modules, optimized shopping cart payment flow, and implemented admin permission management with SMTP email integration.',
+        'Contributed to eHairPOS salon management app across appointments, membership, inventory, sales, and staff performance workflows.',
+        'Contributed to iOS/iPadOS and in-store POS app development with API synchronization for daily operations.',
       ],
     },
-    techStack: ['Vue.js', 'PHP', 'Laravel', 'CodeIgniter', 'MySQL', 'SMTP', 'Data Visualization'],
+    techStack: ['Vue.js', 'PHP', 'Laravel', 'CodeIgniter', 'MySQL', 'SMTP', 'Data Visualization', 'iOS / iPadOS', 'Swift / SwiftUI', 'RESTful API', 'POS Integration'],
+    links: [
+      { label: { zh: 'eHairPOS 專案介紹', en: 'eHairPOS Project' }, url: 'https://www.acubedt.com/project/ehairpos/', icon: 'external' },
+      { label: { zh: 'eHairBOSS App Store', en: 'eHairBOSS on App Store' }, url: 'https://apps.apple.com/us/app/ehairboss/id6477989351', icon: 'external' },
+      { label: { zh: 'eHairGO App Store', en: 'eHairGO on App Store' }, url: 'https://apps.apple.com/us/app/ehairgo/id6743433450', icon: 'external' },
+    ],
+    gallery: {
+      id: 'acubedt-ehairpos',
+      images: [
+        { src: '/images/acubedt/ehairpos-01.jpg', description: 'eHairPOS 美髮管理 App 專案畫面' },
+      ],
+    },
   },
 ]
