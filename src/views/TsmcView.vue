@@ -5,6 +5,7 @@ import TheExperience from '../components/sections/TheExperience.vue'
 import TheHero from '../components/sections/TheHero.vue'
 import TheProjects from '../components/sections/TheProjects.vue'
 import ThePrintResume from '../components/sections/ThePrintResume.vue'
+import TheFullPrintResume from '../components/sections/TheFullPrintResume.vue'
 import TheSkills from '../components/sections/TheSkills.vue'
 import { useReveal } from '../composables/useReveal'
 import { tsmcExperiences, tsmcSkillCategories, tsmcHero } from '../data/variants/tsmc'
@@ -37,5 +38,12 @@ useReveal()
       <TheSkills :lang="lang" :skill-categories="tsmcSkillCategories" />
     </main>
     <ThePrintResume :lang="lang" />
+    <TheFullPrintResume
+      :lang="lang"
+      :experiences="tsmcExperiences"
+      :skill-categories="tsmcSkillCategories"
+      :title="title"
+      :summary="summary"
+    />
   </div>
 </template>

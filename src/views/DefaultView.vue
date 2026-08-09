@@ -3,6 +3,7 @@ import TheExperience from '../components/sections/TheExperience.vue'
 import TheHero from '../components/sections/TheHero.vue'
 import TheProjects from '../components/sections/TheProjects.vue'
 import ThePrintResume from '../components/sections/ThePrintResume.vue'
+import TheFullPrintResume from '../components/sections/TheFullPrintResume.vue'
 import TheSkills from '../components/sections/TheSkills.vue'
 import { useReveal } from '../composables/useReveal'
 import type { PropType } from 'vue'
@@ -25,4 +26,5 @@ useReveal()
     <TheSkills :lang="lang" />
   </main>
   <ThePrintResume :lang="lang" />
+  <TheFullPrintResume :lang="lang" />
 </template>

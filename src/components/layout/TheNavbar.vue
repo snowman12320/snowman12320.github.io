@@ -29,6 +29,12 @@ const handlePrint = () => {
   window.print()
 }
 
+const handlePrintFull = () => {
+  document.body.classList.add('print-full')
+  window.print()
+}
+
+const clearFullPrintMode = () => document.body.classList.remove('print-full')
 const isActive = (path: string) => route.path === path
 const scrollToSection = (id: string, event: MouseEvent) => {
   event.preventDefault()
@@ -53,7 +59,11 @@ const onDocClick = (e: MouseEvent) => {
 }
 
 onMounted(() => document.addEventListener('click', onDocClick))
-onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
+onMounted(() => window.addEventListener('afterprint', clearFullPrintMode))
+onBeforeUnmount(() => {
+  document.removeEventListener('click', onDocClick)
+  window.removeEventListener('afterprint', clearFullPrintMode)
+})
 </script>
 
 <template>
@@ -91,6 +101,14 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
           @click="handlePrint"
         >
           <FaIcon :icon="['fas', 'print']" class="w-5 h-5" />
+        </button>
+        <button
+          class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          :aria-label="lang === 'zh' ? '列印完整履歷' : 'Print full resume'"
+          :title="lang === 'zh' ? '列印完整履歷' : 'Print full resume'"
+          @click="handlePrintFull"
+        >
+          <FaIcon :icon="['fas', 'file-lines']" class="w-5 h-5" />
         </button>
 
         <!-- Company selector dropdown (right side) -->
