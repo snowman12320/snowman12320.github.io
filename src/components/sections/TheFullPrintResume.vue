@@ -38,6 +38,7 @@ const summary = computed(() => props.summary || (props.lang === 'zh'
         <p>{{ title }}</p>
         <p>{{ $t('profile.location') }} · snowman12320@gmail.com · 0976-103738</p>
         <p>linkedin.com/in/william-chen-dev · github.com/snowman12320</p>
+        <p><a href="https://snowman12320.github.io/#/">snowman12320.github.io</a></p>
       </header>
 
       <section class="print-full-section">
