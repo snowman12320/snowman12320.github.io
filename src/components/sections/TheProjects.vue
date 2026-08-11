@@ -2,9 +2,10 @@
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import { projects } from '../../data/projects'
+import type { ProjectItem } from '../../types'
 import ProjectCard from '../ui/ProjectCard.vue'
 
-const { lang, imageFirst } = defineProps({
+const { lang, imageFirst, projectItems } = defineProps({
   lang: {
     type: String as PropType<'zh' | 'en'>,
     required: true,
@@ -12,6 +13,10 @@ const { lang, imageFirst } = defineProps({
   imageFirst: {
     type: Boolean,
     default: false,
+  },
+  projectItems: {
+    type: Array as PropType<ProjectItem[]>,
+    default: () => projects,
   },
 })
 
@@ -22,15 +27,15 @@ const pageSize = imageFirst ? 6 : 4
 // Use category id (zh key) as stable filter key, display the lang-appropriate label
 const categories = computed(() => {
   const seen = new Set<string>()
-  return projects
+  return projectItems
     .map((item) => ({ key: item.category.zh, label: item.category[lang] }))
     .filter(({ key }) => (seen.has(key) ? false : seen.add(key)))
 })
 
 const filteredProjects = computed(() =>
   selectedCategory.value === 'all'
-    ? projects
-    : projects.filter((item) => item.category.zh === selectedCategory.value),
+    ? projectItems
+    : projectItems.filter((item) => item.category.zh === selectedCategory.value),
 )
 
 const totalPages = computed(() => Math.max(1, Math.ceil(filteredProjects.value.length / pageSize)))
@@ -49,12 +54,12 @@ const openProjectFromHash = () => {
   if (typeof window === 'undefined') return
 
   const hash = window.location.hash
-  const project = projects.find((item) => hash.includes(`#project-${item.id}`))
+  const project = projectItems.find((item) => hash.includes(`#project-${item.id}`))
   if (!project) return
 
   // Render the target card before ProjectCard checks the permalink hash.
   selectedCategory.value = 'all'
-  const projectIndex = projects.findIndex((item) => item.id === project.id)
+  const projectIndex = projectItems.findIndex((item) => item.id === project.id)
   currentPage.value = Math.floor(projectIndex / pageSize) + 1
 }
 

@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { PropType } from 'vue'
+import type { ExperienceItem, ProjectItem, SkillCategory } from '../../types'
 import { experiences } from '../../data/experience'
 import { projects } from '../../data/projects'
 import { skillCategories } from '../../data/skills'
 
-const props = defineProps({
-  lang: {
-    type: String as PropType<'zh' | 'en'>,
-    required: true,
-  },
+const props = withDefaults(defineProps<{
+  lang: 'zh' | 'en'
+  experiences?: ExperienceItem[]
+  projects?: ProjectItem[]
+  skillCategories?: SkillCategory[]
+  title?: string
+}>(), {
+  experiences: () => experiences,
+  projects: () => projects,
+  skillCategories: () => skillCategories,
+  title: '',
 })
 
 const labels = computed(() => props.lang === 'zh'
@@ -28,14 +34,14 @@ const labels = computed(() => props.lang === 'zh'
       highlight: 'Core strengths',
     })
 
-const featuredExperiences = computed(() => experiences)
-const featuredProjects = computed(() => projects)
-const compactSkills = computed(() => skillCategories.map((category) => ({
+const featuredExperiences = computed(() => props.experiences)
+const featuredProjects = computed(() => props.projects)
+const compactSkills = computed(() => props.skillCategories.map((category) => ({
   title: props.lang === 'zh' ? category.title.zh : category.title.en,
   skills: category.skills.slice(0, 5),
 })))
 
-const getExpBullets = (item: (typeof experiences)[0]) =>
+const getExpBullets = (item: ExperienceItem) =>
   item.printBullets?.[props.lang] ?? item.bullets[props.lang].slice(0, 2)
 </script>
 
@@ -48,7 +54,7 @@ const getExpBullets = (item: (typeof experiences)[0]) =>
         <div class="flex items-start justify-between gap-6">
           <div>
             <h1 class="text-[22px] font-black leading-tight tracking-tight text-black">{{ $t('profile.name') }}</h1>
-            <p class="mt-0.5 text-[10px] text-gray-600">{{ $t('profile.title') }}</p>
+            <p class="mt-0.5 text-[10px] text-gray-600">{{ props.title || $t('profile.title') }}</p>
           </div>
           <div class="text-right text-[10px] leading-[1.6] text-gray-600">
             <p>{{ $t('profile.location') }}</p>

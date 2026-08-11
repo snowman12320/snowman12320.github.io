@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import DefaultView from '../views/DefaultView.vue'
 import PortfolioView from '../views/PortfolioView.vue'
 import TsmcView from '../views/TsmcView.vue'
+import OkendoView from '../views/OkendoView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -13,6 +14,10 @@ const router = createRouter({
     {
       path: '/tsmc',
       component: TsmcView,
+    },
+    {
+      path: '/okendo',
+      component: OkendoView,
     },
     {
       path: '/portfolio',

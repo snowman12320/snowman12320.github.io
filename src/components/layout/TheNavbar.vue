@@ -8,6 +8,7 @@ import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 library.add(faMoon, faPrint, faSun, faChevronDown)
 
 const route = useRoute()
+const isOkendoResume = computed(() => route.path === '/okendo')
 
 defineProps({
   lang: {
@@ -71,9 +72,12 @@ onBeforeUnmount(() => {
     class="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
   >
     <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-      <RouterLink to="/" class="text-lg font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
+      <RouterLink v-if="!isOkendoResume" to="/" class="text-lg font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
         William's Build Lab
       </RouterLink>
+      <span v-else class="text-lg font-bold text-blue-600 dark:text-blue-400">
+        William's Build Lab
+      </span>
 
       <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400">
         <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" @click="scrollToSection('experience', $event)">{{ $t('nav.experience') }}</a>
@@ -150,6 +154,14 @@ onBeforeUnmount(() => {
               @click.native="menuOpen = false"
             >
               {{ lang === 'zh' ? '作品集版' : 'Portfolio' }}
+            </RouterLink>
+            <RouterLink
+              to="/okendo"
+              class="block px-3 py-2 text-sm hover:bg-slate-100 dark:hover:bg-gray-800"
+              :class="isActive('/okendo') ? 'font-semibold bg-blue-600 text-white' : ''"
+              @click.native="menuOpen = false"
+            >
+              {{ lang === 'zh' ? 'Okendo 版' : 'Okendo' }}
             </RouterLink>
           </div>
         </div>
