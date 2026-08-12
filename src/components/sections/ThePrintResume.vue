@@ -58,7 +58,7 @@ const getExpBullets = (item: ExperienceItem) =>
           </div>
           <div class="text-right text-[10px] leading-[1.6] text-gray-600">
             <p>{{ $t('profile.location') }}</p>
-            <p>snowman12320@gmail.com · 0976-103738</p>
+            <p>snowman12320@gmail.com · +886976103738</p>
             <p>linkedin.com/in/william-chen-dev</p>
             <p><a href="https://snowman12320.github.io/#/">snowman12320.github.io</a></p>
           </div>

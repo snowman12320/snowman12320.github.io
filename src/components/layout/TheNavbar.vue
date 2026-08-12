@@ -9,30 +9,29 @@ library.add(faMoon, faPrint, faSun, faChevronDown)
 
 const route = useRoute()
 const isOkendoResume = computed(() => route.path === '/okendo')
+const isTsmcResume = computed(() => route.path === '/tsmc')
 
-defineProps({
-  lang: {
-    type: String as PropType<'zh' | 'en'>,
-    required: true,
-  },
-  isDark: {
-    type: Boolean,
-    required: true,
-  },
-})
-
-defineEmits<{
-  toggleLang: []
-  toggleDark: []
-}>()
+const getVersionFilename = () => {
+  const name = 'William_Chen_Resume'
+  if (isOkendoResume.value) return `${name}_Okendo`
+  if (isTsmcResume.value) return `${name}_TSMC`
+  return `${name}_Default`
+}
 
 const handlePrint = () => {
+  const originalTitle = document.title
+  document.title = getVersionFilename()
   window.print()
+  document.title = originalTitle
 }
 
 const handlePrintFull = () => {
+  const originalTitle = document.title
+  document.title = `${getVersionFilename()}_Full`
   document.body.classList.add('print-full')
   window.print()
+  document.body.classList.remove('print-full')
+  document.title = originalTitle
 }
 
 const clearFullPrintMode = () => document.body.classList.remove('print-full')
