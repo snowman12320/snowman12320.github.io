@@ -93,6 +93,8 @@ const displayContributionText = (text: string) => {
     .trim()
 }
 
+const showContributionSection = computed(() => isLocalhost.value)
+
 const toggleContributionSection = (title: string) => {
   activeContributionSection.value = activeContributionSection.value === title ? null : title
 }
@@ -207,7 +209,7 @@ watch(open, async (isOpen) => {
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
       </div>
 
-      <div v-if="item.contribution" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+      <div v-if="item.contribution && showContributionSection" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
         <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">{{ $t('common.contribution') }}</p>
 
         <div class="space-y-2">
