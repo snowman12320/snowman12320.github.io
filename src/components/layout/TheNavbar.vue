@@ -11,6 +11,22 @@ const route = useRoute()
 const isOkendoResume = computed(() => route.path === '/okendo')
 const isTsmcResume = computed(() => route.path === '/tsmc')
 
+const props = defineProps({
+  lang: {
+    type: String as PropType<'zh' | 'en'>,
+    required: true,
+  },
+  isDark: {
+    type: Boolean,
+    required: true,
+  },
+})
+
+defineEmits<{
+  toggleLang: []
+  toggleDark: []
+}>()
+
 const getVersionFilename = () => {
   const name = 'William_Chen_Resume'
   if (isOkendoResume.value) return `${name}_Okendo`
@@ -86,17 +102,17 @@ onBeforeUnmount(() => {
       <div class="flex items-center gap-1">
         <button
           class="no-print px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-200 dark:border-gray-700"
-          :aria-label="lang === 'zh' ? 'Switch to English' : '切換為中文'"
+          :aria-label="props.lang === 'zh' ? 'Switch to English' : '切換為中文'"
           @click="$emit('toggleLang')"
         >
-          <span>{{ lang === 'zh' ? 'EN' : '中文' }}</span>
+          <span>{{ props.lang === 'zh' ? 'EN' : '中文' }}</span>
         </button>
         <button
           class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-          :aria-label="isDark ? '切換為淺色模式' : '切換為深色模式'"
+          :aria-label="props.isDark ? '切換為淺色模式' : '切換為深色模式'"
           @click="$emit('toggleDark')"
         >
-          <FaIcon :icon="isDark ? ['fas', 'sun'] : ['fas', 'moon']" class="w-5 h-5" />
+          <FaIcon :icon="props.isDark ? ['fas', 'sun'] : ['fas', 'moon']" class="w-5 h-5" />
         </button>
         <button
           class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -107,8 +123,8 @@ onBeforeUnmount(() => {
         </button>
         <button
           class="no-print p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-          :aria-label="lang === 'zh' ? '列印完整履歷' : 'Print full resume'"
-          :title="lang === 'zh' ? '列印完整履歷' : 'Print full resume'"
+          :aria-label="props.lang === 'zh' ? '列印完整履歷' : 'Print full resume'"
+          :title="props.lang === 'zh' ? '列印完整履歷' : 'Print full resume'"
           @click="handlePrintFull"
         >
           <FaIcon :icon="['fas', 'file-lines']" class="w-5 h-5" />
@@ -123,7 +139,7 @@ onBeforeUnmount(() => {
             aria-haspopup="true"
           >
             <FaIcon :icon="['fas', 'chevron-down']" class="w-3" />
-            <span class="text-xs">{{ lang === 'zh' ? '公司' : 'Company' }}</span>
+            <span class="text-xs">{{ props.lang === 'zh' ? '公司' : 'Company' }}</span>
           </button>
 
           <div
@@ -136,7 +152,7 @@ onBeforeUnmount(() => {
               :class="isActive('/') ? 'font-semibold bg-slate-100 dark:bg-gray-800' : ''"
               @click.native="menuOpen = false"
             >
-              {{ lang === 'zh' ? '通用版' : 'Default' }}
+              {{ props.lang === 'zh' ? '通用版' : 'Default' }}
             </RouterLink>
             <RouterLink
               to="/tsmc"
@@ -144,7 +160,7 @@ onBeforeUnmount(() => {
               :class="isActive('/tsmc') ? 'font-semibold bg-blue-600 text-white' : ''"
               @click.native="menuOpen = false"
             >
-              {{ lang === 'zh' ? '台積電版' : 'TSMC' }}
+              {{ props.lang === 'zh' ? '台積電版' : 'TSMC' }}
             </RouterLink>
             <RouterLink
               to="/portfolio"
@@ -152,7 +168,7 @@ onBeforeUnmount(() => {
               :class="isActive('/portfolio') ? 'font-semibold bg-blue-600 text-white' : ''"
               @click.native="menuOpen = false"
             >
-              {{ lang === 'zh' ? '作品集版' : 'Portfolio' }}
+              {{ props.lang === 'zh' ? '作品集版' : 'Portfolio' }}
             </RouterLink>
             <RouterLink
               to="/okendo"
@@ -160,7 +176,7 @@ onBeforeUnmount(() => {
               :class="isActive('/okendo') ? 'font-semibold bg-blue-600 text-white' : ''"
               @click.native="menuOpen = false"
             >
-              {{ lang === 'zh' ? 'Okendo 版' : 'Okendo' }}
+              {{ props.lang === 'zh' ? 'Okendo 版' : 'Okendo' }}
             </RouterLink>
           </div>
         </div>
