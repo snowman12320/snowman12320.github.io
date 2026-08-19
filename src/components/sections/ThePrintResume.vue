@@ -41,8 +41,7 @@ const compactSkills = computed(() => props.skillCategories.map((category) => ({
   skills: category.skills.slice(0, 5),
 })))
 
-const getExpBullets = (item: ExperienceItem) =>
-  item.printBullets?.[props.lang] ?? item.bullets[props.lang].slice(0, 2)
+const getExpBullets = (item: ExperienceItem) => item.bullets[props.lang].slice(0, 2)
 </script>
 
 <template>

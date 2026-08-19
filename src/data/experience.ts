@@ -5,7 +5,7 @@ export const experiences: ExperienceItem[] = [
     id: 'fun-show',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '玩藝國際股份有限公司（Fun Show）', en: 'Fun Show International Co., Ltd.' },
-    location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
+    location: { zh: '台灣・臺南市（遠端）', en: 'Remote' },
     period: '2024/02 — 2026/08 (2y 7m)',
     bullets: {
       zh: [
@@ -27,12 +27,12 @@ export const experiences: ExperienceItem[] = [
     },
     printBullets: {
       zh: [
-        '開發直播控制平台（即時串流、OBS 整合、SSE 通知），支援 5,000+ 並發連線；頁面載入從 3.2s 優化至 0.8s，API 響應壓縮至 120ms。',
-        '建置 Jenkins CI/CD 管線與 32 個可複用 Composables，單元測試覆蓋率 82%；整合 Keycloak SSO 與 Payuni 金流，訂閱轉換率提升 35%。',
+        '以 Vue 3、TypeScript 與 Quasar 建構直播控制平台，整合 OBS 串流、場景切換、聯合直播、WebSocket 房間分片與 Redis 轉發，支援 5,000+ 並發連線；搭配虛擬滾動、路由懶加載、Tree Shaking、資源預載與 API 快取，將頁面載入由 3.2s 降至 0.8s、平均 API 響應由 400ms 優化至 120ms，導播控制延遲維持在 100ms 內。',
+        '建立 32 個可複用 Composables 與 45 個模組化元件，涵蓋直播頁、導播控制、會員中心及 10,000+ 媒體項目的 Infinite Scroll；整合 Keycloak SSO/RBAC、Payuni 訂閱金流與 WebSocket/SSE 事件通知，搭配 Vitest、Vue Test Utils、12 組 MSW API Mock 與 82% 單元測試覆蓋率，透過 Jenkins Pipeline as Code 完成每週 8–12 次跨分支自動部署，訂閱轉換率提升 35%。',
       ],
       en: [
-        'Supported 5,000+ concurrent connections with an OBS-enabled streaming platform; cut page load from 3.2s to 0.8s and API response time to 120ms.',
-        'Built 32 reusable Composables, reached 82% unit-test coverage, and integrated Keycloak SSO with Payuni payments to increase subscription conversion by 35%.',
+        'Built a Vue 3, TypeScript, and Quasar streaming control platform with OBS streaming, scene switching, co-streaming, Socket.IO room sharding, and Redis relay for 5,000+ concurrent connections; combined virtual scrolling, route lazy-loading, tree-shaking, resource preloading, and API caching to cut page load from 3.2s to 0.8s, reduce average API latency from 400ms to 120ms, and keep broadcast-console latency below 100ms.',
+        'Created 32 reusable Composables and 45 modular components for live pages, broadcast control, member workflows, and infinite-scroll media across 10,000+ items; integrated Keycloak SSO/RBAC, Payuni subscriptions, and WebSocket/SSE events, with Vitest, Vue Test Utils, 12 MSW API mocks, and 82% unit-test coverage, then automated 8–12 weekly cross-branch deployments through Jenkins Pipeline as Code, increasing subscription conversion by 35%.',
       ],
     },
     techStack: ['Vue 3', 'Quasar Framework', 'TypeScript', 'PHP', 'Laravel', 'Keycloak', 'SSE', 'OBS Integration', 'Jenkins CI/CD', 'MSW', 'Vitest'],
@@ -44,7 +44,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'hengyuan-freelance',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '恆遠數位行銷（ForeverWebs）', en: 'ForeverWebs · Freelance' },
+    company: { zh: '恆遠數位行銷（ForeverWebs）', en: 'ForeverWebs ' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/10 — 2026/07 (1y 10m)',
     bullets: {
@@ -65,12 +65,12 @@ export const experiences: ExperienceItem[] = [
     },
     printBullets: {
       zh: [
-        '交付醫療系統（vtk.js 3D CT 渲染 < 2s）、線上學習平台（Vimeo API、OAuth、IP 控管）與報價系統，全程從概念到雲端部署。',
-        '導入 AI 輔助開發提升效率 30%，PDF 壓縮減少體積 60%，API 響應從 800ms 優化至 200ms。',
+        '從需求分析、資料庫 Schema、RESTful API 到雲端部署，交付醫療病歷與分析系統、vtk.js 3D CT 影像檢視、Vimeo 線上學習平台及報價／帳款流程；透過 Vue 3 Composition API、Web Worker 分塊載入、Vimeo CDN、OAuth 與 IP 白名單，將 3D CT 渲染控制在 2s 內、影片首次緩衝低於 1.5s，並以多雲部署降低單點故障風險。',
+        '以查詢優化與 Redis 快取將 API 平均響應由 800ms 降至 200ms，透過客戶端與自適應圖片壓縮使 PDF 體積減少 60%；建立共享 Zod／TypeScript Schema、Vitest 核心流程測試與模組化元件庫，結合 GitHub Actions、Zeabur Webhooks 及 AI 輔助開發，讓 API 型別、部署與維護流程可追蹤，整體開發效率提升 30%。',
       ],
       en: [
-        'Delivered medical, learning, and quotation systems from concept to cloud deployment; kept vtk.js CT rendering under 2s.',
-        'Cut PDF size by 60%, reduced API response time from 800ms to 200ms, and improved development efficiency by 30% with AI-assisted workflows.',
+        'Delivered medical records and analytics, vtk.js 3D CT viewing, Vimeo learning, and quotation/billing systems from requirements and database schema through REST APIs and cloud deployment; used Vue 3 Composition API, Web Worker chunked loading, Vimeo CDN, OAuth, and IP allowlisting to keep CT rendering under 2s, first-play buffering under 1.5s, and reduce single-cloud failure risk with multi-cloud delivery.',
+        'Reduced average API latency from 800ms to 200ms through query optimization and Redis caching, and cut PDF size by 60% with client-side and adaptive image compression; established shared Zod/TypeScript schemas, Vitest core-flow tests, and a modular component library, then combined GitHub Actions, Zeabur webhooks, and AI-assisted development to improve delivery efficiency by 30%.',
       ],
     },
     techStack: ['Vue 3', 'Node.js', 'RESTful API', 'vtk.js', 'Vimeo API', 'OAuth', 'MySQL', 'Zeabur', 'Cloudways'],
@@ -101,12 +101,12 @@ export const experiences: ExperienceItem[] = [
     },
     printBullets: {
       zh: [
-        '開發 Advisor Portal 前端介面（Table UI、BFF API 串接）並主導 SSO / RBAC 整合，維護跨環境 CI/CD（每週 15+ PR）。',
-        '完成 Action Log Phase 2 後台功能、Umami 行為追蹤整合與初始資料庫 SQL 建置，SIT 部署異常回報降低 30%。',
+        '以 Next.js、TypeScript 與 BFF 架構開發 Advisor Portal 的 Table、Spinner 與響應式元件，透過 API 聚合、前端快取、分頁、虛擬滾動與 server-side sorting 支援萬筆資料流暢操作；主導 OAuth 2.0／OIDC SSO、登入後多情境導向與 5+ 角色 RBAC 整合，並以結構化日誌與網路追蹤將 DEV API 異常定位時間縮短 50%。',
+        '完成 Action Log Phase 2 稽核流程、初始資料庫 SQL 與 migration 版本化、Umami 10+ 關鍵事件追蹤，以及 Dev／SIT 跨環境 CI/CD 驗證；透過 GitHub Actions、分支保護、自動 smoke test、部署版本與 Commit 對照及 Jira 協作流程，管理每週 15+ PR，降低 SIT 部署異常回報 30%，並使 Lighthouse 效能分數提升 15%。',
       ],
       en: [
-        'Built Advisor Portal frontend and BFF integrations; led SSO/RBAC setup and managed CI/CD across Dev and SIT for 15+ PRs per week.',
-        'Shipped Action Log Phase 2, Umami analytics, and initial SQL setup; reduced SIT deployment anomaly reports by 30%.',
+        'Built Advisor Portal Table, Spinner, and responsive components with Next.js, TypeScript, and a BFF architecture, using API aggregation, frontend caching, pagination, virtual scrolling, and server-side sorting for smooth 10k-row interactions; led OAuth 2.0/OIDC SSO, multi-scenario post-login redirects, and RBAC across 5+ roles, while using structured logs and network tracing to cut DEV API troubleshooting time by 50%.',
+        'Delivered Action Log Phase 2 audit flows, versioned initial SQL and database migrations, Umami tracking for 10+ key events, and Dev/SIT CI/CD verification; used GitHub Actions, branch protection, automated smoke tests, deployment-to-commit checks, and Jira workflows to manage 15+ PRs weekly, reduce SIT deployment anomaly reports by 30%, and raise Lighthouse performance by 15%.',
       ],
     },
     techStack: ['Next.js', 'TypeScript', 'Node.js', 'BFF Architecture', 'SSO / RBAC', 'SQL', 'Umami', 'Jira', 'GitHub Actions', 'CI/CD'],
@@ -173,7 +173,7 @@ export const experiences: ExperienceItem[] = [
     id: 'digital-factor',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
     company: { zh: '數位因子網路科技有限公司（dgFactor）', en: 'dgFactor · Part-time' },
-    location: { zh: '台灣・臺南市（遠端）', en: 'Tainan, Taiwan' },
+    location: { zh: '台灣・臺南市（遠端）', en: 'Remote' },
     period: '2023/10 — 2024/03 (6m)',
     bullets: {
       zh: [
