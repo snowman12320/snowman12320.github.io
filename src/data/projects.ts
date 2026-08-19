@@ -277,21 +277,21 @@ const projectCatalog: ProjectItem[] = [
   },
   {
     id: 'house-price',
-    name: { zh: '房價預測與查詢系統', en: 'House Price Prediction & Query System' },
+    name: { zh: 'OKstory 房價預測與實價查詢平台', en: 'OKstory House Price Prediction & Transaction Search Platform' },
     category: { zh: '資料分析平台', en: 'Data Analytics' },
     categoryColor: 'purple',
     shortDesc: {
-      zh: '整合雙模型 ML 預測、互動圖表與爬蟲新聞的台中房價查詢平台，部署於 AWS EC2/RDS。',
-      en: 'Taichung housing analytics platform | Dual-model forecasts, interactive charts, crawlers, and AWS deployment.',
+      zh: '結合 LightGBM 房價預測與實價登錄查詢，協助購屋者在台灣房市投資前掌握未來價格與歷史交易資料。',
+      en: 'A Taichung housing platform combining LightGBM price forecasts with transaction searches to support better-informed property decisions.',
     },
-    techStack: ['Flask', 'MySQL', 'AWS', 'Python', 'Linear SVR', 'LightGBM', 'pyecharts', 'Folium'],
+    techStack: ['Python', 'Flask', 'Jinja2', 'HTML / CSS', 'RWD', 'MySQL', 'LightGBM', 'Folium', 'Bokeh', 'Web Crawler', 'AWS', 'Linux', 'VS Code', 'Spyder', 'Google Colab'],
     detailedDesc: {
-      zh: '以 Python Flask 建構台中房價查詢與預測 Web 系統；結合 Linear SVR 與 LightGBM 雙模型預測未來每坪均價趨勢；以 pyecharts 產生互動折線圖與文字雲呈現各區交易熱度；整合新聞爬蟲、空汙 API 及 Folium 地圖；以 bcrypt 實作會員認證，後端採 Flask RESTful API，搭配 MySQL 儲存實價登錄資料，部署於 AWS EC2/RDS。',
-      en: 'Built a Taichung house price query and prediction web system with Python Flask. Combined Linear SVR and LightGBM dual-model ensemble to forecast future price-per-ping trends by district. Used pyecharts to render interactive line charts and word clouds visualizing transaction volume heatmaps. Integrated news crawlers, air quality API data, and Folium interactive maps. Implemented bcrypt member authentication; Flask RESTful API backend with MySQL storing official transaction records, deployed on AWS EC2/RDS.',
+      zh: '台灣房市火熱，投資者類型多元，購入前應先預測未來價格作為投資參考，且房價年年攀升、需求用戶眾多，應將實價登錄資料納入購屋考量；以 app.py 與 app_module.py 建構以 Flask 為核心的 Backend 服務，結合 templates 與 static 資料夾打造 RWD 響應式網頁；透過 CatchIP.py、Newcatch.py 與 air_quality_requests.py 進行網路爬蟲、IP 與環境開放資料擷取；運用 import_model.py 與 creatmodule.py 匯入及建立房價預測模型，完成特徵工程與模型推論；使用 Folium 的 folium_taichung.py 繪製台中互動式地圖，並以 Bokeh.py 呈現動態數據視覺化圖表；透過 Str_Q2B.py 進行全形半形字元轉換，搭配 air_quality_TW.py 等模組完成資料清洗與預處理；整合自動化爬蟲、資料清洗、AI 模型預測、互動地圖與圖表視覺化，以及前後端網站流程，提供台中房價預估與區域資訊查詢體驗。',
+      en: 'Taiwan’s active housing market attracts many types of investors, so forecasting future prices provides useful context before investing, while rising prices and strong demand make official transaction records an important consideration before a purchase; built the Flask-based backend with app.py and app_module.py, using templates and static directories to deliver a responsive web interface; used CatchIP.py, Newcatch.py, and air_quality_requests.py for web crawling, IP collection, and public environmental data retrieval; used import_model.py and creatmodule.py to build and load house price models for feature engineering and inference; rendered interactive Taichung maps with Folium through folium_taichung.py and dynamic data visualizations with Bokeh.py; handled full-width and half-width character conversion with Str_Q2B.py, alongside air_quality_TW.py and other preprocessing modules; integrated automated crawling, data cleaning, AI prediction, interactive maps and charts, and frontend/backend delivery into a Taichung housing information experience.',
     },
     links: [
       { label: { zh: 'Demo 影片', en: 'Demo Video' }, url: 'https://youtu.be/x5gwX4TgTUw', icon: 'youtube' },
-      { label: { zh: 'GitHub', en: 'GitHub' }, url: 'https://github.com/snowman12320/AI_project2', icon: 'github' },
+      { label: { zh: 'GitHub 專案', en: 'GitHub Repository' }, url: 'https://github.com/snowman12320/AI_project', icon: 'github' },
     ],
     gallery: {
       id: 'house-price',
@@ -427,8 +427,8 @@ const projectCatalog: ProjectItem[] = [
     },
     techStack: ['Vue 3', 'TypeScript', 'Vite', 'Tailwind CSS', 'WebSocket', 'SSE', 'Keycloak', 'Payuni', 'Component Architecture', 'State Management', 'Composables', 'Router', 'Async Data Flow', 'Infinite Scroll', 'Lightbox', 'Context Menu', 'OBS Integration', 'Signal Source Management', 'Scene Management', 'Broadcast Control UI', 'Real-time Sync', 'High Concurrency', 'MSW', 'Jenkins', 'Git CI/CD'],
     detailedDesc: {
-      zh: '這是一個以直播互動與品牌內容為核心的數位平台專案，聚焦於前端架構設計、即時資料同步、訊號源與場景管理、導播控制流程與高互動體驗整合。專案以 Vue 3 + TypeScript 搭配 Vite 打造高效能前端開發環境，使用 Tailwind CSS 與元件化架構實現一致性設計系統；並透過 Composables、路由設計、狀態管理與非同步資料流，組織直播頁、導播控制台、互動面板與內容管理系統。核心功能涵蓋訊號源初始化、列表重置與定位點串接、場景比例管理與字體統一設定，導播 UX/UI 調整、聯合直播與共同直播 UI 整合、OBS 直播串流檢視。會員系統整合 Keycloak 身分驗證與 RBAC 權限控制，透過 Payuni 統一金流處理訂閱方案付款流程，重構會員中心頁面與側邊導覽。媒體資源管理實作無限滾動載入（Infinite Scroll）、燈箱預覽（Lightbox）、右鍵選單與刪除互動；即時通知透過 WebSocket 與 SSE（Server-Sent Events）實現訂閱方案與期限提醒的即時推播。測試方面使用 MSW 進行 API Mock、Postman 與單元測試驗證介接；部署透過 Jenkins CI/CD 與 Git 分支管理自動化流程，並評估 Nuxt 4 升級可行性。此專案能充分展現我在前端架構、訊號源與場景管理、導播控制系統、即時通訊、身分驗證、支付整合、高並發場景優化與系統可靠性上的實作能力。',
-      en: 'Built the Vue 3 + TypeScript platform with modular components, Composables, routing, state management, and async data flows. Shipped signal and scene management, broadcast control, co-streaming UI, OBS viewing, infinite-scroll media, lightbox previews, and context menus. Integrated Keycloak/RBAC and Payuni subscriptions, then added WebSocket/SSE alerts for plan and expiry updates. Validated APIs with MSW/Postman/unit tests and automated delivery with Jenkins CI/CD.',
+      zh: '以 Vue 3、TypeScript、Vite 與 Tailwind CSS 建立直播互動平台，透過元件化架構打造一致且高效能的前端介面；運用 Composables、路由、狀態管理與非同步資料流，整合直播頁、導播控制台、互動面板與內容管理系統；實作訊號源與場景管理、場景比例與字體設定、導播控制、聯合直播／共同直播 UI，以及 OBS 串流檢視；以 Keycloak 與 RBAC 處理會員身分驗證和權限控制，並串接 Payuni 完成訂閱方案付款與會員中心功能；使用 Infinite Scroll、Lightbox、右鍵選單管理媒體資源，並以 WebSocket 與 SSE 推送訂閱方案及期限通知；透過 MSW、Postman 與單元測試驗證 API，搭配 Jenkins CI/CD 與 Git 分支流程完成部署，並評估 Nuxt 4 升級可行性。',
+      en: 'Built a live streaming platform with Vue 3, TypeScript, Vite, and Tailwind CSS using a modular component architecture; organized live pages, broadcast control rooms, interactive panels, and content management with Composables, routing, state management, and async data flows; shipped signal and scene management, broadcast controls, co-streaming UI, OBS stream viewing, and scene configuration; integrated Keycloak/RBAC authentication and authorization with Payuni subscription payments and member-center workflows; managed media with infinite scroll, lightbox previews, and context menus, while using WebSocket/SSE for subscription and expiry notifications; validated APIs with MSW, Postman, and unit tests, then automated delivery with Jenkins CI/CD and Git branching while evaluating a Nuxt 4 upgrade.',
     },
     links: [],
     gallery: {
