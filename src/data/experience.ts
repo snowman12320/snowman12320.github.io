@@ -1,6 +1,6 @@
 import type { ExperienceItem } from '../types'
 
-export const experiences: ExperienceItem[] = [
+const experienceCatalog: ExperienceItem[] = [
   {
     id: 'fun-show',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
@@ -172,7 +172,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'digital-factor',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '數位因子網路科技有限公司（dgFactor）', en: 'dgFactor · Part-time' },
+    company: { zh: '數位因子網路科技有限公司（dgFactor）', en: 'dgFactor ' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Remote' },
     period: '2023/10 — 2024/03 (6m)',
     bullets: {
@@ -437,4 +437,40 @@ export const experiences: ExperienceItem[] = [
       ],
     },
   },
+  {
+    id: 'i-span-ai-cloud',
+    position: { zh: 'AI 應用開發工程師', en: 'AI Application Developer' },
+    company: { zh: '資展國際', en: 'iSpan International Inc.' },
+    location: { zh: '遠端', en: 'Remote' },
+    period: '2022/01 — 2022/06 (6m)',
+    bullets: {
+      zh: [
+        '參與 AI 雲端 Web 應用開發，使用 Python、Flask、LightGBM 與資料爬蟲技術，完成房價預測與實價查詢平台。',
+        '負責房價資料清洗、特徵工程、預測模型建立與 Flask 前後端整合，並以 Folium 地圖及 Bokeh 圖表呈現區域房市資訊。',
+      ],
+      en: [
+        'Developed an AI cloud web application with Python, Flask, LightGBM, and web-crawling workflows for house price prediction and transaction searches.',
+        'Handled housing-data cleaning, feature engineering, model development, and Flask frontend/backend integration, presenting market insights with Folium maps and Bokeh charts.',
+      ],
+    },
+    techStack: ['Python', 'Flask', 'LightGBM', 'MySQL', 'Folium', 'Bokeh', 'Web Crawling', 'AWS'],
+  },
 ]
+
+const experienceDisplayOrder = [
+  'fun-show',
+  'sun-life',
+  'hengyuan-freelance',
+  'ithome-ironman',
+  'career-break-certified-tutor',
+  'career-break-104social',
+  'digital-factor',
+  'ncku',
+  'tw-domain',
+  'one-cube',
+  'i-span-ai-cloud',
+]
+
+export const experiences = experienceDisplayOrder
+  .map((id) => experienceCatalog.find((item) => item.id === id))
+  .filter((item): item is ExperienceItem => Boolean(item))

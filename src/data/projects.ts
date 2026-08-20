@@ -277,8 +277,8 @@ const projectCatalog: ProjectItem[] = [
   },
   {
     id: 'house-price',
-    name: { zh: 'OKstory 房價預測與實價查詢平台', en: 'OKstory House Price Prediction & Transaction Search Platform' },
-    category: { zh: '資料分析平台', en: 'Data Analytics' },
+    name: { zh: '房價預測與實價查詢平台', en: 'House Price Prediction & Transaction Search Platform' },
+    category: { zh: '房價預測模型', en: 'House Price Prediction' },
     categoryColor: 'purple',
     shortDesc: {
       zh: '結合 LightGBM 房價預測與實價登錄查詢，協助購屋者在台灣房市投資前掌握未來價格與歷史交易資料。',
