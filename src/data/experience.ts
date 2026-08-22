@@ -48,7 +48,7 @@ const experienceCatalog: ExperienceItem[] = [
   {
     id: 'hengyuan-freelance',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '恆遠數位行銷（ForeverWebs）', en: 'ForeverWebs ' },
+    company: { zh: '恆遠數位行銷（ForeverWebs）・兼職', en: 'ForeverWebs · Part-time' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/10 — 2026/07 (1y 10m)',
     departureReason: {
@@ -90,7 +90,7 @@ const experienceCatalog: ExperienceItem[] = [
   {
     id: 'sun-life',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '永明金融（Sun Life）', en: 'Sun Life Financial' },
+    company: { zh: '永明金融（Sun Life）・兼職', en: 'Sun Life Financial · Part-time' },
     location: { zh: '加拿大（遠端）', en: 'Canada (Remote)' },
     period: '2025/10 — 2026/04 (7m)',
     departureReason: {
@@ -184,7 +184,7 @@ const experienceCatalog: ExperienceItem[] = [
   {
     id: 'digital-factor',
     position: { zh: '全端工程師', en: 'Full Stack Engineer' },
-    company: { zh: '數位因子網路科技有限公司（dgFactor）', en: 'dgFactor ' },
+    company: { zh: '數位因子網路科技有限公司（dgFactor）・兼職', en: 'dgFactor · Part-time' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Remote' },
     period: '2023/10 — 2024/03 (6m)',
     departureReason: {
@@ -492,8 +492,8 @@ const experienceDisplayOrder = [
   'ithome-ironman',
   'career-break-certified-tutor',
   'career-break-104social',
-  'digital-factor',
   'ncku',
+  'digital-factor',
   'tw-domain',
   'one-cube',
   'i-span-ai-cloud',

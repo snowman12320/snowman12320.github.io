@@ -22,6 +22,7 @@ export default {
     techStack: 'Tech Stack',
     contribution: 'Contribution & Metrics',
     departureReason: 'Reason for Leaving',
+    experienceRange: '4–5 years total experience',
     highlights: 'Highlights',
     printResume: 'Print a one-page resume',
     role: 'Full-Stack Engineer',

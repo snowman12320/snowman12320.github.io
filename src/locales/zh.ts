@@ -22,6 +22,7 @@ export default {
     techStack: '技術棧',
     contribution: '貢獻度',
     departureReason: '離職原因',
+    experienceRange: '總年資 4–5 年',
     highlights: '成果展示',
     printResume: '列印精簡履歷',
     role: '全端工程師',

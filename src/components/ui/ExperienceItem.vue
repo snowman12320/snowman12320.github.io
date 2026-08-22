@@ -105,7 +105,15 @@ watch(contributionSections, (sections) => {
   }
 }, { immediate: true })
 
-const isBreak = computed(() => item.id.includes('career-break') || item.id === 'ithome-ironman')
+const isBreak = computed(() =>
+  item.id.includes('career-break')
+  || item.id === 'ithome-ironman'
+  || item.id === 'sun-life'
+  || item.id === 'hengyuan-freelance'
+  || item.id === 'digital-factor'
+  || item.id === 'i-span-ai-cloud',
+)
+const isIndented = computed(() => isBreak.value)
 const isCurrent = computed(() => item.period.includes('Present') || item.period.includes('現在'))
 
 // Split "2024/02 — 2026/08 (2y 7m)" into a readable range + duration badge
@@ -136,15 +144,19 @@ watch(open, async (isOpen) => {
     role="button"
     tabindex="0"
     class="group relative w-full text-left rounded-xl border border-gray-200 bg-white/90 p-4 sm:p-5 shadow-sm hover:shadow-md dark:border-gray-700 dark:bg-gray-900/80 hover:border-blue-300 dark:hover:border-blue-700 transition-all"
-    :class="isBreak ? 'bg-gray-50/60 dark:bg-gray-800/30' : ''"
+    :class="[
+      isBreak ? 'bg-gray-50/60 dark:bg-gray-800/30' : '',
+      isIndented ? 'sm:ml-6 sm:w-[calc(100%-1.5rem)] border-dashed before:absolute before:-left-[2.625rem] before:top-[1.9375rem] before:w-[2.625rem] before:border-t before:border-dashed before:border-gray-400 dark:before:border-gray-600' : '',
+    ]"
     @click="open = true"
     @keydown.enter="open = true"
     @keydown.space.prevent="open = true"
   >
     <!-- timeline dot -->
     <span
-      class="hidden sm:block absolute -left-8 top-6 w-3.5 h-3.5 rounded-full bg-white dark:bg-gray-900 border-2"
+      class="hidden sm:block absolute top-6 w-3.5 h-3.5 rounded-full bg-white dark:bg-gray-900 border-2"
       :class="[
+        isIndented ? '-left-14' : '-left-8',
         isCurrent ? 'border-blue-600 shadow-[0_0_0_4px_rgba(37,99,235,0.15)]' : 'border-gray-400 dark:border-gray-600',
         isBreak ? 'border-dashed' : '',
       ]"
