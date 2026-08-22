@@ -21,6 +21,7 @@ export default {
     collapse: '收合詳情',
     techStack: '技術棧',
     contribution: '貢獻度',
+    departureReason: '離職原因',
     highlights: '成果展示',
     printResume: '列印精簡履歷',
     role: '全端工程師',

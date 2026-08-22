@@ -209,6 +209,11 @@ watch(open, async (isOpen) => {
         <span v-for="tech in item.techStack" :key="tech" class="badge">{{ tech }}</span>
       </div>
 
+      <div v-if="item.departureReason" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2.5">{{ $t('common.departureReason') }}</p>
+        <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">{{ item.departureReason[lang] }}</p>
+      </div>
+
       <div v-if="item.contribution && showContributionSection" class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
         <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">{{ $t('common.contribution') }}</p>
 

@@ -20,6 +20,7 @@ export interface ExperienceItem {
   company: I18nText
   location: I18nText
   period: string
+  departureReason?: I18nText
   bullets: { zh: string[]; en: string[] }
   printBullets?: { zh: string[]; en: string[] }
   techStack: string[]

@@ -21,6 +21,7 @@ export default {
     collapse: 'Collapse',
     techStack: 'Tech Stack',
     contribution: 'Contribution & Metrics',
+    departureReason: 'Reason for Leaving',
     highlights: 'Highlights',
     printResume: 'Print a one-page resume',
     role: 'Full-Stack Engineer',

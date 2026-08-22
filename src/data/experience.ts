@@ -7,6 +7,10 @@ const experienceCatalog: ExperienceItem[] = [
     company: { zh: '玩藝國際股份有限公司（Fun Show）', en: 'Fun Show International Co., Ltd.' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Remote' },
     period: '2024/02 — 2026/08 (2y 7m)',
+    departureReason: {
+      zh: '產品開發兩年多仍未有盈利前景，公司決定停損，因此整組團隊遭資遣。',
+      en: 'After more than two years of product development without a path to profitability, the company decided to stop the project and laid off the entire team.',
+    },
     bullets: {
       zh: [
         '開發具備即時串流、場景管理、連播 UI 與 OBS 整合的直播控制平台。',
@@ -47,6 +51,10 @@ const experienceCatalog: ExperienceItem[] = [
     company: { zh: '恆遠數位行銷（ForeverWebs）', en: 'ForeverWebs ' },
     location: { zh: '遠端', en: 'Remote' },
     period: '2024/10 — 2026/07 (1y 10m)',
+    departureReason: {
+      zh: '兼職接案所屬公司，目前專案皆處於維護期，暫時不需要額外人力；離開後仍與公司保持聯絡。',
+      en: 'This was a part-time contracting engagement. The company’s projects are currently in maintenance mode and no longer require additional staffing; we have stayed in contact.',
+    },
     bullets: {
       zh: [
         '開發醫療系統功能，涵蓋病患病歷管理、互動式圖表、PDF 壓縮，以及使用 vtk.js 實作 3D CT 影像渲染。',
@@ -85,6 +93,10 @@ const experienceCatalog: ExperienceItem[] = [
     company: { zh: '永明金融（Sun Life）', en: 'Sun Life Financial' },
     location: { zh: '加拿大（遠端）', en: 'Canada (Remote)' },
     period: '2025/10 — 2026/04 (7m)',
+    departureReason: {
+      zh: '兼職專案合約到期；實驗性專案被放棄，整組團隊未續約，離開後仍與團隊保持聯絡。',
+      en: 'The part-time project contract ended after the experimental project was discontinued. The entire team was not renewed, and I have stayed in contact with the team.',
+    },
     bullets: {
       zh: [
         '開發與維護 Advisor Portal 前端介面，包含 Table UI、Spinner 狀態顯示等響應式元件，透過 BFF（Backend For Frontend）架構串接 Advisor API，並排查 DEV 環境 API 連線異常根因。',
@@ -175,6 +187,10 @@ const experienceCatalog: ExperienceItem[] = [
     company: { zh: '數位因子網路科技有限公司（dgFactor）', en: 'dgFactor ' },
     location: { zh: '台灣・臺南市（遠端）', en: 'Remote' },
     period: '2023/10 — 2024/03 (6m)',
+    departureReason: {
+      zh: '離職空檔期間的兼職專案合約期滿，並已完成專案交付。',
+      en: 'The part-time project contract during my career break reached its end after the project was delivered.',
+    },
     bullets: {
       zh: [
         '基於 LINE LIFF 框架開發電商後台系統。',
@@ -301,6 +317,10 @@ const experienceCatalog: ExperienceItem[] = [
     company: { zh: '國立成功大學（NCKU）', en: 'National Cheng Kung University (NCKU)' },
     location: { zh: '台灣・臺南市', en: 'Tainan, Taiwan' },
     period: '2023/09 — 2024/02 (6m)',
+    departureReason: {
+      zh: '實際工作以維護舊專案為主，與當初面試時對職務內容的認知不符，因此離職。',
+      en: 'The role focused primarily on maintaining legacy projects, which did not align with the responsibilities discussed during the interview, so I decided to leave.',
+    },
     bullets: {
       zh: [
         '負責成功大學內部系統、活動網站、報表等跨領域前端專案的建構與維護。',
@@ -335,6 +355,10 @@ const experienceCatalog: ExperienceItem[] = [
     company: { zh: '台灣國際網域（Tnn-global）', en: 'Tnn-global' },
     location: { zh: '台灣・嘉義市', en: 'Chiayi, Taiwan' },
     period: '2022/11 — 2023/10 (1y)',
+    departureReason: {
+      zh: '已能獨立負責前端產品線開發，希望突破單一前端範疇，往全端開發及後端／DevOps 雲端架構發展，因此尋求轉職。',
+      en: 'After independently delivering the frontend product line, I sought a new role to move beyond frontend-only work and grow into full-stack development, backend engineering, and cloud DevOps architecture.',
+    },
     bullets: {
       zh: [
         '使用 Vue (Options API) 獨立與協作開發多款電商網站（SPA, CSR）與設計企業品牌形象網站。',
@@ -393,6 +417,10 @@ const experienceCatalog: ExperienceItem[] = [
     company: { zh: '壹立方數位科技（ACubeDT）', en: 'ACubeDT' },
     location: { zh: '台灣・臺南市', en: 'Tainan, Taiwan' },
     period: '2022/07 — 2022/09 (3m)',
+    departureReason: {
+      zh: '實際工作內容以前端開發為主，但入職時所談職務為後端開發，工作內容與技術方向不符，因此離職。',
+      en: 'The role turned out to focus on frontend development, while the position discussed at hiring was backend-focused. Since the responsibilities and technical direction did not align, I decided to leave.',
+    },
     bullets: {
       zh: [
         '維護與優化既有之大型電商舊專案，並主導開發資料視覺化圖表之新專案。',
